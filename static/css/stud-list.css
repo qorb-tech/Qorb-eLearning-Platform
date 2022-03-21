@@ -1,0 +1,11 @@
+.twoim2 i{
+    color: var(--forth-color);
+}
+
+.twoim3 i{
+    color: var(--forth-color);
+    font-size: 17px;
+    padding-right: 78%;
+    
+}
+

@@ -1,0 +1,46 @@
+course name: {{quiz.course}} <br>
+quiz name: {{quiz.quiz.name}}  <br><br>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for question in questions %}
+    <h3>{{ forloop.counter }}) {{question.question}}</h3>
+    <div>
+        <input type="radio" name="answer{{ forloop.counter }}"  value="a">
+        <label for="a">
+          {{question.option1}}
+        </label>
+    </div>
+    <div>
+        <input type="radio" name="answer{{ forloop.counter }}"  value="b">
+        <label for="b">
+          {{question.option2}}
+        </label>
+    </div>
+    <div>
+        <input type="radio" name="answer{{ forloop.counter }}"  value="c">
+        <label for="c">
+          {{question.option3}}
+        </label>
+    </div>
+    <div>
+        <input type="radio" name="answer{{ forloop.counter }}"  value="d">
+        <label for="d">
+          {{question.option4}}
+        </label>
+    </div>
+
+
+
+
+    {% endfor %}
+    <input type="submit" value="Submit">  
+
+
+
+
+</form>
+
+
+

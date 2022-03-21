@@ -1,0 +1,219 @@
+.courses {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 25px;
+  background-color: var(--primary-color);
+}
+.course_cont {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-basis: 70%;
+}
+.course_cont p {
+  direction: rtl;
+  padding-top: 10px;
+}
+.course_cont .imgg img {
+  border-radius: 25%;
+  margin-left: 15px;
+  width: 75%;
+}
+.course_cont h5 {
+  color: var(--btn-color);
+}
+/* 
+#courses1{
+    display: none;
+} */
+#coursess {
+  display: block;
+}
+#new_course {
+  display: block;
+}
+#Ncontnt {
+  display: none;
+}
+/****************new_course*********/
+#new_course {
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  padding-bottom: 50px;
+  text-align: center;
+}
+.btn_course {
+  display: flex;
+  justify-content: center;
+}
+.btn_course #custom-button {
+  width: 60%;
+  display: block;
+}
+/*********************************/
+.data_analysis {
+  text-align: end;
+}
+.data_analysis input::placeholder {
+  padding: 15px 0;
+}
+
+.term_cont {
+  text-align: end;
+}
+.account_tech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account_tech h1 {
+  padding: 20px 10px;
+}
+.tech_pic {
+  flex-basis: 30%;
+  position: relative;
+}
+.img_choose {
+  position: absolute;
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+  border-radius: 16px;
+  padding: 12px 19px;
+  top: 71%;
+  right: 25%;
+}
+.img_choose:hover {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+}
+.tech_pic input {
+  padding: 10px 5px;
+  display: none;
+  /* position: relative;
+    z-index: 99;
+    opacity: 0;
+    top: 34px;
+    right: 110px; */
+}
+.tech_pic input :hover {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+}
+.term_cont1 button {
+  width: 100%;
+  font-size: 20px;
+}
+
+.term_cont button {
+  width: 70%;
+  font-size: 15px;
+}
+
+.white_btn {
+  margin: 20px 0;
+}
+.term_cont h1 {
+  color: var(--btn-color);
+  text-align: end;
+  margin: 10px 0;
+}
+.data_analysis label,
+.term_cont labeL {
+  color: var(--btn-color);
+  margin-left: 10px;
+}
+.data_analysis input {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.term_cont input,
+.data_analysis input {
+  border: 1px solid var(--btn-color);
+  border-radius: 15px;
+  font-size: 15px;
+  padding: 10px;
+  color: #ccc;
+  text-align: end;
+  display: block;
+  width: 100%;
+}
+.inp {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.details {
+  margin: 30px;
+}
+.lec {
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modified_btn i {
+  margin-right: 10px;
+}
+button {
+  outline: none;
+}
+button a {
+  border-radius: 20px;
+  border: none;
+}
+
+.data_analysis textarea {
+  border: 1px solid var(--btn-color);
+  outline: none;
+  resize: none;
+  padding: 10px;
+  direction: rtl;
+  color: #ccc;
+  border-radius: 20px;
+}
+
+#custom-button2,
+#custom-button {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid var(--btn-color);
+  padding: 10px 5px;
+  /* width: 56%;
+  margin-left: 80px; */
+  color: var(--btn-color);
+  display: block;
+  margin: 20px;
+  margin-bottom: 5px;
+}
+#custom-button2:hover,
+#custom-button:hover {
+  background-color: #c86253;
+  color: var(--primary-color);
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+}
+#custom-text {
+  display: None;
+}
+
+/************add_content******/
+.add_content .account_tech h1 {
+  padding: 10px;
+}
+.add_content .details {
+  padding: 5px 0;
+}
+.add_content .modified_btn {
+  margin-top: 30px;
+}
+.add_content .btn1 a {
+  color: var(--primary-color);
+}
+.add_content .btn1:hover a {
+  color: var(--btn-color);
+}

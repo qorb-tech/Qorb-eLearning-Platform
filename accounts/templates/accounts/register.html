@@ -1,0 +1,115 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %} REGISTER TITLE {% endblock title %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!--- <script defer src="/your-path-to-fontawesome/js/all.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sign-up.css' %}">
+    <title>sign-up</title>
+</head>
+<body>
+    <!-----------------navbar-------->
+    <nav class="navigation" id="activee">
+      <div onclick="nav_active()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="row nav_ull"> 
+          <div class="nav_ul" id="menu">
+              <ul>
+                  <div class="right">
+                   <li><a href="#الصفحة الرئيسية">الصفحة الرئيسية</a></li>
+                  </div>
+                  <div class="left">
+                   <li><a href="#من نحن">من نحن؟</a></li>
+                   <li><a href="#المحتوى العلمى ">المحتوي العلمي</a></li> 
+                   <li><a href="#تواصل معنا">تواصل معنا</a></li>
+                  </div>
+              </ul>
+            </div>
+            <div> 
+              <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+            </div>
+        </div>
+</nav>
+    <!--------------sign-up--------------->
+    
+    <div class="sign-up">
+      <div>
+          <img src="{% static 'images/Group 162.png' %}" alt="sign-up">
+      </div>
+      <form  method="post">
+        {% csrf_token %}
+          <div class="form_input">
+            <i class="fas fa-user-circle"></i>
+            {{ form.username }}
+          </div>
+          <div class="form_input">
+            <i class="fas fa-envelope"></i>
+            {{ form.email}}
+        </div>
+        <div class="form_input">
+            <i class="fas fa-lock-alt"></i>
+            {{ form.password1 }}
+            <i class="password-toggle far fa-eye-slash" id="password-toggle"   onclick="password_Toggle()"></i>
+        </div>
+        <div >
+        <div class="form_input">
+            <i class="fas fa-lock-alt"></i>
+            {{ form.password2 }}
+            <i class="password-toggle far fa-eye-slash" id="password-toggle2"   onclick="password_Toggle2()"></i>
+        </div>
+        <div >
+          <div class="radio-item">
+              <input type="radio" name="role" id="student" value="student" checked ><label for="student">طالب</label>
+          </div>
+          <div class="radio-item">
+              <input type="radio" name="role" id="teacher" value="teacher"><label for="teacher">معلم</label>
+          </div>
+      </div>
+      <div class="row"> 
+        <div > 
+           <script src='https://www.google.com/recaptcha/api.js'></script>
+           <div class="g-recaptcha" data-sitekey="6LfszWMeAAAAACcuYUil6U-JU8T9knetAhG9Amtm"></div>
+           
+        </div>
+         </div>
+         <div class="row"> 
+         <span style="color: rgb(229, 36, 52) ">
+        
+          {% if form.errors %}
+          <div class="error">
+           <ul>
+           {% for key,value in form.errors.items %}
+            {% for error in value %}
+             <li>{{ error }}</li>
+            {% endfor %}
+           {% endfor %}
+           </ul>
+          </div>
+          {% endif %}
+
+        </span>
+         </div>
+        <div>
+          <div>
+            <button class="btn1"><a type="submit" value="Register">تسجيل حساب </a></button>
+            <button class="btn2"><a href="/login">لديك حساب</a></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="{% static 'js/password.js' %}"></script>
+</body>
+</html>
+{% endblock content %}

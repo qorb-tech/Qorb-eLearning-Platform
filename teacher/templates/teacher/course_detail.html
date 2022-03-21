@@ -1,0 +1,323 @@
+{% extends 'teacher/base_bar.html' %}
+{% load static %}
+{% load edit_report_grades_url%}
+{% block title %}
+    <title>المحتوى الدراسى</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses-details--------->
+               <div class="col-10">
+                    <div class="content_name">
+                        <h1 name="course_name_id">{{ course.name }}</h1>
+                        <img src="{% static 'images/teacher/Icons/Group 15498.png' %}" alt="" width="2%">
+                    </div>
+                   <div class="cont_detail">
+                    <!-------------------btn_choices--------->
+                    <div class="course_details">
+                        {{msg}}
+                        <div class="row btn_choices" id="btns">
+                            <div class="content_btn" onclick="course_lec()" >
+                                <button id="lecs-page" class="btn2 active"><a href="{% url 'lecs_page_select' %}"><i class="fas fa-pen"></i> المحتوى الدراسي</a></button>
+                            </div>
+                            <div class="content_btn" onclick="report()" >
+                                <button id="reports-page" class="btn2"><a href="{% url 'reports_page_select' %}"><img src="{% static 'images/teacher/Group 185.png' %}" width="25px" height="25px">التقارير </a></button>
+                            </div>
+                            <div class="content_btn" onclick="std_list()">
+                                <button id="student-page"class="btn2"><a href="{% url 'students_page_select' %}"><img src="{% static 'images/teacher/Icons/Group 15498.png' %}" width="25px" height="25px"> قائمة الطلبة</a></button>
+                            </div>
+                            <div class="content_btn" onclick="total_grade()">
+                                <button class="btn2"><a href="#"><i class="fas fa-pen"></i> التقييم</a></button>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <!------------------------------course-lecs----------->
+                        <div id="course_lecs">
+                              <div>
+                                  <h1>عددالمحاضرات ({{matrials.count}})</h1>
+                              </div>
+                              <div>
+
+
+                                {% if matrials %}
+                                     {% for obj in matrials %}
+                                            <div class="row lec">
+                                                <div>
+                                                    <a href="{{ obj.document.url }}">{{obj.description}}</a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="{% url 'delete_subject' pk=obj.id%}"><i class="fas fa-times"></i></a>
+                                                        <a href="{{ obj.document.url }}"><i class="fas fa-arrow-alt-square-down i1"></i></a>
+                                                    </div>
+                                            </div>
+                                {% endfor  %}
+                                  {% else %}
+                                      <h3 class="no_lec">لا يوجد محاضرات حتى الان</h3>
+                                  {% endif %}
+                                
+
+                            
+                            
+                            <div class="courses_btn">
+                                <button class="btn2"><a href="{% url 'courses' %}">&times;  خروج </a></button>
+                                <button class="btn1" onclick="add_new_lecture()"><a href="#">اضافة محاضرة</a></button>
+                            </div>
+                            <!----------------------------new-lec-->
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div id="new-lec">
+                                     <h4>محاضرة جديدة</h4>
+                                     <div class="lec-name">
+                                         <label>اسم المحاضرة</label>
+                                         {{add_lec_form.description}}
+                                     </div>
+                                     <label id="selected_file"> </label>
+                                     <div class="link_btn">
+                                         
+                                            {{add_lec_form.document}}
+                                            
+                                            <button type="button" id="custom-button">اختر ملف المحاضره</button>
+                                    </div>
+                                    
+                                     <div class="courses_btn">
+                                        <button type="submit" class="btn2" onclick="cancel_new_lecture()"><a>رفع المحاضرة </a></button>
+                                        <button class="btn1" type="button" onclick="cancel_new_lecture()"><a >الغاء</a></button>
+                                    </div>
+
+                            </div>
+                             </form>
+                            <!-------------------------------->
+                              </div>
+                        </div>
+                        
+                    
+                     <!-----------reports-------------->
+                     <div id="reports">
+                        <div>
+                            <h1>عددالتقارير ({{reports.count}})</h1>
+                        </div>
+                        <div>
+                            {% if reports %}
+                            {% for obj in reports %}
+                            <div class="row lec">
+                                <div>
+                                     <a href="{{ obj.document.url|edit_report_grades_url }}">{{obj.description_report}}</a>
+                                  </div>
+                                  <div>
+                                    <a href="{% url 'delete_report' pk=obj.id%}"><i class="fas fa-times"></i></a>
+                                    <a href="{{ obj.document.url }}"><i class="fas fa-arrow-alt-square-down i1"></i></a>
+                                </div>
+                            </div>
+                            {% endfor  %}
+                            {% else %}
+                                <h3>لا يوجد تقارير حتى الان</h3>
+                            {% endif %}
+                          
+
+                      
+                      
+                    <div class="courses_btn">
+                        <button class="btn2"><a href="{% url 'courses' %}">&times;  خروج </a></button>
+                        <button class="btn1" onclick="add_report()"><a href="#"> اضافة تقرير</a></button>
+                    </div>
+                        <!----------------------------new-report-->
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div id="new_report">
+                            <h4> تقرير جديد</h4>
+                            <div class="lec-name">
+                                <label for="lec_name">اسم التقرير</label>
+                                {{add_report_form.description_report}}
+                            </div>
+                            <label id="selected_file2"> </label>
+                            <div class="link_btn">
+                                   {{add_report_form.document}}
+                                   
+                                   <button type="button" id="custom-button2">اختر ملف التقرير</button>
+                            
+                           </div>
+                                <div class="courses_btn">
+                                <button type="submit" class="btn2" onclick="cancel_report()"><a>رفع التقرير </a></button>
+                                <button class="btn1" type="button" onclick="cancel_report()"><a>الغاء</a></button>
+                            </div>
+                        </div>
+                    </form>
+                        <!-------------------------------->
+
+                        </div>
+                     </div>
+                  
+                  <!------------------------list-student--------------->
+                  <div id="student_list">
+                    <div>
+                        <h1>عدد الطلاب ({{student_enrolled.count}})</h1>
+                    </div>
+                    <div>
+
+                        {% if student_enrolled %}
+                         {% for student in student_enrolled %}
+                        <div class="row lec">
+                             <div>
+                                 <a href="#">{{student}}</a>
+                              </div>
+                              <div>
+                                <a href="{% url 'delete_student' pk=student.id name=course.name%}"><i class="fas fa-times"></i></a>
+                              </div>
+                        </div>
+
+                        {% endfor  %}
+                        {% else %}
+                        <h3>لا يوجد طلاب حتى الان</h3>
+                         {% endif %}
+                        
+
+                   
+                  <div class="courses_btn">
+                      <button class="btn2"><a href="{% url 'courses' %}">&times;  خروج </a></button>
+                      <button class="btn1" onclick="add_std()"><a href="#"> اضافة طالب</a></button>
+                  </div>
+
+                   <!----------------------------new-std-->
+                   <form action="" method="GET">
+                   <div id="new_std">
+                        <h4> اضافة طالب</h4>
+                        <div class="lec-name">
+                            <label for="lec_name">البريد الالكتروني</label>
+                            <input name="q" type="text">
+                        </div>
+                        <div>
+                        </div>
+                            <div class="courses_btn">
+                                <button type="submit" class="btn2" onclick="cancel_add_std()"> <a> اضافة طالب </a> </button>
+                                <button class="btn1 btn_lec1" type="button" onclick="cancel_add_std()"><a>الغاء</a> </button>
+                        </div>
+                    </div>
+                </form>
+            <!-------------------------------->
+
+                    </div>
+                 </div>
+
+                 <!------------------------list-student--------------->
+              <div id="garde">
+                <div class="row grade_row">
+                    <div>
+                        الاسماء
+                    </div>
+                    <div>
+                        التقييم الكلي
+                    </div>
+                </div>
+                <div>
+                    <div class="row lec">
+                         <div>
+                             <a href="#">أحمد محمد العزبى</a>
+                          </div>
+                          <div>
+                            جيد
+                          </div>
+                    </div>
+
+                    <div class="row lec">
+                        <div>
+                            <a href="#"> محمد عبد الحميد</a>
+                         </div>
+                         <div>
+                        جيدجدا
+                         </div>
+                   </div>
+
+                
+            
+              <div class="courses_btn">
+                  <button class="btn2"><a href="{% url 'courses' %}">&times;  خروج </a></button>
+                  <button class="btn1" onclick="add_report()"><a href="#"> اضافة تقييم</a></button>
+              </div>
+                </div>
+               </div>
+             </div>
+              
+          <!------------------------------------->
+               </div>
+              </div>
+
+                   
+        </div>
+    </section>
+    
+
+
+    
+
+    {% if request.session.vote == "lecs-page" %}
+        <script>
+        window.onload=function open_page()  {
+            document.getElementById("lecs-page").click();
+            document.getElementById("lecs-page").classList.add("active");
+        }
+        </script>
+    {% elif request.session.vote == "reports-page" %}
+        <script>
+        window.onload=function open_page()  {
+            document.getElementById("reports-page").click();
+            document.getElementById("reports-page").classList.add("active");
+            
+        }
+        </script>
+    {% elif request.session.vote == "student-page" %}
+    <script>
+    window.onload=function open_page()  {
+        document.getElementById("student-page").click();
+        document.getElementById("student-page").classList.add("active");
+    }
+    </script>
+    {% else %}
+
+    {% endif %}
+
+    
+
+
+    <script src="{% static 'master/courses.js' %}"></script>
+    <script type="text/javascript">
+        const realFileBtn = document.getElementById("id_posti");
+        const customBtn = document.getElementById("custom-button");
+    
+        customBtn.addEventListener("click", function() {
+            realFileBtn.click();
+            
+        });
+        
+        const realFileBtn2 = document.getElementById("id_posti2");
+        const customBtn2 = document.getElementById("custom-button2");
+    
+        customBtn2.addEventListener("click", function() {
+            realFileBtn2.click();
+        });
+    </script>
+
+    <script>
+    var loadFile = function(event) {
+        selected_file.innerHTML = id_posti.value;
+        console.log(id_posti.value);
+    };
+    var loadFile2 = function(event) {
+        selected_file2.innerHTML = id_posti2.value;
+        console.log(id_post2.value);
+    };
+    </script>
+
+
+</body>
+</html>
+
+  
+{% endblock content %}
+

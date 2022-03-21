@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script defer src="/your-path-to-fontawesome/js/all.js"></script> 
+        <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/sign-up.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
+        {% block custum_imports %}{% endblock custum_imports %}
+        {% block title %}{% endblock title %}
+    </head>
+
+    <body>
+        
+        <nav class="navigation" id="activee">
+              <div class="row nav_ull"> 
+                <div class="nav_ul" id="menu">
+                    <ul>
+                        <div class="right">
+                            <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                            <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+                        </div>
+                    </ul>
+                  </div>
+                  <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
+              </div>
+              
+      </nav>
+        <section>
+            <div class="dashboard">
+                 <div class="row">
+                      <!-------------------profile--------->
+                      <div class="col-2">
+                        <div class="profile">
+                          <div class="pofile_pic">
+                              <img class="MPC" src="{{ user.profile.student.avatar.url }}" alt="" style="border-radius: 50%;">
+                                 {% if user_profile.full_name %}
+                                      <p class ="p2"> {{user_profile.full_name}} </p>
+                                      <p class="student"> طالب </p>
+                                   {% else %}
+                                      <p class ="p2"> {{user_profile.user}} </p>
+                                      <p class="student"> طالب </p>
+                                  {% endif %}
+                                  
+                           </div>
+                           <!-------------------profile picture--------->
+                           <div class="profile_features">
+                               <div class="profile_feature"><a href="{% url 'student_dashboard' %}"> الصفحة الرئيسية<img src="{% static 'images/Group 183.png'  %}" width="30px" height="20px"></a></div>
+                               <div class="profile_feature"><a href="{% url 'profile_student_view' %}">الملف الشخصي<i class="fas fa-user-circle"></i></a></div>
+                               <div class="profile_feature"><a href="{% url 'student_courses' %}">المقررات الدراسية<img src="{% static 'images/Group 186.png' %}" width="27px" height="17px" ></a></div>
+                               <div class="profile_feature"><a href="{% url 'current_quizzes' %}">اختبارات<img src="{% static 'images/Group 184.png' %}" width="27px" height="17px"></a></div>
+                           </div>
+                        </div>
+                     </div>
+                    <div class="col-10">
+                        {% block content %}{% endblock content %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                   
+   
+    </body>
+</html>

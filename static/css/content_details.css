@@ -1,0 +1,288 @@
+.col-10 .courses_btn button {
+  width: 20%;
+  margin: 10px 25px;
+}
+.col-10 .courses_btn button a {
+  display: block;
+}
+.cont_detail {
+  margin: 0 25px;
+  background-color: var(--primary-color);
+}
+.col-10 {
+  background-color: #f9f9f9;
+}
+.content_name {
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  color: var(--btn-color);
+}
+.content_name h1 {
+  padding-right: 10px;
+  font-size: 23px;
+}
+.course_details {
+  padding: 20px;
+  /* background-color: aquamarine; */
+  padding: 10px 15px;
+  position: relative;
+}
+.btn_choices {
+  background-color: #f9f9f9;
+  justify-content: space-between;
+  /* padding: 5px;
+    justify-content: space-between; */
+}
+.content_btn {
+  flex-basis: 23%;
+}
+.content_btn button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn_choices button {
+  width: 100%;
+}
+.btn_choices button a {
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  /* display: block; */
+}
+.btn_choices button a:focus,
+.active a {
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+}
+/**************************course-lecs************/
+#course_lecs {
+  background-color: var(--primary-color);
+  text-align: center;
+  color: var(--btn-color);
+  padding: 20px 0;
+}
+.lec {
+  justify-content: space-between;
+  color: var(--forth-color);
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  text-decoration: none;
+}
+
+.lec i {
+  color: var(--forth-color);
+  margin-right: 20px;
+}
+/**********new-lec*********/
+/****************************link_btn*********************/
+.link_btn {
+  display: flex;
+  justify-content: center;
+}
+.doc {
+  position: relative;
+  z-index: 999;
+  opacity: 0;
+}
+.doc input {
+  width: 35%;
+  margin: 10px 0;
+}
+.link_btn_show {
+  position: absolute;
+  top: 10px;
+  right: 145px;
+}
+#new-lec .link_btn_show button,
+#new_report .link_btn_show button {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+  width: 100%;
+  margin: 0;
+  padding: 8px 21px;
+}
+
+#new-lec,
+#new_std,
+#new_report {
+  display: none;
+  background-color: #c86253;
+  padding: 20px;
+  /* height: 200px; */
+  color: var(--primary-color);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  direction: rtl;
+  transition: all 1s ease-in-out;
+}
+#new-lec .courses_btn,
+#new_report .courses_btn,
+#new_std .courses_btn {
+  display: flex;
+}
+
+#new-lec h4,
+#new_report h4,
+#new_std h4 {
+  margin-bottom: 15px;
+}
+.lec-name {
+  margin: 5px 0;
+}
+#new-lec input,
+#new_report input,
+#new_std input {
+  border-radius: 25px;
+  background-color: var(--second-color);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+#new-lec .lbl a {
+  border: 1px solid var(--primary-color);
+  background-color: #c86253;
+  color: var(--primary-color);
+  padding: 5px 12px;
+  border-radius: 25px;
+}
+#new-lec button,
+#new_report button,
+#new_std button {
+  width: 40%;
+}
+#new-lec .btn1 a,
+#new_report .btn1 a,
+#new_std .btn1 a,
+#new-lec .btn2 a:hover,
+#new_report .btn2 a:hover,
+#new_std .btn2 a:hover {
+  background-color: #c86253;
+  color: var(--primary-color);
+}
+#new-lec .btn1 a:hover,
+#new_report .btn1 a:hover,
+#new_std .btn1 a:hover {
+  color: var(--btn-color);
+  background-color: var(--primary-color);
+}
+#new-lec button a,
+#new_report button a,
+#new_std button a {
+  display: block;
+}
+/*********radion-button*******/
+.radio-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 20px;
+}
+
+.radio-item input[type="radio"] {
+  display: none;
+}
+.second {
+  width: 50%;
+}
+.radio-item input[type="text"] {
+  width: 73%;
+}
+.radio-item label {
+  color: #fff;
+  font-weight: normal;
+}
+
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 11px;
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+}
+.radio-item input[type="radio"]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  content: " ";
+  display: block;
+  background: var(--primary-color);
+}
+/* .radio-item label{
+    padding: 5px;
+    border: 1px solid #fff;
+} */
+
+/***********************************reports********/
+#reports {
+  background-color: var(--primary-color);
+  text-align: center;
+  color: var(--btn-color);
+  padding: 10px 35px;
+  display: none;
+  margin-bottom: 20px;
+}
+#new_report {
+  display: none;
+}
+/*****************************student-list********/
+#course_lecs h1,
+#reports h1,
+#student_list h1 {
+  padding-bottom: 20px;
+}
+#student_list {
+  background-color: var(--primary-color);
+  text-align: center;
+  color: var(--btn-color);
+  padding: 10px 35px;
+  display: none;
+  margin-bottom: 20px;
+}
+#student_list div a:first-child {
+  text-decoration: underline;
+}
+#student_list .courses_btn button a {
+  text-decoration: none;
+}
+#new_std {
+  display: none;
+}
+/******************garde***/
+#garde {
+  display: none;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: var(--btn-color);
+  padding: 10px 35px;
+  margin-bottom: 20px;
+}
+
+.grade_row {
+  justify-content: space-between;
+  padding: 10px 0;
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+}
+#custom-button2,
+#custom-button {
+  margin-left: 10px;
+}
+#student_list .courses_btn,
+#course_lecs .courses_btn,
+#reports .courses_btn {
+  margin-top: 10px;
+}

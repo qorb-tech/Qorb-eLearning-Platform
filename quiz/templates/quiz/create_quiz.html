@@ -1,0 +1,43 @@
+{% extends 'quiz/base.html' %}
+{% load static %}
+{% block custum_imports %}
+<link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
+<link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+<link rel="stylesheet" href="{% static 'css/exams.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+  <form method="post" action=""  id="new_exam">
+    <h4>اختبار جديد</h4>
+
+    
+    {% csrf_token %}
+    <div class="create_quiz">
+      {{form.name}}<label>اسم الاختبار</label>
+    </div>
+    
+    <div  class="create_quiz" id="list">
+      {{form.course}} <label>المقرر الدراسى</label>
+    </div>
+
+    <div class="create_quiz no_q">
+      {{form.number_of_questions}}  <label>عدد الاسئله</label>
+    </div>
+    <div class="create_quiz no_q">
+      {{form.time}} <label>وقت الاختبار</label>
+    </div>
+    
+    
+
+    <div class="modified_btn quiz_btn">
+      <button class="btn1 quiz1"><a href="{% url 'quizzes' %}"><b>الغاء</b></a></button>
+      <button type="submit"  class="quiz2 white_btn"><a ><b>بدا الاختبار</b></a></button>
+    </div>
+    <!-- <button type="submit">
+      <b>Create Quiz</b>
+    </button>
+    <p><a href="{% url 'quizzes' %}"><b>Return to quizzes</b></a></p> -->
+
+  </form>
+  
+{% endblock %}
