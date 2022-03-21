@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 # Local Import geos here!
 from accounts.models import Student,Teacher
@@ -107,8 +108,8 @@ class Report_student(models.Model):
     teacher_notes=models.TextField( blank=True, null=True)
     student_notes=models.TextField( blank=True, null=True)
     done = models.BooleanField(default=False)
-    last_modified = models.DateTimeField(auto_now_add=True,blank=True, null=True)
-    deadline = models.DateTimeField(blank=True, null=True)
+    last_modified = models.DateTimeField(default=timezone.now)
+    deadline = models.DateTimeField(default=timezone.now)
 
     class Meta:
         unique_together = [['student', 'report']]

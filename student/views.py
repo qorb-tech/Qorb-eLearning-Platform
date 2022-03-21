@@ -108,8 +108,8 @@ def course_detail(request, name):
 def upload_report_file(request, id):
     report_grades = Report_student.objects.get(id=id)
     course_name=str(report_grades.course)
-    is_deadline_not_over = report_grades.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=1)
-    if report_grades.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=1):
+    is_deadline_not_over = report_grades.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=0)
+    if report_grades.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=0):
 
         if request.method == 'POST':
             form = UpdateReportForm(request.POST, request.FILES, instance=report_grades)
