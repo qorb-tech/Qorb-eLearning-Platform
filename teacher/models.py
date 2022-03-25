@@ -79,6 +79,8 @@ class Report(models.Model):
     document = models.FileField(upload_to=report_directory_path)
     created_at = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(Student, through='Report_student')
+    deadline = models.DateTimeField(default=timezone.now)
+
     def __str__(self):
         return self.description_report
 
@@ -104,12 +106,11 @@ class Report_student(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     report = models.ForeignKey(Report, on_delete=models.CASCADE)
     report_file = models.FileField(upload_to=students_report_directory_path, blank=True, null=True)
-    grade = models.CharField(max_length=200,choices=CHOICES, blank=True, null=True)
+    grade = models.CharField(max_length=200,choices=CHOICES,default='لم يتم التسليم')
     teacher_notes=models.TextField( blank=True, null=True)
     student_notes=models.TextField( blank=True, null=True)
     done = models.BooleanField(default=False)
     last_modified = models.DateTimeField(default=timezone.now)
-    deadline = models.DateTimeField(default=timezone.now)
 
     class Meta:
         unique_together = [['student', 'report']]

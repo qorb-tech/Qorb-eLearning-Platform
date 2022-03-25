@@ -83,3 +83,11 @@ class UpdateReportGradeForm(forms.ModelForm):
         fields = ['teacher_notes', 'grade','deadline']
     deadline = forms.DateField(input_formats = ['%Y-%m-%dT%H:%M'],widget=forms.widgets.DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M')
     )
+
+class UpdateReportForm(forms.ModelForm):
+    class Meta:
+        model = Report
+        fields = ['deadline']
+    deadline = forms.DateField(input_formats = ['%Y-%m-%dT%H:%M'],widget=forms.widgets.DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M')
+    )
+    

@@ -108,14 +108,15 @@ def course_detail(request, name):
 def upload_report_file(request, id):
     report_grades = Report_student.objects.get(id=id)
     course_name=str(report_grades.course)
-    is_deadline_not_over = report_grades.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=0)
-    if report_grades.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=0):
+    report = Report.objects.get(description_report=report_grades.report)
+    is_deadline_not_over = report.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=0)
+    if report.deadline > datetime.datetime.now(timezone.utc)- datetime.timedelta(hours=0):
 
         if request.method == 'POST':
             form = UpdateReportForm(request.POST, request.FILES, instance=report_grades)
             form2 = form.save(commit=False)
+            form2.grade = 'لم يتم التقييم'
             if form.is_valid():
-                form2.grade = 'لم يتم التقييم'
                 form2.save()
                 return redirect('/student/course-detail/'+course_name)
 
@@ -126,12 +127,14 @@ def upload_report_file(request, id):
                 'student/upload-report.html',
                 {'form': form,
                 'report_grades':report_grades,
-                'is_deadline_not_over':is_deadline_not_over})
+                'is_deadline_not_over':is_deadline_not_over,
+                'report':report})
     else:
         return render(request,
                 'student/upload-report.html',
                 {'report_grades':report_grades,
-                'is_deadline_not_over':is_deadline_not_over})
+                'is_deadline_not_over':is_deadline_not_over,
+                'report':report})
 
 
 

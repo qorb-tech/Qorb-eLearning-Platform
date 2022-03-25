@@ -14,7 +14,10 @@ from .views import (
     reports_page_select,
     reset_password_view,
     report_grades_update,
-    report_grades_records_view
+    report_grades_records_view,
+    edit_course,
+    delete_course,
+    edit_report_deadline
     )
 
 urlpatterns = [
@@ -27,6 +30,8 @@ urlpatterns = [
     # courses routes
     path('courses/', courses, name='courses'),
     path('add-course/', add_course, name='add_course'),
+    path('edit-course/<str:name>/', edit_course, name='edit_course'),
+    path('delete-course/<str:name>/', delete_course, name='delete_course'),
     path('course-detail/<str:name>/', course_detail, name='course_detail'),
     path('delete-subject/<int:pk>/', delete_subject, name='delete_subject'),
     path('delete-report/<int:pk>/', delete_report, name='delete_report'),
@@ -40,6 +45,8 @@ urlpatterns = [
     #grades
     path('report_grades/<int:id>/change/', report_grades_update, name='report-grades-detail'),
     path('report-grades-view/<str:course>/<str:report>/', report_grades_records_view, name='report-grades-view'),
+    path('edit-report-deadline/<int:pk>/', edit_report_deadline, name='edit-report-deadline'),
+
      
 ]
 

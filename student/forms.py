@@ -48,6 +48,6 @@ class FormPasswordChange(PasswordChangeForm):
 class UpdateReportForm(forms.ModelForm):
 	class Meta:
 		model = Report_student
-		fields = ['student_notes','report_file', 'grade']
+		fields = ['student_notes','report_file']
 
 

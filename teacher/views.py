@@ -17,7 +17,8 @@ from .forms import (
     UpdateTeacherProfileForm, UpdateUserForm, 
     AddCourseForm,AddMatrialForm, AddReportForm,
     UpdateReportGradeForm
-    ,FormPasswordChange)
+    ,FormPasswordChange,
+    UpdateReportForm)
 User = get_user_model()
 
 
@@ -88,6 +89,26 @@ def courses(request):
     }
     return render(request, 'teacher/courses.html', context)
 
+@login_required
+def edit_course(request,name):
+    course = Course.objects.get(name=name)
+    if request.method == 'POST':
+        form = AddCourseForm(request.POST, instance=course)
+        if form.is_valid():
+            form.save()
+            return redirect('courses')
+            
+    else:
+        form = AddCourseForm(instance=course)
+    context = {'form':form}
+    return render(request, 'teacher/edit_course.html', context)
+
+
+@login_required
+def delete_course(request,name):
+    course = Course.objects.get(name=name)
+    course.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 @login_required(login_url='login_view')
 def course_detail(request, name):
@@ -137,6 +158,7 @@ def course_detail(request, name):
     # Add Report View
     if  request.method == 'POST':
         add_report_form = AddReportForm(request.POST, request.FILES)
+        
         if add_report_form.is_valid() and (bool(str(request.POST.get('description_report')).strip()) and str(request.POST.get('description_report'))!="None")  :
             temp = add_report_form.save(commit=False)
             teacher = Teacher.objects.get(user=request.user)
@@ -154,7 +176,7 @@ def course_detail(request, name):
                 for i in students:
                     student_name = Student.objects.get(id=i['student']) 
                     report_name = Report.objects.get(description_report = temp.description_report)
-                    student_in_quiz = Report_student(student=student_name, course=course, report=report_name, grade='لم يتم التقييم')
+                    student_in_quiz = Report_student(student=student_name, course=course, report=report_name, grade='لم يتم التسليم')
                     student_in_quiz.save()
             except:
                 msg = "ERROR"
@@ -270,3 +292,21 @@ def report_grades_update(request, id):
 def report_grades_records_view(request,course,report):
     report_grades = Report_student.objects.filter(course__name=course,report__description_report=report)
     return render(request,'teacher/report-grades-view.html',{'report_grades': report_grades})
+
+def edit_report_deadline(request,pk):
+    report = Report.objects.get(id=pk)
+    if request.method == 'POST':
+        form = UpdateReportForm(request.POST,instance=report)
+        new_form = form.save(commit=False)
+        dead_line = datetime.strptime(form['deadline'].value()+":00.000-0000",'%Y-%m-%dT%H:%M:%S.%f%z')
+        new_form.deadline = dead_line
+        if form.is_valid():
+            new_form.save()
+            return redirect(to='teacher_dashboard')
+    else:
+        form = UpdateReportForm()
+        
+
+    context = {'form': form}
+    return render(request, 'teacher/edit_report_deadline.html', context)
+
