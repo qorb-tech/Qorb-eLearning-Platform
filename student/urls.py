@@ -14,8 +14,10 @@ urlpatterns = [
 
 
 
+    
     path('current-quizzes', views.current_quizzes, name='current_quizzes'),
     path('start-quiz/<int:pk>/', views.start_quiz, name='start_quiz'),
+
 
 ]
 

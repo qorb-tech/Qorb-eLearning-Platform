@@ -26,9 +26,10 @@ class QuizStudent(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    done = models.BooleanField(default=False)
     enrolled_at = models.DateTimeField(auto_now_add=True)
-
+    done = models.BooleanField(default=False)
+    score = models.FloatField(default = 0)
+    total_marks = models.FloatField(default = 0)
     class Meta:
         unique_together = [['student', 'quiz']]
     
@@ -37,10 +38,10 @@ class QuizStudent(models.Model):
 
 class QuestionAnswer(models.Model):
     CHOICES = (
-        ('الاختيار الاول','الاختيار الاول'),
-        ('الاختيار التانى','الاختيار التانى'),
-        ('الاختيار التالت','الاختيار التالت'),
-        ('الاختيار الرابع','الاختيار الرابع')
+        ('a','a'),
+        ('b','b'),
+        ('c','c'),
+        ('d','d')
     )
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question = models.CharField(max_length=600)

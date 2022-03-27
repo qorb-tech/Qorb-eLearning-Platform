@@ -143,7 +143,7 @@ def upload_report_file(request, id):
 def current_quizzes(request):
     student = Student.objects.get(user=request.user)
     quizzes = QuizStudent.objects.filter(student=student)
-
+    
     context = {
         'quizzes': quizzes,
         'student':student
@@ -152,7 +152,6 @@ def current_quizzes(request):
     return render(request, 'student/current_quizzes.html', context)
 
 
-# not completed yet!
 @login_required(login_url='login_view')
 def start_quiz(request, pk):
     quiz = QuizStudent.objects.get(pk=pk)
@@ -162,41 +161,34 @@ def start_quiz(request, pk):
     questions_num = quiz.quiz.number_of_questions
     
     questions = QuestionAnswer.objects.filter(quiz=quiz_name)
-    
 
     questions = list(questions)
-    random.shuffle(questions)
+    # random.shuffle(questions)
     questions = questions[:questions_num]
         
-    context = {
-        'quiz':quiz,
-        'questions':questions,
-    }
-
     if request.method == 'POST':
         data = request.POST
         data = dict(data.lists())
         data.pop('csrfmiddlewaretoken')
 
-        # total_marks = 0 
-        # cnt = len(questions)
-        # print('questions', questions)
-
-        # i = 1 
-        # for q in questions:
-        #     # print('correct', q.correct)
-        #     # print('q? ', q)
-        #     user_answer = request.POST.get(f'answer{i}')
-        #     i = i + 1
-        #     correct_answer = q.correct
-        #     if user_answer == correct_answer:
-        #         total_marks += 1
-
-        # print(f'you score {total_marks} out of {cnt}')
+        i = 1
+        quiz.score = 0 
+        for q in questions:  
+            user_answer = request.POST.get(f'answer{i}')
+            correct_answer = q.correct
+            i += 1 
+            if user_answer == correct_answer:
+                quiz.score += 1
+        quiz.done = True
+        quiz.total_marks = len(questions)
+        quiz.save()
         return redirect('current_quizzes')
 
-
-
-        
+    context = {
+        'quiz':quiz,
+        'questions':questions,
+    }
     return render(request, 'student/start_quiz.html', context)
+
+
 

@@ -1,46 +1,63 @@
+{% load static %}
+{% block custum_imports %}
+
+{% endblock custum_imports %}
+
+{% block content %}
 course name: {{quiz.course}} <br>
 quiz name: {{quiz.quiz.name}}  <br><br>
 
-
-<form action="" method="POST">
+<form action="" method="post" id="quizSubmitForm">
     {% csrf_token %}
     {% for question in questions %}
     <h3>{{ forloop.counter }}) {{question.question}}</h3>
     <div>
-        <input type="radio" name="answer{{ forloop.counter }}"  value="a">
-        <label for="a">
+        <input type="radio"  id="rad1" name="answer{{ forloop.counter }}"  value="a">
+        <label for="rad1">
           {{question.option1}}
         </label>
     </div>
     <div>
-        <input type="radio" name="answer{{ forloop.counter }}"  value="b">
-        <label for="b">
+        <input type="radio"  id="rad2" name="answer{{ forloop.counter }}"  value="b">
+        <label for="rad2">
           {{question.option2}}
         </label>
     </div>
     <div>
-        <input type="radio" name="answer{{ forloop.counter }}"  value="c">
-        <label for="c">
+        <input type="radio" id="rad3" name="answer{{ forloop.counter }}"  value="c">
+        <label for="rad3">
           {{question.option3}}
         </label>
     </div>
     <div>
-        <input type="radio" name="answer{{ forloop.counter }}"  value="d">
-        <label for="d">
+        <input type="radio" id="rad4" name="answer{{ forloop.counter }}"  value="d">
+        <label for="rad4">
           {{question.option4}}
         </label>
     </div>
-
-
-
-
     {% endfor %}
-    <input type="submit" value="Submit">  
-
-
+    <input type="button" name="SubmitButton" value="Submit" id="submitButton">
 
 
 </form>
+
+
+<script type="text/javascript">
+  var inputElement = document.getElementById("submitButton")
+  inputElement.addEventListener("click", function() {
+      if (confirm('Do you want to finish quiz?')) {
+          document.getElementById("quizSubmitForm").submit()
+      }else {
+          return false;
+      }
+  })
+
+</script>
+
+{% endblock content %}
+
+
+
 
 
 
