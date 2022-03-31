@@ -6,6 +6,51 @@ technologies as Real Time Arabic Sign Language Translator, Facial Expression Rec
 </b>
 
 ![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+# ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) Project Structure
+
+
+
+```
+├───accounts
+│   └───templates
+│       └───accounts
+│   
+├───adminDashboard
+│   └───templates
+│       └───adminDashboard
+│
+├───Data Preprocessing
+├───media
+│   ├───course_images
+│   ├───course_matrial
+│   ├───course_report
+│   ├───student_profile_images
+│   └───teacher_profile_images
+│
+├───quiz
+│   └───templates
+│       └───quiz
+│           └───partials
+├───static
+│   ├───css
+│   ├───images
+│   │   ├───faces
+│   │   └───teacher
+│   │       └───Icons
+│   ├───js
+│   └───master
+├───student
+│   ├───templates
+│   │   └───student
+│   └───templatetags
+└───teacher
+    ├───templates
+    │   └───teacher
+    └───templatetags
+```
+
+![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 <h1 align="center"> Local Setup 👨‍💻 </h1>
 
 ## Docker Setup:
@@ -64,3 +109,18 @@ Note: For Windows Users Replace python3 with python
 ### 9. Go Live :
 
 http://localhost:8000/
+
+![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+<h1 align="center"> Overview & Result 🚧 </h1>
+
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Home Page
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/index.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Register Page
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/register.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Login Page
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/login.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Teacher Dashboard
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/teacher_dashboard.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Student Dashboard
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/student_dashboard.gif)
+
