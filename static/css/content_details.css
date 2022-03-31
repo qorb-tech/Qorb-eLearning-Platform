@@ -8,6 +8,9 @@
 .cont_detail {
   margin: 0 25px;
   background-color: var(--primary-color);
+  border-radius: 60px;
+  min-height: 550px;
+  margin-bottom: 30px;
 }
 .col-10 {
   background-color: #f9f9f9;
@@ -27,17 +30,19 @@
 .course_details {
   padding: 20px;
   /* background-color: aquamarine; */
-  padding: 10px 15px;
+  padding: 20px 35px;
   position: relative;
 }
 .btn_choices {
   background-color: #f9f9f9;
   justify-content: space-between;
+  padding-left: 10px;
+  border-radius: 15px;
   /* padding: 5px;
     justify-content: space-between; */
 }
 .content_btn {
-  flex-basis: 23%;
+  flex-basis: 24%;
 }
 .content_btn button a {
   display: flex;
@@ -45,7 +50,7 @@
   justify-content: center;
 }
 .btn_choices button {
-  width: 100%;
+  width: 95%;
 }
 .btn_choices button a {
   border-radius: 10px;
@@ -57,6 +62,7 @@
   background-color: var(--btn-color);
   color: var(--primary-color);
 }
+
 /**************************course-lecs************/
 #course_lecs {
   background-color: var(--primary-color);
@@ -164,6 +170,7 @@
 #new_std .btn2 a:hover {
   background-color: #c86253;
   color: var(--primary-color);
+  border: 1px solid white;
 }
 #new-lec .btn1 a:hover,
 #new_report .btn1 a:hover,
@@ -285,4 +292,141 @@
 #course_lecs .courses_btn,
 #reports .courses_btn {
   margin-top: 10px;
+}
+
+@media (max-width: 2000px) {
+  .btn_choices button a {
+    padding: 10px 5px;
+  }
+  .col-10 .courses_btn button a {
+    padding: 10px 9px;
+  }
+  #new-lec button,
+  #new_report button,
+  #new_std button {
+    width: 50%;
+  }
+  #new-lec input,
+  #new_report input,
+  #new_std input {
+    width: 65%;
+  }
+  #new-lec .courses_btn button,
+  #new_report .courses_btn button,
+  #new_std .courses_btn button {
+    margin: 10px 15px;
+  }
+}
+@media (max-width: 1070px) {
+  .col-10 .courses_btn button {
+    width: 29%;
+    margin: 10px 25px;
+  }
+}
+
+@media (max-width: 1050px) {
+  #new-lec input,
+  #new_report input,
+  #new_std input {
+    width: 62%;
+  }
+}
+@media (max-width: 955px) {
+  .btn_choices button a {
+    padding: 10px 3px;
+    font-size: 11px;
+  }
+  .col-10 .courses_btn button a {
+    padding: 10px 5px;
+    font-size: 18px;
+  }
+  #new-lec input,
+  #new_report input,
+  #new_std input {
+    width: 58%;
+  }
+  #new-lec label,
+  #new_report label,
+  #new_std label {
+    font-size: 18px;
+  }
+  #new-lec button,
+  #new_report button,
+  #new_std button {
+    width: 60%;
+  }
+  #new-lec .courses_btn button,
+  #new_report .courses_btn button,
+  #new_std .courses_btn button {
+    margin: 10px;
+  }
+  #btns button img {
+    height: 15px;
+    margin-left: 10px;
+    width: 15px;
+  }
+  .content_btn .fas {
+    font-size: 15px;
+  }
+  .col-10 .courses_btn button {
+    width: 30%;
+    margin: 10px 25px;
+  }
+}
+
+@media (max-width: 830px) {
+  .btn_choices button a {
+    padding: 10px 2px;
+    font-size: 13px;
+  }
+  .btn_choices button i {
+    font-size: 13px;
+  }
+  .content_btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .col-10 .courses_btn button a {
+    padding: 10px 2px;
+    font-size: 14px;
+  }
+
+  #new-lec button,
+  #new_report button,
+  #new_std button {
+    width: 65%;
+    font-size: 15px;
+    margin: 10px 5px;
+  }
+
+  
+  #new-lec label,
+  #new_report label,
+  #new_std label {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 805px) {
+  .btn_choices button a {
+    padding: 10px 2px;
+    font-size: 9px;
+    font-weight: 900;
+  }
+}
+@media (max-width: 780px) {
+  .col-10 .courses_btn button {
+    width: 36%;
+    margin: 10px 15px;
+  }
+}
+@media (max-width: 675px) {
+  #btns button img {
+    height: 12px;
+    margin-left: 10px;
+    width: 12px;
+  }
+  .content_btn .fas {
+    font-size: 12px;
+  }
 }

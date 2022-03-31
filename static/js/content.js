@@ -2,12 +2,14 @@ lecs_js = document.getElementById("lecs_js");
 reports = document.getElementById("reports");
 st_lst = document.getElementById("st_list");
 bt_cont = document.getElementById("bt-cont").getElementsByTagName("a")[0];
+var imagee1 = document.getElementById("imgg1");
 
 /************************lec_cont *************/
 function lec_cont(){
     st_lst.style.display ="none";
     reports.style.display ="none";
     lecs_js.style.display ="block";
+    imagee1.src = "{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg' %}" ;
 }
 /*********************reports*********/ 
 function report() {

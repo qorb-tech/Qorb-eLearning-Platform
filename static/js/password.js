@@ -27,3 +27,12 @@ function password_Toggle2() {
 		password_toggle2.classList.add('fa-eye-slash')
 	}
 }
+function success_register() {
+	sucsess_register.style.display = "flex";
+	console.log("succesRegistered");
+  }
+
+  function success_enter() {
+	sucsess_enter.style.display = "flex";
+	console.log("succesRegistered");
+  }

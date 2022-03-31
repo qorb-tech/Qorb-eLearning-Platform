@@ -72,6 +72,9 @@ nav {
 .navigation .fa-arrow-alt-square-right {
   display: inline-block;
 }
+.navigation button a:hover .fa-arrow-alt-square-right {
+  color: var(--btn-color);
+}
 .navigation ul {
   display: flex;
   padding: 10px 0;
@@ -258,8 +261,8 @@ button:hover a {
 }
 .scientific_content .imagee {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: -10px;
+  top: 60px;
   bottom: 50px;
 }
 .scientific_content .imagee img {
@@ -336,6 +339,7 @@ button:hover a {
   display: inline-block;
   text-align: right;
   margin-bottom: 10px;
+  margin-top: 40px;
   background-size: contain;
   padding-top: 5px;
 }
@@ -579,12 +583,13 @@ footer {
     width: 90%;
   }
   .scientific_content .imagee img {
-    width: 930px;
+    width: 950px;
   }
 }
+
 @media (max-width: 950px) {
   .container {
-    width: 90%;
+    width: 93%;
   }
   .qorb {
     padding-top: 30px;
@@ -612,7 +617,7 @@ footer {
     bottom: 20px;
   }
   .scientific_content .imagee img {
-    width: 950px;
+    width: 890px;
   }
 
   .scientific_content .bg {
@@ -653,7 +658,7 @@ footer {
 /********************max-width: 800px*************************/
 @media (max-width: 900px) {
   .container {
-    width: 700px;
+    width: 680px;
   }
   /* .navigation {
     position: relative;
@@ -668,6 +673,13 @@ footer {
      height: 450px; 
     margin-top: 0;
   } */
+
+  .inputtt textarea {
+    width: 386px;
+  }
+  .inputt input {
+    width: 189px;
+  }
 
   .qorb {
     padding-top: 100px;
@@ -779,7 +791,7 @@ footer {
     bottom: 0px;
   }
   .scientific_content .imagee img {
-    width: 850px;
+    width: 725px;
   }
 
   .scientific_content button {
@@ -791,7 +803,8 @@ footer {
   /****right_image****/
   .right_image {
     height: 90px;
-    width: 90px;
+    margin-right: -16px;
+    width: 120px;
   }
   .imagef {
     position: absolute;
@@ -799,19 +812,40 @@ footer {
     left: 40px;
   }
   .imagef img {
-    width: 240px;
-    height: 220px;
+    width: 220px;
+    height: 200px;
+    margin-bottom: 35px;
+  }
+  .col-4 img {
+    width: 150px;
+    height: 150px;
+  }
+  .who .image img {
+    width: 280px;
+    height: 280px;
+  }
+  .scientific_content .bg {
+    width: 350px;
+  }
+
+  .scientific_content li {
+    margin-right: 0px;
+    padding-right: 0px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 736px) {
   .container {
-    width: 500px;
+    margin: auto;
+    width: 630px;
+  }
+  .right_image {
+    height: 100px;
+    width: 120px;
   }
 
   .qorb {
-    /* padding-top:80px; */
-    margin-right: 50px;
+    margin-right: 0px;
   }
   .scientific_content h2 {
     margin: 20px 10px;
@@ -819,5 +853,87 @@ footer {
   }
   .scientific_content li {
     font-size: 20px;
+  }
+  .who .image img {
+    width: 250px;
+    height: 250px;
+  }
+  .scientific_content li {
+    font-size: 15px;
+  }
+  .scientific_content .imagee img {
+    width: 584px;
+  }
+
+  .scientific_content h2 {
+    margin: 20px 52px;
+    font-size: 20px;
+  }
+  .right_image {
+    margin-right: 0px;
+  }
+  .imagef img {
+    width: 220px;
+    height: 200px;
+    margin-left: -12px;
+    margin-bottom: 47px;
+  }
+  .inputt input {
+    width: 170px;
+    height: 50px;
+  }
+  .add h1 {
+    font-size: 25px;
+    margin-right: 30px;
+  }
+  .inputtt textarea {
+    width: 350px;
+    padding-right: 0px;
+  }
+
+  .scientific_content .bg {
+    height: 99px;
+    width: 400px;
+    margin-right: -10px;
+  }
+  .scientific_content h2 {
+    margin-right: 0px;
+  }
+  .input-t {
+    padding-left: 8px;
+  }
+  .scientific_content .imagee {
+    left: -8px;
+    top: 74px;
+  }
+}
+
+@media (max-width: 690px) {
+  .container {
+    width: 560px;
+  }
+  .col-4 img {
+    width: 143px;
+    height: 143px;
+  }
+  .right_image {
+    margin-right: 37px;
+  }
+  .inputt input {
+    width: 140px;
+  }
+  .inputtt textarea {
+    width: 287px;
+  }
+}
+@media (max-width: 650px) {
+  .container {
+    width: 560px;
+  }
+  .scientific_content .bg {
+    margin-right: -15px;
+  }
+  .right_image {
+    margin-right: 0px;
   }
 }

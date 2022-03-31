@@ -1,5 +1,6 @@
 #finish_exams {
   display: none;
+  position: relative;
 }
 .details {
   padding: 0px 50px;
@@ -34,3 +35,34 @@
 .exam1 button a{
     padding: 8px 12px;
 }
+
+/* .exam_grade1{
+  display: none;
+  background-color: #c86253;
+  padding: 20px;
+  color: var(--primary-color);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+} */
+.btn_exam p{display: none;}
+.exam1 .activee a{display: none;}
+.exam1 button{
+  background-color: var(--primary-color);
+  cursor: pointer;
+
+}
+.activee p{
+  font-size: 18px;
+  display: block;
+  color: #999999;;
+  background-color: var(--primary-color);
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  font-weight: bold;}
+ .exam1:hover .activee p{
+   color: var(--btn-color);
+ }

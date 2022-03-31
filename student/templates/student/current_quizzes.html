@@ -1,24 +1,94 @@
+{% extends 'student/base_bar.html' %}
+{% load static %}
 
-<h1>{{student}} current quizzes</h1>
-{% for quiz in quizzes %}
-    {% if quiz.done == False %}
-        <ul>
-            <li>{{quiz.course}}</li>
-            <li>{{quiz.quiz.name}}</li>
-            <a href="{% url 'start_quiz' quiz.id %}">start quiz</a>
+{% block title %}
+    <title> الملف الشخصى</title>
+{% endblock title %}
 
-        </ul>
-    {% endif %}
-{% endfor %}
-<hr>
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/exams.css' %}">
+    <link rel="stylesheet" href="{% static 'css/std_exams.css' %}">
+{% endblock custum_imports %}
 
-<h1>{{student}} done quizzes</h1>
-{% for quiz in quizzes %}
-    {% if quiz.done %}
-        <ul>
-            <li>{{quiz.course}}</li>
-            <li>{{quiz.quiz.name}}</li>
-            <li>Your Score: {{quiz.score}} out of {{quiz.total_marks}}</li>
-        </ul>
-    {% endif %}
-{% endfor %}
+{% block content %}
+<div class="col-10">
+    <!------------------------exams---------------->
+     <div id="exam">
+         <div class="details">
+             <div class="account_tech">
+                 <h1> اختبارات </h1>
+                 <img src="{% static 'images/teacher//Icons/Group 15547.png' %}" width="30px" height="30px">
+             </div>
+             <div class="choose_btns" id="exams_btn">
+                <button class="active" onclick="available_exam()" >الاختبارات المتاحة</button>
+                <button onclick="finish_exam()">الاختبارات المنتهية</button>
+             </div>
+             <!------------------------available_exams---------------->
+             <div class="exams" id="available_exams">
+                 <div class="row">
+                    {% for quiz in quizzes %}
+                    {% if quiz.done == False %}
+                    <div class="col-3">
+                        <div class="exam1">
+                             <h5>{{quiz.course}}</h5>
+                             <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
+                             <p>{{quiz.quiz.name}}</p>
+                             <button class="btn_exam"><a href="{% url 'start_quiz' quiz.id %}">بدأ الاختبار</a></button>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                     
+                     
+                     
+                 </div>
+
+             </div>
+             <!------------------------finish_exams---------------->
+             <div class="exams" id="finish_exams">
+                 <div class="row">
+                    {% for quiz in quizzes %}
+                    {% if quiz.done %}
+                    <div class="col-3">
+                        <div class="exam1">
+                             <h5>{{quiz.course}}</h5>
+                             <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
+                             <p>{{quiz.quiz.name}}</p>
+                             <button class="btn_exam"><a >رؤية النتيجة</a> <p>درجة الاختبار: {{quiz.score}} من {{quiz.total_marks}}</p> </button>
+                             
+
+                        </div>
+                    </div>
+                    
+                    {% endif %}
+                {% endfor %}   
+                 </div>
+  
+             </div>
+         </div> 
+     </div>
+
+</div>
+</div>
+<script>
+
+// Get all buttons with class="btn" inside the container
+var btns = document.getElementsByClassName("btn_exam");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("activee");
+ 
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" activee", "");
+    }
+
+    this.className += " activee";
+  });
+}
+</script>
+<script src="{% static 'master/std_exams.js' %}"></script>
+{% endblock content %}

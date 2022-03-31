@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
     <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
     <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    
 {% endblock custum_imports %}
 
 {% block content %}
@@ -34,21 +35,29 @@
                     </div>
                     </div>
                 </div>
-                <div>
-                    <button class="btn1"><a href="{{ course.get_absolute_url }}"><i class="fas fa-pen"></i>رؤية المحتوى</a></button>
-                </div>
+                <div class="enter_btn see-con">
+                    <button class="btn"><a href="{{ course.get_absolute_url }}">
+                        <div class="imll">
+                            <div class="iml2"><img  class = "imk"src="{% static 'images/icons/courses/view course.svg'%}"> </div>
+                            <div class="iml1">رؤية المحتوى</div>
+                           </div> 
+                            </a></button>
+                 </div>
             </div>
-                {% endfor %}
+                {% endfor %}                
               </ul>
                 {% else %}
               <p>There are no courses yet!</p>
             
             {% endif %}
-
-            <div class="row courses">
-                <div id="new_course">
-                    <button class="btn1" onclick="new_course()"><a href="{% url 'add_course' %}"><i class="fas fa-pen"></i>مقرر جديد </a></button>
-                </div>
+            <div class="enter_btn add-button " id="new_course">
+                <button class="btn" onclick="new_course()"><a href="{% url 'add_course' %}">
+                    <div class="imll">
+                        <div class="iml2"><img src="{% static 'images/icons/courses/add course.svg'%}"> </div>
+                        <div class="iml1"> مقرر جديد </div>
+                    </div> 
+                        </a>
+                    </button>
             </div>
         </div>
         
@@ -59,7 +68,52 @@
         </div>
              
     </section>
+        <!--------------------------active_base_bar----------->
+        <script>
+            var profile_features = document.getElementById("profile_features");
+           var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+           var image1 = document.getElementById("image1");
+           var image2 = document.getElementById("image2");
+           var image3 = document.getElementById("image3");
+           var image5 = document.getElementById("image5");
+           for (var i = 0; i < profile_feature_active.length; i++) {
+               var current = profile_features.getElementsByClassName("activee");
+               // If there's no active class
+               if (current.length > 0) {
+                 current[0].className = current[0].className.replace(" activee", "");
+                 image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
+               }
+                 profile_feature_active[2].classList.add("activee")
+                 image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
+                 console.log("courses")
+           } 
+            //-------- hover-base-bar-------------
+                 //---hover main-page 
+            function hoverr1(){
+            image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+            }
+            function without_hover1(){
+            image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+            }
+               //---hover account
+            function hoverr2(){
+            image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+            }
+            function without_hover2(){
+            image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'  %}";
+            }
+                 //---hover exams
+            function hoverr5(){
+            image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+            }
+            function without_hover5(){
+            image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ; 
+            }
+            //-----end of hover
+           </script>
+           <!--------------------------active_base_bar----------->
     <script src="{% static 'master/New_course.js' %}"></script>
+   
 </body>
 </html>
 

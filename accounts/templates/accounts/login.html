@@ -29,28 +29,18 @@
 </head>
 <body>
     <!-----------------navbar-------->
-        <nav class="navigation" id="activee">
-            <div onclick="nav_active()">
-                <i class="fas fa-bars"></i>
+         <nav class="navigation">
+          <div class="row nav_ull"> 
+            <div class="nav_ul">
+                <ul>
+                    <div class="right">
+                        <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                        <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+                    </div>
+                </ul>
               </div>
-              <div class="row nav_ull"> 
-                <div class="nav_ul" id="menu">
-                    <ul>
-                        <div class="right">
-                         <li><a href="#الصفحة الرئيسية">الصفحة الرئيسية</a></li>
-                        </div>
-                        <div class="left">
-                         <li><a href="#من نحن">من نحن؟</a></li>
-                         <li><a href="#المحتوى العلمى ">المحتوي العلمي</a></li> 
-                         <li><a href="#تواصل معنا">تواصل معنا</a></li>
-                        </div>
-                    </ul>
-                  </div>
-                  <div> 
-                    <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
-                  </div>
-              </div>
-      </nav>
+          </div>
+    </nav>
     <!--------------LOGIN IN --------------->
     <div class="sign-up">
       <div>
@@ -81,10 +71,14 @@
             </div>
             {% endif %}
         <div>
-            <button class="btn1"><a type="submit" value="Log In">تسجيل الدخول </a></button>
+            <button class="btn1"><a type="submit" value="Log In"  onclick="success_register()">تسجيل الدخول </a></button>
             <button class="btn2"><a href="/register">تسجيل حساب</a></button>
         </div>
       </form>
+    </div>
+    <div id="sucsess_register">
+      <h1>{{msg}}</h1>
+      <i class="fas fa-user-check"></i>
     </div>
     <script src="{% static 'js/password.js' %}"></script>
 </body>

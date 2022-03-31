@@ -14,29 +14,29 @@
 {% block content %}
                 <!-------------------courses--------->
                <div class="col-10">
-                      
-            
+
                <!----------------------new-course-->
                <form action="" method="post" enctype="multipart/form-data" class="add_content">
                 {% csrf_token %}
-                    <div class="details">
+                <div class="details add-details">
                     <div class="account_tech">
                         <h1> اضافة مقرر جديد </h1>
-                        <img src="{% static 'images/teacher/Icons/Group 15498.png' %}" alt="" width="2%">
+                        <img src="{% static 'images/icons/courses/Group 15498.svg' %}" alt="" width="2.5%">
+                    </div>
+                    <div class="hrt">
+                        <hr>
                     </div>
              <div class="info_tech">
-                    <div class="tech_pic term_cont1">
+                    <div class="tech_pic ">
                       <h2>صوره المقرر</h2>
                     
-                        <img src="{% static 'images/pic 1.png' %}" id="output" alt="" style="
-                        width: 100px;
-                        height: 100px;
-                        border-radius: 50%;">
+                        <img class="term_cont1" src="{% static 'images/pic 1.png' %}" id="output" alt="" >
                       
                       {{course_form.image}}
                       <div class="btn_course">
-                        <button type="button" id="custom-button"><i class="far fa-image"></i>اختر صوره للكورس</button>
+                        <button type="button" id="custom-button"><img   src="{% static 'images/icons/profile/up-image.svg' %}" alt="">رفع الصورة</button>
                       </div>
+                      
                       
                       <!-- <div class="img_choose"> -->
                           <!-- اختر صورة المقرر -->
@@ -58,7 +58,7 @@
                          
                  </div>
              </div>
-             <div class="modified_btn">
+             <div class="modified_btn mod-edi">
                 <button class="btn2" onclick="canel_new_course()"><a href=""><i class="fal fa-times"></i>الغاء التعديلات</a></button>
                 <button type="submit" class="upload_img btn1" ><a ><i class="far fa-plus-circle"></i>اضافة المقرر</a></button>
                 
@@ -73,6 +73,50 @@
              </div>
         </div>
     </section>
+    <!--------------------------active_base_bar----------->
+    <script>
+        var profile_features = document.getElementById("profile_features");
+       var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+       var image1 = document.getElementById("image1");
+       var image2 = document.getElementById("image2");
+       var image3 = document.getElementById("image3");
+       var image5 = document.getElementById("image5");
+       for (var i = 0; i < profile_feature_active.length; i++) {
+           var current = profile_features.getElementsByClassName("activee");
+           // If there's no active class
+           if (current.length > 0) {
+             current[0].className = current[0].className.replace(" activee", "");
+             image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
+           }
+             profile_feature_active[2].classList.add("activee")
+             image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
+             console.log("courses")
+       } 
+        //-------- hover-base-bar-------------
+             //---hover main-page 
+        function hoverr1(){
+        image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+        }
+        function without_hover1(){
+        image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+        }
+           //---hover account
+        function hoverr2(){
+        image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+        }
+        function without_hover2(){
+        image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'  %}";
+        }
+             //---hover exams
+        function hoverr5(){
+        image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+        }
+        function without_hover5(){
+        image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ; 
+        }
+        //-----end of hover
+       </script>
+       <!--------------------------active_base_bar----------->
     <script src="{% static 'master/New_course.js' %}"></script>
     <script type="text/javascript">
         const realFileBtn = document.getElementById("id_posti");
@@ -88,6 +132,9 @@
             image.src = URL.createObjectURL(event.target.files[0]);
         };
         </script>
+
+      
+        
 </body>
 </html>
 

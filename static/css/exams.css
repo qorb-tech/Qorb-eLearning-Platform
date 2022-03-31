@@ -7,12 +7,13 @@
 }
 .details {
   margin: 20px;
+  margin-bottom: 40px;
+}
+.hrt hr {
+  margin-right: 70px;
+  margin-left: 70px;
 }
 
-.exams {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
 .exam1 {
   text-align: center;
   background-color: #999999;
@@ -169,4 +170,82 @@ select option:hover,
   width: 100%;
   display: block;
   padding: 10px 0px;
+}
+#profile_features .activee {
+  background-color: var(--forth-color);
+}
+#profile_features .activee a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.open-q .far {
+  padding-right: 7px;
+}
+/* #profile_features .activee :hover a #image5 {
+  background-image: url(.../images/icons/dashboard/oppsite/Group\ 184.svg);
+} */
+
+@media (max-width: 1120px) {
+  .quiz_btn {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 1045px) {
+  .quiz_btn button {
+    margin: 10px;
+  }
+}
+@media (max-width: 950px) {
+  .exam1 {
+    padding: 10px;
+    margin: 20px 7px;
+  }
+  .exams {
+    margin: 10px;
+  }
+  .name-q input {
+    width: 60%;
+  }
+  .quiz_btn b {
+    font-size: 15px;
+  }
+}
+@media (max-width: 845px) {
+  .exam1 p {
+    font-size: 15px;
+  }
+  .exam1 button a {
+    font-size: 15px;
+  }
+  .exam1:hover button a {
+    font-size: 15px;
+  }
+  .hrt hr {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  .create_quiz label {
+    font-size: 17px;
+  }
+}
+@media (max-width: 715px) {
+  .exam1 button a {
+    font-size: 12px;
+  }
+  .exam1:hover button a {
+    font-size: 11px;
+  }
+  .exam1 p {
+    font-size: 12px;
+  }
+  .exam1 h5 {
+    font-size: 15px;
+  }
+  .create_quiz label {
+    font-size: 13px;
+  }
+  .quiz_btn b {
+    font-size: 12px;
+  }
 }

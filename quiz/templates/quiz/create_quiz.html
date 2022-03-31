@@ -9,17 +9,15 @@
 {% block content %}
   <form method="post" action=""  id="new_exam">
     <h4>اختبار جديد</h4>
-
     
     {% csrf_token %}
-    <div class="create_quiz">
+    <div class="create_quiz name-q">
       {{form.name}}<label>اسم الاختبار</label>
     </div>
     
     <div  class="create_quiz" id="list">
       {{form.course}} <label>المقرر الدراسى</label>
     </div>
-
     <div class="create_quiz no_q">
       {{form.number_of_questions}}  <label>عدد الاسئله</label>
     </div>

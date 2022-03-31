@@ -1,5 +1,5 @@
 .student {
-  padding:4px 14px ;
+  padding: 4px 14px;
   margin-top: 4%;
   font-size: 15px;
 }
@@ -28,10 +28,12 @@
   /* width: 200px; */
   margin-left: 40px;
 }
-.btn{padding: 0;}
+.btn {
+  padding: 0;
+}
 .entert button a {
   display: inline-block;
-  padding:9px 30px;
+  padding: 9px 30px;
 }
 .imll {
   display: flex;
@@ -47,43 +49,42 @@
   margin-top: 7px;
 }
 
-.tex{
-    position: absolute;
-    padding-right: 21%;
-    padding-top: 5%;
-    font-weight: bold;
+.tex {
+  position: absolute;
+  padding-right: 21%;
+  padding-top: 5%;
+  font-weight: bold;
 }
-.tex h2{
-    padding-bottom: 8%;
-    font-size: 25px;
-    color: var(--btn-color);
-    
+.tex h2 {
+  padding-bottom: 8%;
+  font-size: 25px;
+  color: var(--btn-color);
 }
-.tex p{
+.tex p {
   font-size: 20px;
   color: #656565;
 }
-  .profile .p2{
-    padding-top: 3%;
-    font-weight: bold;
-  }
+.profile .p2 {
+  padding-top: 3%;
+  font-weight: bold;
+}
 
-  .lmn{
-    position: fixed;
-    bottom: 5%;
-    left: 39%;
-  }
-  .lmn button{
-    border-radius: 50px;
-  }
-  .lmn button a{
-    padding: 10px 27px;
-  }
-#coursess .col-6{
+.lmn {
+  position: fixed;
+  bottom: 5%;
+  left: 39%;
+}
+.lmn button {
+  border-radius: 50px;
+}
+.lmn button a {
+  padding: 10px 27px;
+}
+#coursess .col-6 {
   direction: ltr;
 }
 #coursess {
-  display:block;
+  display: block;
 }
 #Ncontnt {
   display: none;

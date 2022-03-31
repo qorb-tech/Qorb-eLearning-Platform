@@ -1,6 +1,10 @@
+.row {
+  justify-content: end;
+}
 .container_quiz {
   width: 900px;
   margin: auto;
+  direction: rtl;
 }
 .question_name {
   color: var(--btn-color);
@@ -10,8 +14,8 @@
 .question_name .num {
   background-color: var(--btn-color);
   color: var(--primary-color);
-  padding: 5px 15px;
-  border-radius: 15px;
+  padding: 6px 6px;
+  border-radius: 10px;
   margin-left: 10px;
 }
 
@@ -32,41 +36,42 @@
   direction: ltr;
   text-align: end;
   padding-right: 40px;
+  padding-top: 10px;
 }
 .question_choose p {
   font-size: 20px;
   padding: 5px 0;
   font-size: 20px;
   color: #656565;
-  border-bottom: 1px solid var(--line-color);
 }
 .question_choose p span {
-  padding: 0px 4px;
+  padding: 0px 5px;
   font-size: 10px;
   border-radius: 50%;
-  border: 2px solid #999999;
+  border: 2px solid #d38175;
   color: var(--btn-color);
-  margin-left: 5px;
+  margin-left: 10px;
+  background-color: #d38175;
 }
 
 .correct_answr {
   color: var(--btn-color);
   margin: 5px 0;
+  margin-top: 20px;
 }
 .correct_answr span {
-  color: rgb(0, 128, 6);
+  color: var(--fifth-color);
 }
 .btn_update_question,
 .btn_delete_question:hover {
-  padding: 5px 10px;
+  padding: 10px 15px;
   color: var(--primary-color);
   background-color: var(--btn-color);
-  margin-right: 5px;
   cursor: pointer;
 }
 .btn_delete_question,
 .btn_update_question:hover {
-  padding: 5px 10px;
+  padding: 10px 15px;
   background-color: var(--primary-color);
   border: 1px solid var(--btn-color);
   margin-right: 5px;
@@ -93,16 +98,19 @@
 }
 .form_question form input {
   border: 1px solid var(--btn-color);
-  width: 80%;
-  border-radius: 10px;
+  width: 55%;
+  padding-right: 10px;
+  border-radius: 20px;
   direction: rtl;
+  margin-right: 32px;
 }
 .form_question form {
   direction: ltr;
 }
 
 .option_question {
-  margin: 10px 0px;
+  margin: 15px 0px;
+  text-align: center;
 }
 .question_add {
   text-align: center;
@@ -110,11 +118,14 @@
 .question_add button {
   outline: none;
   color: var(--primary-color);
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 8px 25px;
+  border-radius: 25px;
   cursor: pointer;
   background-color: var(--btn-color);
+  margin-top: 29px;
+  padding: 8px 15px;
 }
+
 .question_add button:hover {
   background-color: var(--primary-color);
   color: var(--btn-color);
@@ -126,9 +137,9 @@
   padding: 5px 0px;
   border-radius: 25px;
 }
-.btn1 {
+/* .btn1 {
   text-align: center;
-}
+} */
 .btn1 a {
   background-color: var(--btn-color);
   border-radius: 20px;
@@ -141,18 +152,100 @@
 } */
 .option_question select {
   outline: none;
-  background-color: var(--btn-color);
+  background-color: #d38175;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   border-radius: 12px;
   padding: 3px 10px;
-  width: 15%;
+  width: 21%;
   direction: rtl;
-  margin-left: 10px;
+  /* margin-left: 0px; */
   cursor: pointer;
 }
 
 .option_question section option:hover {
   background-color: var(--primary-color);
   color: var(--btn-color);
+}
+
+.option-quespe label {
+  font-weight: bold;
+  font-size: 20px;
+}
+.option-quespe {
+  padding-top: 30px;
+}
+
+.btn1 a,
+.btn2:hover a {
+  border: none;
+}
+
+.btn1 button {
+  margin-bottom: 41px;
+  margin-top: 30px;
+}
+.details {
+  margin: 35px 25px;
+  min-height: 570px;
+  border-radius: 60px;
+}
+/* .MPC {
+  width: 130px;
+  border-radius: 50%;
+  height: 130px;
+} */
+.det-spc {
+  min-height: 280px;
+  box-shadow: 0 0 10px #d38175;
+  border-radius: 60px;
+}
+.edit-quee {
+  text-align: center;
+}
+.edit-quee .fas {
+  margin-right: 7px;
+}
+.edit-quee .fal {
+  margin-right: 5px;
+}
+.question_name .fas {
+  color: var(--btn-color);
+  font-size: 25px;
+  margin: 0px 15px;
+}
+.cho-hr hr {
+  border-top: 1px solid var(--line-color);
+  margin-left: 444px;
+
+  margin-top: 5px;
+}
+.BTT {
+  text-align: center;
+  margin-top: 20px;
+}
+@media (max-width: 900px) {
+  .container_quiz {
+    width: 800px;
+  }
+}
+
+@media (max-width: 750px) {
+  .MPC {
+    width: 100px;
+    height: 100px;
+  }
+  .profile .p2 {
+    font-size: 18px;
+  }
+  .profile_feature img {
+    width: 23px;
+    height: 17px;
+  }
+  .profile_feature a {
+    font-size: 12px;
+  }
+  .container_quiz {
+    width: 690px;
+  }
 }

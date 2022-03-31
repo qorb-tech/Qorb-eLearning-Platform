@@ -95,21 +95,25 @@ def login_view(request):
                 password = form.cleaned_data.get('password')
                 user = authenticate(username=username, password=password)
                 if user is not None and user.is_admin:
+                    msg = 'تم تسجيل الدخول'
                     login(request, user)
                     return redirect('adminpage')
                 elif user is not None and user.is_student:
+                    msg = 'تم تسجيل الدخول'
                     login(request, user)
                     return redirect('student_dashboard')
                 elif user is not None and user.is_teacher:
+                    msg = 'تم تسجيل الدخول'
                     login(request, user)
                     return redirect('teacher_dashboard')
                 else:
-                    msg = 'invalid credentials'
+                    msg = 'خطأ فى الايميل او كلمة المرور'
             else:
                 msg = 'Invalid reCAPTCHA. Please try again.'
         else:
-            msg = 'error validating form'
-
+            msg = 'يرجى ادخال الايميل وكلمة المرور'
+    else:
+            msg = 'يرجى ادخال الايميل وكلمة المرور'
     return render(request, 'accounts/login.html', {'form': form, 'msg': msg})
 
 

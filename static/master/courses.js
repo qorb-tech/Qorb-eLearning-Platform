@@ -7,6 +7,9 @@ course_lecs = document.getElementById("course_lecs");
 reports=document.getElementById("reports");
 student_list= document.getElementById("student_list");
 garde = document.getElementById("garde");
+var imagee1 = document.getElementById("imgg1");
+var imagee2 = document.getElementById("imgg2");
+var imagee3 = document.getElementById("imgg3");
 
 function course_lec() {
     reports.style.display="none";
@@ -15,6 +18,7 @@ function course_lec() {
     course_lecs.style.display="block";
     btn_report.classList.remove("active");
     btn_std.classList.remove("active");
+    imagee1.src = "images/icons/content/opposite/ic_import_contacts_24px.svg" ;
     console.log("done")
 } 
 
@@ -25,6 +29,7 @@ function report() {
     reports.style.display="block";
     btn.classList.remove("active");
     btn_std.classList.remove("active");
+    imagee2.src = "{% static 'images/icons/content/opposite/Icon_doc_solid.svg' %}" ;
     console.log("done")
 }
 
@@ -35,6 +40,7 @@ function std_list() {
     student_list.style.display="block";
     btn.classList.remove("active");
     btn_report.classList.remove("active");
+    imagee2.src = "{% static 'images/icons/content/opposite/ic_group_24px.svg' %}" ;
     console.log("done")
 }
 

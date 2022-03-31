@@ -21,6 +21,9 @@
                                 <h1> اختبارات</h1>
                                 <img src="{% static 'images/teacher//Icons/Group 15547.png' %}" width="30px" height="30px">
                             </div>
+                            <div class="hrt">
+                                <hr>
+                            </div>
                             <!------------------------exams---------------->
                             <div class="exams">
                                 <div class="row">
@@ -41,9 +44,12 @@
                                     {% endfor %}
 
                                 </div>
+                                <div class="hrt">
+                                    <hr>
+                                </div>
 
                                 
-                            <div class="modified_btn">
+                            <div class="modified_btn open-q">
                                 <button class="btn1" onclick="add_exam()">
                                     <a>
                                         <i class="far fa-plus-circle"></i>اختبار جديد
@@ -57,13 +63,12 @@
                             <form method="post" action=""  id="new_exam">
                                 <h4>اختبار جديد</h4>
                             
-                                
                                 {% csrf_token %}
-                                <div class="create_quiz">
+                                <div class="create_quiz name-q">
                                   {{form.name}}<label>اسم الاختبار</label>
                                 </div>
                                 
-                                <div  class="create_quiz">
+                                <div  class="create_quiz ">
                                   {{form.course}} <label>المقرر الدراسى</label>
                                 </div>
                             
@@ -93,6 +98,48 @@
             </div>
         </div>
     </section>
+    <!--------------------------active_base_bar----------->
+<script>
+    var profile_features = document.getElementById("profile_features");
+     var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+      var image1 = document.getElementById("image1");
+      var image2 = document.getElementById("image2");
+      var image3 = document.getElementById("image3");
+      var image5 = document.getElementById("image5");
+     for (var i = 0; i < profile_feature_active.length; i++) {
+         var current = profile_features.getElementsByClassName("activee");
+         // If there's no active class
+         if (current.length > 0) {
+           current[0].className = current[0].className.replace(" activee", "");
+           image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
+         }
+           profile_feature_active[4].classList.add("activee")
+           image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+           console.log("dashboard_teacher")
+     } 
+     //-------- hover-base-bar------------- 
+        function hoverr1(){
+        image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+        }
+        function without_hover1(){
+        image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+        }
+        //---hover account
+        function hoverr2(){
+        image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+        }
+        function without_hover2(){
+        image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'  %}";
+        }
+        //----hover-courses
+        function hoverr3(){
+         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ; 
+        }
+        function without_hover3(){
+         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}"; 
+        }
+     </script>
+     <!--------------------------active_base_bar----------->
     <script src="{% static 'js/exam.js' %}"></script>
 </body>
 </html>
