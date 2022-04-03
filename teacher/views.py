@@ -262,6 +262,8 @@ def students_page_select(request):
 
 
 # update grades for reports
+
+@login_required(login_url='login_view')
 def report_grades_update(request, id):
     report_grades = Report_student.objects.get(id=id)
     course_name=str(report_grades.course)
@@ -289,10 +291,13 @@ def report_grades_update(request, id):
                 'report_grades':report_grades})
 
 
+@login_required(login_url='login_view')
 def report_grades_records_view(request,course,report):
     report_grades = Report_student.objects.filter(course__name=course,report__description_report=report)
     return render(request,'teacher/report-grades-view.html',{'report_grades': report_grades})
 
+
+@login_required(login_url='login_view')
 def edit_report_deadline(request,pk):
     report = Report.objects.get(id=pk)
     if request.method == 'POST':
