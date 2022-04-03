@@ -107,13 +107,13 @@ def login_view(request):
                     login(request, user)
                     return redirect('teacher_dashboard')
                 else:
-                    msg = 'خطأ فى الايميل او كلمة المرور'
+                    msg = 'خطأ فى اسم المستخدم او كلمة المرور'
             else:
                 msg = 'Invalid reCAPTCHA. Please try again.'
         else:
-            msg = 'يرجى ادخال الايميل وكلمة المرور'
+            msg = 'يرجى ادخال اسم المستخدم وكلمة المرور'
     else:
-            msg = 'يرجى ادخال الايميل وكلمة المرور'
+            msg = 'يرجى ادخال اسم المستخدم وكلمة المرور'
     return render(request, 'accounts/login.html', {'form': form, 'msg': msg})
 
 

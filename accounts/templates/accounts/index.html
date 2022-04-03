@@ -214,7 +214,7 @@
           
         <!-- </div> -->
     <div>
-        <form  id ='contact-form' action="/" method="POST">
+        <form   action="/" method="POST">
             {% csrf_token %}
            
             <div class="inputt">
@@ -230,7 +230,8 @@
             {{form.desc}}
           </div>
           <div class="butt">
-                <button class="bttn"><a  type="submit" value="Submit"><img src="{% static 'images/ic_send_24px.png' %}">ارسال</a></button>
+                <button class="bttn" onclick="contactSent()">
+                    <a  type="submit" value="Submit"><img src="{% static 'images/ic_send_24px.png' %}">ارسال</a></button>
             <!----edit ---->
             <div id="output">
             </div>
@@ -252,6 +253,13 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>   
         <script src="{% static 'js/ajax.js' %}"></script>
         <script src="{% static 'js/home.js' %}"></script>
+
+
+        <script>
+            function contactSent(){
+                alert('Your message sent succefully!');
+            }
+        </script>
 </body>
 </html>
 
