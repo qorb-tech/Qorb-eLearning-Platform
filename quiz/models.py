@@ -19,7 +19,7 @@ class Quiz(models.Model):
     students = models.ManyToManyField(Student, through='QuizStudent')
     
     def __str__(self):
-        return f'{self.auther} : {self.name}'
+        return self.name
         
 
 class QuizStudent(models.Model):
@@ -34,7 +34,7 @@ class QuizStudent(models.Model):
         unique_together = [['student', 'quiz']]
     
     def __str__(self):
-        return str(self.student) + " : "+ str(self.quiz)
+        return self.quiz.name
 
 class QuestionAnswer(models.Model):
     CHOICES = (

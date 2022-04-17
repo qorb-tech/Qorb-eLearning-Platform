@@ -38,7 +38,6 @@ def quizzes(request):
                     quiz_name = Quiz.objects.get(name = temp.name)
                     student_in_quiz = QuizStudent(student=student_name, course=course, quiz=quiz_name)
                     student_in_quiz.save()
-                    print(student_name)
             except:
                 msg = "ERROR"
                 return render(request, 'quiz/quiz_list.html', {'form': form , 'msg':msg})

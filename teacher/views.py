@@ -14,15 +14,16 @@ from accounts.models import Student, Teacher, Profile
 from .models import (
     Course, Subject, Report,Report_student)
 from .forms import (
-    UpdateTeacherProfileForm, UpdateUserForm, 
-    AddCourseForm,AddMatrialForm, AddReportForm,
-    UpdateReportGradeForm
-    ,FormPasswordChange,
-    UpdateReportForm)
+    UpdateTeacherProfileForm, UpdateUserForm, AddCourseForm,
+    AddMatrialForm, AddReportForm,UpdateReportGradeForm,   
+    FormPasswordChange,UpdateReportForm)
+from accounts.decorators import allow_user
+
 User = get_user_model()
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def teacher_dashboard(request):
     user_profile = Profile.objects.get(user=request.user)
     teacher = Teacher.objects.get(user=request.user)
@@ -35,6 +36,7 @@ def teacher_dashboard(request):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def update_teacher_profile(request):
     msg = None 
     user_profile = Profile.objects.get(user=request.user)
@@ -56,6 +58,7 @@ def update_teacher_profile(request):
 
 #change password view
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def reset_password_view(request):
     user_profile = Profile.objects.get(user=request.user)
     form = FormPasswordChange(request.user)
@@ -70,6 +73,7 @@ def reset_password_view(request):
 
 # Profile View
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def profile_techear_view(request):
     user_profile = Profile.objects.get(user=request.user)
     context = {'user_profile': user_profile}
@@ -79,6 +83,7 @@ def profile_techear_view(request):
 
 
 @login_required
+@allow_user(['is_teacher'])
 def courses(request):
     user_profile = Profile.objects.get(user=request.user)
     teacher = Teacher.objects.get(user=request.user)
@@ -90,6 +95,7 @@ def courses(request):
     return render(request, 'teacher/courses.html', context)
 
 @login_required
+@allow_user(['is_teacher'])
 def edit_course(request,name):
     course = Course.objects.get(name=name)
     if request.method == 'POST':
@@ -105,12 +111,14 @@ def edit_course(request,name):
 
 
 @login_required
+@allow_user(['is_teacher'])
 def delete_course(request,name):
     course = Course.objects.get(name=name)
     course.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def course_detail(request, name):
     # Add Lecture  View
     
@@ -200,6 +208,7 @@ def course_detail(request, name):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def add_course(request):
     msg = None
     if request.method == 'POST':
@@ -225,6 +234,7 @@ def add_course(request):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def delete_subject(request, pk):
     subject = get_object_or_404(Subject, id=pk)
     subject.delete()
@@ -233,6 +243,7 @@ def delete_subject(request, pk):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def delete_report(request, pk):
     report = get_object_or_404(Report, id=pk)
     report.delete()
@@ -240,6 +251,7 @@ def delete_report(request, pk):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def delete_student(request, name , pk ):
     student = Student.objects.get(id=pk)
     course = Course.objects.get(name=name)
@@ -248,14 +260,22 @@ def delete_student(request, name , pk ):
 
 
 #PAGE SELECT
+@login_required(login_url='login_view')
+@allow_user(['is_teacher', 'is_student'])
 def lecs_page_select(request):
     request.session['vote'] = "lecs-page"
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
+
+@login_required(login_url='login_view')
+@allow_user(['is_teacher', 'is_student'])
 def reports_page_select(request):
     request.session['vote'] = "reports-page"
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+ 
 
+@login_required(login_url='login_view')
+@allow_user(['is_teacher', 'is_student'])
 def students_page_select(request):
     request.session['vote'] = "student-page"
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
@@ -264,6 +284,7 @@ def students_page_select(request):
 # update grades for reports
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def report_grades_update(request, id):
     report_grades = Report_student.objects.get(id=id)
     course_name=str(report_grades.course)
@@ -292,12 +313,14 @@ def report_grades_update(request, id):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def report_grades_records_view(request,course,report):
     report_grades = Report_student.objects.filter(course__name=course,report__description_report=report)
     return render(request,'teacher/report-grades-view.html',{'report_grades': report_grades})
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def edit_report_deadline(request,pk):
     report = Report.objects.get(id=pk)
     if request.method == 'POST':

@@ -1,21 +1,15 @@
-from django import http
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model
 from django.contrib import messages
 import json
 import urllib
 from django.conf import settings
 from django.contrib import messages
-from numpy import full
 
 # local import goes here 
 from .forms import SignUpForm, LoginForm ,ContactForm
-from student.views import student_dashboard
-from teacher.views import teacher_dashboard 
-from .decorators import unAuth_user
+from .decorators import unAuth_user, allow_user
 
 def index(request):
     msg = "None"
@@ -53,7 +47,8 @@ def register(request):
             response = urllib.request.urlopen(req)
             result = json.loads(response.read().decode())
 
-            if result['success']:
+            # if result['success']:
+            if True:
                 user = form.save(commit=False)
                 if request.POST['role'] == 'student':
                     user.is_student = True   
@@ -90,7 +85,8 @@ def login_view(request):
             response = urllib.request.urlopen(req)
             result = json.loads(response.read().decode())
 
-            if result['success']:
+            if True:
+            # if result['success']:
                 username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password')
                 user = authenticate(username=username, password=password)
@@ -116,7 +112,7 @@ def login_view(request):
             msg = 'يرجى ادخال اسم المستخدم وكلمة المرور'
     return render(request, 'accounts/login.html', {'form': form, 'msg': msg})
 
-
+@allow_user(['is_teacher', 'is_student'])
 def logout_user(request):
     logout(request)
     messages.info(request,  'You have successfully logged out.')

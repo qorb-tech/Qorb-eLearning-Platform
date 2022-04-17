@@ -19,4 +19,9 @@ class QuizAdmin(admin.ModelAdmin):
 class QuestionAnswerAdminAdmin(admin.ModelAdmin):
     list_display = ('question', 'id')
     
-admin.site.register(QuizStudent)
+@admin.register(QuizStudent)
+class QuizStudentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'quiz')
+    
+
+

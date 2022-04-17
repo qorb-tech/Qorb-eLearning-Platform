@@ -14,13 +14,14 @@ from accounts.models import Student, Profile
 from student.forms import UpdateReportForm
 from quiz.models import QuizStudent, Quiz, QuestionAnswer
 from teacher.models import (Course, Subject, Report,Report_student)
-
+from accounts.decorators import allow_user, allow_courses_student, allow_quiz_student
 
 
 
 User = get_user_model()
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
 def student_dashboard(request):
     user_profile = Profile.objects.get(user=request.user)
     context = {'user_profile': user_profile}
@@ -28,6 +29,7 @@ def student_dashboard(request):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
 def profile_student_view(request):
     user_profile = Profile.objects.get(user=request.user)
     context = {'user_profile': user_profile}
@@ -35,6 +37,7 @@ def profile_student_view(request):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
 def update_student_profile(request):
     msg = None 
     user_profile = Profile.objects.get(user=request.user)
@@ -55,6 +58,7 @@ def update_student_profile(request):
     return render(request, 'student/profile.html', context)
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
 def reset_password_view(request):
     user_profile = Profile.objects.get(user=request.user)
     form = FormPasswordChange(request.user)
@@ -70,6 +74,7 @@ def reset_password_view(request):
 
 
 @login_required
+@allow_user(['is_student'])
 def courses(request):
     user_profile = Profile.objects.get(user=request.user)
     student = Student.objects.get(user=request.user)
@@ -83,6 +88,8 @@ def courses(request):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
+@allow_courses_student()
 def course_detail(request, name):    
     msg=""
     user_profile = Profile.objects.get(user=request.user)
@@ -105,6 +112,7 @@ def course_detail(request, name):
     return render(request, 'student/course_detail.html', context)
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
 def upload_report_file(request, id):
     report_grades = Report_student.objects.get(id=id)
     course_name=str(report_grades.course)
@@ -140,6 +148,8 @@ def upload_report_file(request, id):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
+@allow_quiz_student()
 def current_quizzes(request):
     student = Student.objects.get(user=request.user)
     quizzes = QuizStudent.objects.filter(student=student)
@@ -153,20 +163,21 @@ def current_quizzes(request):
 
 
 @login_required(login_url='login_view')
+@allow_user(['is_student'])
 def start_quiz(request, pk):
-    quiz = QuizStudent.objects.get(pk=pk)
+    if request.method == 'GET':
+        quiz = QuizStudent.objects.get(pk=pk)
+        quiz_name = Quiz.objects.filter(name=quiz.quiz.name)[0]
 
-    quiz_name = Quiz.objects.filter(name=quiz.quiz.name)[0]
-
-    questions_num = quiz.quiz.number_of_questions
-    
-    questions = QuestionAnswer.objects.filter(quiz=quiz_name)
-
-    questions = list(questions)
-    # random.shuffle(questions)
-    questions = questions[:questions_num]
+        questions_num = quiz.quiz.number_of_questions
         
-    if request.method == 'POST':
+        questions = QuestionAnswer.objects.filter(quiz=quiz_name)
+
+        questions = list(questions)
+        # random.shuffle(questions)
+        questions = questions[:questions_num]
+            
+    elif request.method == 'POST':
         data = request.POST
         data = dict(data.lists())
         data.pop('csrfmiddlewaretoken')
@@ -179,7 +190,6 @@ def start_quiz(request, pk):
             i += 1 
             if user_answer == correct_answer:
                 quiz.score += 1
-        quiz.done = True
         quiz.total_marks = len(questions)
         quiz.save()
         return redirect('current_quizzes')
