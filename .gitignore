@@ -276,3 +276,4 @@ qorb/media/
 .env
 .envs/*
 !.envs/.local/
+env
