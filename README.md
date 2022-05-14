@@ -8,7 +8,9 @@ technologies as Real Time Arabic Sign Language Translator, Facial Expression Rec
 ![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <h1 align="center"> Local Setup 👨‍💻 </h1>
-## Docker Setup:
+
+## Docker Setup :
+
 ##### For Linux :
 
 ```
@@ -16,7 +18,6 @@ $. make build
 $. make up
 
 ```
-
 ##### For Windows :
 
 ```
