@@ -7,7 +7,7 @@ import urllib
 from django.conf import settings
 from django.contrib import messages
 
-# local import goes here 
+# local imports goes here 
 from .forms import SignUpForm, LoginForm ,ContactForm
 from .decorators import unAuth_user, allow_user
 
