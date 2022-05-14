@@ -36,7 +36,7 @@ django-coverage-plugin==2.0.2  # https://github.com/nedbat/django_coverage_plugi
 pytest-django==4.5.2  # https://github.com/pytest-dev/pytest-django
 crispy-tailwind==0.5.0
 django-crispy-forms==1.14.0
-Pillow==9.0.1
+Pillow==9.1.0
 agora-token-builder==1.0.0
 django-imagekit==4.1.0
 django-cleanup==6.0.0
