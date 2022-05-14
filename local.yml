@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
     image: qorb_local_django
-    container_name: qorb_local_django
+    container_name: qorb_local_django_
     platform: linux/x86_64
     depends_on:
       - postgres
@@ -28,7 +28,7 @@ services:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
     image: qorb_production_postgres
-    container_name: qorb_local_postgres
+    container_name: qorb_local_postgres_
     volumes:
       - qorb_local_postgres_data:/var/lib/postgresql/data:Z
       - qorb_local_postgres_data_backups:/backups:z
@@ -37,7 +37,7 @@ services:
 
   docs:
     image: qorb_local_docs
-    container_name: qorb_local_docs
+    container_name: qorb_local_docs_
     platform: linux/x86_64
     build:
       context: .

@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
+# local imports goes here 
+from .utils import student_directory_path, teacher_directory_path
 
 
 class User(AbstractUser):
@@ -21,15 +23,6 @@ class Contact(models.Model):
         return self.name
 
 
-def student_directory_path(inst, file_name):
-    return f'student_profile_images/{inst.user}/{file_name}'
-
-
-def teacher_directory_path(inst, file_name):
-    return f'teacher_profile_images/{inst.user}/{file_name}'
-
-
-User = get_user_model()
 
 class Profile(models.Model):
     INTEREST_CHOICES = (
@@ -38,7 +31,7 @@ class Profile(models.Model):
         ("control", 'Control'),
     )
     user = models.OneToOneField(
-        User, on_delete=models.CASCADE, null=True, blank=True)
+        get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
     age = models.IntegerField(null=True, blank=True)
     full_name = models.CharField(max_length=122, null=True, blank=True)
     intersted_with = models.CharField(

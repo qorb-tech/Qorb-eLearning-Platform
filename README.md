@@ -1,58 +1,46 @@
-# Qorb
+<h1 align="center">Qorb-eLearning-Platform</h1>
 
-E-learning platform
+<b>
+Our platform is “E-learning platform” provide some features by using computer vision and artificial intelligence
+technologies as Real Time Arabic Sign Language Translator, Facial Expression Recognition and Recommendation system
+</b>
 
-[![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
-[![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-License: MIT
+<h1 align="center"> Local Setup 👨‍💻 </h1>
+## Docker Setup:
+##### For Linux :
 
-## Settings
+```
+$. make build
+$. make up
 
-Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
+```
 
-## Basic Commands
+##### For Windows :
 
-### Setting Up Your Users
+```
+$. docker-compose -f local.yml build
+$. docker-compose -f local.yml up
 
--   To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+```
+![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
--   To create an **superuser account**, use this command:
+### 9. Go Live :
 
-        $ python manage.py createsuperuser
+http://0.0.0.0:8000/
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+<h1 align="center"> Overview & Result 🚧 </h1>
 
-### Type checks
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Home Page
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/index.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Register Page
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/register.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Login Page
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/login.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Teacher Dashboard
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/teacher_dashboard.gif)
+#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Student Dashboard
+![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/student_dashboard.gif)
 
-Running type checks with mypy:
-
-    $ mypy qorb
-
-### Test coverage
-
-To run the tests, check your test coverage, and generate an HTML coverage report:
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-#### Running tests with pytest
-
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html).
-
-## Deployment
-
-The following details how to deploy this application.
-
-### Heroku
-
-See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html).
-
-### Docker
-
-See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
