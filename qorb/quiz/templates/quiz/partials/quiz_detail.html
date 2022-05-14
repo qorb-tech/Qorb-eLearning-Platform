@@ -1,0 +1,45 @@
+
+<div hx-target="this" class="container_quiz">
+    <h3 class="3">
+        <div class="row question_name">
+            <h1>{{ question.question }}</h1>
+            <i class="fas fa-arrow-alt-square-left"></i>
+            
+        </div>
+        
+        <div class="question_choose">
+            <p> {{question.option1}}<span></span> </p>
+             <div class="cho-hr">
+                 <hr>
+             </div>
+            <p>  {{question.option2}} <span></span> </p>
+            <div class="cho-hr">
+                <hr>
+            </div>
+            <p>  {{question.option3}} <span></span> </p>
+            <div class="cho-hr">
+                <hr>
+            </div>
+            <p> {{question.option4}} <span></span> </p>
+            <div class="cho-hr">
+                <hr>
+            </div>
+        </div>
+        <p class="correct_answr">الاجابة الصحيحة  : <span>{{question.correct}}</span></p>
+        
+
+    </h3>
+    <div class="edit-quee">
+        <button hx-get="{% url 'update_question' question.id %}" hx-swap="outerHTML"
+            class="btn_update_question"> تعديل السؤال
+            <i class="fas fa-pen"></i> 
+        </button>
+        <button hx-post="{% url 'delete_question' question.id %}" hx-swap="outerHTML swap:1s"
+            class="btn_delete_question"> حذف السؤال
+            <i class="fal fa-times"></i>
+            
+        </button>
+    </div><br>
+    
+
+</div>  

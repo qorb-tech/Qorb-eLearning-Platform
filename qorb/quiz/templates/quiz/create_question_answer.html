@@ -1,0 +1,104 @@
+{% extends "quiz/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title> تعديل الاختبار</title>
+{% endblock title %}
+
+{% block custum_imports %}
+
+{% endblock custum_imports %}
+
+{% block content %}
+<!-----------------1------------------->
+
+           <div class="col-10">
+               <div class="details ">
+
+                <div class="headofcontent">
+                    <img class= "hea1" src="{% static 'images/teacher/Group 15498.png' %}" alt="">
+                    <h4 class="hea2">ذكاء صناعى -اختبار 1 </h4>
+                </div>
+                <div class="ll">
+                    <hr>
+                </div>
+            
+                
+                
+                    
+                    <div class="question_add">
+                        <button type="button" hx-get="{% url 'create_question_form' %}" hx-target="#bookforms" hx-swap="beforeend"
+                            class="">
+                            <i class="far fa-plus-circle"></i> اضافة سؤال
+                        </button>
+                    
+                    </div>
+                <div id="bookforms" class="py-5 mt-5"></div>
+                
+            {% for question in questions %}  
+                <div class="lkj">
+                 {% include "quiz/partials/quiz_detail.html" %}
+                </div>
+             {% endfor %}
+             
+             <div class="BTT" >
+             <button class="btn1"><a href="{% url 'quizzes' %}"><b> <i class="fas fa-angle-double-left"></i> الرجوع الى الاختبارات</b></a></button>
+            </div>
+
+ </div>
+</div>
+</section>
+
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+</script>
+ 
+<!--------------------------active_base_bar----------->
+<script>
+    var profile_features = document.getElementById("profile_features");
+     var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+      var image1 = document.getElementById("image1");
+      var image2 = document.getElementById("image2");
+      var image3 = document.getElementById("image3");
+      var image5 = document.getElementById("image5");
+     for (var i = 0; i < profile_feature_active.length; i++) {
+         var current = profile_features.getElementsByClassName("activee");
+         // If there's no active class
+         if (current.length > 0) {
+           current[0].className = current[0].className.replace(" activee", "");
+           image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
+         }
+           profile_feature_active[4].classList.add("activee")
+           image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+           console.log("dashboard_teacher")
+     } 
+     //-------- hover-base-bar------------- 
+        function hoverr1(){
+        image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+        }
+        function without_hover1(){
+        image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+        }
+        //---hover account
+        function hoverr2(){
+        image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+        }
+        function without_hover2(){
+        image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'  %}";
+        }
+        //----hover-courses
+        function hoverr3(){
+         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ; 
+        }
+        function without_hover3(){
+         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}"; 
+        }
+     </script>
+     <!--------------------------active_base_bar----------->
+
+</body>
+</html>
+{% endblock %}
+

@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script defer src="/your-path-to-fontawesome/js/all.js"></script> 
+        <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/sign-up.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
+        {% block custum_imports %}{% endblock custum_imports %}
+        {% block title %}{% endblock title %}
+    </head>
+
+    <body>
+        
+        <nav class="navigation">
+            <div class="row nav_ull"> 
+              <div class="nav_ul">
+                  <ul>
+                      <div class="right">
+                          <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                          <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+                      </div>
+                  </ul>
+                </div>
+                <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
+            </div>
+      </nav>
+        <section>
+            <div class="dashboard">
+                 <div class="row">
+                      <!-------------------profile--------->
+                      <div class="col-2">
+                        <div class="profile">
+                          <div class="pofile_pic">
+                              <img class="MPC" src="{{ user.profile.teacher.avatar.url }}" alt="" style="border-radius: 50%;">
+                                 {% if user_profile.full_name %}
+                                      <p class ="p2"> {{user_profile.full_name}} </p>
+                                      <p class="student"> معلم </p>
+                                   {% else %}
+                                      <p class ="p2"> {{user_profile.user}} </p>
+                                      <p class="student"> معلم </p>
+                                  {% endif %}
+                                  
+                           </div>
+                           <!-------------------profile picture--------->
+                           <div class="profile_features" id="profile_features">
+                            <div class="profile_feature" onmouseover=" hoverr1()" onmouseout="without_hover1()"><a href="{% url 'teacher_dashboard' %}"> الصفحة الرئيسية<img id="image1" src="{% static 'images/icons/dashboard/main page.svg'  %}" width="30px" height="20px"></a></div>
+                            <div class="profile_feature" onmouseover=" hoverr2()" onmouseout="without_hove2()"><a href="/teacher/profile-info">الملف الشخصي<i class="fas fa-user-circle"></i></a></div>
+                            <div class="profile_feature" onmouseover=" hoverr3()" onmouseout="without_hover3()"><a href="{% url 'courses' %}">المقررات الدراسية<img id="image3" src="{% static 'images/icons/dashboard/Group 186.svg' %}" width="30px" height="20px" ></a></div>
+                            <div class="profile_feature" ><a href="#">التقارير<img src="{% static 'images/icons/dashboard/reports.svg' %}" width="30px" height="20px"></a></div>
+                            <div class="profile_feature" onmouseover=" hoverr5()" onmouseout="without_hover5()"><a href="{% url 'quizzes' %}">اختبارات<img id="image5" src="{% static 'images/icons/dashboard/exams.svg' %}" width="30px" height="20px"></a></div>
+                            <div class="profile_feature "><a href="#">مقترحات<img src="{% static 'images/icons/dashboard/ideas.svg' %}" width="30px" height="20px"></a></div>
+                        </div>
+                        </div>
+                     </div>
+                    <!-- <div class="col-10"> -->
+                        {% block content %}{% endblock content %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+    </body>
+</html>

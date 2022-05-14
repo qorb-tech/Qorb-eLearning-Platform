@@ -1,0 +1,298 @@
+/* head of content*/
+:root {
+  --seven-color: #f9f9f9;
+  --forth-color: #48597f;
+  --btn-color: #c35241;
+  --line-color:#cccccc;
+}
+  .pofile_pic {
+    padding-top: 10%;
+  }
+  .profile .p2{
+    padding-top: 3%;
+    font-weight: bold;
+  }
+  .details{
+    /*  padding-right: 50px;*/
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .col-6{
+      direction: rtl;
+  }
+  /*---------head of page----------*/
+.headofcontent, .tc {
+  display: flex;
+  direction: rtl;
+  justify-content: center;
+  padding: 20px 0;
+}
+.headofcontent h4 {
+  padding-right: 25px;
+  font-size: 30px;
+  color: var(--btn-color);
+}
+.hea1{
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+.tc h4{
+    color: var(--btn-color);
+    font-size: 18px;
+}
+/* ------------------------------ */
+.cont-buttons {
+  display: flex;
+  background-color: var(--seven-color);
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+.cont-buttons button{
+    border-radius: 20px;
+    background-color: white; 
+}
+.cont-buttons button a{
+    display: inline-block;
+     padding: 10px 80px;
+     border-radius: 10px;
+     background-color: white; 
+     color: var(--btn-color);
+     
+ }
+.cont-buttons .ct2 button a{
+  padding: 11px 110px;
+  border-radius: 10px;
+}
+.cont-buttons .ct1 button a{
+    padding: 12px 85px;
+    border-radius: 10px;
+  }
+.conyt{
+    display: flex;
+    direction: rtl;
+}
+.conyt i{
+    font-size: 15px;
+}
+.conty1{
+    padding-left: 5px;
+    font-size: 15px;
+}
+.cont-buttons button:hover a ,
+.cont-buttons button a:focus  ,
+.cont-buttons .active 
+ {
+    background-color: var(--btn-color);
+    color: var(--primary-color);
+  }
+/*lines*/
+.ll{
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-top: 10px;
+    /*padding-bottom: 90px;*/
+}
+.ll1{
+    padding-right: 90px;
+    padding-left: 85px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*padding-bottom: 90px;*/
+}
+.ll hr{
+        border-top: 1px solid var(--line-color);   
+}
+.ll1 hr{
+    border-top: 1px solid var(--line-color);   
+}
+.ct,
+.ct2{
+    padding-left: 20px;
+}
+/*lectures*/
+.l1 p{
+    text-decoration-line: underline;
+    color: var(--forth-color);
+    font-weight: 700;
+    font-size: 17px;
+    padding-right:90px;
+}
+.twoim i{
+    color: var(--forth-color);
+    font-size: 17px;
+    
+}
+.twoim{
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 90px;
+}
+.twoim2{
+    padding-right: 30px;
+}
+/*-------------------buttons--------------*/
+.bll{
+    display: flex;
+    padding-top: 20px;
+    padding-left: 30%;
+}
+.lb{
+    display: flex; 
+}
+.bll button{
+    border-radius: 60px;
+    background-color: white;
+}
+.bll button a{
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 60px;
+    background-color: white; 
+    color: var(--btn-color);
+    border: 1px var(--btn-color) solid;  
+}
+.bll .l button a{
+    background-color: var(--btn-color);
+    color: white;
+}
+.bll button:hover a {
+    background-color: var(--btn-color);
+    color: var(--primary-color);
+}
+.bll .l button:hover a {
+    background-color: var(--primary-color);
+    color: var(--btn-color);
+}
+.l3{
+    padding-left: 10px;
+    font-size: 15px;
+}
+.lb i{
+    font-size: 15px;
+}
+.ix{
+    padding-top: 3px;
+}
+
+.ltt{
+    padding-right: 5%;
+}
+.ltt .lb{
+    padding-right: 35px;
+    padding-left: 35px;
+}
+/**********************lecs_js****************/
+#lecs_js{
+    display: block;
+}
+/******************************reports*********/
+#reports{
+    display: none;
+}
+/**********************st_list********/
+#st_list{
+      display: none;
+}
+/******************add_lec*******/
+.add_lec{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    background-color: var(--btn-color);
+    /* height: 500px; */
+    padding: 30px;
+    direction: rtl;
+    color: var(--primary-color);
+    border-radius: 35px;
+}
+.add_lec h4{
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 20px;
+}
+.lec_input_name input{
+    width: 50%;
+    height:35px;
+    border-radius: 20px;
+    background-color: #D38175;
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+.add_lec_btns {
+    margin: 10px;
+    text-align: center;
+}
+.add_lec_btns .btn_lec1 a{
+    margin-right: 20px;
+   padding: 10px 50px;
+}
+
+/*********radion-button*******/
+.radio-item {
+    display: inline-block;
+    position: relative;
+    padding: 0 6px;
+    margin: 20px 5px;
+  }
+  
+.radio-item input[type='radio'] {
+    display: none;
+  }
+  
+  .radio-item label {
+    color: var(--primary-color);
+    font-weight: normal;
+    
+  }
+  .radio-item label:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 5px 0 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 11px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+  }
+  .radio-item input[type=radio]:checked + label:after {
+    border-radius: 11px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 17px;
+    right: 14px;
+    content: " ";
+    display: block;
+    background: var(--primary-color);
+  }
+
+  .lec_input_name input[type=radio]:checked + label:after {
+    top: 14px;
+    right: 14px; 
+  }
+#pop_up_lec{
+    display: none;
+}
+#pop_up_report {
+    display: none;
+}
+#pop_up_std {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+

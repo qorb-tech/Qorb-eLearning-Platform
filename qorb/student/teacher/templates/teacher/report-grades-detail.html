@@ -1,0 +1,23 @@
+
+  <h1>تقييم تقرير الطالب</h1>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    
+    {{ form.grade }}
+    <br>
+    {{form.teacher_notes}}
+    <br>
+    {{form.deadline}}
+    <br>
+    {% if report_grades.report_file %}
+      <button class="btn2"><a  href="{{report_grades.report_file.url}}"><i class="fas fa-pen"></i>ملف التقرير للطالب</a></button>
+        
+        {% else %}
+      <p>لم يقوم الطالب برفع التقرير</p>
+    {% endif %}
+    <br>
+    
+
+    <input type="submit" value="Submit">
+ </form>
