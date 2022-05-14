@@ -2,7 +2,7 @@ function activateTimer(val){
     const timerValue = val * 60;
         
            let time = localStorage.getItem('saved_timer');
-           if(time == "NaN") {
+           if(time == null) {
                const saved_timer = new Date().getTime() + (timerValue * 1000);
                localStorage.setItem('saved_timer', saved_timer);
                time = saved_timer;
