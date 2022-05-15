@@ -1,9 +1,9 @@
 $(document).on('submit','#contact-form',function(e){
     e.preventDefault();
-    
+
     $.ajax({
         type: "POST",
-       
+
         url: "contact/",
         data: {
             name :$('#name').val(),
@@ -14,8 +14,8 @@ $(document).on('submit','#contact-form',function(e){
         },
         success: function(response)
         {
-            alert(response.msg) 
+            alert(response.msg)
         },
-        
+
     });
 });

@@ -20,8 +20,8 @@ function course_lec() {
     btn_std.classList.remove("active");
     imagee1.src = "{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg' %}" ;
     console.log("done")
-      
-} 
+
+}
 
 function report() {
     course_lecs.style.display="none";
@@ -67,11 +67,11 @@ function cancel_new_lecture() {
 function add_report() {
     btn_report.classList.add("active");
     new_report.style.display ="block";
-    
+
 }
 function cancel_report() {
     new_report.style.display ="none";
-   
+
 }
 
 /*****************************add_std***************/

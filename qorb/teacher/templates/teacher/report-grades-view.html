@@ -16,7 +16,7 @@
   <div class="reports">
       <h1>التقارير <img src="{% static 'images/teacher/Group 185.png' %}" width="24px"></a></h1>
         <div class="report">
-          
+
             <h1>قيد التقييم</h1>
             <div class="row report_details">
                 <div class="report_detail">اسم الطالب</div>
@@ -26,10 +26,10 @@
                 <div class="report_detail">تقييم</div>
             </div>
 
-          
-              
 
-           
+
+
+
             {% for student in report_grades %}
             {% if student.done == False %}
            <div class="row report_details">
@@ -44,9 +44,9 @@
                {% endif %}
                <div class="color1 grades">
                    <div class="row grade">
-                     
+
                     <a href="{% url 'report-grades-detail' student.id %}">[ تقييم الطالب]</a>
-                       
+
                    </div>
                </div>
            </div>
@@ -55,7 +55,7 @@
 
         </div>
 
-        
+
         <!---------------------تم التقييم---------->
         <div class="report">
            <h1>تم تقييمها</h1>
@@ -68,7 +68,7 @@
            </div>
 
            {% for student in report_grades %}
-           
+
             {% if student.done == True %}
           <div class="row report_details">
             <div class="color1">{{ student.student }}</div>
@@ -86,9 +86,9 @@
           </div>
           {% endif %}
            {% endfor %}
-          
-            
-          
+
+
+
        </div>
   </div>
 </div>

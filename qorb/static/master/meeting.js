@@ -28,9 +28,9 @@ function toggle_chat(){
     else{
         meting_full.style.display ="flex";
         all_chat.style.display ="block";
-        
+
     }
-    
+
 }
 
 var video_streams = document.getElementById("video-streams")

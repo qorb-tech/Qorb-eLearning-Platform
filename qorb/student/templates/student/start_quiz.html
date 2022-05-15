@@ -18,12 +18,12 @@
                 <!-------------------details--------->
                 <div class="col-10">
                   <div class="details ">
-   
+
                    <div class="headofcontent">
                        <img class= "hea1" src="{% static 'images/teacher/Group 15498.png' %}" alt="">
                        <h4 class="hea2">{{quiz.course}} -{{quiz.quiz.name}} </h4>
                        <h4 class="hea2" id="timerBox"></h4>
-                     
+
                    </div>
                    <div class="ll">
                        <hr>
@@ -31,9 +31,9 @@
                    <form action="" method="post" id="quizSubmitForm">
                     {% csrf_token %}
                    <div class="quize_questions" id="quiz_questions">
-               
+
                        {% for question in questions %}
-                      <div class="lkj"> 
+                      <div class="lkj">
                            <div class="question">
                                    <div class="numm">
                                        <p class="num1">{{ forloop.counter }}</p>
@@ -48,7 +48,7 @@
                                 <label for="rad1{{ forloop.counter }}">{{question.option1}} </label>
                             </div>
                         </div>
-                          
+
                       <div class="choose">
                         <div class="radio-item">
                           <input type="radio"  id="rad2{{ forloop.counter }}" name="answer{{ forloop.counter }}"  value="b">
@@ -75,37 +75,37 @@
                           </label>
                         </div>
                       </div>
-                          </div> 
-                       
+                          </div>
+
                        {% endfor %}
-                       
+
                        <input type="button" name="SubmitButton" value="انهاء الاختبار" id="submitButton">
-                      
+
                        <div class="nums_question" id="nums_q">
                            {% for question in questions %}
                            <div class="num_q">{{ forloop.counter }}</div>
                            {% endfor %}
-                           
+
                        </div>
-   
+
                    </div>
-                 
+
               </form>
                    <div class="quize_btn">
                        <button class="btn_prev" id="prev"> <i class="far fa-angle-right"></i>السابق</button>
                        <button class="btn_next" id="next">التالي <i class="far fa-angle-left"></i></button>
-                      
+
                    </div>
                    <div class="ll">
                        <hr>
                    </div>
-                   
-              
+
+
            </div>
-           
+
          </div>
     </div>
-              
+
                </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
         let val = {{quiz_time}}
         activateTimer(val);
     </script>
-       
+
 </body>
 </html>
 {% endblock content %}

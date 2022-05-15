@@ -7,7 +7,7 @@
 {% endblock title %}
 
 {% block custum_imports %}
-    
+
 {% endblock custum_imports %}
 
 {% block content %}
@@ -31,19 +31,19 @@
                       </div>
                       {{profile_form.avatar}}
                       <button type="button" id="custom-button"> <img src="{% static 'images/icons/profile/up-image.svg' %}" alt="">رفع الصورة</button>
-                      
-                      
+
+
 
 
                     </div>
 
                 <div class="details_tech">
-                    
+
                          <div class="block">
                             <label for="username_">اسم المستخدم</label>
                             {{user_form.username}}
                          </div>
-                         
+
                          <div class="block">
                             <label for="name_">الاسم</label>
                             {{profile_form.full_name}}
@@ -59,21 +59,21 @@
                             {{user_form.email}}
                          </div>
 
-                        
-                         
-                     
-                         
-                         <div class="modified_btn">
-                            <button class="white_btn"><a href="profile-info"><i class="fal fa-times"></i> الغاء التعديلات</a></button> 
-                            <button class="btn1" type="submit" ><a > <i class="fas fa-save"></i> حفظ التعديلات</a></button>
-                                       </div>  
-                            </div> 
 
-                         
+
+
+
+                         <div class="modified_btn">
+                            <button class="white_btn"><a href="profile-info"><i class="fal fa-times"></i> الغاء التعديلات</a></button>
+                            <button class="btn1" type="submit" ><a > <i class="fas fa-save"></i> حفظ التعديلات</a></button>
+                                       </div>
+                            </div>
+
+
                      </form>
                  </div>
              </div>
-              
+
                </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
              profile_feature_active[1].classList.add("activee")
              console.log("dashboard_teacher");
              image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
-       } 
+       }
        //----hover-basebar-------
         function hoverr1(){
         image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
@@ -124,25 +124,25 @@
         }
         //----hover-courses
         function hoverr3(){
-         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ; 
+         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
         }
         function without_hover3(){
-         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}"; 
+         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
         }
         //---hover exams
         function hoverr5(){
          image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
         }
         function without_hover5(){
-        image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ; 
+        image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
         }
         //-----end of hover
        </script>
-       <!--------------------------active_base_bar-----------> 
+       <!--------------------------active_base_bar----------->
     <script type="text/javascript">
         const realFileBtn = document.getElementById("id_posti");
         const customBtn = document.getElementById("custom-button");
-    
+
         customBtn.addEventListener("click", function() {
             realFileBtn.click();
         });
@@ -153,7 +153,7 @@
             image.src = URL.createObjectURL(event.target.files[0]);
         };
         </script>
-        
+
 
 </html>
 {% endblock content %}

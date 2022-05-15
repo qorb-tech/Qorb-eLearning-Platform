@@ -5,26 +5,26 @@
         <div class=" det-spc">
             <div class="option_question option-quespe">
                 {{ form.question }} <label>&emsp;  &emsp;السؤال</label>
-            </div>  
-            <div class="option_question">
-                {{ form.option1 }}<label>الاختيار الاول</label> 
             </div>
             <div class="option_question">
-                {{ form.option2 }}<label>الاختيار الثانى</label> 
+                {{ form.option1 }}<label>الاختيار الاول</label>
             </div>
             <div class="option_question">
-                {{ form.option3 }}<label>الاختيار التالت</label> 
+                {{ form.option2 }}<label>الاختيار الثانى</label>
             </div>
             <div class="option_question">
-                {{ form.option4 }}<label>الاختيار الرابع</label> 
+                {{ form.option3 }}<label>الاختيار التالت</label>
+            </div>
+            <div class="option_question">
+                {{ form.option4 }}<label>الاختيار الرابع</label>
             </div>
 
         </div>
-        
+
         <div class="option_question option-quespe">
-            {{ form.correct }}<label>الاجابة الصحيحه</label> 
+            {{ form.correct }}<label>الاجابة الصحيحه</label>
         </div>
-         
+
         {% if msg %}
             <h1 style="color:red">{{ msg }} </h1>
         {% endif %}
@@ -43,10 +43,10 @@
             class="question_add">
             اضافة السؤال
         </button>
-        
+
 
     </div>
-    
+
         {% endif %}
     </form>
 </div>

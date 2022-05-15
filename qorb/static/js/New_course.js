@@ -9,5 +9,5 @@ function new_course() {
 function canel_new_course() {
     Ncontnt.style.display ="none";
     coursess.style.display = "block";
-    
+
 }

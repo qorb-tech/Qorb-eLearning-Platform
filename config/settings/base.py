@@ -84,38 +84,29 @@ WSGI_APPLICATION = "config.wsgi.application"
 # ]
 
 
-
-
-
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'django.forms',
-
-
-    # local apps 
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.humanize",
+    "django.forms",
+    # local apps
     "qorb.accounts.apps.AccountsConfig",
     "qorb.teacher.apps.TeacherConfig",
     "qorb.student.apps.StudentConfig",
     "qorb.adminDashboard",
     "qorb.quiz.apps.QuizConfig",
     "qorb.meeting.apps.MeetingConfig",
-
     # 3rd party apps
-    'imagekit',
-    'django_cleanup.apps.CleanupConfig',
-    'django_filters',
+    "imagekit",
+    "django_cleanup.apps.CleanupConfig",
+    "django_filters",
     "crispy_forms",
     "crispy_tailwind",
-    'corsheaders',
-     
-
-
+    "corsheaders",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 # INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -134,7 +125,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 # AUTH_USER_MODEL = "users.User"
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = "accounts.User"
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
 # LOGIN_REDIRECT_URL = "users:redirect"
@@ -176,8 +167,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'config.current_user.CurrentUserMiddleware',
-
+    "config.current_user.CurrentUserMiddleware",
 ]
 
 # STATIC
@@ -200,10 +190,6 @@ STATICFILES_FINDERS = [
 MEDIA_ROOT = str(APPS_DIR / "media")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
-
-
-
-
 
 
 # TEMPLATES
@@ -248,7 +234,7 @@ TEMPLATES = [
 #             ],
 #         },
 #     },
-    
+
 # ]
 
 
@@ -259,12 +245,12 @@ FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 # CRISPY_TEMPLATE_PACK = "bootstrap5"
 # CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 # ADDED FRORM SRC PROJECT -----------------------------------!!!!!!!!!!!!!!!
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "login"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
-SECRET_KEY = 'django-insecure-^=#h(a@@0m)lhf+&k15m$xq4wvr92m*!d5__h0e3(zm)jiio4#'
-GOOGLE_RECAPTCHA_SECRET_KEY = '6LfszWMeAAAAABmobDa2QPSZ6Xxu3_wQvyFcfMAy'
+SECRET_KEY = "django-insecure-^=#h(a@@0m)lhf+&k15m$xq4wvr92m*!d5__h0e3(zm)jiio4#"
+GOOGLE_RECAPTCHA_SECRET_KEY = "6LfszWMeAAAAABmobDa2QPSZ6Xxu3_wQvyFcfMAy"
 
 
 # FIXTURES
@@ -338,9 +324,6 @@ LOGGING = {
 # ACCOUNT_EMAIL_REQUIRED = True
 # # https://django-allauth.readthedocs.io/en/latest/configuration.html
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-
-
-
 
 
 # https://django-allauth.readthedocs.io/en/latest/configuration.html

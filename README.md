@@ -14,6 +14,9 @@ technologies as Real Time Arabic Sign Language Translator, Facial Expression Rec
 ##### For Linux :
 
 ```
+$. git clone https://github.com/qorb-tech/Qorb-eLearning-Platform
+$. pip install pre-commit
+$. pre-commit install
 $. make build
 $. make up
 
@@ -21,6 +24,9 @@ $. make up
 ##### For Windows :
 
 ```
+$. git clone https://github.com/qorb-tech/Qorb-eLearning-Platform
+$. pip install pre-commit
+$. pre-commit install
 $. docker-compose -f local.yml build
 $. docker-compose -f local.yml up
 
@@ -44,4 +50,3 @@ http://0.0.0.0:8000/
 ![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/teacher_dashboard.gif)
 #### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Student Dashboard
 ![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/student_dashboard.gif)
-

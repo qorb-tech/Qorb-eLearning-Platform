@@ -11,7 +11,7 @@ function lec_cont(){
     lecs_js.style.display ="block";
     imagee1.src = "{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg' %}" ;
 }
-/*********************reports*********/ 
+/*********************reports*********/
 function report() {
     st_lst.style.display ="none";
     lecs_js.style.display ="none";
@@ -27,7 +27,7 @@ function st_list(){
     st_lst.style.display ="block";
     bt_cont.classList.remove("active");
     console.log("done");
-   
+
 }
 
 /******************************pop-up****************/
@@ -37,7 +37,7 @@ pop_up_std = document.getElementById("pop_up_std");
 /********************add_lecture ************/
 function add_lecture() {
     pop_up_lec.style.display ="block";
-    
+
 }
 function cancel_lec() {
     pop_up_lec.style.display ="none";
@@ -47,11 +47,11 @@ function cancel_lec() {
 /********************add_report ************/
 function add_report() {
     pop_up_report.style.display ="block";
-   
+
 }
 function cancel_report() {
     pop_up_report.style.display ="none";
-   
+
 }
 
 /*****************************add_std***************/

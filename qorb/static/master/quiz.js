@@ -45,11 +45,11 @@ function prevquestion() {
 }
 
 function theChecker() {
-  
+
   removeAllActive();
-  
+
   q_nums[current_qestion - 1].classList.add('active1');
- 
+
   nums_q.children[current_qestion - 1].classList.add('active2');
 }
 

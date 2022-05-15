@@ -33,10 +33,10 @@
                             <label>اسم المستخدم</label>
                             <div>  {{user_profile.user}} </div>
                          </div>
-                         
+
                          <div class="block">
                             <label > العمر </label>
-                            <div> 
+                            <div>
                                 {{user_profile.age}}
                             </div>
                          </div>
@@ -48,16 +48,16 @@
                             <label>الوظيفة</label>
                             <div>معلم</div>
                          </div>
-                         
+
                      </form>
                  </div>
              </div>
              <div class="modified_btn">
                 <button class="btn2 ch-pass"><a href="reset-password"><i class="fas fa-pen"></i> تغيير كلمة المرور</a></button>
                 <button class="btn1"><a href="update-profile"><i class="fas fa-pen"></i>تعديل بيانات الحساب</a></button>
-               
-            </div>  
-                </div>  
+
+            </div>
+                </div>
                </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
              profile_feature_active[1].classList.add("activee")
              console.log("dashboard_teacher");
              image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
-       } 
+       }
        //----hover-basebar-------
         function hoverr1(){
         image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
@@ -90,22 +90,22 @@
         }
         //----hover-courses
         function hoverr3(){
-         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ; 
+         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
         }
         function without_hover3(){
-         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}"; 
+         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
         }
         //---hover exams
         function hoverr5(){
          image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
         }
         function without_hover5(){
-        image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ; 
+        image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
         }
         //-----end of hover
        </script>
-       <!--------------------------active_base_bar-----------> 
-       
+       <!--------------------------active_base_bar----------->
+
 </body>
 </html>
 {% endblock content %}

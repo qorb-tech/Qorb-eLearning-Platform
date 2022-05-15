@@ -9,12 +9,12 @@
 {% block content %}
   <form method="post" action=""  id="new_exam">
     <h4>اختبار جديد</h4>
-    
+
     {% csrf_token %}
     <div class="create_quiz name-q">
       {{form.name}}<label>اسم الاختبار</label>
     </div>
-    
+
     <div  class="create_quiz" id="list">
       {{form.course}} <label>المقرر الدراسى</label>
     </div>
@@ -24,8 +24,8 @@
     <div class="create_quiz no_q">
       {{form.time}} <label>وقت الاختبار</label>
     </div>
-    
-    
+
+
 
     <div class="modified_btn quiz_btn">
       <button class="btn1 quiz1"><a href="{% url 'quizzes' %}"><b>الغاء</b></a></button>
@@ -37,5 +37,5 @@
     <p><a href="{% url 'quizzes' %}"><b>Return to quizzes</b></a></p> -->
 
   </form>
-  
+
 {% endblock %}
