@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="icon" href="{% static 'images/logo colored1.png' %}" type="image/icon type">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-    
+
+
 
 
     <title>Qorb قرب</title>
@@ -27,7 +27,7 @@
                     <div onclick="nav_active()">
                         <i class="fas fa-bars"></i>
                       </div>
-                      <div class="row nav_ull"> 
+                      <div class="row nav_ull">
                         <div class="nav_ul" id="menu">
                             <ul>
                                 <div class="right">
@@ -40,12 +40,12 @@
                                 </div>
                                 <div class="left">
                                  <li><a href="#من نحن">من نحن؟</a></li>
-                                 <li><a href="#المحتوى العلمى ">المحتوي العلمي</a></li> 
+                                 <li><a href="#المحتوى العلمى ">المحتوي العلمي</a></li>
                                  <li><a href="#تواصل معنا">تواصل معنا</a></li>
                                 </div>
                             </ul>
                           </div>
-                          <div> 
+                          <div>
                             <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
                           </div>
                       </div>
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
     </section>
 
@@ -117,19 +117,19 @@
                 <div class="balon">
                 </div>
                 <div class="cont">
-                    
+
                     <div class="bg">
                         <h1>من نحن؟</h1>
                     </div>
                     <div class="whose">
                         <p>
-                            قرب هي منصة تعليمية ألكترونية عربية تم تأسيسها من قبل فريق مكون من مجموعة طلبة من كلية هندسة جامعة المنصورة 
+                            قرب هي منصة تعليمية ألكترونية عربية تم تأسيسها من قبل فريق مكون من مجموعة طلبة من كلية هندسة جامعة المنصورة
                             <br>
                             ولايماننا بأهمية التعليم وما له من أثر في تخسين فكر المجتمعات والأفراد
                             <br>
-                            خرصنا على بذل كافة الجهودوالمساعي للمساهمة في تطوير التعليم الالكتروني 
+                            خرصنا على بذل كافة الجهودوالمساعي للمساهمة في تطوير التعليم الالكتروني
                         </p>
-    
+
                         <button class="btn"><a href="who_are_we.html"> معرفة المزيد</a></button>
                     </div>
                 </div>
@@ -147,24 +147,24 @@
         <div class="balon">
         </div>
         <div class="container">
-            
+
             <div class="bg">
                 <h1> المحتوي العلمي</h1>
              </div>
-             
+
           <h2>أهم ما يميز منصة قرب</h2>
-  
+
           <ul>
-          
+
               <li class="list-icon">توفير بيئة تعليمية تناسب طلاب "الصم والبكم " حيث تسهل عليهم التعلم
-                  
+
               </li>
               <li style="padding-right: 35px;">
-                  والتواصل والتفاعل مباشر في الوقت الخالي خلال المنصات التعليمية الالكترونية بلغة الاشارة 
+                  والتواصل والتفاعل مباشر في الوقت الخالي خلال المنصات التعليمية الالكترونية بلغة الاشارة
                   <br>العربية بشكل طبيعي
-                    
+
               </li>
-              
+
               <li class="list-icon">توفير نظام لمعرفة تعابير الوده ومدى رضا الطلبة عن المحاضرة ومستوى تركيزهم</li>
               <li class="list-icon"> توفير نظام ليرشح مجموعة كورسات مختلفة للطلبة حسب مجال دراستهم</li>
           </ul>
@@ -197,7 +197,7 @@
                           <i class="fab fa-twitter"></i>
                       </a>
                      </div>
-                     
+
                       <div class="icon1 iconn">
                       <a href="#" class="social-icon">
                           <i class="fab fa-linkedin-in"></i>
@@ -210,13 +210,13 @@
                   </div>
               </div>
             </div>
-              
-          
+
+
         <!-- </div> -->
     <div>
         <form   action="/" method="POST">
             {% csrf_token %}
-           
+
             <div class="inputt">
                 <div class="input-t">
                     {{form.name}}
@@ -225,7 +225,7 @@
                     {{form.email}}
                 </div>
           </div>
-           
+
           <div class="inputtt">
             {{form.desc}}
           </div>
@@ -236,9 +236,9 @@
             <div id="output">
             </div>
             </div>
-         </form>  
+         </form>
      </div>
-          
+
 
 
       </div>
@@ -249,8 +249,8 @@
       </div>
     </div>
 </footer>
-    
-        <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>   
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{% static 'js/ajax.js' %}"></script>
         <script src="{% static 'js/home.js' %}"></script>
 

@@ -9,14 +9,12 @@ function available_exam() {
     finish_exams.style.display="none";
     available_exams.style.display="block";
     console.log("done")
-} 
+}
 
 function finish_exam() {
-    
+
     available_exams.style.display="none";
     finish_exams.style.display="block";
     exams_btn.classList.remove("active");
     console.log("done")
 }
-
-

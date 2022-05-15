@@ -8,13 +8,12 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('qorb.accounts.urls')),
-    path('student/', include("qorb.student.urls")), 
-    path('teacher/', include('qorb.teacher.urls')), 
-    path('quiz/', include('qorb.quiz.urls')),
-    path('', include('qorb.meeting.urls')),
-    
+    path("admin/", admin.site.urls),
+    path("", include("qorb.accounts.urls")),
+    path("student/", include("qorb.student.urls")),
+    path("teacher/", include("qorb.teacher.urls")),
+    path("quiz/", include("qorb.quiz.urls")),
+    path("", include("qorb.meeting.urls")),
 ]
 
 

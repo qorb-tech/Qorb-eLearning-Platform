@@ -12,7 +12,7 @@
 .radio-item label {
     color: #656565;
     font-weight: normal;
-    
+
   }
   .radio-item{
     display: inline-block;
@@ -92,13 +92,13 @@
     /*padding-bottom: 90px;*/
 }
 .ll2 hr{
-    border-top: 1px solid var(--line-color);   
+    border-top: 1px solid var(--line-color);
 }
   .choose p{
           color: #999999;
           padding-top: 8px;
           font-size: 17px;
-  } 
+  }
    .lkj {
        display: none;
       flex-basis: 80%;
@@ -117,7 +117,7 @@
   }
   .quize_btn button a{
       display: block;
-      
+
   }
   .quize_btn .btn_next,
   .quize_btn .btn_prev
@@ -141,7 +141,7 @@
         position: absolute;
         right: 25px;
     }
-   
+
 
   /**************************nums_question************/
   .quize_questions{
@@ -173,10 +173,10 @@
     width: 40px;
    background-color: #999999;
     border-radius: 10px;
-    
+
   }
   .nums_question .num_q:hover ,
-  .nums_question .num_q:focus 
+  .nums_question .num_q:focus
   {
       background-color: var(--btn-color);
   }
@@ -219,7 +219,7 @@
     }
     .nums_question{
        flex-basis: 60%;
-       
+
     }
   }
   @media (max-width:840px){
@@ -231,15 +231,15 @@
     }
     .nums_question{
        flex-basis: 70%;
-       
+
     }
     .num_q {
         padding: 6px;
         width: 25px;
-       
+
     }
   }
-  
+
   @media (max-width:730px){
     .quize_btn button {
         width: 30%;
@@ -252,9 +252,9 @@
        padding-left: 10px;
     }
     .num_q {
-        
+
         padding: 6px;
         width: 20px;
-       
+
     }
   }

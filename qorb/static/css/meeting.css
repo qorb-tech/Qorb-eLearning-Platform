@@ -8,7 +8,7 @@
     /* height: 100vh; */
 }
 .col-9{
-   
+
     flex-basis: 69.5%;
     /* height: 100vh; */
 }
@@ -24,7 +24,7 @@
 .meeting_details hr{
     margin: 10px 0;
 }
-.meeting_btn 
+.meeting_btn
 {
    display: flex;
    justify-content: center;
@@ -84,7 +84,7 @@ padding: 2px 5px;
 }
 .chat_right .chat_details{
     text-align: right;
-    
+
 }
 /*******************message***************/
 .message{
@@ -99,7 +99,7 @@ padding: 2px 5px;
     background-color: var(--btn-color);
     border-radius: 5px;
     padding: 8px;
-    
+
 }
 .message .txt_area{
     width: 100%;
@@ -112,7 +112,7 @@ padding: 2px 5px;
 }
 .message textarea{
    resize: none;
-   
+
    padding-right: 10px;
    width: 90%;
    outline: none;
@@ -304,7 +304,7 @@ padding: 2px 5px;
     position: relative;
 }
 #camera-btn .fa-horizontal-rule ,
-#camera-btn .activee 
+#camera-btn .activee
 {
     display: none;
     cursor: pointer;

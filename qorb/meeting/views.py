@@ -1,35 +1,37 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+import json
 import random
 import time
-from django.contrib.auth.decorators import login_required
+
 from agora_token_builder import RtcTokenBuilder
-import json
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-# Local imports goes here
-from .models import RoomMember
+
 from qorb.accounts.decorators import allow_user
 
-
+# Local imports goes here
+from .models import RoomMember
 
 
 # Create your views here.
-@login_required(login_url='login_view')
-@allow_user(['is_teacher', 'is_student'])
-def lobby(request,name):
+@login_required(login_url="login_view")
+@allow_user(["is_teacher", "is_student"])
+def lobby(request, name):
     room_name = name
     user_name = request.user
-    context = {'room_name': room_name , 'user_name':user_name}
-    return render(request, 'base/lobby.html',context)
+    context = {"room_name": room_name, "user_name": user_name}
+    return render(request, "base/lobby.html", context)
 
 
 def room(request):
-    return render(request, 'base/room.html')
+    return render(request, "base/room.html")
+
 
 def getToken(request):
     appId = "ea8afd3db07a44eeb9878e48c8295ea6"
     appCertificate = "064e5d3b00404057881f77bd81e3e2f9"
-    channelName = request.GET.get('channel')
+    channelName = request.GET.get("channel")
     uid = random.randint(1, 230)
     expirationTimeInSeconds = 3600
     currentTimeStamp = int(time.time())
@@ -40,42 +42,40 @@ def getToken(request):
     # elif request.user.is_student:
     #     role = 2
 
+    token = RtcTokenBuilder.buildTokenWithUid(
+        appId, appCertificate, channelName, uid, role, privilegeExpiredTs
+    )
 
-    token = RtcTokenBuilder.buildTokenWithUid(appId, appCertificate, channelName, uid, role, privilegeExpiredTs)
-
-    return JsonResponse({'token': token, 'uid': uid}, safe=False)
+    return JsonResponse({"token": token, "uid": uid}, safe=False)
 
 
 @csrf_exempt
 def createMember(request):
     data = json.loads(request.body)
     member, created = RoomMember.objects.get_or_create(
-        name=data['name'],
-        uid=data['UID'],
-        room_name=data['room_name']
+        name=data["name"], uid=data["UID"], room_name=data["room_name"]
     )
 
-    return JsonResponse({'name':data['name']}, safe=False)
+    return JsonResponse({"name": data["name"]}, safe=False)
 
 
 def getMember(request):
-    uid = request.GET.get('UID')
-    room_name = request.GET.get('room_name')
+    uid = request.GET.get("UID")
+    room_name = request.GET.get("room_name")
 
     member = RoomMember.objects.get(
         uid=uid,
         room_name=room_name,
     )
     name = member.name
-    return JsonResponse({'name':member.name}, safe=False)
+    return JsonResponse({"name": member.name}, safe=False)
+
 
 @csrf_exempt
 def deleteMember(request):
     data = json.loads(request.body)
     member = RoomMember.objects.get(
-        name=data['name'],
-        uid=data['UID'],
-        room_name=data['room_name']
+        name=data["name"], uid=data["UID"], room_name=data["room_name"]
     )
     member.delete()
-    return JsonResponse('Member deleted', safe=False)
+    return JsonResponse("Member deleted", safe=False)

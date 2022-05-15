@@ -27,7 +27,7 @@
   <br>
   <form  action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-   
+
     {{ form.report_file }}
     <br>
     {{ form.student_notes }}
@@ -35,6 +35,5 @@
     <button type="submit">Upload</button>
     <br>
  </form>
-  
+
   {%endif%}
-  

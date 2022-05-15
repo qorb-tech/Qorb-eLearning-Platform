@@ -86,8 +86,8 @@
    padding-right: 2px;
   }
   .select-box:after{
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid var(--btn-color);
@@ -118,7 +118,7 @@
   #list *:hover{
       background-color: var(--btn-color);
   }
-  
+
   .select-box::before{
     position: absolute;
     content: "|";
@@ -148,10 +148,9 @@
     color: transparent;
     transition: .2s;
   }
-  
+
   input[type=checkbox]:checked + label:before {
     background-color: var(--btn-color);
     border-color: var(--btn-color);
     color: #fff;
   }
- 

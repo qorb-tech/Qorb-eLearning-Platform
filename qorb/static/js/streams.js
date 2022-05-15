@@ -25,28 +25,28 @@ let joinAndDisplayLocalStream = async () => {
         console.error(error)
         window.open('/', '_self')
     }
-    
+
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks({})
-    
+
     let member = await createMember()
 
     let player = `<div  class="video-container" id="user_container_${UID}">
                      <div class="video-player" id="user-${UID}"></div>
                      <div class="username-wrapper"><span class="user-name">${member.name}</span></div>
                   </div>`
-    
+
     document.getElementById('video-streams').insertAdjacentHTML('beforeend', player)
-    
+
     localTracks[1].play(`user-${UID}`)
     await client.publish([localTracks[0], localTracks[1]])
     //console.log("TEST3"+localTracks[1]);
-    
+
     //console.log(localTracks[1].getCurrentFrameData());
-    
+
     // var c = document.getElementById("myCanvas");
     // var ctx = c.getContext("2d");
     // var imgData = localTracks[1].getCurrentFrameData();
-    
+
     // console.log(imgData);
     //ctx.putImageData(imgData, 1, 2);
     // let myImageData = ctx.createImageData(120, 120);
@@ -54,7 +54,7 @@ let joinAndDisplayLocalStream = async () => {
     //var dataURL = c.toDataURL();
     // console.log(myImageData);
 
-    
+
 }
 
 // function convertCanvasToImage() {
@@ -80,7 +80,7 @@ let joinAndDisplayLocalStream = async () => {
 
 //     // let myImageData = ctx.createImageData(120, 120);
 //     // ctx.putImageData(myImageData, 1, 2);
-    
+
 
 // }
 
@@ -119,7 +119,7 @@ var currentSlide,current_uid,current_member;
 console.log(array_user)
 
 for (var i = 0; i < array_user.length; i++) {
-   
+
     array_user[i].onclick = function () {
         removeAllActive()
         this.classList.add("active");
@@ -127,13 +127,13 @@ for (var i = 0; i < array_user.length; i++) {
       currentSlide = this.getAttribute('id');
       current_uid=parseInt(currentSlide.replace(/[^0-9]/g,''))
       current_member =this.querySelector(".user-name").innerHTML
- 
-    
+
+
         // var html = document.getElementById(`user_container_${current_uid}`).innerHTML;
         // var clone = document.getElementById('zoon_person');
         // clone.innerHTML = html;
-        
-        
+
+
         //document.getElementById('clones').appendChild(clone);
 //   let zoom_user = `<div  class="zoon_person" id="${currentSlide}">
 //     <div class="video-container" id="user_container_${current_uid}"></div>
@@ -142,10 +142,10 @@ for (var i = 0; i < array_user.length; i++) {
 
 // document.getElementById('zoon_person').insertAdjacentHTML('beforeend', zoom_user)
       console.log(currentSlide);
-     
-    
+
+
     }
-    
+
   }
 
   function removeAllActive() {
@@ -200,7 +200,7 @@ let toggleCamera = async (e) => {
     console.log(UID)
     // arr.push(UID)
     // console.log("arr"+arr)
-    
+
     console.log(`user-${UID}`)
     console.log('TOGGLE CAMERA TRIGGERED')
     var user_vedio = document.getElementById(`user-${UID}`)
@@ -212,7 +212,7 @@ let toggleCamera = async (e) => {
         await localTracks[1].setMuted(false)
      //   user_vedio.style.opacity="1";
         // user_vedio.style.display="block";
-        
+
         //e.target.style.backgroundColor = 'blue'
         camera_off[0].style.display="none";
 
@@ -234,7 +234,7 @@ let toggleMic = async (e) => {
         e.target.style.backgroundColor = '#fff'
     }else{
         await localTracks[0].setMuted(true)
-        
+
         e.target.style.backgroundColor = 'rgb(255, 80, 80, 1)'
     }
 }
@@ -245,9 +245,9 @@ var currentSlide,current_uid,current_member;
 console.log(array_user)
 
 for (var i = 0; i < array_user.length; i++) {
-    
+
     array_user[i].onclick = function () {
-  
+
       currentSlide = this.getAttribute('id');
       current_uid= currentSlide.replace(/[^0-9]/g,'')
       current_member =this.querySelector(".user-name").innerHTML
@@ -259,7 +259,7 @@ for (var i = 0; i < array_user.length; i++) {
 
 document.getElementById('zoon_person').insertAdjacentHTML('beforeend', zoom_user)
       console.log(currentSlide);
-     
+
      // removeAllActive();
     }
   }
@@ -267,9 +267,9 @@ document.getElementById('zoon_person').insertAdjacentHTML('beforeend', zoom_user
 //   function removeAllActive() {
 //       for(var i=0; i<zoom_users.length ; i++){
 //         zoom_users[i].classList.remove('zoon_person');
-//       }; 
+//       };
 //   }
-  
+
 let createMember = async () => {
     let response = await fetch('/create_member/', {
         method:'POST',
@@ -308,4 +308,3 @@ document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLoc
 document.getElementById('camera-btn').addEventListener('click', toggleCamera)
 document.getElementById('mic-btn').addEventListener('click', toggleMic)
 // document.getElementById('cap-btn').addEventListener('click', cap)
-

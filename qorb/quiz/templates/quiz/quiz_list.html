@@ -35,7 +35,7 @@
                                                 <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
                                                 <p>{{quiz.name}}</p>
                                                 <button class="btn_exam">
-                                                    <a href="{% url 'create_question' quiz.pk %}"> 
+                                                    <a href="{% url 'create_question' quiz.pk %}">
                                                         افتح الاختبار
                                                     </a>
                                                 </button>
@@ -48,39 +48,39 @@
                                     <hr>
                                 </div>
 
-                                
+
                             <div class="modified_btn open-q">
                                 <button class="btn1" onclick="add_exam()">
                                     <a>
                                         <i class="far fa-plus-circle"></i>اختبار جديد
                                     </a>
                                 </button>
-                            </div>  
-                                
+                            </div>
+
                             </div>
 
                             <!------------------new_exam---------->
                             <form method="post" action=""  id="new_exam">
                                 <h4>اختبار جديد</h4>
-                            
+
                                 {% csrf_token %}
                                 <div class="create_quiz name-q">
                                   {{form.name}}<label>اسم الاختبار</label>
                                 </div>
-                                
+
                                 <div  class="create_quiz ">
                                   {{form.course}} <label>المقرر الدراسى</label>
                                 </div>
-                            
+
                                 <div class="create_quiz no_q">
                                   {{form.number_of_questions}}  <label>عدد الاسئله</label>
                                 </div>
                                 <div class="create_quiz no_q">
                                   {{form.time}} <label>وقت الاختبار</label>
                                 </div>
-                                
-                                
-                            
+
+
+
                                 <div class="modified_btn quiz_btn">
                                   <button class="btn1 quiz1" onclick="cancel_exam()"><b>الغاء</b></button>
                                   <button type="submit"  class="quiz2 white_btn"><b>بدا الاختبار</b></button>
@@ -89,9 +89,9 @@
                                   <b>Create Quiz</b>
                                 </button>
                                 <p><a href="{% url 'quizzes' %}"><b>Return to quizzes</b></a></p> -->
-                            
+
                               </form>
-                        </div> 
+                        </div>
                     </div>
 
                </div>
@@ -116,8 +116,8 @@
            profile_feature_active[4].classList.add("activee")
            image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
            console.log("dashboard_teacher")
-     } 
-     //-------- hover-base-bar------------- 
+     }
+     //-------- hover-base-bar-------------
         function hoverr1(){
         image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
         }
@@ -133,10 +133,10 @@
         }
         //----hover-courses
         function hoverr3(){
-         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ; 
+         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
         }
         function without_hover3(){
-         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}"; 
+         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
         }
      </script>
      <!--------------------------active_base_bar----------->

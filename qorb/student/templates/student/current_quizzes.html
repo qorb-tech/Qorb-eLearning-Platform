@@ -40,9 +40,9 @@
                     </div>
                     {% endif %}
                 {% endfor %}
-                     
-                     
-                     
+
+
+
                  </div>
 
              </div>
@@ -57,17 +57,17 @@
                              <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
                              <p>{{quiz.quiz.name}}</p>
                              <button class="btn_exam"><a >رؤية النتيجة</a> <p>درجة الاختبار: {{quiz.score}} من {{quiz.total_marks}}</p> </button>
-                             
+
 
                         </div>
                     </div>
-                    
+
                     {% endif %}
-                {% endfor %}   
+                {% endfor %}
                  </div>
-  
+
              </div>
-         </div> 
+         </div>
      </div>
 
 </div>
@@ -81,7 +81,7 @@ var btns = document.getElementsByClassName("btn_exam");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
     var current = document.getElementsByClassName("activee");
- 
+
     if (current.length > 0) {
       current[0].className = current[0].className.replace(" activee", "");
     }

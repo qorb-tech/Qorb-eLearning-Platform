@@ -14,7 +14,7 @@
     font-size: 22px ;
     padding-right: 15px;
     padding-top: 0px;
-  
+
 }
 .hea3{
     width: 20px;
@@ -29,7 +29,7 @@
     color: var(--btn-color);
     font-size: 20px;
 }
-.n1 , 
+.n1 ,
 .n2 ,
 .bll{
     padding-bottom: 10px;
@@ -45,10 +45,10 @@
     padding-left: 28%;
 }
 .n3 hr{
-    border-top: 1px solid var(--line-color); 
+    border-top: 1px solid var(--line-color);
 }
 .n8 hr{
-    border-top: 1px solid var(--line-color); 
+    border-top: 1px solid var(--line-color);
 }
 /*input*/
 .n2 input{
@@ -87,7 +87,7 @@
 .n6 i{
     color: var(--forth-color);
     font-size: 25px;
-} 
+}
 /*input2*/
 .email-student{
     display: flex;
@@ -104,7 +104,7 @@
 }
 .email-student ::placeholder{
     width: 120%;
-   
+
 }
 .pl{
     display: flex;
@@ -129,7 +129,7 @@
 }
 .btn-end .l3{
     font-size: 17px;
-    
+
 }
 .btn-end .far {
     font-size: 17px;
@@ -169,8 +169,3 @@ padding-top: 5%;
 .bedit .fas {
     font-size: 15px;
 }
-
-
-
-
-

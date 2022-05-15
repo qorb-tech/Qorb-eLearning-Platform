@@ -1,9 +1,9 @@
-from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
-from django.utils.translation import gettext_lazy as _
+from django.db import models
 from PIL import Image
-# local imports goes here 
+
+# local imports goes here
 from .utils import student_directory_path, teacher_directory_path
 
 
@@ -23,31 +23,31 @@ class Contact(models.Model):
         return self.name
 
 
-
 class Profile(models.Model):
     INTEREST_CHOICES = (
         ("programming", "Programming"),
         ("testing", "Testing"),
-        ("control", 'Control'),
+        ("control", "Control"),
     )
     user = models.OneToOneField(
-        get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
+        get_user_model(), on_delete=models.CASCADE, null=True, blank=True
+    )
     age = models.IntegerField(null=True, blank=True)
     full_name = models.CharField(max_length=122, null=True, blank=True)
     intersted_with = models.CharField(
-        max_length=11, default='programming', choices=INTEREST_CHOICES)
+        max_length=11, default="programming", choices=INTEREST_CHOICES
+    )
     email = models.EmailField(null=True, blank=True)
-  
+
     def __str__(self):
         return self.user.username
 
 
 class Student(Profile):
-    avatar = models.ImageField(
-        default='default.png', upload_to=student_directory_path)
+    avatar = models.ImageField(default="default.png", upload_to=student_directory_path)
 
     class Meta:
-        verbose_name = ('Student Profile')
+        verbose_name = "Student Profile"
 
     def save(self, *args, **kwargs):
         super().save()
@@ -59,11 +59,10 @@ class Student(Profile):
 
 
 class Teacher(Profile):
-    avatar = models.ImageField(
-        default='default.png', upload_to=teacher_directory_path)
+    avatar = models.ImageField(default="default.png", upload_to=teacher_directory_path)
 
     class Meta:
-        verbose_name = ('Teacher Profile')
+        verbose_name = "Teacher Profile"
 
     def save(self, *args, **kwargs):
         super().save()
@@ -72,4 +71,3 @@ class Teacher(Profile):
             new_img = (100, 100)
             img.thumbnail(new_img)
             img.save(self.avatar.path)
-

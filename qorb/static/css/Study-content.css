@@ -52,15 +52,15 @@
 }
 .cont-buttons button{
     border-radius: 20px;
-    background-color: white; 
+    background-color: white;
 }
 .cont-buttons button a{
     display: inline-block;
      padding: 10px 80px;
      border-radius: 10px;
-     background-color: white; 
+     background-color: white;
      color: var(--btn-color);
-     
+
  }
 .cont-buttons .ct2 button a{
   padding: 11px 110px;
@@ -83,7 +83,7 @@
 }
 .cont-buttons button:hover a ,
 .cont-buttons button a:focus  ,
-.cont-buttons .active 
+.cont-buttons .active
  {
     background-color: var(--btn-color);
     color: var(--primary-color);
@@ -103,10 +103,10 @@
     /*padding-bottom: 90px;*/
 }
 .ll hr{
-        border-top: 1px solid var(--line-color);   
+        border-top: 1px solid var(--line-color);
 }
 .ll1 hr{
-    border-top: 1px solid var(--line-color);   
+    border-top: 1px solid var(--line-color);
 }
 .ct,
 .ct2{
@@ -123,7 +123,7 @@
 .twoim i{
     color: var(--forth-color);
     font-size: 17px;
-    
+
 }
 .twoim{
     display: flex;
@@ -140,7 +140,7 @@
     padding-left: 30%;
 }
 .lb{
-    display: flex; 
+    display: flex;
 }
 .bll button{
     border-radius: 60px;
@@ -150,9 +150,9 @@
     display: inline-block;
     padding: 12px 25px;
     border-radius: 60px;
-    background-color: white; 
+    background-color: white;
     color: var(--btn-color);
-    border: 1px var(--btn-color) solid;  
+    border: 1px var(--btn-color) solid;
 }
 .bll .l button a{
     background-color: var(--btn-color);
@@ -238,15 +238,15 @@
     padding: 0 6px;
     margin: 20px 5px;
   }
-  
+
 .radio-item input[type='radio'] {
     display: none;
   }
-  
+
   .radio-item label {
     color: var(--primary-color);
     font-weight: normal;
-    
+
   }
   .radio-item label:before {
     content: " ";
@@ -274,7 +274,7 @@
 
   .lec_input_name input[type=radio]:checked + label:after {
     top: 14px;
-    right: 14px; 
+    right: 14px;
   }
 #pop_up_lec{
     display: none;
@@ -285,14 +285,3 @@
 #pop_up_std {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-

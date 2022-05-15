@@ -58,11 +58,11 @@
                                                         <a href="{{ obj.document.url }}"><i class="fas fa-arrow-alt-square-down i1"></i></a>
                                                     </div>
                                             </div>
-                                {% endfor  %} 
+                                {% endfor  %}
                                   {% else %}
                                       <h3 class="no_lec">لا يوجد محاضرات حتى الان</h3>
                                   {% endif %}
-                            
+
                             <div class="courses_btn">
                                 <button class="btn2"><a href="{% url 'courses' %}"> <i class="fal fa-times"></i> خروج </a></button>
                                 <button class="btn1" onclick="add_new_lecture()"><a href="#"> <i class="fas fa-upload "></i> اضافة محاضرة</a></button>
@@ -78,12 +78,12 @@
                                      </div>
                                      <label id="selected_file"> </label>
                                      <div class="link_btn">
-                                         
+
                                             {{add_lec_form.document}}
-                                            
+
                                             <button type="button" id="custom-button">رفع الملف</button>
                                     </div>
-                                    
+
                                      <div class="courses_btn">
                                         <button type="submit" class="btn2" onclick="cancel_new_lecture()"><a> رفع المحاضرة<i class="fas fa-upload "></i></a></button>
                                         <button class="btn1" type="button" onclick="cancel_new_lecture()"><a >الغاء <i class="fal fa-times"></i></a></button>
@@ -94,8 +94,8 @@
                             <!-------------------------------->
                               </div>
                         </div>
-                        
-                    
+
+
                      <!-----------reports-------------->
                      <div id="reports">
                         <div>
@@ -117,10 +117,10 @@
                             {% else %}
                                 <h3>لا يوجد تقارير حتى الان</h3>
                             {% endif %}
-                          
 
-                      
-                      
+
+
+
                     <div class="courses_btn">
                         <button class="btn2"><a href="{% url 'courses' %}"> <i class="fal fa-times"></i> خروج </a></button>
                         <button class="btn1" onclick="add_report()"><a href="#"> <i class="fas fa-upload "></i> اضافة تقرير</a></button>
@@ -137,9 +137,9 @@
                             <label id="selected_file2"> </label>
                             <div class="link_btn">
                                    {{add_report_form.document}}
-                                   
+
                                    <button type="button" id="custom-button2"> رفع الملف </button>
-                            
+
                            </div>
                                 <div class="courses_btn">
                                 <button type="submit" class="btn2" onclick="cancel_report()"><a> رفع التقرير <i class="fas fa-upload "></i></a></button>
@@ -151,7 +151,7 @@
 
                         </div>
                      </div>
-                  
+
                   <!------------------------list-student--------------->
                   <div id="student_list">
                     <div>
@@ -174,9 +174,9 @@
                         {% else %}
                         <h3>لا يوجد طلاب حتى الان</h3>
                          {% endif %}
-                        
 
-                   
+
+
                   <div class="courses_btn">
                       <button class="btn2"><a href="{% url 'courses' %}"><i class="fal fa-times"></i>  خروج </a></button>
                       <button class="btn1" onclick="add_std()"><a href="#"> <i class="fas fa-user-plus"></i> اضافة طالب</a></button>
@@ -232,8 +232,8 @@
                          </div>
                    </div>
 
-                
-            
+
+
               <div class="courses_btn">
                   <button class="btn2"><a href="{% url 'courses' %}"> <i class="fal fa-times"></i> خروج </a></button>
                   <button class="btn1" onclick="add_report()"><a href="#"> <i class="fas fa-upload "></i> اضافة تقييم</a></button>
@@ -241,15 +241,15 @@
                 </div>
                </div>
              </div>
-              
+
           <!------------------------------------->
                </div>
               </div>
 
-                   
+
         </div>
     </section>
-    
+
 
 
     {% if request.session.vote == "lecs-page" %}
@@ -264,7 +264,7 @@
         window.onload=function open_page()  {
             document.getElementById("reports-page").click();
             document.getElementById("reports-page").classList.add("active");
-            
+
         }
         </script>
     {% elif request.session.vote == "student-page" %}
@@ -293,7 +293,7 @@
         btn_std.classList.remove("active");
         imagee1.src = "{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg'%}" ;
         console.log("done")
-    } 
+    }
 
     function report() {
     course_lecs.style.display="none";
@@ -328,18 +328,18 @@
             {
                imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
             }
-       
+
         }
 
         function hoverr22(){
         imagee2.src ="{% static 'images/icons/content/opposite/Icon_doc_solid.svg' %}" ;
         }
         function without_hover22(){
-        
+
         if (reports.style.display=="block"){
             imagee2.src ="{% static 'images/icons/content/opposite/Icon_doc_solid.svg' %}" ;
             imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
-               
+
             }
             else
             {
@@ -353,29 +353,29 @@
             if (student_list.style.display=="block"){
                 imagee3.src = "{% static 'images/icons/content/opposite/ic_group_24px.svg' %}" ;
                 imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
-               
+
             }
             else
             {
                 imagee3.src = "{% static 'images/icons/content/ic_group_24px.svg' %}";
             }
-            
-        }      
+
+        }
      </script>
      <!-- ----active button------ -->
 
     <script type="text/javascript">
         const realFileBtn = document.getElementById("id_posti");
         const customBtn = document.getElementById("custom-button");
-    
+
         customBtn.addEventListener("click", function() {
             realFileBtn.click();
-            
+
         });
-        
+
         const realFileBtn2 = document.getElementById("id_posti2");
         const customBtn2 = document.getElementById("custom-button2");
-    
+
         customBtn2.addEventListener("click", function() {
             realFileBtn2.click();
         });
@@ -410,9 +410,9 @@
                  profile_feature_active[2].classList.add("activee")
                  image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
                  console.log("courses")
-           } 
+           }
             //-------- hover-base-bar-------------
-                 //---hover main-page 
+                 //---hover main-page
             function hoverr1(){
             image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
             }
@@ -431,7 +431,7 @@
             image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
             }
             function without_hover5(){
-            image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ; 
+            image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
             }
             //-----end of hover
            </script>
@@ -439,4 +439,3 @@
 </body>
 </html>
 {% endblock content %}
-

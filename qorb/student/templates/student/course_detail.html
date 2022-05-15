@@ -34,7 +34,7 @@
                             <div class="content_btn" onclick="std_list()">
                                 <button id="student-page"class="btn2"><a href="{% url 'students_page_select' %}"><img src="{% static 'images/teacher/Icons/Group 15498.png' %}" width="25px" height="25px"> قائمة الطلبة</a></button>
                             </div>
-                            
+
                         </div>
 
                         <hr>
@@ -60,10 +60,10 @@
                                   {% else %}
                                       <h3 class="no_lec">لا يوجد محاضرات حتى الان</h3>
                                   {% endif %}
-                                
 
-                            
-                            
+
+
+
                             <div class="courses_btn">
                             </div>
                             <!----------------------------new-lec-->
@@ -77,12 +77,12 @@
                                      </div>
                                      <label id="selected_file"> </label>
                                      <div class="link_btn">
-                                         
+
                                             {{add_lec_form.document}}
-                                            
+
                                             <button type="button" id="custom-button">اختر ملف المحاضره</button>
                                     </div>
-                                    
+
                                      <div class="courses_btn">
                                         <button type="submit" class="btn2" onclick="cancel_new_lecture()"><a>رفع المحاضرة </a></button>
                                         <button class="btn1" type="button" onclick="cancel_new_lecture()"><a >الغاء</a></button>
@@ -93,38 +93,38 @@
                             <!-------------------------------->
                               </div>
                         </div>
-                        
-                    
+
+
                      <!-----------reports-------------->
                      <div id="reports">
                         <div>
                             <h1>عددالتقارير ({{reports.count}})</h1>
                         </div>
                         <div>
-                            
+
 
                             {% if reports %}
                             {% for obj in grades %}
                             <div class="row lec">
                                 <div>
                                     {% for obj2 in reports|slice:":1" %}
-                                    
+
                                     {% if obj2.description_report|stringformat:"i" == obj.report|stringformat:"i" %}
-                                    <a href="{% url 'upload_report_file' obj.id  %}">{{obj.report}}</a>  
-                                    
+                                    <a href="{% url 'upload_report_file' obj.id  %}">{{obj.report}}</a>
+
                                   </div>
                                   <div>
                                     <a href="{{ obj2.document.url }}"><i class="fas fa-arrow-alt-square-down i1"></i></a>
                                     {% if obj.grade == "لم يتم التقييم" %}
                                     <!-- <a href="#" onclick="add_report()"><i class="fas fa-arrow-alt-from-bottom"></i></a> -->
                                     <a href="{% url 'upload_report_file' obj.id  %}" ><i class="fas fa-arrow-alt-from-bottom"></i></a>
-                                    
+
                                     {% else %}
                                     <a href="#"><i class="fas fa-check-circle"></i></a>
                                     {% endif %}
-                                    
+
                                     {% if reports %}
-                                    
+
                                     {% else %}
                                     <h3>لا يوجد تقارير حتى الان</h3>
                                     {% endif %}
@@ -137,10 +137,10 @@
                             {% else %}
                                 <h3>لا يوجد تقارير حتى الان</h3>
                             {% endif %}
-                          
 
-                      
-                      
+
+
+
                     <div class="courses_btn">
                     </div>
                         <!----------------------------new-report-->
@@ -155,9 +155,9 @@
                             <label id="selected_file2"> </label>
                             <div class="link_btn">
                                    {{add_report_form.document}}
-                                   
+
                                    <button type="button" id="custom-button2">اختر ملف التقرير</button>
-                            
+
                            </div>
                                 <div class="courses_btn">
                                 <button type="submit" class="btn2" onclick="cancel_report()"><a>رفع التقرير </a></button>
@@ -169,7 +169,7 @@
 
                         </div>
                      </div>
-                  
+
                   <!------------------------list-student--------------->
                   <div id="student_list">
                     <div>
@@ -191,9 +191,9 @@
                         {% else %}
                         <h3>لا يوجد طلاب حتى الان</h3>
                          {% endif %}
-                        
 
-                   
+
+
                   <div class="courses_btn">
                   </div>
 
@@ -218,29 +218,29 @@
 
                  <!------------------------list-student--------------->
               <div id="garde">
-               
-                <div>
-                    
 
-                
-            
+                <div>
+
+
+
+
               <div class="courses_btn">
               </div>
                 </div>
                </div>
              </div>
-              
+
           <!------------------------------------->
                </div>
               </div>
 
-                   
+
         </div>
     </section>
-    
 
 
-    
+
+
 
     {% if request.session.vote == "lecs-page" %}
         <script>
@@ -254,7 +254,7 @@
         window.onload=function open_page()  {
             document.getElementById("reports-page").click();
             document.getElementById("reports-page").classList.add("active");
-            
+
         }
         </script>
     {% elif request.session.vote == "student-page" %}
@@ -268,22 +268,22 @@
 
     {% endif %}
 
-    
+
 
 
     <script src="{% static 'master/courses.js' %}"></script>
     <script type="text/javascript">
         const realFileBtn = document.getElementById("id_posti");
         const customBtn = document.getElementById("custom-button");
-    
+
         customBtn.addEventListener("click", function() {
             realFileBtn.click();
-            
+
         });
-        
+
         const realFileBtn2 = document.getElementById("id_posti2");
         const customBtn2 = document.getElementById("custom-button2");
-    
+
         customBtn2.addEventListener("click", function() {
             realFileBtn2.click();
         });
@@ -304,6 +304,5 @@
 </body>
 </html>
 
-  
-{% endblock content %}
 
+{% endblock content %}

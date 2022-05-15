@@ -28,10 +28,10 @@ function toggle_chat() {
     else{
         meting_full.style.display ="flex";
         all_chat.style.display ="block";
-        
+
     }
-    
-} 
+
+}
 var video_streams = document.getElementById("video-streams")
 function toggle_screen(){
     if(video_streams.style.display=="flex"){
