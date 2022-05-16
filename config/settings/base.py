@@ -249,7 +249,7 @@ LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "login"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
-# SECRET_KEY = "django-insecure-^=#h(a@@0m)lhf+&k15m$xq4wvr92m*!d5__h0e3(zm)jiio4#"
+SECRET_KEY = "django-insecure-^=#h(a@@0m)lhf+&k15m$xq4wvr92m*!d5__h0e3(zm)jiio4#"
 GOOGLE_RECAPTCHA_SECRET_KEY = "6LfszWMeAAAAABmobDa2QPSZ6Xxu3_wQvyFcfMAy"
 
 
