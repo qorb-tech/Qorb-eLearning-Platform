@@ -98,6 +98,7 @@ def courses(request):
     teacher = Teacher.objects.get(user=request.user)
     courses = Course.objects.filter(teacher=teacher)
     context = {"courses": courses, "user_profile": user_profile}
+    print('________________________')
     return render(request, "teacher/courses.html", context)
 
 
@@ -125,11 +126,118 @@ def delete_course(request, name):
     return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
-@login_required(login_url="login_view")
-@allow_user(["is_teacher"])
+# @login_required(login_url="login_view")
+# @allow_user(["is_teacher"])
+# def course_detail(request, name):
+#     # Add Lecture  View
+#     msg = ""
+#     user_profile = Profile.objects.get(user=request.user)
+#     course = Course.objects.get(name=name)
+#     student_enrolled = course.student.all()
+#     teacher = Teacher.objects.get(user=request.user)
+
+#     if course.teacher != teacher:
+#         raise Http404
+
+#     matrials = Subject.objects.filter(teacher=teacher, course=course).all()
+#     reports = Report.objects.filter(teacher=teacher, course=course).all()
+#     if request.method == "POST":
+#         add_lec_form = AddMatrialForm(request.POST, request.FILES)
+#         if add_lec_form.is_valid() and (
+#             bool(str(request.POST.get("description")).strip())
+#             and str(request.POST.get("description")) != "None"
+#         ):
+#             temp = add_lec_form.save(commit=False)
+#             teacher = Teacher.objects.get(user=request.user)
+#             course = Course.objects.get(name=name)
+#             temp.teacher = teacher
+#             temp.course = course
+#             temp.save()
+#             msg = "تم اضافه المحاضره"
+#             request.session["vote"] = "lecs-page"
+
+#     else:
+#         add_lec_form = AddMatrialForm()
+
+#     # Add Student to Course View
+#     q = request.GET.get("q") if request.GET.get("q") != None else ""
+
+#     course = Course.objects.get(name=name)
+#     if q is not None:
+#         # if q != "":
+#         # if q is not '':
+#         try:
+#             student = Student.objects.get(email=q)
+#             course = Course.objects.get(name=name)
+#             course.student.add(student)
+#             msg = "تم اضافه الطالب للكورس"
+#             request.session["vote"] = "student-page"
+#             return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
+
+#         except Student.DoesNotExist:
+#             request.session["vote"] = "student-page"
+#             msg = "الايميل غير موجود"
+#             return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
+
+#     # Add Report View
+#     if request.method == "POST":
+#         add_report_form = AddReportForm(request.POST, request.FILES)
+
+#         if add_report_form.is_valid() and (
+#             bool(str(request.POST.get("description_report")).strip())
+#             and str(request.POST.get("description_report")) != "None"
+#         ):
+#             temp = add_report_form.save(commit=False)
+#             teacher = Teacher.objects.get(user=request.user)
+#             course = Course.objects.get(name=name)
+#             temp.teacher = teacher
+#             temp.course = course
+#             temp.save()
+
+#             try:
+#                 students = Course.objects.filter(name=course).values("student")
+#                 if students[0]["student"] is not None:
+#                     temp.save()
+#                 else:
+#                     msg = "لا يوجد طلاب فى الكورس برجاء اضافه طلاب اولا"
+#                 for i in students:
+#                     student_name = Student.objects.get(id=i["student"])
+#                     report_name = Report.objects.get(
+#                         description_report=temp.description_report
+#                     )
+#                     student_in_quiz = Report_student(
+#                         student=student_name,
+#                         course=course,
+#                         report=report_name,
+#                         grade="لم يتم التسليم",
+#                     )
+#                     student_in_quiz.save()
+#             except Course.DoesNotExist:
+#                 msg = "ERROR"
+#             msg = "تم اضافه التقرير"
+#             request.session["vote"] = "reports-page"
+
+#     else:
+#         add_report_form = AddReportForm()
+#     context = {
+#         "course": course,
+#         "matrials": matrials,
+#         "reports": reports,
+#         "add_lec_form": add_lec_form,
+#         "student_enrolled": student_enrolled,
+#         "msg": msg,
+#         "user_profile": user_profile,
+#         "msg": msg,
+#         "add_report_form": add_report_form,
+#     }
+#     return render(request, "teacher/course_detail.html", context)
+
+
+@login_required(login_url='login_view')
+@allow_user(['is_teacher'])
 def course_detail(request, name):
     # Add Lecture  View
-    msg = ""
+    msg=""
     user_profile = Profile.objects.get(user=request.user)
     course = Course.objects.get(name=name)
     student_enrolled = course.student.all()
@@ -140,12 +248,9 @@ def course_detail(request, name):
 
     matrials = Subject.objects.filter(teacher=teacher, course=course).all()
     reports = Report.objects.filter(teacher=teacher, course=course).all()
-    if request.method == "POST":
+    if request.method == 'POST':
         add_lec_form = AddMatrialForm(request.POST, request.FILES)
-        if add_lec_form.is_valid() and (
-            bool(str(request.POST.get("description")).strip())
-            and str(request.POST.get("description")) != "None"
-        ):
+        if add_lec_form.is_valid() and (bool(str(request.POST.get('description')).strip()) and str(request.POST.get('description'))!="None"):
             temp = add_lec_form.save(commit=False)
             teacher = Teacher.objects.get(user=request.user)
             course = Course.objects.get(name=name)
@@ -153,39 +258,35 @@ def course_detail(request, name):
             temp.course = course
             temp.save()
             msg = "تم اضافه المحاضره"
-            request.session["vote"] = "lecs-page"
+            request.session['vote']="lecs-page"
 
     else:
         add_lec_form = AddMatrialForm()
 
     # Add Student to Course View
-    q = request.GET.get("q") if request.GET.get("q") != None else ""
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
 
     course = Course.objects.get(name=name)
-    if q is not None:
-        # if q != "":
-        # if q is not '':
+
+    if q is not '':
         try:
             student = Student.objects.get(email=q)
             course = Course.objects.get(name=name)
             course.student.add(student)
             msg = "تم اضافه الطالب للكورس"
-            request.session["vote"] = "student-page"
-            return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
+            request.session['vote']="student-page"
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-        except Student.DoesNotExist:
-            request.session["vote"] = "student-page"
+        except:
+            request.session['vote']="student-page"
             msg = "الايميل غير موجود"
-            return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
     # Add Report View
-    if request.method == "POST":
+    if  request.method == 'POST':
         add_report_form = AddReportForm(request.POST, request.FILES)
 
-        if add_report_form.is_valid() and (
-            bool(str(request.POST.get("description_report")).strip())
-            and str(request.POST.get("description_report")) != "None"
-        ):
+        if add_report_form.is_valid() and (bool(str(request.POST.get('description_report')).strip()) and str(request.POST.get('description_report'))!="None")  :
             temp = add_report_form.save(commit=False)
             teacher = Teacher.objects.get(user=request.user)
             course = Course.objects.get(name=name)
@@ -194,42 +295,58 @@ def course_detail(request, name):
             temp.save()
 
             try:
-                students = Course.objects.filter(name=course).values("student")
-                if students[0]["student"] is not None:
+                students = Course.objects.filter(name=course).values('student')
+                if(students[0]['student']!= None):
                     temp.save()
                 else:
                     msg = "لا يوجد طلاب فى الكورس برجاء اضافه طلاب اولا"
                 for i in students:
-                    student_name = Student.objects.get(id=i["student"])
-                    report_name = Report.objects.get(
-                        description_report=temp.description_report
-                    )
-                    student_in_quiz = Report_student(
-                        student=student_name,
-                        course=course,
-                        report=report_name,
-                        grade="لم يتم التسليم",
-                    )
+                    student_name = Student.objects.get(id=i['student'])
+                    report_name = Report.objects.get(description_report = temp.description_report)
+                    student_in_quiz = Report_student(student=student_name, course=course, report=report_name, grade='لم يتم التسليم')
                     student_in_quiz.save()
-            except Course.DoesNotExist:
+            except:
                 msg = "ERROR"
             msg = "تم اضافه التقرير"
-            request.session["vote"] = "reports-page"
+            request.session['vote']="reports-page"
 
     else:
         add_report_form = AddReportForm()
     context = {
-        "course": course,
-        "matrials": matrials,
-        "reports": reports,
-        "add_lec_form": add_lec_form,
-        "student_enrolled": student_enrolled,
-        "msg": msg,
-        "user_profile": user_profile,
-        "msg": msg,
-        "add_report_form": add_report_form,
+        'course': course,
+        'matrials': matrials,
+        'reports': reports,
+        'add_lec_form': add_lec_form,
+        'student_enrolled': student_enrolled,
+        "msg":msg, 'user_profile':user_profile,
+        'msg': msg, 'add_report_form': add_report_form,
+
+
     }
-    return render(request, "teacher/course_detail.html", context)
+    return render(request, 'teacher/course_detail.html', context)
+
+
+@login_required(login_url='login_view')
+@allow_user(['is_teacher'])
+def add_course(request):
+    msg = None
+    if request.method == 'POST':
+        course_form = AddCourseForm(request.POST, request.FILES)
+        if course_form.is_valid():
+            course = course_form.save(commit=False)
+            teacher = Teacher.objects.get(user=request.user)
+            course.teacher = teacher
+            course.save()
+            messages.success(request, 'Your course is created successfully!')
+            return redirect('courses')
+        else:
+            msg = 'error validating form'
+            return HttpResponse('course name already exists choose another name!')
+    else:
+        course_form = AddCourseForm(instance=request.user.profile.teacher)
+    context = {'course_form': course_form, 'msg': msg}
+    return render(request, 'teacher/add_course.html', context)
+
 
 
 @login_required(login_url="login_view")
