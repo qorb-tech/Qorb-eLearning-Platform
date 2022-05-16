@@ -5,6 +5,9 @@ from .views import course_detail, upload_report_file
 
 urlpatterns = [
     path("dashboard/", views.student_dashboard, name="student_dashboard"),
+    path("dashboard/join_course/<str:name>/", views.join_course, name="join_course"),
+    path('dashboard/search/', views.search, name='search'),
+
     path("profile-info", views.profile_student_view, name="profile_student_view"),
     path("update-profile", views.update_student_profile, name="update_student_profile"),
     path("reset-password", views.reset_password_view, name="reset_password_view"),
