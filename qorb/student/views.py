@@ -7,28 +7,50 @@ from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
 from django.shortcuts import redirect, render
+from django.views.decorators.http import require_http_methods
 
-from qorb.accounts.decorators import (
-    allow_courses_student,
-    allow_quiz_student,
-    allow_user,
-)
+# Local imports goes here
+from qorb.accounts.decorators import allow_courses_student, allow_user
 from qorb.accounts.models import Profile, Student
 from qorb.quiz.models import QuestionAnswer, Quiz, QuizStudent
 from qorb.student.forms import UpdateReportForm
 from qorb.teacher.models import Course, Report, Report_student, Subject
 
-# Local imports goes here
 from .forms import FormPasswordChange, UpdateStudentProfileForm, UpdateUserForm
 
 User = get_user_model()
-
 
 @login_required(login_url="login_view")
 @allow_user(["is_student"])
 def student_dashboard(request):
     user_profile = Profile.objects.get(user=request.user)
     context = {"user_profile": user_profile}
+    return render(request, "student/student_dashboard.html", context)
+
+
+@require_http_methods(['POST'])
+@login_required(login_url="login_view")
+@allow_user(["is_student"])
+def search(request):
+    search = request.POST['search']
+    flag = False
+    if search is not None:
+        flag = True
+    student = Student.objects.get(user=request.user)
+    student_courses = Course.objects.filter(student=student)
+    courses = Course.objects.filter(name__icontains=search).exclude(
+        name__in= student_courses.values_list('name', flat=True)
+    )
+    return render(request, 'student/search.html', {'courses': courses, 'flag':flag})
+
+@login_required(login_url="login_view")
+@allow_user(["is_student"])
+def join_course(request, name):
+    student = Student.objects.get(user=request.user)
+    course = Course.objects.get(name=name)
+    course.student.add(student)
+    msg = "تم اضافه الطالب للكورس"
+    context = {"msg":msg}
     return render(request, "student/student_dashboard.html", context)
 
 

@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -31,7 +31,9 @@ def allow_user(user_permission_list):
             elif request.user.is_admin:
                 return view_func(request, *args, **kwargs)
             else:
-                raise Http404()
+                logout(request)
+                return redirect("/")
+
 
         return inner
 

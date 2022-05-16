@@ -1,0 +1,17 @@
+{% load static %}
+<center>
+{% for course in courses %}
+
+    <td>
+       {{course.name}}
+    </td>
+    <td>
+      {{course.teacher}}
+    </td>
+    <td>
+      <b><a href="join_course/{{course.name}}/" onclick="return confirm('are you sure you want to join course!')">JOIN COURSE</a></b>
+
+    </td>
+  </tr><br>
+{% endfor %}
+</center>
