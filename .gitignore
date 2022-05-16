@@ -269,7 +269,6 @@ Session.vim
 tags
 
 ### Project template
-qorb/media/
 
 .pytest_cache/
 .ipython/
