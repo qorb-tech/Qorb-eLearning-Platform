@@ -1,0 +1,14 @@
+
+  <h1> انشاء اجتماع</h1>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    
+    {{ form.description_meeting }}
+    <br>
+    {{form.meeting_date}}
+    <br>
+    
+
+    <input type="submit" value="Submit">
+ </form>
