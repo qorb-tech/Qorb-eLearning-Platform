@@ -1,0 +1,111 @@
+{% extends 'teacher/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الملف الشخصى</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------details--------->
+               <div class="col-10">
+                   <div class="details det-view">
+                    <div class="account_tech">
+                        <h1> الملف الشخصي <i class="fas fa-user-circle"></i></a></h1>
+                    </div>
+                    <div class="hrt">
+                        <hr>
+                    </div>
+             <div class="info_tech">
+                    <div class="tech_pic tech_pic_spc">
+                      <h2>الصورة الشخصية</h2>
+                      <div class="imgg">
+                        <img src="{{ user.profile.teacher.avatar.url }}" alt="">
+                      </div>
+                    </div>
+
+                <div class="details_tech details_tech_spc">
+                     <form>
+                         <div class="block">
+                            <label>اسم المستخدم</label>
+                            <div>  {{user_profile.user}} </div>
+                         </div>
+
+                         <div class="block">
+                            <label > العمر </label>
+                            <div>
+                                {{user_profile.age}}
+                            </div>
+                         </div>
+                         <div class="block">
+                            <label>البريد الالكتروني</label>
+                            <div>{{user_profile.email}}</div>
+                         </div>
+                         <div class="block">
+                            <label>الوظيفة</label>
+                            <div>معلم</div>
+                         </div>
+
+                     </form>
+                 </div>
+             </div>
+             <div class="modified_btn">
+                <button class="btn2 ch-pass"><a href="reset-password"><i class="fas fa-pen"></i> تغيير كلمة المرور</a></button>
+                <button class="btn1"><a href="update-profile"><i class="fas fa-pen"></i>تعديل بيانات الحساب</a></button>
+
+            </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </section>
+    <!--------------------------active_base_bar----------->
+    <script>
+        var profile_features = document.getElementById("profile_features");
+        var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+        var image1 = document.getElementById("image1");
+        var image2 = document.getElementById("image2");
+        var image3 = document.getElementById("image3");
+        var image5 = document.getElementById("image5");
+       for (var i = 0; i < profile_feature_active.length; i++) {
+           var current = profile_features.getElementsByClassName("activee");
+           // If there's no active class
+           if (current.length > 0) {
+             current[0].className = current[0].className.replace(" activee", "");
+             image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'  %}";
+           }
+             profile_feature_active[1].classList.add("activee")
+             console.log("dashboard_teacher");
+             image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+       }
+       //----hover-basebar-------
+        function hoverr1(){
+        image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+        }
+        function without_hover1(){
+        image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+        }
+        //----hover-courses
+        function hoverr3(){
+         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
+        }
+        function without_hover3(){
+         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
+        }
+        //---hover exams
+        function hoverr5(){
+         image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+        }
+        function without_hover5(){
+        image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
+        }
+        //-----end of hover
+       </script>
+       <!--------------------------active_base_bar----------->
+
+</body>
+</html>
+{% endblock content %}

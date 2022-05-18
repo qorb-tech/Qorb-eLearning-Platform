@@ -1,0 +1,64 @@
+{% extends 'student/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الملف الشخصى</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------details--------->
+               <div class="col-10">
+                   <div class="details">
+                    <div class="account_tech">
+                        <h1> الملف الشخصي <i class="fas fa-user-circle"></i></a></h1>
+                    </div>
+             <div class="info_tech">
+                    <div class="tech_pic">
+                      <h2>الصورة الشخصية</h2>
+                      <div class="imgg">
+                        <img src="{{ user.profile.student.avatar.url }}" alt="">
+                      </div>
+                    </div>
+
+                <div class="details_tech">
+                     <form>
+                         <div class="block">
+                            <label>اسم المستخدم</label>
+                            <div>  {{user_profile.user}} </div>
+                         </div>
+
+                         <div class="block">
+                            <label > العمر </label>
+                            <div>
+                                {{user_profile.age}}
+                            </div>
+                         </div>
+                         <div class="block">
+                            <label>البريد الالكتروني</label>
+                            <div>{{user_profile.email}}</div>
+                         </div>
+                         <div class="block">
+                            <label>الوظيفة</label>
+                            <div>طالب</div>
+                         </div>
+
+                     </form>
+                 </div>
+             </div>
+             <div class="modified_btn">
+                <button class="btn2"><a href="reset-password"><i class="fas fa-pen"></i>تغيير كلمة المرور</a></button>
+                <button class="btn1"><a href="update-profile"><i class="fas fa-pen"></i>تعديل بيانات الحساب</a></button>
+
+            </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,14 @@
+<!--Messages-->
+
+{% for message in messages %}
+
+	<div class="container-fluid mx-0 p-0 sticky-top">
+	  	<div class="alert {{ message.tags }} alert-dismissible m-0 p-3" role="alert">
+		    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    	<span aria-hidden="true">&times;</span>
+		    </button>
+	    	{{ message }}
+	  	</div>
+	</div>
+
+{% endfor %}
