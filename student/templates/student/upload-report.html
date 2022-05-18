@@ -1,39 +1,97 @@
+{% extends 'student/base_bar.html' %}
 
-  <h1>رفع تقرير</h1>
+{% load static %}
+
+{% block title %}
+    <title>اعادة تعيين كلمة المرور</title>
+{% endblock title %}
+
+{% block custum_imports %}
+
+<link rel="stylesheet" href="{% static 'css/courses.css' %}">
+<link rel="stylesheet" href="{% static 'css/Study-content.css' %}">
+<link rel="stylesheet" href="{% static 'css/stud-list.css' %}">
+<link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+<link rel="stylesheet" href="{% static 'css/report_std.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------details--------->
+                <div class="col-10">
+                  <div class="details">
+                   <div class="account_tech">
+                       <h1> رفع التقرير </h1>
+                       <img src="{% static 'images/teacher//Icons/Group 15547.png' %}" width="35px" height="35px">
+                   </div>
+            <div class="info_tech">
+               <div class="details_tech">
+                    <form>
+                        <div class="block">
+                           <label>رفع التقرير</label>
+                           <div> {{report_grades.grade}} </div>
+                        </div>
+                        <div class="block">
+                           <label > اخر موعد لرفع التقرير </label>
+                           <div>{{report.deadline}}</div>
+                        </div>
+                        <div class="block">
+                           <label>تاريخ اخر تعديل</label>
+                           <div>{{report_grades.last_modified}}</div>
+                        </div>
+                        <div class="block">
+                          {% if  report_grades.report_file %}
+                          <label>التقرير المرفوع</label>
+                          <a target="_blank" href="{{report_grades.report_file.url}}" >assignment.pdf</a>
+                          {%endif%}
+                          </div>
+                        <div class="block">
+                           <label>ملاحظات المعلم</label>
+                           <div>{{report_grades.teacher_notes}}</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            
+
+            
+            {% if  is_deadline_not_over %}
+            <form  action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+          
+              {{ form.report_file }}
+              <div class="block">
+                <label>ملاحظات الطالب</label>
+                <div>{{ form.student_notes }}</div>
+             </div>
+              
+              <div class="modified_btn">
+              <button class="btn1" type="submit">رفع التقرير</button>
+            </div>
+           </form>
+           {%endif%}
+            
+            <!-- <div class="modified_btn">
+               <button class="btn2"><a href="">مسح الريبورت</a></button>
+               <button class="btn1"><a href="">تعديل الريبورت</a></button>
+           </div>   -->
+               </div>  
+              </div>
+    </div>
+
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static 'master/quiz.js' %}"></script>
+    <script src="{% static 'master/quiz_timer.js' %}"></script>
+    <script src="{% static 'master/quiz_confirm_end.js' %}"></script>
 
 
-   حالة التصحيح
-   <br>
-   {{report_grades.grade}}
-  <br>
-   اخر موعد لرفع التقرير
-   <br>
-   {{report.deadline}}
-  <br>
-  تاريخ اخر تعديل
-   <br>
-   {{report_grades.last_modified}}
-   <br>
-   {% if  report_grades.report_file %}
-   <a target="_blank" href="{{report_grades.report_file.url}}" >assignment.pdf</a>
-  <br>
-  {%endif%}
-   ملاحظات المعلم
-   <br>
-   {{report_grades.teacher_notes}}
-  <br>
-  {% if  is_deadline_not_over %}
-  <br>
-  <br>
-  <form  action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+     
 
-    {{ form.report_file }}
-    <br>
-    {{ form.student_notes }}
-    <br>
-    <button type="submit">Upload</button>
-    <br>
- </form>
-
-  {%endif%}
+</body>
+</html>
+{% endblock content %}
