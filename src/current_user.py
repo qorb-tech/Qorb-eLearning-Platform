@@ -16,3 +16,6 @@ def get_current_user():
     except AttributeError:
         return None
     
+def reg_valid():
+    flag = True
+    return {"flag" :True}

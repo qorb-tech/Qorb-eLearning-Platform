@@ -71,13 +71,22 @@
         </div>
       </form>
     </div>
-    <div id="sucsess_register">
-      {% if msg %}
-        <h1>{{msg}}</h1>
-        <i class="fas fa-user-check"></i>
-      {% endif %}
-    </div>
+
     <script src="{% static 'js/password.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+      {% for msg in messages %}
+      {% if flag %}
+      swal("Good job!", "{{msg}}!", "success");
+      {% else %}
+      swal("Opps!", "{{msg}}!", "warning");
+      {% endif %}
+      {% endfor %}
+      </script>
+
+
+
 </body>
 </html>
 </body>

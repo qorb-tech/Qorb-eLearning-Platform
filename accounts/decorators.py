@@ -24,13 +24,14 @@ def unAuth_user(view_fun):
 def allow_user(user_permission_list):
     def decorator(view_func):
         def inner(request, *args, **kwargs):
-            if request.user.is_teacher:
-                return view_func(request, *args, **kwargs)
-            elif request.user.is_student:
-                return view_func(request, *args, **kwargs)
-            elif request.user.is_admin:
-                return view_func(request, *args, **kwargs)
-            else:
+            try:
+                if request.user.is_teacher:
+                    return view_func(request, *args, **kwargs)
+                elif request.user.is_student:
+                    return view_func(request, *args, **kwargs)
+                elif request.user.is_admin:
+                    return view_func(request, *args, **kwargs)
+            except:
                 logout(request)
                 return redirect("/")
 

@@ -7,6 +7,8 @@
 {% endblock title %}
 
 {% block content %}
+
+
   <br><center><h3>Student Dashboard</h3></center><br>
   {% if msg %}
   <br><center><h3>Course Joined succefully!</h3></center><br>
@@ -41,4 +43,13 @@
     </tbody>
   </table>
 </center>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+  {% for msg in messages %}
+       swal("Good job!", "{{msg}}!", "success");
+   {% endfor %}
+ </script>
+
+
 {% endblock content %}

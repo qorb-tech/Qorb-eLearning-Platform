@@ -7,6 +7,7 @@
 {% endblock title %}
 
 {% block content %}
+
                 <!-------------------details--------->
                <div class="col-10" >
                    <div class="details det-dash">
@@ -14,6 +15,7 @@
 <!-------------------------------------------->
                     <h3>Teacher Dashboard</h3>
     <!--------------------------active_base_bar----------->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
      var profile_features = document.getElementById("profile_features");
     var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
@@ -56,6 +58,13 @@
     //-----end of hover
     </script>
     <!--------------------------active_base_bar----------->
+
+    <script>
+      {% for msg in messages %}
+           swal("Good job!", "{{msg}}!", "success");
+       {% endfor %}
+     </script>
+ 
 
     </body>
 </html>

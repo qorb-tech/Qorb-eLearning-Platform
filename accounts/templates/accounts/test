@@ -1,0 +1,11 @@
+<!-- <script>
+    {% for msg in messages %}
+       {% if flag %}
+         swal("Good job!", "{{msg}}!", "success");
+       {% else %}
+         swal("Opps!", "{{msg}}!", "warning");
+       {% endif %}
+     {% endfor %}
+   </script>
+-->
+

@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/sign-up.css' %}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <title>sign-up</title>
 </head>
 <body>
@@ -76,33 +78,8 @@
          <div class="row">
          <span style="color: rgb(229, 36, 52) ">
 
-          <!-- {% if form.errors %}
-            <div class="error" id="sucsess_enter">
-              <ul>
-                {% for key,value in form.errors.items %}
-                  {% for error in value %}
-                  <li>{{ error }}</li>
-                  {% endfor %}
-                {% endfor %}
-              </ul>
-            </div>
-          {% elif ok %}
-            <div class="error" id="sucsess_enter">
-              <h1>تم تسجيل الحساب</h1>
-              <i class="fas fa-user-check"></i>
-            </div>
-          {% endif %} -->
 
 
-          {% if form.errors %}
-            <ul>
-              {% for key,value in form.errors.items %}
-                {% for error in value %}
-                <li>{{ error }}</li>
-                {% endfor %}
-              {% endfor %}
-            </ul>
-        {% endif %}
 
 
         </span>
@@ -115,16 +92,24 @@
         </div>
       </form>
     </div>
-    <!-- <div id="sucsess_enter">
-      {% if msg %}
-        <h1>تم تسجيل الحساب</h1>
-        <i class="fas fa-user-check"></i>
-      {% endif %}
 
-    </div> -->
+
+    <p></p>
+
 
 
     <script src="{% static 'js/password.js' %}"></script>
+    <script>
+      {% for msg in messages %}
+      {% if flag %}
+      swal("Good job!", "{{msg}}!", "success");
+      {% else %}
+      swal("Opps!", "{{msg}}!", "warning");
+      {% endif %}
+      {% endfor %}
+      </script>
+
+
 </body>
 </html>
 {% endblock content %}
