@@ -5,7 +5,7 @@ from .views import course_detail, upload_report_file
 
 urlpatterns = [
     path("dashboard/", views.student_dashboard, name="student_dashboard"),
-    path("dashboard/join_course/<str:name>/", views.join_course, name="join_course"),
+    path("courses/join_course/<str:name>/", views.join_course, name="join_course"),
     path('dashboard/search/', views.search, name='search'),
 
     path("profile-info", views.profile_student_view, name="profile_student_view"),
@@ -17,3 +17,4 @@ urlpatterns = [
     path("current-quizzes", views.current_quizzes, name="current_quizzes"),
     path("start-quiz/<int:pk>/", views.start_quiz, name="start_quiz"),
 ]
+

@@ -1,12 +1,18 @@
-{% load static %}
 <center>
-{% for course in courses %}
+{% for course in search_courses %}
 
     <td>
        {{course.name}}
     </td>
     <td>
       {{course.teacher}}
+    </td>
+
+    <td>
+      <div>
+        <div class="imgg">
+        <img src="{{course.image.url}}" height="180px">
+      </div>
     </td>
     <td>
       <b><a href="join_course/{{course.name}}/" onclick="return confirm('are you sure you want to join course!')">JOIN COURSE</a></b>

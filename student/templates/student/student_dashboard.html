@@ -10,46 +10,5 @@
 
 
   <br><center><h3>Student Dashboard</h3></center><br>
-  {% if msg %}
-  <br><center><h3>Course Joined succefully!</h3></center><br>
-  {% endif %}
-  <center>
-    <h1 style="color: red">Search For Courses!</h1>
-  <div>
-    <input
-      type="text"
-      name="search"
-      hx-post="{% url 'search' %}"
-      hx-trigger="keyup changed delay:250ms"
-      hx-indicator=".htmx-indicator"
-      hx-target="#search-results"
-      placeholder="Search for courses..."
-    >
-    <span class="htmx-indicator">Searching...</span>
-  </div>
-
-  <table>
-    {% if todos %}
-    <thead>
-      <tr>
-        <th>Course Name</th>
-        <th>Teacher Name</th>
-      </tr>
-    {% endif %}
-    </thead>
-
-    <tbody id="search-results">
-      {% include "student/search.html" %}
-    </tbody>
-  </table>
-</center>
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-  {% for msg in messages %}
-       swal("Good job!", "{{msg}}!", "success");
-   {% endfor %}
- </script>
-
-
+  
 {% endblock content %}

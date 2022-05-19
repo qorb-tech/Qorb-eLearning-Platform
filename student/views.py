@@ -2,7 +2,7 @@ import datetime
 import random
 from ast import Return
 from datetime import timezone
-
+from django.contrib import messages
 from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
@@ -38,10 +38,12 @@ def search(request):
         flag = True
     student = Student.objects.get(user=request.user)
     student_courses = Course.objects.filter(student=student)
-    courses = Course.objects.filter(name__icontains=search).exclude(
+    search_courses = Course.objects.filter(name__icontains=search).exclude(
         name__in= student_courses.values_list('name', flat=True)
     )
-    return render(request, 'student/search.html', {'courses': courses, 'flag':flag})
+    return render(request, 'student/search.html', {'search_courses': search_courses, 'flag':flag})
+
+
 
 @login_required(login_url="login_view")
 @allow_user(["is_student"])
@@ -49,10 +51,8 @@ def join_course(request, name):
     student = Student.objects.get(user=request.user)
     course = Course.objects.get(name=name)
     course.student.add(student)
-    msg = "تم اضافه الطالب للكورس"
-    context = {"msg":msg}
-    return render(request, "student/student_dashboard.html", context)
-
+    messages.success(request, "تم اضافه الطالب للكورس")
+    return redirect('student_courses')
 
 @login_required(login_url="login_view")
 @allow_user(["is_student"])
