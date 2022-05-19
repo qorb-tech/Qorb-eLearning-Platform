@@ -166,3 +166,5 @@ node_modules
 Notebooks
 Data Preprocessing
 env
+db.sqlite3
+media

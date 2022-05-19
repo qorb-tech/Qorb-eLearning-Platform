@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-
+from django.core.validators import FileExtensionValidator
 # Local Import geos here!
 from accounts.models import Student, Teacher
 
@@ -63,7 +63,9 @@ class Subject(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     description = models.CharField(max_length=400, null=True, blank=True, default="")
-    document = models.FileField(upload_to=subject_directory_path)
+    document = models.FileField(
+        upload_to=subject_directory_path, 
+        validators=[FileExtensionValidator( ['pdf'] ) ])
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -83,7 +85,7 @@ class Report(models.Model):
     description_report = models.CharField(
         max_length=400, null=True, blank=True, default=""
     )
-    document = models.FileField(upload_to=report_directory_path)
+    document = models.FileField(upload_to=report_directory_path, validators=[FileExtensionValidator( ['pdf'] ) ])
     created_at = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(Student, through="Report_student")
     deadline = models.DateTimeField(default=timezone.now)
@@ -111,7 +113,7 @@ class Report_student(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     report = models.ForeignKey(Report, on_delete=models.CASCADE)
     report_file = models.FileField(
-        upload_to=students_report_directory_path, blank=True, null=True
+        upload_to=students_report_directory_path, blank=True, null=True, validators=[FileExtensionValidator( ['pdf'] ) ]
     )
     grade = models.CharField(max_length=200, choices=CHOICES, default="لم يتم التسليم")
     teacher_notes = models.TextField(blank=True, null=True)

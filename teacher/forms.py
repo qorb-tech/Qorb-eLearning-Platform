@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
+import os 
 
 # local imports goes here
 from accounts.models import Teacher
@@ -106,6 +107,7 @@ class AddCourseForm(forms.ModelForm):
 
 
 class AddMatrialForm(forms.ModelForm):
+    ALLOWED_TYPES = ['pdf']
     document = forms.FileField(
         widget=forms.FileInput(
             attrs={
@@ -124,9 +126,23 @@ class AddMatrialForm(forms.ModelForm):
             "description",
             "document",
         )
+    
+    def clean(self):
+        document = self.cleaned_data.get('document', None)
+        if not document:
+            raise forms.ValidationError('Missing document file')
+        try:
+            extension = os.path.splitext(document.name)[1][1:].lower()
+            if extension in self.ALLOWED_TYPES:
+                return document
+            else:
+                raise forms.ValidationError('File types is not allowed')
+        except Exception as e:
+            raise forms.ValidationError('Can not identify file type')
 
 
 class AddReportForm(forms.ModelForm):
+    ALLOWED_TYPES = ['pdf']
     document = forms.FileField(
         widget=forms.FileInput(
             attrs={
@@ -145,6 +161,20 @@ class AddReportForm(forms.ModelForm):
             "description_report",
             "document",
         )
+    
+    
+    def clean(self):
+        document = self.cleaned_data.get('document', None)
+        if not document:
+            raise forms.ValidationError('Missing document file')
+        try:
+            extension = os.path.splitext(document.name)[1][1:].lower()
+            if extension in self.ALLOWED_TYPES:
+                return document
+            else:
+                raise forms.ValidationError('File types is not allowed')
+        except Exception as e:
+            raise forms.ValidationError('Can not identify file type')
 
 
 class UpdateReportGradeForm(forms.ModelForm):
