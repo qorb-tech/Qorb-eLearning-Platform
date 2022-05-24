@@ -1,0 +1,278 @@
+{% load static %}
+{% block content %}
+
+<!----edit ---->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="icon" href="{% static 'images/logo colored1.png' %}" type="image/icon type">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+
+
+    <title>Qorb قرب</title>
+</head>
+<body>
+    <!-----------Header------------>
+    <header>
+        <div class="container">
+            <nav class="navigation" id="activee">
+                    <div onclick="nav_active()">
+                        <i class="fas fa-bars"></i>
+                      </div>
+                      <div class="row nav_ull">
+                        <div class="nav_ul" id="menu">
+                            <ul>
+                                <div class="right">
+                                 <li><a href="#الصفحة الرئيسية">الصفحة الرئيسية</a></li>
+                                 {% if request.user.is_authenticated %}
+                                    <li><a href="/logout/"> تسجيل خروج</a></li>
+                                {% else %}
+                                    <li><a href="/login/"> تسجيل دخول</a></li>
+                                {% endif %}
+                                </div>
+                                <div class="left">
+                                 <li><a href="#من نحن">من نحن؟</a></li>
+                                 <li><a href="#المحتوى العلمى ">المحتوي العلمي</a></li>
+                                 <li><a href="#تواصل معنا">تواصل معنا</a></li>
+                                </div>
+                            </ul>
+                          </div>
+                          <div>
+                            <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                          </div>
+                      </div>
+              </nav>
+          <div class="qorb">
+              <div>
+                <img src="{% static 'images/logo white1.png' %}" alt=""width="300px" height="180px">
+              </div>
+                 <div>
+                     <h1>أول منصة تعليمية عربية تدعم لغة الاشارة</h1>
+                 </div>
+                 {% if request.user.is_authenticated %}
+                    {% if request.user.is_teacher %}
+                        <button><a href="{% url 'teacher_dashboard' %}">الرجوع للصفحه الشخصيه</a></button>
+                    {% else %}
+                        <button><a href="{% url 'student_dashboard' %}">الرجوع للصفحه الشخصيه</a></button>
+                    {% endif %}
+                {% else %}
+                    <div>
+                        <button><a href="register/">انضم الان</a></button>
+                    </div>
+                {% endif %}
+          </div>
+        </div>
+   </header>
+  <!------------------section1---------->
+<section id="الصفحة الرئيسية">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+               <div class="content">
+                   <div>
+                    <img src="{% static 'images/تواصل icon.png' %}" alt="تواصل" width="200px" height="180px">
+                   </div>
+                <button ><a href="#تواصل معنا">تواصل معنا</a></button>
+               </div>
+            </div>
+            <div class="col-4">
+                <div class="content">
+                    <div>
+                        <img src="{% static 'images/من نحن icon.png' %}" alt="تواصل" width="200px" height="180px">
+                    </div>
+                    <button><a href="#من نحن"> من نحن؟</a></button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="content">
+                    <div>
+                        <img src="{% static 'images/المحتوى icon.png' %}" alt="تواصل" width="200px" height="180px">
+                    </div>
+                    <button><a href="#المحتوى العلمى ">المحتوى العلمي</a></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+<!-----------------section2----------->
+<section id="من نحن" class="who">
+    <div class="container">
+          <div class="row">
+            <div class="col-6">
+               <div class="image">
+                <img src="{% static 'images/Group 435 (1).png' %}"alt="..." width="550px" height="550px">
+               </div>
+            </div>
+            <div class="col-6">
+                <div class="balon">
+                </div>
+                <div class="cont">
+
+                    <div class="bg">
+                        <h1>من نحن؟</h1>
+                    </div>
+                    <div class="whose">
+                        <p>
+                            قرب هي منصة تعليمية ألكترونية عربية تم تأسيسها من قبل فريق مكون من مجموعة طلبة من كلية هندسة جامعة المنصورة
+                            <br>
+                            ولايماننا بأهمية التعليم وما له من أثر في تخسين فكر المجتمعات والأفراد
+                            <br>
+                            خرصنا على بذل كافة الجهودوالمساعي للمساهمة في تطوير التعليم الالكتروني
+                        </p>
+
+                        <button class="btn"><a href="who_are_we.html"> معرفة المزيد</a></button>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+</section>
+
+<!----------------------section3------------------->
+<section id="المحتوى العلمي">
+    <div class="scientific_content">
+        <div class="imagee">
+            <img src="{% static 'images/Group 15354.png' %}" alt="">
+        </div>
+        <div class="balon">
+        </div>
+        <div class="container">
+
+            <div class="bg">
+                <h1> المحتوي العلمي</h1>
+             </div>
+
+          <h2>أهم ما يميز منصة قرب</h2>
+
+          <ul>
+
+              <li class="list-icon">توفير بيئة تعليمية تناسب طلاب "الصم والبكم " حيث تسهل عليهم التعلم
+
+              </li>
+              <li style="padding-right: 35px;">
+                  والتواصل والتفاعل مباشر في الوقت الخالي خلال المنصات التعليمية الالكترونية بلغة الاشارة
+                  <br>العربية بشكل طبيعي
+
+              </li>
+
+              <li class="list-icon">توفير نظام لمعرفة تعابير الوده ومدى رضا الطلبة عن المحاضرة ومستوى تركيزهم</li>
+              <li class="list-icon"> توفير نظام ليرشح مجموعة كورسات مختلفة للطلبة حسب مجال دراستهم</li>
+          </ul>
+          <div class="right_image">
+          </div>
+        </div>
+    </div>
+  </section>
+<!-----------------Section4---------------->
+
+<!-----------------Section4---------------->
+<footer id="تواصل معنا">
+    <div class="container">
+      <div class="add">
+          <h1>تواصل معنا</h1>
+      </div>
+      <div class="row contact_us">
+            <div>
+              <div class="imagef">
+                <img src="{% static 'images/Group 3736.png' %}" alt="" width="350px" height="300px">
+              </div>
+              <div class="iconss">
+                  <div class="icon1 iconn">
+                      <a href="#" class="social-icon">
+                          <i class="fab fa-facebook-f"></i>
+                       </a>
+                     </div>
+                     <div class="icon2 iconn">
+                       <a href="#" class="social-icon">
+                          <i class="fab fa-twitter"></i>
+                      </a>
+                     </div>
+
+                      <div class="icon1 iconn">
+                      <a href="#" class="social-icon">
+                          <i class="fab fa-linkedin-in"></i>
+                      </a>
+                     </div>
+                     <div class="icon3 iconn">
+                      <a href="#" class="social-icon">
+                          <i class="fab fa-google-plus-g"></i>
+                      </a>
+                  </div>
+              </div>
+            </div>
+
+
+        <!-- </div> -->
+    <div>
+        <form   action="/" method="POST">
+            {% csrf_token %}
+
+            <div class="inputt">
+                <div class="input-t">
+                    {{form.name}}
+                </div>
+                <div class="input-t">
+                    {{form.email}}
+                </div>
+          </div>
+
+          <div class="inputtt">
+            {{form.desc}}
+          </div>
+          <div class="butt">
+                <button class="bttn" onclick="contactSent()">
+                    <a  type="submit" value="Submit"><img src="{% static 'images/ic_send_24px.png' %}">ارسال</a></button>
+            <!----edit ---->
+            <div id="output">
+            </div>
+            </div>
+         </form>
+     </div>
+
+
+
+      </div>
+    <div class="endd">
+      <div class="enddd">
+          <!-- <i class="far fa-copyright"></i> -->
+          <h6> &copy;جميع الحقوق محفوظة فى الحفظ والصون</h6>
+      </div>
+    </div>
+</footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="{% static 'js/ajax.js' %}"></script>
+        <script src="{% static 'js/home.js' %}"></script>
+        <script src="{% static 'js/password.js' %}"></script>
+
+
+
+        <script>
+            function contactSent(){
+                alert('Your message sent succefully!');
+            }
+        </script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script>
+            {% for msg in messages %}
+            swal("Good job!", "{{msg}}!", "success");
+            {% endfor %}
+        </script>
+
+
+
+</body>
+</html>
+
+{% endblock content %}

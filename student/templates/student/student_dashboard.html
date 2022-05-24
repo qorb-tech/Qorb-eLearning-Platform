@@ -1,0 +1,228 @@
+{% extends 'student/base_bar.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>اعادة تعيين كلمة المرور</title>
+{% endblock title %}
+
+{% block custum_imports %}
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/courses_suggested.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+
+
+{% endblock custum_imports %}
+
+{% block content %}
+{% if msg %}
+<br><center><h3>Course Joined succefully!</h3></center><br>
+{% endif %}
+                <!-------------------details--------->
+               <div class="col-10">
+                 
+                <div class="input_search">
+                  <div class="add_cont ">
+                    <h1>اضافة مقرر</h1>
+                  </div>  
+                <div class="search_div">
+                  <input
+                    type="text"
+                    name="search"
+                    hx-post="{% url 'search' %}"
+                    hx-trigger="keyup changed delay:250ms"
+                    hx-indicator=".htmx-indicator"
+                    hx-target="#search-results"
+                    placeholder="بحث عن مقرر"
+                    
+                  >
+                  <!-- <span class="htmx-indicator">Searching...</span> -->
+                </div>
+              
+                </div>
+                  <table>
+                    {% if todos %}
+                    <thead>
+                      <tr>
+                        <th>Course Name</th>
+                        <th>Teacher Name</th>
+                      </tr>
+                    {% endif %}
+                    </thead>
+                
+                    <tbody id="search-results">
+                      {% include "student/search.html" %}
+                    </tbody>
+                  </table>
+                
+
+
+                  <div class="details">
+                    <!----------------------lecture--------->
+                  <div class="row align_start">
+                     <div class="col-8">
+                      {% for i,k in dic.items %}
+                       <div class="lecture">
+                        <div class="info">
+                            <div class="info_txt">
+                                <div class="lec">
+                                    <i class="fas fa-bell"></i>
+                                    <h3>المحاضرة القادمة</h3>
+                                </div>
+                                   <p>{{i}}</p>
+                                   <p>{{k}} </p>
+                               </div>
+                               <div class="enter_btn">
+                                <button class="btn1"><a href="join_meeting/{{i}}"><i class="fas fa-pen"></i> انضمام للاجتماع</a></button>
+                              </div>
+                        </div> 
+                          <hr>
+                          
+                       </div>
+                       {% endfor %}
+                    </div>
+                       
+                  </div>
+               </div>
+              </div>
+
+
+
+
+
+
+            <section class="bod sec">
+              <div class="swiper mySwiper container">
+                <div class="swiper-wrapper content">
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="{% static 'images/pic 1.png' %}" alt="">
+                      </div>
+                      <div class="name-profession">
+                        <span class="profession">Machine learning</span>
+                      </div>
+                      <div class="button">
+                        <button class="aboutMe">انضمام</button>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="{% static 'images/pic 2.png' %}" alt="">
+                      </div>
+                      <div class="name-profession">
+                        <span class="profession">Machine learning</span>
+                      </div>
+                      <div class="button">
+                          <button class="aboutMe">انضمام</button>  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="{% static 'images/pic 3.png' %}" alt="">
+                      </div> 
+                      <div class="name-profession">
+                        <span class="profession">Machine learning</span>
+                      </div>
+                      <div class="button">
+                          <button class="aboutMe">انضمام</button> 
+                      </div>
+                    </div>
+                  </div>
+          
+                  </div>
+                 
+                
+               
+              </div>
+          
+              <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </section>
+
+             </div>
+
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+  {% for msg in messages %}
+       swal("Good job!", "{{msg}}!", "success");
+   {% endfor %}
+ </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+      <script>
+        var profile_features = document.getElementById("profile_features");
+       var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+       var image1 = document.getElementById("image1");
+       var image2 = document.getElementById("image2");
+       var image3 = document.getElementById("image3");
+       var image5 = document.getElementById("image5");
+       for (var i = 0; i < profile_feature_active.length; i++) {
+           var current = profile_features.getElementsByClassName("activee");
+           // If there's no active class
+           if (current.length > 0) {
+             current[0].className = current[0].className.replace(" activee", "");
+             image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+           }
+             profile_feature_active[0].classList.add("activee")
+             image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+             console.log("dashboard_teacher")
+       }
+        //---hover account
+         function hoverr2(){
+           image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+           }
+           function without_hover2(){
+           image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'%}";
+           }
+         //----hover-courses
+         function hoverr3(){
+          image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
+         }
+         function without_hover3(){
+          image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
+         }
+        //---hover exams
+         function hoverr5(){
+          image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+         }
+         function without_hover5(){
+          image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
+         }
+       //-----end of hover
+       </script>
+       <!--------------------------active_base_bar----------->
+      
+</body>
+</html>
+{% endblock content %}
