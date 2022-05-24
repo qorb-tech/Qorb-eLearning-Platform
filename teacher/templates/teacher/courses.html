@@ -1,0 +1,94 @@
+{% extends 'teacher/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title>المقررات الدراسية</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses--------->
+               <div class="col-10">
+
+
+               <!----------------------new-course-->
+               <div id="coursess">
+                <!-----------course1----------->
+                {% if courses %}
+                <ul></ul>
+                {% for course in courses %}
+            <div class="row courses">
+                <div class="course_cont">
+                    <div>
+                        <h5>{{course.name}}</h5>
+                        <p>{{course.student.count}} طالب</p>
+                    </div>
+                    <div>
+                        <div class="imgg">
+                        <img src="{{course.image.url}}" height="180px">
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="enter_btn see-con">
+                    <button class="btn">
+                        <a href="{{ course.get_absolute_url }}">
+                            <div class="imll">
+                                <div class="iml2"><img  class = "imk"src="{% static 'images/icons/courses/view course.svg'%}"> </div>
+                                <div class="iml1">رؤية المحتوى</div>
+                            </div>
+                        </a>
+                    </button>
+                 </div>
+
+                 <div class="enter_btn see-con">
+                    <button class="btn">
+                        <a href="join_meeting/{{course.name}}">
+                            أنشاء اجتماع
+                        </a>
+                    </button>
+                 </div>
+
+
+
+            </div>
+                {% endfor %}
+              </ul>
+                {% else %}
+              <p>There are no courses yet!</p>
+
+            {% endif %}
+            <div class="enter_btn add-button " id="new_course">
+                <button class="btn" onclick="new_course()"><a href="{% url 'add_course' %}">
+                    <div class="imll">
+                        <div class="iml2"><img src="{% static 'images/icons/courses/add course.svg'%}"> </div>
+                        <div class="iml1"> مقرر جديد </div>
+                    </div>
+                        </a>
+                    </button>
+            </div>
+        </div>
+
+                </div>
+            </div>
+
+                     <!-----------new_course-------->
+        </div>
+
+    </section>
+    <script src="{% static 'js/New_course.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script>window.onload=coursesi()</script>
+
+</body>
+</html>
+
+
+{% endblock content %}

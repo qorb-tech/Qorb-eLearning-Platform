@@ -1,0 +1,442 @@
+{% extends 'student/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title>المحتوى الدراسى</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/std_content_details.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses-details--------->
+               <div class="col-10">
+                <div class="content_name">
+                    <h1 name="course_name_id">{{ course.name }}</h1>
+                    <img src="{% static 'images/icons/content/Group 15498.svg' %}" alt="" width="2.5%">
+                </div>
+                   <div class="cont_detail">
+                    <!-------------------btn_choices--------->
+                    <div class="course_details">
+                        {{msg}}
+                        <div class="row btn_choices" id="btns">
+                            <div class="content_btn" onclick="course_lec()" onmouseover=" hoverr11()" onmouseout="without_hover11()" >
+                                <button id="lecs-page" class="btn2 active"><a href="{% url 'lecs_page_select' %}">المحتوى الدراسي<img id="imgg1" src="{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg'%}" width="20px" height="20px"> </a></button>
+                            </div>
+                            <div class="content_btn" onclick="report()" onmouseover=" hoverr22()" onmouseout="without_hover22()"   >
+                                <button id="reports-page" class="btn2"><a href="{% url 'reports_page_select' %}"> التقارير<img id="imgg2" src="{% static 'images/icons/content/Icon_doc_solid.svg' %}" width="20px" height="20px"> </a></button>
+                            </div>
+                            <div class="content_btn" onclick="std_list()"onmouseover=" hoverr33()" onmouseout="without_hover33()"  >
+                                <button id="student-page"class="btn2"><a href="{% url 'students_page_select' %}"> قائمة الطلبة<img id="imgg3" src="{% static 'images/icons/content/ic_group_24px.svg' %}" width="20px" height="20px"> </a></button>
+                            </div>
+
+                        </div>
+
+                        <div class="hrtt">
+                            <hr>
+                        </div>
+                        <!------------------------------course-lecs----------->
+                        <div id="course_lecs">
+                              <div>
+                                  <h1>عددالمحاضرات ({{matrials.count}})</h1>
+                              </div>
+                              <div>
+
+
+                                {% if matrials %}
+                                     {% for obj in matrials %}
+                                            <div class="row lec">
+                                                <div>
+                                                    <a href="{{ obj.document.url }}">{{obj.description}}</a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="{{ obj.document.url }}"><i class="fas fa-arrow-alt-square-down i1"></i></a>
+                                                    </div>
+                                            </div>
+                                {% endfor  %}
+                                  {% else %}
+                                      <h3 class="no_lec">لا يوجد محاضرات حتى الان</h3>
+                                  {% endif %}
+
+
+
+
+                            <div class="courses_btn">
+                            </div>
+                            <!----------------------------new-lec-->
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div id="new-lec">
+                                     <h4>محاضرة جديدة</h4>
+                                     <div class="lec-name">
+                                         <label>اسم المحاضرة</label>
+                                         {{add_lec_form.description}}
+                                     </div>
+                                     <label id="selected_file"> </label>
+                                     <div class="link_btn">
+
+                                            {{add_lec_form.document}}
+
+                                            <button type="button" id="custom-button">اختر ملف المحاضره</button>
+                                    </div>
+
+                                     <div class="courses_btn">
+                                        <button type="submit" class="btn2" onclick="cancel_new_lecture()"><a>رفع المحاضرة </a></button>
+                                        <button class="btn1" type="button" onclick="cancel_new_lecture()"><a >الغاء</a></button>
+                                    </div>
+
+                            </div>
+                             </form>
+                            <!-------------------------------->
+                              </div>
+                        </div>
+
+
+                     <!-----------reports-------------->
+                     <div id="reports">
+                        <div>
+                            <h1>عددالتقارير ({{reports.count}})</h1>
+                        </div>
+                        <div>
+
+
+                            {% if reports %}
+                            {% for obj in grades %}
+                            <div class="row lec">
+                                <div>
+                                    {% for obj2 in reports|slice:":1" %}
+
+                                    {% if obj2.description_report|stringformat:"i" == obj.report|stringformat:"i" %}
+                                    <a href="{% url 'upload_report_file' obj.id  %}">{{obj.report}}</a>
+
+                                  </div>
+                                  <div>
+                                    <a href="{{ obj2.document.url }}"><i class="fas fa-arrow-alt-square-down i1"></i></a>
+                                    {% if obj.grade == "لم يتم التقييم" %}
+                                    <!-- <a href="#" onclick="add_report()"><i class="fas fa-arrow-alt-from-bottom"></i></a> -->
+                                    <a href="{% url 'upload_report_file' obj.id  %}" ><i class="fas fa-arrow-alt-from-bottom"></i></a>
+
+                                    {% else %}
+                                    <a href="#"><i class="fas fa-check-circle"></i></a>
+                                    {% endif %}
+
+                                    {% if reports %}
+
+                                    {% else %}
+                                    <h3>لا يوجد تقارير حتى الان</h3>
+                                    {% endif %}
+                                    <span>{{obj.grade}}</span>
+                                    {% endif %}
+                                    {% endfor  %}
+                                </div>
+                            </div>
+                            {% endfor  %}
+                            {% else %}
+                                <h3>لا يوجد تقارير حتى الان</h3>
+                            {% endif %}
+
+
+
+
+                    <div class="courses_btn">
+                    </div>
+                        <!----------------------------new-report-->
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div id="new_report">
+                            <h4> تقرير جديد</h4>
+                            <div class="lec-name">
+                                <label for="lec_name">اسم التقرير</label>
+                                {{add_report_form.description_report}}
+                            </div>
+                            <label id="selected_file2"> </label>
+                            <div class="link_btn">
+                                   {{add_report_form.document}}
+
+                                   <button type="button" id="custom-button2">اختر ملف التقرير</button>
+
+                           </div>
+                                <div class="courses_btn">
+                                <button type="submit" class="btn2" onclick="cancel_report()"><a>رفع التقرير </a></button>
+                                <button class="btn1" type="button" onclick="cancel_report()"><a>الغاء</a></button>
+                            </div>
+                        </div>
+                    </form>
+                        <!-------------------------------->
+
+                        </div>
+                     </div>
+
+                  <!------------------------list-student--------------->
+                  <div id="student_list">
+                    <div>
+                        <h1>عدد الطلاب ({{student_enrolled.count}})</h1>
+                    </div>
+                    <div>
+
+                        {% if student_enrolled %}
+                         {% for student in student_enrolled %}
+                        <div class="row lec">
+                             <div>
+                                 <a href="#">{{student}}</a>
+                              </div>
+                              <div>
+                              </div>
+                        </div>
+
+                        {% endfor  %}
+                        {% else %}
+                        <h3>لا يوجد طلاب حتى الان</h3>
+                         {% endif %}
+
+
+
+                  <div class="courses_btn">
+                  </div>
+
+                   <!----------------------------new-std-->
+                   <form action="" method="GET">
+                   <div id="new_std">
+                        <h4> اضافة طالب</h4>
+                        <div class="lec-name">
+                            <label for="lec_name">البريد الالكتروني</label>
+                            <input name="q" type="text">
+                        </div>
+                        <div>
+                        </div>
+                            <div class="courses_btn">
+                        </div>
+                    </div>
+                </form>
+            <!-------------------------------->
+
+                    </div>
+                 </div>
+
+                 <!------------------------list-student--------------->
+              <div id="garde">
+
+                <div>
+
+
+
+
+              <div class="courses_btn">
+              </div>
+                </div>
+               </div>
+             </div>
+
+          <!------------------------------------->
+               </div>
+              </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+    {% if request.session.vote == "lecs-page" %}
+        <script>
+        window.onload=function open_page()  {
+            document.getElementById("lecs-page").click();
+            document.getElementById("lecs-page").classList.add("active");
+        }
+        </script>
+    {% elif request.session.vote == "reports-page" %}
+        <script>
+        window.onload=function open_page()  {
+            document.getElementById("reports-page").click();
+            document.getElementById("reports-page").classList.add("active");
+
+        }
+        </script>
+    {% elif request.session.vote == "student-page" %}
+    <script>
+    window.onload=function open_page()  {
+        document.getElementById("student-page").click();
+        document.getElementById("student-page").classList.add("active");
+    }
+    </script>
+    {% else %}
+
+    {% endif %}
+
+
+
+
+    <script src="{% static 'master/courses.js' %}"></script>
+    <script type="text/javascript">
+        const realFileBtn = document.getElementById("id_posti");
+        const customBtn = document.getElementById("custom-button");
+
+        customBtn.addEventListener("click", function() {
+            realFileBtn.click();
+
+        });
+
+        const realFileBtn2 = document.getElementById("id_posti2");
+        const customBtn2 = document.getElementById("custom-button2");
+
+        customBtn2.addEventListener("click", function() {
+            realFileBtn2.click();
+        });
+    </script>
+
+    <script>
+    var loadFile = function(event) {
+        selected_file.innerHTML = id_posti.value;
+        console.log(id_posti.value);
+    };
+    var loadFile2 = function(event) {
+        selected_file2.innerHTML = id_posti2.value;
+        console.log(id_post2.value);
+    };
+    </script>
+
+
+ <!-- ----active button----- -->
+ <script>
+    var imagee1 = document.getElementById("imgg1");
+    var imagee2 = document.getElementById("imgg2");
+    var imagee3 = document.getElementById("imgg3");
+    function course_lec() {
+        reports.style.display="none";
+        garde.style.display="none";
+        student_list.style.display="none";
+        course_lecs.style.display="block";
+        btn_report.classList.remove("active");
+        btn_std.classList.remove("active");
+        imagee1.src = "{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg'%}" ;
+        console.log("done")
+    }
+
+    function report() {
+    course_lecs.style.display="none";
+    student_list.style.display="none";
+    garde.style.display="none";
+    reports.style.display="block";
+    btn.classList.remove("active");
+    btn_std.classList.remove("active");
+    imagee2.src = "{% static 'images/icons/content/opposite/Icon_doc_solid.svg' %}" ;
+    imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
+    console.log("done")
+    }
+    function std_list() {
+    course_lecs.style.display="none";
+    reports.style.display="none";
+    garde.style.display="none";
+    student_list.style.display="block";
+    btn.classList.remove("active");
+    btn_report.classList.remove("active");
+    imagee3.src = "{% static 'images/icons/content/opposite/ic_group_24px.svg' %}" ;
+    imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
+    console.log("done")
+   }
+        function hoverr11(){
+        imagee1.src ="{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg'%}";
+        }
+        function without_hover11(){
+            if (course_lecs.style.display=="block"){
+                imagee1.src ="{% static 'images/icons/content/opposite/ic_import_contacts_24px.svg'%}";
+            }
+            else
+            {
+               imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
+            }
+
+        }
+
+        function hoverr22(){
+        imagee2.src ="{% static 'images/icons/content/opposite/Icon_doc_solid.svg' %}" ;
+        }
+        function without_hover22(){
+
+        if (reports.style.display=="block"){
+            imagee2.src ="{% static 'images/icons/content/opposite/Icon_doc_solid.svg' %}" ;
+            imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
+
+            }
+            else
+            {
+                imagee2.src = "{% static 'images/icons/content/Icon_doc_solid.svg' %}";
+            }
+        }
+        function hoverr33(){
+        imagee3.src = "{% static 'images/icons/content/opposite/ic_group_24px.svg' %}" ;
+        }
+        function without_hover33(){
+            if (student_list.style.display=="block"){
+                imagee3.src = "{% static 'images/icons/content/opposite/ic_group_24px.svg' %}" ;
+                imagee1.src = "{% static 'images/icons/content/ic_import_contacts_24px.svg' %}";
+
+            }
+            else
+            {
+                imagee3.src = "{% static 'images/icons/content/ic_group_24px.svg' %}";
+            }
+
+        }
+     </script>
+     <!-- ----active button------ -->
+
+
+    <!--------------------------active_base_bar----------->
+    <script>
+        var profile_features = document.getElementById("profile_features");
+       var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+       var image1 = document.getElementById("image1");
+       var image2 = document.getElementById("image2");
+       var image3 = document.getElementById("image3");
+       var image5 = document.getElementById("image5");
+       for (var i = 0; i < profile_feature_active.length; i++) {
+           var current = profile_features.getElementsByClassName("activee");
+           // If there's no active class
+           if (current.length > 0) {
+             current[0].className = current[0].className.replace(" activee", "");
+             image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
+           }
+             profile_feature_active[2].classList.add("activee")
+             image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
+             console.log("courses")
+       }
+        //-------- hover-base-bar-------------
+             //---hover main-page
+        function hoverr1(){
+        image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+        }
+        function without_hover1(){
+        image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+        }
+           //---hover account
+        function hoverr2(){
+        image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+        }
+        function without_hover2(){
+        image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'  %}";
+        }
+             //---hover exams
+        function hoverr5(){
+        image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+        }
+        function without_hover5(){
+        image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
+        }
+        //-----end of hover
+       </script>
+       <!--------------------------active_base_bar----------->
+
+
+</body>
+</html>
+
+
+{% endblock content %}

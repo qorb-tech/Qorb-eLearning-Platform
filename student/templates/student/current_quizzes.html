@@ -1,0 +1,141 @@
+{% extends 'student/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الملف الشخصى</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/exams.css' %}">
+    <link rel="stylesheet" href="{% static 'css/std_exams.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+<div class="col-10">
+    <!------------------------exams---------------->
+     <div id="exam">
+         <div class="details">
+             <div class="account_tech">
+                 <h1> اختبارات </h1>
+                 <img src="{% static 'images/teacher//Icons/Group 15547.png' %}" width="30px" height="30px">
+             </div>
+             <div class="choose_btns" id="exams_btn">
+                <button class="active" onclick="available_exam()" onmouseover="hover_std()" onmouseout="without_hover_std()"><img  id = "image-ex" src="{% static 'images/std/nohover/Group.svg' %}" > الاختبارات المتاحة</button>
+                <button onclick="finish_exam()"><i class="fas fa-clipboard-check"></i>الاختبارات المنتهية</button>
+             </div>
+             <!------------------------available_exams---------------->
+             <div class="exams" id="available_exams">
+                 <div class="row">
+                    {% for quiz in quizzes %}
+                    {% if quiz.done == False %}
+                    <div class="col-3">
+                        <div class="exam1">
+                             <h5>{{quiz.course}}</h5>
+                             <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
+                             <p>{{quiz.quiz.name}}</p>
+                             <button class="btn_exam2"><a href="{% url 'start_quiz' quiz.id %}">بدأ الاختبار</a></button>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+
+
+                 </div>
+
+             </div>
+             <!------------------------finish_exams---------------->
+             <div class="exams" id="finish_exams">
+                 <div class="row">
+                    {% for quiz in quizzes %}
+                    {% if quiz.done %}
+                    <div class="col-3">
+                        <div class="exam1">
+                             <h5>{{quiz.course}}</h5>
+                             <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
+                             <p>{{quiz.quiz.name}}</p>
+                             <button class="btn_exam"><a >رؤية النتيجة</a> <p>درجة الاختبار: {{quiz.score}} من {{quiz.total_marks}}</p> </button>
+
+
+                        </div>
+                    </div>
+
+                    {% endif %}
+                {% endfor %}
+                 </div>
+
+             </div>
+         </div>
+     </div>
+
+</div>
+</div>
+
+<!--------------------------active_base_bar----------->
+<script>
+    var profile_features = document.getElementById("profile_features");
+     var profile_feature_active = profile_features.getElementsByClassName("profile_feature")
+      var image1 = document.getElementById("image1");
+      var image2 = document.getElementById("image2");
+      var image3 = document.getElementById("image3");
+      var image5 = document.getElementById("image5");
+     for (var i = 0; i < profile_feature_active.length; i++) {
+         var current = profile_features.getElementsByClassName("activee");
+         // If there's no active class
+         if (current.length > 0) {
+           current[0].className = current[0].className.replace(" activee", "");
+           image5.src = "{% static 'images/icons/dashboard/exams.svg' %}" ;
+         }
+           profile_feature_active[3].classList.add("activee")
+           image5.src ="{% static 'images/icons/dashboard/oppsite/Group 184.svg' %}" ;
+           console.log("dashboard_teacher")
+     }
+     //-------- hover-base-bar-------------
+        function hoverr1(){
+        image1.src ="{% static 'images/icons/dashboard/oppsite/Group 183.svg' %}" ;
+        }
+        function without_hover1(){
+        image1.src = "{% static 'images/icons/dashboard/main page.svg'  %}" ;
+        }
+        //---hover account
+        function hoverr2(){
+        image2.src ="{% static 'images/icons/dashboard/oppsite/ic_account_circle_24px.svg' %}" ;
+        }
+        function without_hover2(){
+        image2.src = "{% static 'images/icons/dashboard/ic_account_circle_24px.svg'  %}";
+        }
+        //----hover-courses
+        function hoverr3(){
+         image3.src ="{% static 'images/icons/dashboard/oppsite/Group 186.svg' %}" ;
+        }
+        function without_hover3(){
+         image3.src = "{% static 'images/icons/dashboard/Group 186.svg' %}";
+        }
+     </script>
+
+     <!--------------active up button-------------->
+   <!--  <script>
+         var imageee1 = document.getElementById("image-ex");
+         available_exams = document.getElementById("available_exams");
+         finish_exams = document.getElementById("finish_exams");
+         ava_btn = document.getElementById("exams_btn").getElementsByTagName("button")[1];
+         fin_btn = document.getElementById("exams_btn").getElementsByTagName("button")[2];
+         function current_quizss(){
+        finish_exams.style.display="none";
+        available_exams.style.display="block";
+        fin_btn.classList.remove("activee");
+        imageee1.src = "{% static 'images/std/hover/Group.svg'%}" ;
+        console.log("done")
+    }
+     </script> -->
+
+
+     <!------------------------------------------>
+
+
+
+     <!--------------------------active_base_bar----------->
+<script src="{% static 'js/std_exams.js' %}"></script>
+{% endblock content %}

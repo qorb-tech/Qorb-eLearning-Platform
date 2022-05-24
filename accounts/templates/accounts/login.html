@@ -1,0 +1,98 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %} REGISTER TITLE {% endblock title %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>sign-in</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!--- <script defer src="/your-path-to-fontawesome/js/all.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sign-up.css' %}">
+    <title>sign-up</title>
+</head>
+<body>
+    <!-----------------navbar-------->
+         <nav class="navigation">
+          <div class="row nav_ull">
+            <div class="nav_ul">
+                <ul>
+                    <div class="right">
+                        <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                        <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+                    </div>
+                </ul>
+              </div>
+          </div>
+    </nav>
+    <!--------------LOGIN IN --------------->
+    <div class="sign-up">
+      <div>
+          <img src="{% static 'images/Group 162.png' %}" alt="sign-up">
+      </div>
+      <form  method="post">
+        {% csrf_token %}
+          <div class="form_input">
+            <i class="fas fa-user-circle"></i>
+            {{ form.username }}
+
+          </div>
+        <div class="form_input">
+            <i class="fas fa-lock-alt"></i>
+            {{ form.password }}
+            <i class="password-toggle far fa-eye-slash" id="password-toggle" onclick="password_Toggle()"></i>
+        </div>
+        <div class="row">
+          <div >
+             <script src='https://www.google.com/recaptcha/api.js'></script>
+             <div class="g-recaptcha" data-sitekey="6LfszWMeAAAAACcuYUil6U-JU8T9knetAhG9Amtm"></div>
+
+          </div>
+           </div>
+        <div>
+            <button class="btn1"><a type="submit" value="Log In"  onclick="success_register()">تسجيل الدخول </a></button>
+            <button class="btn2"><a href="/register">تسجيل حساب</a></button>
+        </div>
+      </form>
+    </div>
+
+    <script src="{% static 'js/password.js' %}"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <div id="sucsess_enter">
+      {% for msg in messages %}
+      {% if flag %}
+      <h1>تم تسجيل الحساب</h1>
+        <i class="fas fa-user-check"></i>
+      {% else %}
+      <h1>فشل تسجيل الحساب</h1>
+        <i class="fas fa-user-check"></i>
+      {% endif %}
+      {% endfor %} 
+         </div> 
+    -->
+
+ 
+
+</body>
+</html>
+</body>
+</html>
+
+{% endblock content %}

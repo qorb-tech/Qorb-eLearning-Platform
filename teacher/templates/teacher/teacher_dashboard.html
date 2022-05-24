@@ -1,0 +1,34 @@
+{% extends 'teacher/base_bar.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>الصفحة الرئيسية</title>
+{% endblock title %}
+
+{% block content %}
+
+                <!-------------------details--------->
+               <div class="col-10" >
+                   <div class="details det-dash">
+                        <!----------------------lecture--------->
+<!-------------------------------------------->
+                    <h3>Teacher Dashboard</h3>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--------------------------active_base_bar----------->
+    
+
+    <script src="{% static 'js/teacher_dashboard.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script>window.onload=teacher_dash()</script>
+
+    <script>
+      {% for msg in messages %}
+           swal("Good job!", "{{msg}}!", "success");
+       {% endfor %}
+     </script>
+ 
+
+    </body>
+</html>
+{% endblock content %}

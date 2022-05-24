@@ -1,0 +1,39 @@
+
+  <h1>رفع تقرير</h1>
+
+
+   حالة التصحيح
+   <br>
+   {{report_grades.grade}}
+  <br>
+   اخر موعد لرفع التقرير
+   <br>
+   {{report.deadline}}
+  <br>
+  تاريخ اخر تعديل
+   <br>
+   {{report_grades.last_modified}}
+   <br>
+   {% if  report_grades.report_file %}
+   <a target="_blank" href="{{report_grades.report_file.url}}" >assignment.pdf</a>
+  <br>
+  {%endif%}
+   ملاحظات المعلم
+   <br>
+   {{report_grades.teacher_notes}}
+  <br>
+  {% if  is_deadline_not_over %}
+  <br>
+  <br>
+  <form  action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.report_file }}
+    <br>
+    {{ form.student_notes }}
+    <br>
+    <button type="submit">Upload</button>
+    <br>
+ </form>
+
+  {%endif%}
