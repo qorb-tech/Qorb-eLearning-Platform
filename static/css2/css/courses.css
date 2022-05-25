@@ -1,0 +1,90 @@
+.student {
+  padding:4px 14px ;
+  margin-top: 4%;
+  font-size: 15px;
+}
+/*content*/
+.col-6 {
+  flex-basis: 50%;
+}
+.infoo {
+  display: flex;
+  direction: rtl;
+}
+.im1 {
+  padding: 20px;
+}
+.sp1 {
+  margin-top: -17px;
+}
+/*.sp2 {
+  margin-bottom: 40px;
+}*/
+.entert {
+  padding-top: 60px;
+}
+.entert button {
+  border-radius: 35px;
+  /* width: 200px; */
+  margin-left: 40px;
+}
+.btn{padding: 0;}
+.entert button a {
+  display: inline-block;
+  padding:9px 30px;
+}
+.imll {
+  display: flex;
+  align-items: center;
+}
+.iml1 {
+  padding: 0 5px;
+  font-size: 15px;
+}
+.iml2 img {
+  width: 15px;
+  height: 15px;
+  margin-top: 7px;
+}
+
+.tex{
+    position: absolute;
+    padding-right: 21%;
+    padding-top: 5%;
+    font-weight: bold;
+}
+.tex h2{
+    padding-bottom: 8%;
+    font-size: 25px;
+    color: var(--btn-color);
+
+}
+.tex p{
+  font-size: 20px;
+  color: #656565;
+}
+  .profile .p2{
+    padding-top: 3%;
+    font-weight: bold;
+  }
+
+  .lmn{
+    position: fixed;
+    bottom: 5%;
+    left: 39%;
+  }
+  .lmn button{
+    border-radius: 50px;
+  }
+  .lmn button a{
+    padding: 10px 27px;
+  }
+#coursess .col-6{
+  direction: ltr;
+}
+#coursess {
+  display:block;
+}
+#Ncontnt {
+  display: none;
+}

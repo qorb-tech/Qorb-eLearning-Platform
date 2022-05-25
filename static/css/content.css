@@ -1,0 +1,540 @@
+.courses {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 41px;
+  background-color: var(--primary-color);
+}
+.course_cont {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-basis: 45%;
+  margin: 10px;
+  
+}
+.course_cont p {
+  direction: rtl;
+  padding-top: 10px;
+}
+.course_cont .imgg img {
+  margin-left: 15px;
+  width: 266px;
+  height: 175px;
+  border-radius: 41px;
+}
+.course_cont h5 {
+  color: var(--btn-color);
+  direction: rtl;
+}
+/*
+#courses1{
+    display: none;
+} */
+#coursess {
+  display: block;
+  margin-right: 30px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+#new_course {
+  display: block;
+}
+#Ncontnt {
+  display: none;
+}
+/****************new_course*********/
+#new_course {
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  padding-bottom: 50px;
+  text-align: center;
+}
+.btn_course {
+  display: flex;
+  justify-content: center;
+}
+.btn_course #custom-button {
+  width: 60%;
+  display: block;
+}
+/*********************************/
+.data_analysis {
+  text-align: end;
+}
+.data_analysis input::placeholder {
+  padding: 15px 0;
+}
+
+.term_cont {
+  text-align: end;
+}
+.account_tech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account_tech h1 {
+  padding: 20px 10px;
+}
+.tech_pic {
+  flex-basis: 30%;
+  position: relative;
+}
+.img_choose {
+  position: absolute;
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+  border-radius: 16px;
+  padding: 12px 19px;
+  top: 71%;
+  right: 25%;
+}
+.img_choose:hover {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+}
+.tech_pic input {
+  padding: 10px 5px;
+  display: none;
+  /* position: relative;
+    z-index: 99;
+    opacity: 0;
+    top: 34px;
+    right: 110px; */
+}
+.tech_pic input :hover {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+}
+.term_cont1 button {
+  width: 100%;
+  font-size: 20px;
+}
+
+.term_cont button {
+  width: 70%;
+  font-size: 15px;
+}
+
+.white_btn {
+  margin: 20px 0;
+}
+.term_cont h1 {
+  color: var(--btn-color);
+  text-align: end;
+  margin: 10px 0;
+}
+.data_analysis label,
+.term_cont labeL {
+  color: var(--btn-color);
+  margin-left: 10px;
+}
+.data_analysis input {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.term_cont input,
+.data_analysis input {
+  border: 1px solid var(--btn-color);
+  border-radius: 15px;
+  font-size: 15px;
+  padding: 10px;
+  color: #ccc;
+  text-align: end;
+  display: block;
+  width: 350px;
+}
+.inp {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.details {
+  margin: 30px;
+}
+.add-details {
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+.lec {
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modified_btn i {
+  margin-right: 10px;
+}
+button {
+  outline: none;
+  /* margin-left: 21px; */
+}
+button a {
+  border-radius: 20px;
+  border: none;
+}
+
+.data_analysis textarea {
+  border: 1px solid var(--btn-color);
+  outline: none;
+  resize: none;
+  padding: 10px;
+  direction: rtl;
+  color: #ccc;
+  border-radius: 20px;
+  width: 350px;
+  height: 150px;
+}
+
+#custom-button2,
+#custom-button {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid var(--btn-color);
+  padding: 10px 5px;
+  /* width: 56%;
+  margin-left: 80px; */
+  color: var(--btn-color);
+  display: block;
+  margin: 20px;
+  margin-bottom: 5px;
+}
+#custom-button2:hover,
+#custom-button:hover {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid var(--btn-color);
+  color: var(--btn-color);
+}
+#custom-text {
+  display: None;
+}
+.add-button button:hover a {
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+}
+
+.btn-new button:hover a {
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+  border-radius: 35px;
+  border: 1px solid var(--btn-color);
+}
+/************add_content******/
+.add_content .account_tech h1 {
+  padding: 10px;
+}
+.add_content .details {
+  padding: 5px 0;
+}
+.add_content .modified_btn {
+  margin-top: 30px;
+}
+.add_content .btn1 a {
+  color: var(--primary-color);
+}
+.add_content .btn1:hover a {
+  color: var(--btn-color);
+}
+
+.term_cont1 {
+  width: 265px;
+  height: 175px;
+}
+#custom-button img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+.hrt hr {
+  border-top: 1px solid #cccccc;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+/*button*/
+.imll {
+  display: flex;
+  align-items: center;
+}
+.iml1 {
+  padding: 0 5px;
+  font-size: 15px;
+}
+.iml2 img {
+  width: 20px;
+  height: 20px;
+  margin-top: 7px;
+}
+.enter_btn button a {
+  padding: 7px 28px;
+}
+button,
+.btn {
+  border-radius: 35px;
+}
+.imk {
+  width: 20px;
+  height: 20px;
+  margin-top: 7px;
+}
+
+.btn1 a {
+  border: none;
+}
+#btns button img {
+  margin-left: 10px;
+}
+/* .btn_choices .btn2:hover a {
+  border: none;
+  color: var(--btn-color);
+  background-color: var(--primary-color);
+} */
+.content_btn .fas {
+  padding-left: 10px;
+}
+.btn1 a .fas {
+  padding-right: 0px;
+  font-size: 16px;
+}
+button {
+  margin: 5px 0;
+}
+
+.hrtt hr {
+  border-top: 1px solid #cccccc;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.link_btn #custom-button {
+  background-color: #c86253;
+  color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 15px;
+  width: 40%;
+}
+.link_btn #custom-button2 {
+  background-color: #c86253;
+  color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 15px;
+  width: 40%;
+}
+.mod-edi {
+  margin-bottom: 40px;
+}
+/* .active :hover {
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+} */
+/********************max-width: 1050px*************************/
+@media (max-width: 1400px) {
+  .course_cont{
+    flex-basis: 55%;
+  }
+  .course_cont .imgg img {
+    width: 220px;
+  }
+  .enter_btn button a {
+    padding: 7px 20px;
+}
+  .btn2 a {
+    padding: 14px 28px;
+  }
+  .details_tech {
+    margin-right: 20px;
+  }
+  .tech_pic {
+    margin-left: 11px;
+  }
+  .info_tech {
+    padding-top: 30px;
+  }
+}
+@media (max-width: 1050px) {
+  .course_cont .imgg img {
+    width: 190px;
+    height: 170px;
+  }
+  .enter_btn button a {
+    padding: 7px 10px;
+}
+  .term_cont1 img {
+    width: 200px;
+    height: 130px;
+  }
+
+  .btn_course #custom-button {
+    width: 72%;
+    display: block;
+  }
+
+  .data_analysis textarea {
+    width: 300px;
+    height: 135px;
+  }
+  .data_analysis input {
+    width: 300px;
+  }
+  .btn1 a {
+    font-size: 17px;
+    padding: 15px 30px;
+  }
+  .details_tech {
+    margin-right: 32px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .account_tech img {
+    width: 3%;
+  }
+}
+/********************max-width: 950px*************************/
+@media (max-width: 950px) {
+  .course_cont{
+    flex-basis: 55%;
+  }
+  .course_cont .imgg img {
+    width: 170px;
+    height: 160px;
+  }
+  .enter_btn button a {
+    padding: 7px 7px;
+}
+  .term_cont1 {
+    width: 200px;
+    height: 130px;
+  }
+  .details_tech {
+    margin-right: 40px;
+  }
+  .account_tech img {
+    width: 3.5%;
+  }
+}
+/********************max-width: 900px*************************/
+@media (max-width: 900px) {
+  .data_analysis textarea {
+    width: 270px;
+    height: 135px;
+  }
+  .data_analysis input {
+    width: 270px;
+  }
+  .container {
+    width: 700px;
+  }
+  .qorb {
+    padding-top: 100px;
+    margin-right: 50px;
+  }
+  .navigation {
+    height: fit-content;
+    position: relative;
+  }
+
+  .right {
+    flex-direction: row;
+    flex-basis: 100%;
+  }
+  .nav_ul {
+    flex-basis: 72%;
+  }
+  .course_cont .imgg img {
+    margin-left: 10px;
+    width: 185px;
+    height: 165px;
+  }
+  button a {
+    padding: 10px 15px;
+  }
+  .enter_btn button a {
+    padding: 7px 10px;
+  }
+  .enter_btn .btn {
+    margin-left: 0;
+  }
+}
+/********************max-width: 830px*************************/
+@media (max-width: 830px) {
+  .course_cont{flex-basis: 50%;}
+  .course_cont .imgg img {
+    width: 170px;
+    height: 160px;}
+  .term_cont1 {
+    width: 150px;
+    height: 100px;
+  }
+  #custom-button img {
+    width: 15px;
+    height: 15px;
+  }
+  .btn_course #custom-button {
+    width: 100%;
+  }
+  .btn1 a {
+    font-size: 15px;
+    padding: 11px 16px;
+  }
+  .btn2 a {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+  .iml1 {
+    padding: 0 2px;
+    font-size: 14px;
+}
+}
+/********************max-width: 750px*************************/
+@media (max-width: 750px) {
+  .details_tech {
+    margin-right: 20px;
+  }
+  .term_cont1 {
+    width: 150px;
+    height: 100px;
+  }
+  .course_cont .imgg img {
+    margin-left: 7px;
+    width: 145px;
+    height: 140px;
+  }
+  button a {
+    padding: 10px 6px;
+    font-size: 18px;
+  }
+  .courses i {
+    font-size: 15px;
+  }
+  .data_analysis textarea {
+    width: 211px;
+    height: 105px;
+  }
+  .data_analysis input {
+    width: 213px;
+  }
+  #custom-button {
+    margin: 15px;
+  }
+  .account_tech img {
+    width: 4%;
+  }
+  .iml1 {
+    padding: 0 2px;
+    font-size: 12px;
+}
+}
+@media (max-width: 695px) {
+  .see-con button a {
+    padding: 7px 5px;
+  }
+}

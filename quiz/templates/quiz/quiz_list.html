@@ -1,0 +1,107 @@
+{% extends 'quiz/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الاختبارات</title>
+{% endblock title %}
+
+{% block custum_imports %}
+<link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
+<link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+<link rel="stylesheet" href="{% static 'css/exams.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------details--------->
+               <div class="col-10">
+                   <!------------------------exams---------------->
+                    <div id="exam">
+                        <div class="details">
+                            <div class="account_tech">
+                                <h1> اختبارات</h1>
+                                <img src="{% static 'images/teacher//Icons/Group 15547.png' %}" width="30px" height="30px">
+                            </div>
+                            <div class="hrt">
+                                <hr>
+                            </div>
+                            <!------------------------exams---------------->
+                            <div class="exams">
+                                <div class="row">
+                                    {% for quiz in quizzes %}
+
+                                        <div class="col-3">
+                                            <div class="exam1">
+                                                <h5>{{quiz.course.name}}</h5>
+                                                <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
+                                                <p>{{quiz.name}}</p>
+                                                <button class="btn_exam">
+                                                    <a href="{% url 'create_question' quiz.pk %}">
+                                                        افتح الاختبار
+                                                    </a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                                <div class="hrt">
+                                    <hr>
+                                </div>
+
+
+                            <div class="modified_btn open-q">
+                                <button class="btn1" onclick="add_exam()">
+                                    <a>
+                                        <i class="far fa-plus-circle"></i>اختبار جديد
+                                    </a>
+                                </button>
+                            </div>
+
+                            </div>
+
+                            <!------------------new_exam---------->
+                            <form method="post" action=""  id="new_exam">
+                                <h4>اختبار جديد</h4>
+
+                                {% csrf_token %}
+                                <div class="create_quiz name-q">
+                                  {{form.name}}<label>اسم الاختبار</label>
+                                </div>
+
+                                <div  class="create_quiz ">
+                                  {{form.course}} <label>المقرر الدراسى</label>
+                                </div>
+
+                                <div class="create_quiz no_q">
+                                  {{form.number_of_questions}}  <label>عدد الاسئله</label>
+                                </div>
+                                <div class="create_quiz no_q">
+                                  {{form.time}} <label>وقت الاختبار</label>
+                                </div>
+
+
+
+                                <div class="modified_btn quiz_btn">
+                                  <button class="btn1 quiz1" onclick="cancel_exam()"><b>الغاء</b></button>
+                                  <button type="submit"  class="quiz2 white_btn"><b>بدا الاختبار</b></button>
+                                </div>
+                                <!-- <button type="submit">
+                                  <b>Create Quiz</b>
+                                </button>
+                                <p><a href="{% url 'quizzes' %}"><b>Return to quizzes</b></a></p> -->
+
+                              </form>
+                        </div>
+                    </div>
+
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script>window.onload=quiz()</script>
+   <!--------------------------active_base_bar----------->
+  <script src="{% static 'js/exam.js' %}"></script>
+</body>
+</html>
+{% endblock content %}

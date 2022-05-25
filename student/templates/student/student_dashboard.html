@@ -1,0 +1,172 @@
+{% extends 'student/base_bar.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>اعادة تعيين كلمة المرور</title>
+{% endblock title %}
+
+{% block custum_imports %}
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/courses_suggested.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+
+
+{% endblock custum_imports %}
+
+{% block content %}
+{% if msg %}
+<br><center><h3>Course Joined succefully!</h3></center><br>
+{% endif %}
+                <!-------------------details--------->
+               <div class="col-10">
+                 
+                <div class="input_search">
+                  <div class="add_cont ">
+                    <h1>اضافة مقرر</h1>
+                  </div>  
+                <div class="search_div">
+                  <input
+                    type="text"
+                    name="search"
+                    hx-post="{% url 'search' %}"
+                    hx-trigger="keyup changed delay:250ms"
+                    hx-indicator=".htmx-indicator"
+                    hx-target="#search-results"
+                    placeholder="بحث عن مقرر"
+                    
+                  >
+                  <!-- <span class="htmx-indicator">Searching...</span> -->
+                </div>
+              
+                </div>
+                  <div class="search-table">
+                    {% if todos %}
+                    <thead>
+                      <tr>
+                        <th>Course Name</th>
+                        <th>Teacher Name</th>
+                      </tr>
+                    {% endif %}
+                    </thead>
+                
+                    <div id="search-results">
+                      {% include "student/search.html" %}
+                    </div>
+                  </div>
+                
+
+
+                  <div class="details">
+                    <!----------------------lecture--------->
+                  <div class="row align_start">
+                     <div class="col-8">
+                      {% for i,k in dic.items %}
+                       <div class="lecture">
+                        <div class="info">
+                            <div class="info_txt">
+                                <div class="lec">
+                                    <i class="fas fa-bell"></i>
+                                    <h3>المحاضرة القادمة</h3>
+                                </div>
+                                   <p>{{i}}</p>
+                                   <p>{{k}} </p>
+                               </div>
+                               <div class="enter_btn">
+                                <button class="btn1"><a href="join_meeting/{{i}}"><i class="fas fa-pen"></i> انضمام للاجتماع</a></button>
+                              </div>
+                        </div> 
+                          <hr>
+                          
+                       </div>
+                       {% endfor %}
+                    </div>
+                       
+                  </div>
+               </div>
+              </div>
+
+
+
+
+
+
+            <section class="bod sec">
+              <div class="swiper mySwiper container">
+                <div class="swiper-wrapper content">
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="{% static 'images/pic 1.png' %}" alt="">
+                      </div>
+                      <div class="name-profession">
+                        <span class="profession">Machine learning</span>
+                      </div>
+                      <div class="button">
+                        <button class="aboutMe">انضمام</button>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="{% static 'images/pic 2.png' %}" alt="">
+                      </div>
+                      <div class="name-profession">
+                        <span class="profession">Machine learning</span>
+                      </div>
+                      <div class="button">
+                          <button class="aboutMe">انضمام</button>  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="{% static 'images/pic 3.png' %}" alt="">
+                      </div> 
+                      <div class="name-profession">
+                        <span class="profession">Machine learning</span>
+                      </div>
+                      <div class="button">
+                          <button class="aboutMe">انضمام</button> 
+                      </div>
+                    </div>
+                  </div>
+          
+                  </div>
+                 
+                
+               
+              </div>
+          
+              <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </section>
+
+             </div>
+
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+  {% for msg in messages %}
+       swal("Good job!", "{{msg}}!", "success");
+   {% endfor %}
+ </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/card.js' %}"></script>
+<script src="{% static 'js/teacher_dashboard.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script>window.onload=teacher_dash()</script>
+
+</body>
+</html>
+{% endblock content %}
