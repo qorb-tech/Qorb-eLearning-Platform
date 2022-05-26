@@ -1,0 +1,80 @@
+{% extends 'teacher/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title>المقررات الدراسية</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/report_std.css' %}">
+
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses--------->
+                <div class="col-10">
+                  <div class="details">
+                   <div class="account_tech">
+                       <h1> رفع التقرير </h1>
+                       <img src="{% static 'images/teacher//Icons/Group 15547.png' %}" width="35px" height="35px">
+                   </div>
+            <div class="info_tech">
+               <div class="details_tech">
+                    <form action="" method="post">
+                      {% csrf_token %}
+                       
+                        <div class="block">
+                          <label>تقييم الطالب </label>
+                          <div>{{ form.grade }}</div>
+                       </div>
+
+                        <div class="block">
+                        <label> ملاحظات المعلم </label>
+                        <div>{{form.teacher_notes}}</div>
+                        </div>
+
+                        <div class="block">
+                          <label> ملاحظات الطالب </label>
+                          <div>{{report_grades.student_notes}}</div>
+                          </div>
+                        
+
+                        {% if report_grades.report_file %}
+                          <div class="block">
+                          <label> ملف تقرير الطالب </label>
+                          <button class="btn2"><a  href="{{report_grades.report_file.url}}"><i class="fas fa-pen"></i>ملف التقرير للطالب</a></button>
+                          </div>
+                        {% else %}
+                        <p>لم يقوم الطالب برفع التقرير</p>
+                        {% endif %}
+                        <button class="btn1" type="submit">تحديث درجه الطالب</button>
+                    </form>
+                </div>
+            </div>
+            
+            
+            
+               </div>  
+              </div>
+            </div>
+
+                     <!-----------new_course-------->
+        </div>
+
+    </section>
+    <!--------------------------active_base_bar----------->
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="{% static 'js/coursesi.js' %}"></script>
+    <script src="{% static 'js/coursedetails.js' %}"></script>
+    <script>
+    loadFile()
+    loadFile2()
+    </script>
+</body>
+</html>
+
+
+{% endblock content %}

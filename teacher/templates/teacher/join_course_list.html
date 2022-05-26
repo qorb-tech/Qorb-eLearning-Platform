@@ -1,0 +1,19 @@
+
+  {% if all_requests %}
+  {% for request in all_requests %}
+  
+  <div>
+    <ul>
+      <li>Course Name: {{request.course}}</li>
+      <li>Student Name: {{request.student}}</li>
+      <a onclick="return confirm('هل تريد اضافه الطالب للكورس ؟')" 
+      href="confirm/{{request.course}}/{{request.student}}">تاكيد الانضمام للكورس</a>
+      <hr>
+
+    </ul>
+  </div>
+  {% endfor %}
+  {% else %}
+    <h1>لا يوجد طلبات حتي الان</h1>
+
+{% endif %}	

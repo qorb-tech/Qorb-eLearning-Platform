@@ -1,0 +1,16 @@
+.content_btn {
+  flex-basis: 32%;
+}
+.lec p {
+  text-align: end;
+  text-decoration: underline;
+}
+.lec .fa-arrow-alt-from-bottom {
+  color: var(--btn-color);
+}
+.lec .fa-check-circle{
+  color: var(--forth-color);
+}
+.file_upload{
+    margin: 10px 0;
+}

@@ -1,0 +1,49 @@
+.col-10{
+    padding: 20px;
+}
+.account_tech {
+    padding: 10px;
+}
+.account_tech img{
+    padding-top: 6px;
+    margin-left: 5px;
+}
+.account_tech h1 {
+    font-size: 35px;
+}
+.account_tech{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info_tech{
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+.block {
+    margin: 25px 0;
+    direction: rtl;
+    display: flex;
+    justify-content: flex-start;
+}
+.info_tech form label {
+    margin-left: 20px;
+    text-align: right;
+    flex-basis: 40%;
+}
+.block textarea{
+    resize: none;
+    margin-right: 50px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 5px 10px;
+    height: 110px;
+    width: 310px;
+    margin-top: 10px;
+}
+.modified_btn{
+    margin-top: 20px;
+}
+.modified_btn a{
+    text-decoration: none;
+}

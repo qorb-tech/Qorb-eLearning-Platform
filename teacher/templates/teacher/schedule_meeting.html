@@ -1,0 +1,38 @@
+{% extends 'teacher/base_bar.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>اعادة تعيين كلمة المرور</title>
+{% endblock title %}
+
+{% block custum_imports %}
+
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------details--------->
+               <div class="col-10">
+                   <div class="details reset_pwd">
+                    <div class="account_tech">
+                        <h1> انشاء اجتماع <i class="fas fa-video-plus"></i></a></h1>
+                    </div>
+                    <div class="hrt">
+                        <hr>
+                    </div>
+                    <form class ="form-sch" action="" method="post" enctype="multipart/form-data" class="pwd">
+                        {% csrf_token %}
+                        {{form.meeting_date}}
+                        <button class="white_btn"><a > <i class="fal fa-times"></i> انشاء الاجتماع</a></button>
+                     </form>
+                 </div>
+             </div>
+
+               </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+{% endblock content %}

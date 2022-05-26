@@ -1,0 +1,186 @@
+.account_tech {
+  padding: 5px;
+}
+.info_tech {
+  box-sizing: content-box;
+}
+.block {
+  margin: 25px 0;
+}
+
+.info_tech form label {
+  margin: 8px 0;
+  padding-right: 0;
+  padding-bottom: 5px;
+  font-weight: bolder;
+}
+.white_btn {
+  margin: 20px;
+}
+.white_btn i {
+  padding-right: 2px;
+}
+.modified_btn {
+  margin-bottom: 15px;
+}
+.modified_btn button {
+  margin: 20px;
+}
+
+.hrt hr {
+  border-top: 1px solid #cccccc;
+  margin-right: 110px;
+  margin-left: 80px;
+}
+.btn1 a {
+  border: none;
+}
+.btn2:hover a {
+  border: none;
+  color: var(--primary-color);
+  background-color: var(--btn-color);
+}
+.btn1 a .fas {
+  padding-right: 10px;
+}
+/*---------media-query---------*/
+@media (max-width: 1400px) {
+  .btn2 a {
+    font-size: 17px;
+    padding: 15px 35px;
+  }
+  .det-view {
+    margin: 28px 25px;
+  }
+  .modified_btn {
+    margin-top: 30px;
+  }
+  .info_tech {
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  .tech_pic {
+    margin-left: 35px;
+    flex-basis: 25%;
+  }
+  .tech_pic_spc h2 {
+    padding-left: 50px;
+    font-size: 19px;
+  }
+  .tech_pic_spc {
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  .details_tech_spc {
+    margin-right: 80px;
+  }
+  .modified_btn button {
+    margin-left: 12px;
+  }
+  .white_btn a {
+    font-size: 17px;
+    padding: 14px 25px;
+  }
+  .btn1 a {
+    font-size: 17px;
+    padding: 15px 30px;
+  }
+  #custom-button {
+    font-size: 17px;
+  }
+  .info_tech {
+    padding-top: 15px;
+    padding-bottom: 0px;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  .modified_btn button {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 1200px) {
+  .tech_pic_spc h2 {
+    padding-left: 35px;
+  }
+  .tech_pic .imgg img {
+    width: 140px;
+    height: 140px;
+  }
+}
+@media (max-width: 1060px) {
+  .tech_pic_spc h2 {
+    padding-left: 29px;
+  }
+}
+@media (max-width: 1040px) {
+  .profile_feature {
+    font-size: 10px;
+    padding: 6px;
+  }
+  .profile_feature img {
+    padding-left: 4px;
+  }
+  .student {
+    margin: 10px 7px;
+  }
+  .details {
+    margin: 20px 30px;
+  }
+  .info_tech {
+    padding: 16px 20px;
+  }
+  form .details_tech .modified_btn button {
+    margin: 20px 10px;
+  }
+  .tech_pic_spc h2 {
+    padding-left: 25px;
+  }
+  .btn2 a {
+    font-size: 15px;
+    padding: 15px 26px;
+  }
+  .btn1 a {
+    font-size: 15px;
+    padding: 15px 11px;
+  }
+  .info_tech {
+    padding-left: 19px;
+    padding-right: 0px;
+  }
+  .hrt hr {
+    margin-right: 72px;
+    margin-left: 61px;
+  }
+}
+
+@media (max-width: 950px) {
+  .hrt hr {
+    margin-right: 72px;
+    margin-left: 37px;
+  }
+}
+@media (max-width: 861px) {
+  .tech_pic_spc h2 {
+    padding-left: 10px;
+  }
+}
+@media (max-width: 850px) {
+  .hrt hr {
+    margin-right: 48px;
+    margin-left: 37px;
+  }
+  .tech_pic .imgg img {
+    width: 130px;
+    height: 130px;
+  }
+}
+@media (max-width: 790px) {
+  .tech_pic_spc h2 {
+    padding-left: 0px;
+  }
+  .details_tech_spc {
+    margin-right: 50px;
+  }
+}
