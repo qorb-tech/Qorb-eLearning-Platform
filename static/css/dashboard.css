@@ -23,8 +23,9 @@
   width: 100%;
 }
 .navigation .btn a {
-  padding: 8px 20px;
+  padding: 10px 15px;
 }
+
 /***************dashboard************/
 .row {
   flex-direction: row-reverse;

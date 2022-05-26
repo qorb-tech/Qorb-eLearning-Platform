@@ -17,9 +17,35 @@ input {
   outline: none;
   color: gray;
 }
+#id_meeting_date{
+  color: var(--btn-color);
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px var(--primary-color);
+}
+.form-sch{
+  padding-top: 5%;
+  direction: rtl;
+  margin-right: 35px;
+}
+.lkmm {
+  box-shadow: 0 0 6px var(--forth-color);
+  height: 390px;
+  border-radius: 40px;
+  text-align: center;
+  padding: auto;
+  margin: 56px 150px;
+  background-color: var(--forth-color);
+  margin-top: 20px;
+}
+.button-sch a{
+    border-radius: 25px;
+    border: 1px solid var(--btn-color);
+    background-color: var(--btn-color);
+    color: var(--primary-color);
+}
 .form_input {
   display: inline-block;
-
   margin: 10px 0;
   box-shadow: 0 0 5px rgba(117, 116, 116, 0.664);
   width: 50%;
@@ -136,6 +162,7 @@ button a {
   animation-duration: 5s;
   animation-fill-mode: forwards;
 }
+/*////////////////////////////////*/
 @keyframes success {
   0% {
     display: none;
