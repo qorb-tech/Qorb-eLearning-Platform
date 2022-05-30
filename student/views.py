@@ -75,6 +75,13 @@ def student_reqeusts(request, *args, **kwargs):
     return render(request, "student/student_join_courses_list.html", context)
 
 
+def dismiss_request(request, *args, **kwargs):
+    course = Course.objects.get(name=kwargs['name'])
+    student = Student.objects.get(user=request.user)
+    JoinCourseList.objects.filter(student=student, course=course).delete()
+    return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))    
+
+
 @require_http_methods(['POST'])
 @login_required(login_url="login_view")
 @allow_user(["is_student"])

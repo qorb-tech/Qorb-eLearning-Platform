@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from .views import course_detail, upload_report_file
+from .views import course_detail, upload_report_file, dismiss_request
 
 urlpatterns = [
     path("dashboard/", views.student_dashboard, name="student_dashboard"),
@@ -16,6 +16,8 @@ urlpatterns = [
     path("upload-report-file/<int:id>/", upload_report_file, name="upload_report_file"),
     path("current-quizzes", views.current_quizzes, name="current_quizzes"),
     path("student-reqeusts", views.student_reqeusts, name="student_reqeusts"),
+    path("dismiss/<str:name>/<str:std_name>/", dismiss_request, name="dismiss_request"),
+
     
     path("start-quiz/<int:pk>/", views.start_quiz, name="start_quiz"),
 ]
