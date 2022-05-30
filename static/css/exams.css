@@ -1,0 +1,251 @@
+.exams .row {
+  justify-content: end;
+  flex-wrap: wrap;
+}
+.col-3 {
+  flex-basis: 25%;
+}
+.details {
+  margin: 31px 25px;
+  margin-bottom: 40px;
+}
+.hrt hr {
+  margin-right: 70px;
+  margin-left: 70px;
+}
+
+.exam1 {
+  text-align: center;
+  background-color: #999999;
+  padding: 15px;
+  margin: 20px 25px;
+  color: var(--primary-color);
+  border-radius: 25px;
+}
+.exam1:hover {
+  cursor: pointer;
+  background-color: var(--btn-color);
+}
+.exam1:hover button a {
+  color: var(--btn-color);
+}
+
+.account_tech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.account_tech h1 {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.exam1 button a {
+  padding: 10px 12px;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #9b9b9b;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+}
+
+.modified_btn {
+  margin: 15px;
+}
+
+/* .btn_exam a {
+  background-color: #9b9b9b;
+  color: var(--primary-color);
+} */
+.exam1 img {
+  padding-top: 10px;
+  width: 25%;
+}
+
+/*********new-exam*********/
+.contnt label {
+  padding-left: 0px;
+}
+#new_exam {
+  display: none;
+  width: 38%;
+  position: fixed;
+  top: 25%;
+  left: 22%;
+  color: var(--primary-color);
+  background-color: rgb(196, 78, 55, 0.8);
+  /* height: 200px; */
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 35px;
+}
+#new_exam .row {
+  margin: 15px 0;
+}
+
+#new_exam input,
+.edit-block {
+  border: 1px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 4px 20px;
+  color: var(--primary-color);
+  font-size: 18px;
+  direction: rtl;
+  background-color: #d38175;
+  outline: none;
+}
+
+.no_q input {
+  width: 30%;
+}
+.create_quiz {
+  margin: 10px 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.create_quiz select {
+  outline: none;
+  background-color: #d38175;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 3px 10px;
+  width: 46%;
+  direction: rtl;
+  margin-left: 10px;
+}
+#id_course option * {
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+}
+#id_course *:hover {
+  background-color: var(--btn-color);
+  color: var(--primary-color);
+}
+/* .create_quiz select:hover {
+  background-color: var(--btn-color);
+}
+#id_course option:hover {
+  background-color: var(--btn-color);
+} */
+
+/* option:checked,
+option:hover {
+  color: black;
+  background-color: var(--primary-color);
+} */
+
+.optn {
+  background-color: #d38175;
+  color: var(--primary-color);
+}
+::selection,
+select option:hover,
+.optn:hover {
+  background-color: var(--btn-color);
+}
+#new_exam .modified_btn button {
+  width: 33%;
+  padding: 10px;
+  cursor: pointer;
+}
+#new_exam .modified_btn .white_btn,
+#new_exam .modified_btn .btn1:hover {
+  background-color: var(--primary-color);
+  color: var(--btn-color);
+}
+
+#new_exam .modified_btn .btn1,
+#new_exam .modified_btn .white_btn:hover {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+#new_exam .modified_btn button a {
+  width: 100%;
+  display: block;
+  padding: 10px 0px;
+}
+#profile_features .activee {
+  background-color: var(--forth-color);
+}
+#profile_features .activee a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.open-q .far {
+  padding-right: 7px;
+}
+/* #profile_features .activee :hover a #image5 {
+  background-image: url(.../images/icons/dashboard/oppsite/Group\ 184.svg);
+} */
+
+@media (max-width: 1120px) {
+  .quiz_btn {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 1045px) {
+  .quiz_btn button {
+    margin: 10px;
+  }
+}
+@media (max-width: 950px) {
+  .exam1 {
+    padding: 10px;
+    margin: 20px 7px;
+  }
+  .exams {
+    margin: 10px;
+  }
+  .name-q input {
+    width: 60%;
+  }
+  .quiz_btn b {
+    font-size: 15px;
+  }
+}
+@media (max-width: 845px) {
+  .exam1 p {
+    font-size: 15px;
+  }
+  .exam1 button a {
+    font-size: 15px;
+  }
+  .exam1:hover button a {
+    font-size: 15px;
+  }
+  .hrt hr {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  .create_quiz label {
+    font-size: 17px;
+  }
+}
+@media (max-width: 715px) {
+  .exam1 button a {
+    font-size: 12px;
+  }
+  .exam1:hover button a {
+    font-size: 11px;
+  }
+  .exam1 p {
+    font-size: 12px;
+  }
+  .exam1 h5 {
+    font-size: 15px;
+  }
+  .create_quiz label {
+    font-size: 13px;
+  }
+  .quiz_btn b {
+    font-size: 12px;
+  }
+}

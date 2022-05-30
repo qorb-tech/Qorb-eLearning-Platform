@@ -1,0 +1,17 @@
+{% load static %}
+{% for course in courses %}
+<div class="search_res">
+
+  <div class="search_teach">
+    <span> {{course.teacher}}/د </span>
+    <span class="course_name">{{course.name}}</span>
+     
+  </div>
+ 
+  <div>
+    <b><a href="join_course/{{course.name}}/" onclick="return confirm('are you sure you want to join course!')">الانضمام للكورس</a></b>
+  </div>
+</div>
+  
+{% endfor %}
+

@@ -1,0 +1,14 @@
+
+  {% if student_requests %}
+  {% for request in student_requests %}
+  
+  <div>
+    <ul>
+      <li>Course Name: {{request.course}}</li>
+      <li>Teacher Name: {{request.teacher}}</li>
+    </ul>
+  </div>
+  {% endfor %}
+  {% else %}
+    <h1>لا يوجد طلبات حتي الان</h1>
+{% endif %}	

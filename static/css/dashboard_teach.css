@@ -1,0 +1,220 @@
+a:hover {
+  text-decoration: none;
+}
+
+.nav_ull {
+  align-items: center;
+}
+.nav_ul {
+  width: 85%;
+}
+.navigation .btn {
+  width: 100%;
+}
+.navigation .btn a {
+  padding: 8px 20px;
+}
+.navigation li:hover a {
+  color: var(--primary-color);
+}
+.profile_feature a:hover {
+  text-decoration: none;
+}
+.details {
+  margin: 10px 40px;
+  min-height: 550px;
+}
+.row {
+  margin: 0;
+  width: 100%;
+}
+
+.student {
+  margin: 10px 8px;
+}
+
+button {
+  outline: none;
+  padding: 0;
+}
+button a:hover {
+  text-decoration: none;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.col-4 {
+  padding-left: 15px;
+}
+/**********edit-block**********/
+.lec h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+.edit-block {
+  border: 1px solid var(--btn-color);
+  border-radius: 15px;
+  padding: 4px 8px;
+  color: #cccccc;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.select-box {
+  width: 200px;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+}
+.select-box:after {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--btn-color);
+  position: absolute;
+  top: 40%;
+  left: 6px;
+  content: "";
+  z-index: 98;
+}
+.select-box select {
+  color: #ccc;
+  outline: none;
+  width: 220px;
+  border: none;
+  position: relative;
+  z-index: 99;
+  background: none;
+}
+
+.select-box::before {
+  position: absolute;
+  content: "|";
+  width: 0;
+  height: 0;
+  top: 20%;
+  left: 30px;
+}
+/****************info-txt***********/
+.info_txt .lec {
+  margin-bottom: 10px;
+}
+.lecture {
+  margin: 5px;
+}
+/********** profile_edit*******/
+.profile_edit {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+/***************date***********/
+.date {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  width: 20%;
+  padding: 2px 8px;
+}
+.date input {
+  border: none;
+  color: #cccccc;
+  width: 75%;
+  font-size: 17px;
+}
+
+.input-group-addon {
+  border: none;
+  background-color: var(--primary-color);
+}
+.date .far {
+  padding: 0 5px;
+}
+.input-group-addon .fas {
+  cursor: pointer;
+  border-right: 1px solid var(--btn-color);
+  /* padding: 0 3px; */
+  color: var(--btn-color);
+}
+
+.enter_btn button {
+  padding: 0;
+  margin: 0;
+}
+.enter_btn .btn {
+  margin: 0;
+}
+.enter_btn a {
+  text-decoration: none;
+}
+/*************repot_updoal****/
+.report_upload {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 15px;
+}
+.report label,
+.profile_edit label {
+  color: var(--btn-color);
+  font-weight: 300;
+  padding-right: 20px;
+  font-size: 20px;
+}
+.profile_edit label {
+  padding-right: 48px;
+}
+/*************************report********************/
+.report {
+  display: flex;
+  padding: 10px;
+}
+.report label {
+  margin-left: 50px;
+}
+
+.report .edit-block {
+  margin-right: 20px;
+}
+.report .time {
+  margin-right: 34px;
+}
+.profile_edit .time {
+  margin-right: 30px;
+}
+.enter_btn .btn a {
+  padding: 10px;
+  font-size: 15px;
+}
+/*************report id*************/
+.report_ld i {
+  color: var(--btn-color);
+  border-right: 1px solid var(--btn-color);
+  padding-right: 2px;
+}
+.report_ld {
+  width: 41%;
+  margin-right: 5px;
+}
+.report_ld input {
+  width: 85%;
+  font-size: 20px;
+}
+
+.enter_btn {
+  position: absolute;
+  left: 23%;
+}
+.enter_btn img {
+  background-color: var(--primary-color);
+  width: 50px;
+}
+.enter_btn i {
+  font-size: 15px;
+}
+.btn_alert .btn a {
+  padding: 4px 10px;
+}
