@@ -1,0 +1,68 @@
+{% extends 'student/base_bar.html' %}
+{% load static %}
+{% load teacher_to_student  %}
+
+{% block title %}
+    <title>المقررات الدراسية</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses--------->
+        <div class="col-10 col-10-std">
+               <!----------------------new-course-->
+               <div id="coursess">
+                <!-----------course1----------->
+                {% if courses %}
+                <ul></ul>
+                {% for course in courses %}
+            <div class="row courses">
+                <div class="course_cont">
+                    <div>
+                        <h5>{{course.name}}</h5>
+                        <p>{{course.student.count}} طالب</p>
+                        <p>{{course.teacher}}</p>
+                    </div>
+                    <div>
+                        <div class="imgg">
+                        <img src="{{course.image.url}}" height="180px">
+                    </div>
+                    </div>
+                </div>
+                <div class="enter_btn see-con">
+                    <button class="btn con1">
+                        <a href="{{ course.get_absolute_url|teacher_to_student }}">
+                            <div class="imll">
+                                <div class="iml2"><img  class = "imk"src="{% static 'images/icons/courses/view course.svg'%}"> </div>
+                                <div class="iml1">رؤية المحتوى</div>
+                            </div>
+                        </a>
+                    </button>
+                 </div>
+            </div>
+                {% endfor %}
+              </ul>
+                {% else %}
+              <p>There are no courses yet!</p>
+
+            {% endif %}
+            
+
+        </div>
+
+        </div>
+
+    </section>
+    <script src="{% static 'js/New_course.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script>window.onload=coursesi()</script>
+</body>
+</html>
+
+
+{% endblock content %}

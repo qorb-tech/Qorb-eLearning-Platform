@@ -1,0 +1,95 @@
+{% extends 'teacher/base_bar.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>تعديل الملف الشخصى</title>
+{% endblock title %}
+
+{% block custum_imports %}
+<link rel="stylesheet" href="{% static 'css/reports.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+
+<div class="col-10">
+  <div class="reports">
+      <h1>التقارير <img src="{% static 'images/quiz/Group 185.svg' %}" width="26px"></a></h1>
+        <div class="report">
+            <h1>قيد التقييم</h1>
+            <div class="row report_details">
+                <div class="report_detail">اسم الطالب</div>
+                <div class="report_detail">اسم التقرير</div>
+                <div class="report_detail">تاريخ الموقع</div>
+                <div class="report_detail">الملف</div>
+                <div class="report_detail">تقييم</div>
+            </div>
+
+            {% for student in report_grades %}
+            {% if student.done == False %}
+           <div class="row report_details">
+               <div class="color1">{{ student.student }}</div>
+               <div class="color2">{{ student.course }}</div>
+               <div class="color1">{{ student.last_modified }}</div>
+
+               {% if student.report_file %}
+               <div class="color2"> <a href="{{student.report_file.url}}"> <i class="fas fa-arrow-alt-square-up"></i>{{ student.report }} </a></div>
+               {% else %}
+               <p>لم يقوم الطالب برفع التقرير</p>
+               {% endif %}
+               <div class="color1 grades">
+                   <div class="row grade">
+                    <a style="color: var(--forth-color);" href="{% url 'report-grades-detail' student.id %}">[ تقييم الطالب]</a>
+
+                   </div>
+               </div>
+           </div>
+           {% endif %}
+           {% endfor %}
+
+
+           <div >
+            <h1>تم تقييمها</h1>
+            <div class="row report_details">
+                <div class="report_detail">اسم الطالب</div>
+                <div class="report_detail">اسم التقرير</div>
+                <div class="report_detail">تاريخ الموقع</div>
+                <div class="report_detail">الملف</div>
+                <div class="report_detail">تقييم</div>
+            </div>
+ 
+            {% for student in report_grades %}
+ 
+             {% if student.done == True %}
+           <div class="row report_details">
+             <div class="color1">{{ student.student }}</div>
+             <div class="color2">{{ student.course }}</div>
+             <div class="color1">{{ student.last_modified }}</div>
+             {% if student.report_file %}
+             <div class="color2"> <a href="{{student.report_file.url}}"> <i class="fas fa-arrow-alt-square-up"></i>{{ student.report }} </a></div>
+             {% else %}
+             <p>لم يقوم الطالب برفع التقرير</p>
+             {% endif %}
+             <div class="color1">
+               {{ student.grade }}
+               <a style="color: var(--forth-color);" href="{% url 'report-grades-detail' student.id %}">[تعديل التقييم]</a>
+               </div>
+           </div>
+           {% endif %}
+            {% endfor %}
+        </div>
+         <!---------------------تم التقييم---------->
+        </div>
+  </div>
+</div>
+<!--------------------------active_base_bar----------->
+<script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/coursesi.js' %}"></script>
+<script src="{% static 'js/coursedetails.js' %}"></script>
+<script>
+loadFile()
+loadFile2()
+</script>
+
+
+{% endblock content %}

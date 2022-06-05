@@ -1,0 +1,21 @@
+
+  {% if student_requests %}
+  {% for request in student_requests %}
+  
+  <div>
+    <ul>
+      <li>Course Name: {{request.course}}</li>
+      <li>Teacher Name: {{request.teacher}}</li>
+    </ul>
+
+
+    <a onclick="return confirm('هل تريد الغاء الطلب ؟')" 
+    href="dismiss/{{request.course}}/{{request.student}}">الغاء الطلب</a>
+    <hr>
+
+
+  </div>
+  {% endfor %}
+  {% else %}
+    <h1>لا يوجد طلبات حتي الان</h1>
+{% endif %}	
