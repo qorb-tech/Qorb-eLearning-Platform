@@ -410,7 +410,6 @@ def edit_report_deadline(request, pk):
 
 
 @login_required(login_url='login_view')
-@allow_user(["is_teacher"])
 def schedule_meeting(request,name):
 
     course= Course.objects.get(name=name)
@@ -436,9 +435,8 @@ def schedule_meeting(request,name):
                 'teacher/schedule_meeting.html',
                 {'form': form})
 
+###############################################################################333#######
 
-@login_required(login_url='login_view')
-@allow_user(["is_teacher"])
 def join_course_list(request, *args, **kwargs):
     teacher = Teacher.objects.get(user=request.user)
     teacher_courses = Course.objects.filter(teacher=teacher)
@@ -446,22 +444,28 @@ def join_course_list(request, *args, **kwargs):
     context = {"all_requests":all_requests,"teacher_courses":teacher_courses}
     return render(request, "teacher/join_course_list.html", context)
 
-@login_required(login_url='login_view')
-@allow_user(["is_teacher"])
 def confirm_join_course(request, *args, **kwargs):
     course = Course.objects.get(name=kwargs['name'])
     temp = User.objects.get(username=kwargs['std_name'])
     student = Student.objects.get(user=temp)
     course.student.add(student)
-    # messages.success(request, "تم اضافه الطالب بنجاح")
+    messages.success(request, "تم اضافه الطالب بنجاح")
     JoinCourseList.objects.filter(student=student, course=course).delete()
     return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))    
     
-
 def confirm_delete_request(request, *args, **kwargs):
     course = Course.objects.get(name=kwargs['name'])
     temp = User.objects.get(username=kwargs['std_name'])
     student = Student.objects.get(user=temp)
     JoinCourseList.objects.filter(student=student, course=course).delete()
-    return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))    
+    return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))  
 
+
+
+"""
+    Teacher
+    - views urls models templates 
+    Student 
+    - Views 
+"""
+###############################################################################333#######
