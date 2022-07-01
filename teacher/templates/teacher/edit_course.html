@@ -1,0 +1,15 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form.name}}
+    <br>
+    {{form.description}}
+    <br>
+    {{form.image}}
+    <br>
+    <button type="button" id="custom-button">تغيير صوره الكورس</button>
+    <br>
+    <button type="submit" value="submit" >تعديل</button>
+
+ </form>
+ <script type="text/javascript" src="{% static 'js/edit_course.js' %}"></script>

@@ -1,0 +1,95 @@
+{% extends 'teacher/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title>اضافة مقرر جديد</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses--------->
+               <div class="col-10">
+
+               <!----------------------new-course-->
+               <form action="" method="post" enctype="multipart/form-data" class="add_content">
+                {% csrf_token %}
+                <div class="details add-details">
+                    <div class="account_tech">
+                        <h1> اضافة مقرر جديد </h1>
+                        <img src="{% static 'images/icons/courses/Group 15498.svg' %}" alt="" width="2.5%">
+                    </div>
+                    <div class="hrt">
+                        <hr>
+                    </div>
+             <div class="info_tech">
+                    <div class="tech_pic ">
+                      <h2>صوره المقرر</h2>
+
+                        <img class="term_cont1" src="{% static 'images/pic 1.png' %}" id="output" alt="" >
+
+                      {{course_form.image}}
+                      <div class="btn_course">
+                        <button type="button" id="custom-button"><img   src="{% static 'images/icons/profile/up-image.svg' %}" alt="">رفع الصورة</button>
+                      </div>
+
+
+                      <!-- <div class="img_choose"> -->
+                          <!-- اختر صورة المقرر -->
+                      <!-- </div> -->
+                     </div>
+
+                <div class="details_tech">
+
+                         <div class="data_analysis" >
+                            <label>اسم المقرر</label>
+                            {{course_form.name}}
+                         </div>
+                         <div class="data_analysis" >
+                            <label>وصف المقرر</label>
+                            {{course_form.description}}
+                         </div>
+
+
+
+                 </div>
+             </div>
+             <div class="modified_btn mod-edi">
+                <button class="btn2" onclick="canel_new_course()"><a href=""><i class="fal fa-times"></i>الغاء التعديلات</a></button>
+                <button type="submit" class="upload_img btn1" ><a ><i class="far fa-plus-circle"></i>اضافة المقرر</a></button>
+
+            </div>
+                </div>
+            </form>
+                </div>
+            </div>
+
+                     <!-----------new_course-------->
+               </div>
+             </div>
+        </div>
+    </section>
+    
+    <script type="text/javascript"  src="{% static 'js/New_course.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="{% static 'js/coursesi.js' %}"></script>
+    
+    <script type="text/javascript">
+        const realFileBtn = document.getElementById("id_posti");
+        const customBtn = document.getElementById("custom-button");
+
+        customBtn.addEventListener("click", function() {
+            realFileBtn.click();
+        });
+    </script>
+    <script>loadFile()</script>
+
+</body>
+</html>
+
+
+{% endblock content %}
