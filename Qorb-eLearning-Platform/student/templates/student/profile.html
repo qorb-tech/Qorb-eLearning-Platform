@@ -1,0 +1,89 @@
+{% extends 'student/base_bar.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>تعديل الملف الشخصى</title>
+{% endblock title %}
+
+{% block custum_imports %}
+
+{% endblock custum_imports %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/student_view.css' %}">
+                <!-------------------details--------->
+               <div class="col-10">
+                   <div class="details">
+                    <div class="account_tech">
+                        <h1> الملف الشخصي <i class="fas fa-user-circle"></i></a></h1>
+                    </div>
+                    <div class="hrt">
+                        <hr>
+                    </div>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+             <div class="info_tech">
+                    <div class="tech_pic techpic_edit">
+                      <h2>تغيير الصورة الشخصية</h2>
+                      <div class="imgg">
+                        <img src="{{ user.profile.student.avatar.url }}" alt="" id="output">
+                      </div>
+                      {{profile_form.avatar}}
+                      <button type="button" id="custom-button"> <img src="{% static 'images/icons/profile/up-image.svg' %}" alt="">رفع الصورة</button>
+
+
+
+
+                    </div>
+
+                <div class="details_tech det-edit">
+
+                         <div class="block">
+                            <label for="username_">اسم المستخدم</label>
+                            {{user_form.username}}
+                         </div>
+
+                         <div class="block">
+                            <label for="name_">الاسم</label>
+                            {{profile_form.full_name}}
+                         </div>
+
+                         <div class="block">
+                            <label for="age_">العمر</label>
+                            {{profile_form.age}}
+                         </div>
+
+                         <div class="block">
+                            <label for="email_">البريد الالكتروني</label>
+                            {{user_form.email}}
+                         </div>
+
+
+
+
+
+                         <div class="modified_btn">
+                            <button class="white_btn"><a href="profile-info"><i class="fal fa-times"></i> الغاء التعديلات</a></button>
+                            <button class="btn1" type="submit" ><a > <i class="fas fa-save"></i> حفظ التعديلات</a></button>
+                                       </div>
+                            </div>
+
+
+                     </form>
+                 </div>
+             </div>
+
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script> window.onload = profile()</script>
+    <!--------------------------active_base_bar----------->
+ <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+ <script>loadfile()</script>
+</body>
+</html>
+{% endblock content %}
