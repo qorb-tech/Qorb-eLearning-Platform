@@ -1,0 +1,71 @@
+
+{% extends 'student/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الانضمام لكورس  </title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock custum_imports %}
+
+
+{% block content %}
+
+                <!-------------------details--------->
+        <div class="col-10">
+          <div class="details">
+            <div class="account_tech">
+                <h1> الطلبات <i class="fas fa-user-circle"></i></a></h1>
+            </div>
+            <div class="hrt">
+                <hr>
+            </div>
+
+            {% if student_requests %}
+            {% for request in student_requests %}
+      <div>
+            <div class="row orders">
+              <div class="row col-8">
+                   <div class="orders-img">
+                       <img src="{% static 'images/Rectangle 198.png' %}" alt="">
+                   </div>
+                   <div class="order-info">
+                     <h4>{{request.course}}</h4>
+                      <p> {{request.teacher}} </p>
+                   </div>
+              </div>
+              <div class="col-4">
+                <button class="orderbtn"> <a onclick="return confirm('هل تريد الغاء الطلب ؟')" 
+                  href="dismiss/{{request.course}}/{{request.student}}">الغاء الطلب</a></button>
+              </div>
+              
+          </div>
+         <div class="hrr">
+             <hr>
+         </div>
+      </div>
+  {% endfor %}
+  {% else %}
+    <div class="no-orders">
+      <img src="{% static 'images/Empt vector (1).png' %}" alt="">
+      <p>   لا يوجد طلبات في الوقت الخالي </p>
+      <a href="#">رجوع للصفحة الرئيسية</a>
+   </div>
+{% endif %}	
+
+
+            
+                  </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    <!--------------------------active_base_bar----------->
+    <script src="{% static 'js/base.js' %}"></script>
+    <script>window.onload=orders()</script>
+</body>
+</html>
+{% endblock content %}
+
