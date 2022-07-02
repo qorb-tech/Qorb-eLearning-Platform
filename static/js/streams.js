@@ -131,7 +131,9 @@ $("#cap-btn").on('click', function() {
     // console.log(data_cap)
     var data_cap2 = localTracks[1].getCurrentFrameData().data;
 	var normalArray = Array.from(myImageData.data);
-
+	dataArray = myImageData.data
+	
+	
 	console.log(normalArray)
     var data = {
         "frame": normalArray,

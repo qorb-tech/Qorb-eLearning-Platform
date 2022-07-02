@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- Include the ECharts file you just downloaded -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.3/echarts.min.js" integrity="sha512-2L0h0GhoIHQEjti/1KwfjcbyaTHy+hPPhE1o5wTCmviYcPO/TD9oZvUxFQtWvBkCSTIpt+fjsx1CCx6ekb51gw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Prepare a DOM with a defined width and height for ECharts -->
+    <div id="main" style="width: 90%;height:400px;"></div>
+	<div id="chart2" style="width: 90%;height:400px;"></div>
+	 <button id="makechart" >Start Chart</button>
+    <script type="text/javascript">
+	
+	  $("#makechart").on('click', function() {
+    console.log("lllll")
+    
+	
+	
+    
+    let data= "data/string.csv";
+    // console.log(localTracks[1].getCurrentFrameData())
+
+
+    $.ajax({
+        headers: {'Access-Control-Allow-Origin': '*' ,
+        "Content-type": "application/json"
+    },
+        
+        type: 'GET',
+        url: `https://api.qorb.tech/status/?data_path=${data}`,
+		contentType: "application/json",  
+        
+        success: function(data){
+		var myChart = echarts.init(document.getElementById('main'));
+		var chart2 = echarts.init(document.getElementById('chart2'));
+		
+		
+      // Specify the configuration items and data for the chart
+      option = {
+  title: {
+    text: 'Stacked Line'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['Angry', 'Fear', 'Happy', 'Neutral', 'Sad','Surprise']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+	  dataZoom: {
+        yAxisIndex: 'none'
+      },
+      dataView: { readOnly: false },
+      magicType: { type: ['line', 'bar'] },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: JSON.parse(data)["y"]
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: 'Angry',
+      type: 'line',
+      stack: 'Total',
+      data: JSON.parse(data)["angry"]
+    },
+    {
+      name: 'Fear',
+      type: 'line',
+      stack: 'Total',
+      data: JSON.parse(data)["fear"]
+    },
+    {
+      name: 'Happy',
+      type: 'line',
+      stack: 'Total',
+      data: JSON.parse(data)["happy"]
+    },
+    {
+      name: 'Neutral',
+      type: 'line',
+      stack: 'Total',
+      data: JSON.parse(data)["neutral"]
+    },
+    {
+      name: 'Sad',
+      type: 'line',
+      stack: 'Total',
+      data: JSON.parse(data)["sad"]
+    },
+	{
+      name: 'Surprise',
+      type: 'line',
+      stack: 'Total',
+      data: JSON.parse(data)["surprise"]
+    }
+	
+  ]
+};
+      myChart.setOption(option);
+        }
+	
+	
+	
+    });
+
+    $.ajax({
+        headers: {'Access-Control-Allow-Origin': '*' ,
+        "Content-type": "application/json"
+    },
+        
+        type: 'GET',
+        url: `https://api.qorb.tech/bar/?data_path=${data}`,
+		contentType: "application/json",  
+        
+        success: function(data){
+		console.log(JSON.parse(data));
+		var myChart = echarts.init(document.getElementById('main'));
+		var chart2 = echarts.init(document.getElementById('chart2'));
+		
+		
+      // Specify the configuration items and data for the chart
+      option = {
+  backgroundColor: '#2c343c',
+  title: {
+    text: 'Customized Pie',
+    left: 'center',
+    top: 20,
+    textStyle: {
+      color: '#ccc'
+    }
+  },
+  tooltip: {
+    trigger: 'item'
+  },
+    toolbox: {
+    feature: {
+	  dataZoom: {
+        yAxisIndex: 'none'
+      },
+      dataView: { readOnly: false },
+      magicType: { type: ['line', 'bar'] },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  visualMap: {
+    show: false,
+    min: 1,
+    max: 30,
+    inRange: {
+      colorLightness: [0, 1]
+    }
+  },
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: '55%',
+      center: ['50%', '50%'],
+      data: [
+        { value: JSON.parse(data)["value"][4], name: 'Angry' },
+        { value: JSON.parse(data)["value"][3], name: 'Fear' },
+        { value: JSON.parse(data)["value"][2], name: 'Happy' },
+        { value: JSON.parse(data)["value"][1], name: 'Neutral' },
+        { value: JSON.parse(data)["value"][5], name: 'Sad' },
+		{ value: JSON.parse(data)["value"][0], name: 'Surprise' }
+      ].sort(function (a, b) {
+        return a.value - b.value;
+      }),
+      roseType: 'radius',
+      label: {
+        color: 'rgba(255, 255, 255, 0.3)'
+      },
+      labelLine: {
+        lineStyle: {
+          color: 'rgba(255, 255, 255, 0.3)'
+        },
+        smooth: 0.2,
+        length: 10,
+        length2: 20
+      },
+      itemStyle: {
+        color: '#c23531',
+        shadowBlur: 200,
+        shadowColor: 'rgba(0, 0, 0, 0.5)'
+      },
+      animationType: 'scale',
+      animationEasing: 'elasticOut',
+      animationDelay: function (idx) {
+        return Math.random() * 200;
+      }
+    }
+  ]
+};
+      chart2.setOption(option);
+        }
+	
+	
+	
+    });
+});
+      
+    </script>
+	
+  </body>
+</html>

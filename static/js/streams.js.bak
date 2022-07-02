@@ -86,7 +86,7 @@ $("#capture-btn").on('click', function() {
     var ctx2 = c2.getContext("2d");
     ctx2.drawImage(c,0, 0, 48, 48);
 
-    myImageData = ctx2.createImageData(48, 48);
+    myImageData = ctx2.getImageData(0, 0, 48, 48);
     console.log(myImageData);
 
     // var scaled = scaleImageData(imgData,1);
@@ -131,7 +131,13 @@ $("#cap-btn").on('click', function() {
     // console.log(data_cap)
     var data_cap2 = localTracks[1].getCurrentFrameData().data;
 	var normalArray = Array.from(myImageData.data);
-
+	dataArray = myImageData.data
+    rgbArray = []
+	for (var i = 0; i < dataArray.length; i+=4) {
+    rgbArray.push([dataArray[i], dataArray[i+1], dataArray[i+2]])
+	}
+	
+	
 	console.log(normalArray)
     var data = {
         "frame": normalArray,
