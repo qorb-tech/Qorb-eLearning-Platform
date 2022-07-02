@@ -53,8 +53,7 @@ INSTALLED_APPS = [
     'django_filters',
     "crispy_forms",
     "crispy_tailwind",
-     
-
+    "channels",
 
 ]
 
@@ -91,6 +90,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'src.wsgi.application'
+ASGI_APPLICATION = 'src.asgi.application'
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('redis', 6379)],
+        },
+    },
+}
+
 
 
 # Database

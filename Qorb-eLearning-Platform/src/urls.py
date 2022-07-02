@@ -11,6 +11,7 @@ urlpatterns = [
     path('teacher/', include('teacher.urls')), 
     path('quiz/', include('quiz.urls')),
     path('', include('meeting.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

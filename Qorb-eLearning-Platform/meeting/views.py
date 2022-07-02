@@ -12,7 +12,6 @@ from accounts.decorators import allow_user
 
 
 
-
 # Create your views here.
 @login_required(login_url='login_view')
 @allow_user(['is_teacher', 'is_student'])
