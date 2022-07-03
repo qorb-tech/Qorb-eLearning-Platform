@@ -57,3 +57,8 @@ align-items: center;
  .no-orders a{
      text-decoration: underline;
  }
+ @media (max-width: 900px) {
+ .no-orders img {
+    width: 80%;
+}
+ }

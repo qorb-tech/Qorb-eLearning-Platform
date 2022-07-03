@@ -266,6 +266,9 @@ form .email input {
   .rst-pass .modified_btn {
     margin-right: -23px;
   }
+  .tech_pic h2 {
+    padding-left: 30px;
+  }
 }
 @media (max-width: 1040px) {
   .profile_feature {
@@ -318,6 +321,9 @@ form .email input {
   }
   .input-group-addon .far {
     padding-left: 0px;
+  }
+  .tech_pic h2 {
+    padding-left: 20px;
   }
 }
 @media (max-width: 850px) {

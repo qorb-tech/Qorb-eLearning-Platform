@@ -21,18 +21,18 @@
 
     <body>
 
-        <nav class="navigation" id="activee">
-              <div class="row nav_ull">
-                <div class="nav_ul" id="menu">
-                    <ul>
-                        <div class="right">
-                            <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
-                            <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
-                        </div>
-                    </ul>
-                  </div>
-                  <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
+        <nav class="navigation">
+          <div class="row nav_ull">
+            <div class="nav_ul">
+                <ul>
+                    <div class="right">
+                        <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                        <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+                    </div>
+                </ul>
               </div>
+              <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
+          </div>
 
       </nav>
         <section>
