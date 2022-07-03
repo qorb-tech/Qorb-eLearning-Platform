@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'adminDashboard.apps.AdmindashboardConfig',
     'quiz.apps.QuizConfig',
     'meeting.apps.MeetingConfig',
+    'chat.apps.ChatConfig',
     # 3rd party apps
     'imagekit',
     'django_cleanup.apps.CleanupConfig',
@@ -97,10 +98,11 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('redis', 6379)],
+            "hosts": [('127.0.0.1', 6379)],
         },
     },
 }
+
 
 
 

@@ -93,9 +93,12 @@ def search(request):
     if search is not None:
         flag = True
     student = Student.objects.get(user=request.user)
+    student_requests = JoinCourseList.objects.filter(student=student)
     student_courses = Course.objects.filter(student=student)
     courses = Course.objects.filter(name__icontains=search).exclude(
         name__in= student_courses.values_list('name', flat=True)
+    ).exclude(
+        joincourselist__in =student_requests
     )
     return render(request, 'student/search.html', {'courses': courses, 'flag':flag})
 
