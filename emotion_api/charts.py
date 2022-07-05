@@ -39,7 +39,7 @@ class Charts:
             'surprise':surprise,
             'fear':fear,
             'happy':happy,
-            'y':list(range(0,maxi+1))
+            'y':list(range(0,maxi))
         }
 
         return json.dumps(result)

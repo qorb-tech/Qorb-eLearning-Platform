@@ -1,11 +1,11 @@
-
 const APP_ID = 'ea8afd3db07a44eeb9878e48c8295ea6'
 const TOKEN = sessionStorage.getItem('token')
-console.log("************************");
-console.log(TOKEN);
 const CHANNEL = sessionStorage.getItem('room')
-let UID = sessionStorage.getItem('UID')
 
+
+
+
+let UID = sessionStorage.getItem('UID')
 let NAME = sessionStorage.getItem('name')
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
@@ -13,11 +13,10 @@ const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 let localTracks = []
 let remoteUsers = {}
 
+const CHANNEL_NAME = sessionStorage.getItem('ch_name')
 
 let joinAndDisplayLocalStream = async () => {
-    console.log("************************");
-    console.log(TOKEN);
-    document.getElementById('room-name').innerText = CHANNEL
+    document.getElementById('room-name').innerText = CHANNEL_NAME
 
     client.on('user-published', handleUserJoined)
     client.on('user-left', handleUserLeft)
@@ -42,24 +41,77 @@ let joinAndDisplayLocalStream = async () => {
 
     localTracks[1].play(`user-${UID}`)
     await client.publish([localTracks[0], localTracks[1]])
-    //console.log("TEST3"+localTracks[1]);
+    
 
-    // console.log(localTracks[1].getCurrentFrameData());
-
-    // var c = document.getElementById("myCanvas");
-    // var ctx = c.getContext("2d");
-    // var imgData = localTracks[1].getCurrentFrameData();
-
-    // console.log(imgData);
-    // ctx.putImageData(imgData, 1, 2);
-    // let myImageData = ctx.createImageData(120, 120);
-    // ctx.putImageData(imgData, 1, 2);
-    // var dataURL = c.toDataURL();
-    // console.log(myImageData);
 
 
 }
 
+
+// Capture , resize to  48 * 48 and send data every 10 sec.
+let myImageData=[];
+let ok = true;
+function capture_send_data() {
+    var c = document.querySelector("canvas");
+    var ctx = c.getContext("2d");
+    var imgData = localTracks[1].getCurrentFrameData();
+
+    ctx.putImageData(imgData, 0, 0);
+    var dataURL = c.toDataURL();
+
+    var image = new Image();
+    image.src = dataURL;
+
+
+    var c2 = document.getElementById("canvas2");
+    var ctx2 = c2.getContext("2d");
+    ctx2.drawImage(c,0, 0, 48, 48);
+
+    myImageData = ctx2.getImageData(0, 0, 48, 48);
+
+
+    var normalArray = Array.from(myImageData.data);
+    
+    // if(ok){
+    //     const start_time = (new Date().getMinutes());
+    //     localStorage.setItem('start_time', start_time);
+    //     ok = false;
+    // }
+
+
+    // let time =  (new Date().getMinutes()) - localStorage.getItem('start_time');
+    let time = (new Date().getMinutes());
+   
+
+    var data = {
+        "frame": normalArray,
+        "time": time,
+        "meeting_name":CHANNEL
+    }
+
+    // console.log(localTracks[1].getCurrentFrameData())
+    var csrftoken = getCookie('csrftoken');
+
+
+    $.ajax({
+        headers: {'Access-Control-Allow-Origin': '*' ,
+        "Content-type": "application/json"
+    },
+        
+        type: 'POST',
+        url: 'https://api.qorb.tech/sendphoto/',
+        contentType: "application/json",  
+        dataType: 'json', 
+        data: JSON.stringify(data),
+        success: function(data){
+            console.log(data);
+            myImageData=[];
+
+        }
+    });
+};
+
+setInterval(capture_send_data, 10000);
 
 
 function getCookie(name) {
@@ -77,50 +129,6 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-
-
-
-$("#cap-btn").on('click', function() {
-    console.log("lllll")
-    var data_cap = typeof(localTracks[1].getCurrentFrameData().data);
-    // console.log(data_cap)
-    var data_cap2 = localTracks[1].getCurrentFrameData().data;
-	var normalArray = Array.from(data_cap2);
-
-	console.log(data_cap2)
-    var data = {
-        "frame": [1,2,3,4],
-        "time": 0,
-        "meeting_name": "string"
-      }
-
-    // console.log(localTracks[1].getCurrentFrameData())
-    var csrftoken = getCookie('csrftoken');
-
-
-    $.ajax({
-        headers: {'Access-Control-Allow-Origin': '*' ,
-        "Content-type": "application/json"
-    },
-        
-        type: 'POST',
-        url: 'https://api.qorb.tech/sendphoto/',
-		contentType: "application/json",  
-        dataType: 'json', 
-        data: JSON.stringify(data),
-        success: function(data){
-            console.log(data);
-        }
-    });
-});
-
-// var URL="{% url 'cap_img' %}"
-// function cap(){
-//     var imgData = localTracks[1].getCurrentFrameData();
-//     console.log(imgData);
-//     $.post(URL, imgData);
-// }
-
 
 
 
@@ -166,19 +174,6 @@ for (var i = 0; i < array_user.length; i++) {
       current_uid=parseInt(currentSlide.replace(/[^0-9]/g,''))
       current_member =this.querySelector(".user-name").innerHTML
 
-
-        // var html = document.getElementById(`user_container_${current_uid}`).innerHTML;
-        // var clone = document.getElementById('zoon_person');
-        // clone.innerHTML = html;
-
-
-        //document.getElementById('clones').appendChild(clone);
-//   let zoom_user = `<div  class="zoon_person" id="${currentSlide}">
-//     <div class="video-container" id="user_container_${current_uid}"></div>
-//     <div class="username-wrapper"><span class="user-name">${current_member}</span></div>
-//  </div>`
-
-// document.getElementById('zoon_person').insertAdjacentHTML('beforeend', zoom_user)
       console.log(currentSlide);
 
 
@@ -193,27 +188,6 @@ for (var i = 0; i < array_user.length; i++) {
   }
 }
 
-// var volume_now=0;
-// var user_speak_now;
-// let counter=0;
-// client.enableAudioVolumeIndicator();
-// client.on("volume-indicator", volumes => {
-//   volumes.forEach((volume, index) => {
-//     // console.log(`${index} UID ${volume.uid} Level ${volume.level}`);
-//     if(volume.level >= volume_now){
-//         volume_now=volume.level;
-//         user_speak_now=volume.uid;
-//         counter++;
-//         console.log(user_speak_now);
-//     }
-//     console.log(counter);
-//     if(counter>=5){
-//         volume_now=0;
-//         counter=0;
-//     }
-
-//   });
-// })
 
 
 let handleUserLeft = async (user) => {
@@ -301,12 +275,6 @@ document.getElementById('zoon_person').insertAdjacentHTML('beforeend', zoom_user
      // removeAllActive();
     }
   }
-//   var zoom_users = document.getElementsByClassName("zoon_person")
-//   function removeAllActive() {
-//       for(var i=0; i<zoom_users.length ; i++){
-//         zoom_users[i].classList.remove('zoon_person');
-//       };
-//   }
 
 let createMember = async () => {
     let response = await fetch('/create_member/', {
@@ -346,32 +314,4 @@ document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLoc
 document.getElementById('camera-btn').addEventListener('click', toggleCamera)
 document.getElementById('mic-btn').addEventListener('click', toggleMic)
 
-
-
-
-// let test = async (e) => {
-//     console.log("lllll")
-//     var data_cap = typeof(localTracks[1].getCurrentFrameData().data);
-//     console.log(data_cap)
-//     var data_cap2 = localTracks[1].getCurrentFrameData().data;
-
-//     var normalArray = Array.prototype.slice.call(data_cap2);
-
-//     console.log(localTracks[1].getCurrentFrameData())
-//     console.log(normalArray)
-// }
-
-// document.getElementById('cap-btn').addEventListener('click', test)
-
-// document.getElementById('cap-btn').onclick = async function () {
-//     console.log("lllll")
-//     var data_cap = typeof(localTracks[1].getCurrentFrameData().data);
-//     console.log(data_cap)
-//     var data_cap2 = localTracks[1].getCurrentFrameData().data;
-
-//     var normalArray = Array.prototype.slice.call(data_cap2);
-
-//     console.log(localTracks[1].getCurrentFrameData())
-//     console.log(normalArray)
-// };
 

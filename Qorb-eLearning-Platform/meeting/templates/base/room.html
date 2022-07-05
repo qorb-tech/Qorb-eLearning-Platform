@@ -33,7 +33,8 @@
                                 <p><span id="room-name"></span>:   اسم الاجتماع  </p>
                             </div>   
                         </section>
-                        
+                        <canvas id="canvas" width="640" height="480" style="display: none;" > </canvas>
+                        <canvas id="canvas2" width="48" height="48"> </canvas>
                         <section id="video-streams"></section>
                         <!-- <section id="controls-wrapper">
                             <div class="icon-wrapper">
@@ -62,8 +63,14 @@
                             <div class="" id="cap-btn">
                                 <img class="control-icon"  src="{% static 'images/microphone.svg' %}" />
                             </div>
+                            
+                            <div class="" id="capture-btn">
+                                <img class="control-icon"  src="{% static 'images/microphone.svg' %}" />
+                            </div>
                            </div>
+                           
 
+                        </div>
                             <div class="row">
                                 <div class="" id="mic-btn">
                                     <i class="fas fa-microphone gray"></i>
@@ -95,7 +102,7 @@
             </div>
             <!-- 
             <!------------------------chat----------->
-            <!-- <div class="col-3" id="all_chat">
+             <div class="col-3" id="all_chat">
                     <div class="meeting_details">
                         <div class="meeting_btn" id="meeting_btns">
                            <div  onclick="attend()">

@@ -114,7 +114,6 @@ def courses(request):
     teacher = Teacher.objects.get(user=request.user)
     courses = Course.objects.filter(teacher=teacher)
     context = {"courses": courses, "user_profile": user_profile}
-    print('________________________')
     return render(request, "teacher/courses.html", context)
 
 
@@ -435,7 +434,6 @@ def schedule_meeting(request,name):
                 'teacher/schedule_meeting.html',
                 {'form': form})
 
-###############################################################################333#######
 
 def join_course_list(request, *args, **kwargs):
     teacher = Teacher.objects.get(user=request.user)
@@ -461,11 +459,9 @@ def confirm_delete_request(request, *args, **kwargs):
     return redirect(request.META.get('HTTP_REFERER', 'redirect_if_referer_not_found'))  
 
 
+def show_graph(request, name):
+    course = Course.objects.get(name=name)
+    return render(request, "teacher/show_graph.html", {"name":name})
 
-"""
-    Teacher
-    - views urls models templates 
-    Student 
-    - Views 
-"""
-###############################################################################333#######
+
+

@@ -47,14 +47,14 @@ INSTALLED_APPS = [
     'adminDashboard.apps.AdmindashboardConfig',
     'quiz.apps.QuizConfig',
     'meeting.apps.MeetingConfig',
+    'chat.apps.ChatConfig',
     # 3rd party apps
     'imagekit',
     'django_cleanup.apps.CleanupConfig',
     'django_filters',
     "crispy_forms",
     "crispy_tailwind",
-     
-
+    "channels",
 
 ]
 
@@ -91,6 +91,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'src.wsgi.application'
+ASGI_APPLICATION = 'src.asgi.application'
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+
 
 
 # Database
@@ -176,4 +189,5 @@ else:
             'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         }
 }
+
 

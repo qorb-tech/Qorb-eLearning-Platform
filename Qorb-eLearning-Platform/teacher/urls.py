@@ -23,8 +23,8 @@ from .views import (
     schedule_meeting,
     join_course_list,
     confirm_join_course,
-    confirm_delete_request
-
+    confirm_delete_request, 
+    show_graph,
 )
 
 urlpatterns = [
@@ -69,4 +69,7 @@ urlpatterns = [
         name="edit-report-deadline",
     ),
     path('schedule_meeting/<str:name>', schedule_meeting, name='schedule-meeting'),
+    path("show-graph/<str:name>/", show_graph, name="show_graph"),
+
+
 ]
