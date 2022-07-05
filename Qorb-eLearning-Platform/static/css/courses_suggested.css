@@ -1,9 +1,12 @@
+.navigation .btn a {
+  padding: 6px 15px;
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
 }
 
 .bod{
@@ -133,3 +136,90 @@
   opacity: 1;
   color: #c35241;
 }
+/***********************/
+@media (max-width: 1300px) {
+  .sec{
+    width: 840px;
+}
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+  right: -30px;
+  left: auto;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+  left: -30px;
+  right: auto;
+}
+}
+@media (max-width: 1140px) {
+.sec{
+  width: 730px;
+}
+#search-results {
+  margin-right: 55px;
+}
+}
+@media (max-width: 990px) {
+  .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 10px;
+    left: auto;
+  }
+  .swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 10px;
+    right: auto;
+  }
+}
+@media (max-width: 900px) {
+  .sec{
+    width: 650px;
+    height: 360px;
+  }
+  .sec .card .image {
+    height: 120px;
+    width: 120px;
+
+}
+.card .card-content {
+  padding: 20px;}
+  .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 0px;
+  }
+  .swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 0px;
+    
+  }
+  .search_div {
+    width: 70%;
+    margin-right: 5px;
+  }
+  .search-table {
+    width: 80%;
+}
+  #search-results {
+    margin-right: 80px;
+  }
+}
+@media (max-width: 780px) {
+  .sec{
+    width: 600px;
+    height: 325px;
+  }
+ 
+  
+  .sec .card .image {
+    height: 90px;
+    width: 90px;
+}
+.card .card-content {
+  padding: 10px;}
+
+  .enter_btn button a {
+    display: block;
+    padding: 5px;
+}
+}
+@media (max-width: 700px) {
+  .sec{
+    width: 560px;
+  }
+}
+
