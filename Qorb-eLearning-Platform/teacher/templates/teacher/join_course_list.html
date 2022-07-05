@@ -1,23 +1,73 @@
+{% extends 'teacher/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الانضمام لكورس  </title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ordersteach.css' %}">
+{% endblock custum_imports %}
+
+
+{% block content %}
+
+                <!-------------------details--------->
+        <div class="col-10">
+          <div class="details">
+            <div class="account_tech">
+                <h1> الطلبات <i class="fas fa-user-circle"></i></a></h1>
+            </div>
+            <div class="hrt">
+                <hr>
+            </div>
 
   {% if all_requests %}
   {% for request in all_requests %}
   
   <div>
-    <ul>
-      <li>Course Name: {{request.course}}</li>
-      <li>Student Name: {{request.student}}</li>
-      <a onclick="return confirm('هل تريد اضافه الطالب للكورس ؟')" 
-      href="confirm/{{request.course}}/{{request.student}}">تاكيد الانضمام للكورس</a> 
-      <br>
-
-      <a onclick="return confirm('هل تريد الغاء الطلب ؟')" 
-      href="dismiss/{{request.course}}/{{request.student}}">الغاء الطلب</a>
-      <hr>
-
-    </ul>
+      <div class="row orders">
+        <div class="row col-8">
+            <div class="orders-img">
+                <img src="images/faces/Rectangle 7.png" alt="">
+            </div>
+            <div class="order-info">
+              <h4> {{request.student}} </h4>
+                <p>{{request.course}} </p>
+            </div>
+        </div>
+        <div class="col-4">
+          <button class="orderbtn"> <a onclick="return confirm('هل تريد الغاء الطلب ؟')" 
+            href="dismiss/{{request.course}}/{{request.student}}">الغاء الطلب</a></button>
+            <button class="acceptedbtn"><a onclick="return confirm('هل تريد اضافه الطالب للكورس ؟')" 
+              href="confirm/{{request.course}}/{{request.student}}">تاكيد الانضمام للكورس</a> </button>
+        </div>
+        
+    </div>
+      <div class="hrr">
+          <hr>
+      </div>
+   
   </div>
   {% endfor %}
   {% else %}
-    <h1>لا يوجد طلبات حتي الان</h1>
-
+  <div class="no-orders">
+    <img src="{% static 'images/Empt vector (1).png' %}" alt="">
+    <p>   لا يوجد طلبات في الوقت الخالي </p>
+    <a href="{% url 'index' %}">رجوع للصفحة الرئيسية</a>
+ </div>
 {% endif %}	
+
+</div>
+</div>
+</section>
+<!--------------------------active_base_bar----------->
+<script src="{% static 'js/base.js' %}"></script>
+<script>window.onload=orders()</script>
+
+
+</body>
+</html>
+{% endblock content %}
+
