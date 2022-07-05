@@ -21,18 +21,18 @@
 
     <body>
 
-        <nav class="navigation" id="activee">
-              <div class="row nav_ull">
-                <div class="nav_ul" id="menu">
-                    <ul>
-                        <div class="right">
-                            <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
-                            <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
-                        </div>
-                    </ul>
-                  </div>
-                  <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
+        <nav class="navigation">
+          <div class="row nav_ull">
+            <div class="nav_ul">
+                <ul>
+                    <div class="right">
+                        <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                        <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+                    </div>
+                </ul>
               </div>
+              <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
+          </div>
 
       </nav>
         <section>
@@ -58,8 +58,8 @@
                             <div class="profile_feature"onmouseover="hoverr2()" onmouseout="without_hover2()" onclick="profile()"><a href="{% url 'profile_student_view' %}">الملف الشخصي<i class="fas fa-user-circle"></i></a></div>
                             <div class="profile_feature" onmouseover="hoverr3()" onmouseout="without_hover3()" onclick="coursesi()"><a href="{% url 'student_courses' %}">المقررات الدراسية<img id="image3" src="{% static 'images/icons/dashboard/Group 186.svg' %}" width="30px" height="20px" ></a></div>
                             <div class="profile_feature" onmouseover="hoverr5()" onmouseout="without_hover5()" onclick="quiz()"><a href="{% url 'current_quizzes' %}">اختبارات<img id="image5" src="{% static 'images/icons/dashboard/exams.svg' %}" width="30px" height="20px"></a></div>
-                            <div class="profile_feature" onmouseover="hoverr5()" onmouseout="without_hover5()" onclick="quiz()"><a href="{% url 'student_reqeusts' %}">الطلبات<img id="image5" src="{% static 'images/icons/dashboard/exams.svg' %}" width="30px" height="20px"></a></div>
-
+          
+                            <div class="profile_feature" onmouseover="hoverr6()" onmouseout="without_hover6()" onclick="orders()"><a href="{% url 'student_reqeusts' %}">الطلبات<img id="image6" src="{% static 'images/icons/dashboard/exams.svg' %}" width="30px" height="20px"></a></div>
                            </div>
                         </div>
                      </div>
