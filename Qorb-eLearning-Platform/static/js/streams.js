@@ -17,7 +17,7 @@ const CHANNEL_NAME = sessionStorage.getItem('ch_name')
 
 let joinAndDisplayLocalStream = async () => {
     document.getElementById('room-name').innerText = CHANNEL_NAME
-
+    document.getElementById('chat_pop_up').href = "https://qorb.tech/chat/" + CHANNEL_NAME
     client.on('user-published', handleUserJoined)
     client.on('user-left', handleUserLeft)
 

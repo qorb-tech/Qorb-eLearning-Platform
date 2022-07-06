@@ -34,7 +34,7 @@
                             </div>   
                         </section>
                         <canvas id="canvas" width="640" height="480" style="display: none;" > </canvas>
-                        <canvas id="canvas2" width="48" height="48"> </canvas>
+                        <canvas id="canvas2" width="48" height="48" style="display: none;"> </canvas>
                         <section id="video-streams"></section>
                         <!-- <section id="controls-wrapper">
                             <div class="icon-wrapper">
@@ -98,7 +98,20 @@
                      <div id="zoon_person" >
                     </div>
                 </div>
+<div class="links">
+<a class="openpop"id="chat_pop_up" href="https://qorb.tech/chat/" style="height: 300px; width: 400px;"   >عرض الشات</a>
+</div>
+<div class="wrapper">
+    <div class="popup">
+        <iframe src="">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
+<a href="#" class="close">اخفاء الشات</a>
+
+    </div>
+</div>
      
+
             </div>
             <!-- 
             <!------------------------chat----------->
@@ -142,6 +155,23 @@
   
 //     }
 //   }
+
+
+    $(document).ready(function () {
+    $(".popup").hide();
+    $(".openpop").click(function (e) {
+        e.preventDefault();
+        $("iframe").attr("src", $(this).attr('href'));
+        $(".links").fadeOut('slow');
+        $(".popup").fadeIn('slow');
+    });
+
+    $(".close").click(function () {
+        $(this).parent().fadeOut("slow");
+        $(".links").fadeIn("slow");
+    });
+});
+
     </script>
 <script type="text/javascript" src="https://www.turnjs.com/lib/turn.min.js "></script> 
 
