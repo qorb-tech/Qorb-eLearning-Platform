@@ -17,7 +17,7 @@
 .exam1 {
   text-align: center;
   background-color: #999999;
-  padding: 15px;
+  padding: 15px 10px;
   margin: 20px 25px;
   color: var(--primary-color);
   border-radius: 25px;
@@ -184,6 +184,24 @@ select option:hover,
 /* #profile_features .activee :hover a #image5 {
   background-image: url(.../images/icons/dashboard/oppsite/Group\ 184.svg);
 } */
+/***********media****************/
+@media (max-width: 1310px) {
+  .exam1 {
+    margin: 20px 22px;
+  }
+  .exam1 h5{
+    font-size: 17px;
+  }
+}
+@media (max-width: 1165px) {
+  .exam1 {
+    margin: 20px 10px;
+  }
+  .exam1 h5{
+    font-size: 15px;
+  }
+
+}
 
 @media (max-width: 1120px) {
   .quiz_btn {
@@ -196,6 +214,13 @@ select option:hover,
     margin: 10px;
   }
 }
+@media (max-width: 970px) {
+  .exam1 h5{
+    font-size: 13px;
+  }
+
+}
+
 @media (max-width: 950px) {
   .exam1 {
     padding: 10px;
@@ -211,11 +236,19 @@ select option:hover,
     font-size: 15px;
   }
 }
+@media (max-width: 890px) {
+.exam1 h5 {
+  font-size: 10px;
+}
+.exam1 button a {
+  font-size: 10px;
+}
+.exam1 button a {
+  padding: 8px 5px;
+}
+}
 @media (max-width: 845px) {
   .exam1 p {
-    font-size: 15px;
-  }
-  .exam1 button a {
     font-size: 15px;
   }
   .exam1:hover button a {
@@ -230,17 +263,11 @@ select option:hover,
   }
 }
 @media (max-width: 715px) {
-  .exam1 button a {
-    font-size: 12px;
-  }
   .exam1:hover button a {
     font-size: 11px;
   }
   .exam1 p {
     font-size: 12px;
-  }
-  .exam1 h5 {
-    font-size: 15px;
   }
   .create_quiz label {
     font-size: 13px;
