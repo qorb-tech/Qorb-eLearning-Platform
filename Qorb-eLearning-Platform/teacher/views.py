@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 import re
 
 from django.contrib import messages
@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from datetime import timezone
+
 
 # Local imports goes here
 from accounts.decorators import allow_user
@@ -37,7 +38,6 @@ def teacher_dashboard(request):
     try:
         dic = {}
         all_rooms = meetings.objects.all()
-        print(all_rooms)
         for c in courses:
             for r in all_rooms:
                 if str(c)==str(r) :
@@ -394,7 +394,7 @@ def edit_report_deadline(request, pk):
     if request.method == "POST":
         form = UpdateReportForm(request.POST, instance=report)
         new_form = form.save(commit=False)
-        dead_line = datetime.strptime(
+        dead_line = datetime.datetime.strptime(
             form["deadline"].value() + ":00.000-0000", "%Y-%m-%dT%H:%M:%S.%f%z"
         )
         new_form.deadline = dead_line
@@ -420,7 +420,7 @@ def schedule_meeting(request,name):
         new_form = form.save(commit=False)
         new_form.teacher=Teacher.objects.get(user=request.user)
         new_form.course=Course.objects.get(name=name)
-        meeting_date = datetime.strptime(form['meeting_date'].value()+":00.000-0000",'%Y-%m-%dT%H:%M:%S.%f%z')
+        meeting_date = datetime.datetime.strptime(form['meeting_date'].value()+":00.000-0000",'%Y-%m-%dT%H:%M:%S.%f%z')
         new_form.meeting_date = meeting_date
         new_form.description_meeting=Course.objects.get(name=name)
         if form.is_valid():
@@ -462,6 +462,5 @@ def confirm_delete_request(request, *args, **kwargs):
 def show_graph(request, name):
     course = Course.objects.get(name=name)
     return render(request, "teacher/show_graph.html", {"name":name})
-
 
 
