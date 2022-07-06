@@ -1,75 +1,61 @@
+{% extends 'base/base_bar.html' %}
 {% load static %}
+{% load edit_report_grades_url%}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-        <script defer src="/your-path-to-fontawesome/js/all.js"></script> 
-        <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/sign-up.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-        <link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
-        <link rel='stylesheet'  href="{% static 'styles/main.css' %}">
-         <script src="{% static 'js/main.js' %}"></script>
-        {% block custum_imports %}{% endblock custum_imports %}
-        {% block title %}{% endblock title %}
-    </head>
+{% block title %}
+    <title>الانضمام الى الاجتماع</title>
+{% endblock title %}
 
-    <body>
-        
-        <nav class="navigation" id="activee">
-              <div class="row nav_ull"> 
-                <div class="nav_ul" id="menu">
-                    <ul>
-                        <div class="right">
-                            <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
-                            <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
-                        </div>
-                    </ul>
-                  </div>
-                  <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
-              </div>
-              
-      </nav>
-        <section>
-            <div class="dashboard">
-                 <div class="row">
-                      <!-------------------profile--------->
-                      <div class="col-2">
-                        <div class="profile">
-                          <div class="pofile_pic">
-                            <img class="MPC" id="profile_img" src="{{ user.profile.teacher.avatar.url }}" alt="" style="border-radius: 50%;">
-                            {% if user_profile.full_name %}
-                                 <p class ="p2"> {{user_profile.full_name}} </p>
-                                 <p class="student"> معلم </p>
-                              {% else %}
-                                 <p class ="p2"> {{user_profile.user}} </p>
-                                 <p class="student"> معلم </p>
-                             {% endif %}
-                                  
-                           </div>
-                           <!-------------------profile picture--------->
-                           <div class="profile_features">
-                               <div class="profile_feature"><a href="{% url 'student_dashboard' %}"> الصفحة الرئيسية<img src="{% static 'images/Group 183.png'  %}" width="30px" height="20px"></a></div>
-                               <div class="profile_feature"><a href="{% url 'profile_student_view' %}">الملف الشخصي<i class="fas fa-user-circle"></i></a></div>
-                               <div class="profile_feature"><a href="{% url 'student_courses' %}">المقررات الدراسية<img src="{% static 'images/Group 186.png' %}" width="27px" height="17px" ></a></div>
-                               <div class="profile_feature"><a href="{% url 'current_quizzes' %}">اختبارات<img src="{% static 'images/Group 184.png' %}" width="27px" height="17px"></a></div>
-                           </div>
-                        </div>
-                     </div>
-                    <div class="col-10">
-                        {% block content %}{% endblock content %}
-                    </div>
+{% block custum_imports %}
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses-details--------->
+               <div class="col-10">
+                <div id="welcome-message">
+                    <h1>جارى اعادة توجيهك الى الاجتماع</h1>
                 </div>
-            </div>
-        </section>
+                <body onload="handleSubmit();">
+              </div>
 
                    
-   
-    </body>
+        </div>
+    </section>
+    
+
+
+    
+    <script>
+    
+
+        let handleSubmit = async () => {
+            var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+    
+            console.log(window.location.href);
+            let ch_name = "{{room_name}}";
+            let room = Base64.encode(ch_name);
+            let name = "{{user_name}}"
+            
+            let response = await fetch(`/get_token/?channel=${room}`)
+            let data = await response.json()
+    
+            let UID = data.uid
+            let token = data.token
+    
+            sessionStorage.setItem('UID', UID)
+            sessionStorage.setItem('token', token)
+            sessionStorage.setItem('room', room)
+            sessionStorage.setItem('name', name)
+            sessionStorage.setItem('ch_name', ch_name)
+            window.open('/room/', '_self')
+        }
+    
+    
+    
+        
+    </script>
+    
+
+</body>
 </html>
+{% endblock content %}
