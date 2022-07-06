@@ -1,0 +1,13 @@
+.acceptedbtn a, .acceptedbtn:hover a {
+        background-color: var(--btn-color);
+        color: var(--primary-color);
+}
+.acceptedbtn:hover a{
+    border: 1px solid  var(--btn-color);
+    color: var(--btn-color);
+    background-color: var(--primary-color);
+}
+.orders-img img{
+    width: 60px;
+    height: 60px;
+}
