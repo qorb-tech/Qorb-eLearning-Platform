@@ -10,6 +10,7 @@
       btn_report.classList.remove("active");
       btn_std.classList.remove("active");
       imagee1.src = '/static/images/icons/content/opposite/ic_import_contacts_24px.svg' ;
+      document.title = "المحتوى الدراسى";
       console.log("done")
   }
 
@@ -22,6 +23,7 @@
   btn_std.classList.remove("active");
   imagee2.src = '/static/images/icons/content/opposite/Icon_doc_solid.svg'  ;
   imagee1.src = '/static/images/icons/content/ic_import_contacts_24px.svg' ;
+  document.title = " التقارير";
   console.log("done")
   }
   function std_list() {
@@ -33,6 +35,7 @@
   btn_report.classList.remove("active");
   imagee3.src = '/static/images/icons/content/opposite/ic_group_24px.svg'  ;
   imagee1.src = '/static/images/icons/content/ic_import_contacts_24px.svg' ;
+  document.title = " قائمة الطلبة";
   console.log("done")
  }
   
