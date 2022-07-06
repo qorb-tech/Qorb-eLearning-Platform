@@ -77,3 +77,28 @@
 padding-left: 5px;
 }
 
+@media (max-width: 890px) {
+  .exam1 button a {
+    padding: 8px 5px;
+  }
+  }
+ @media (max-width: 775px){
+.exam1 {
+    padding: 10px 5px;
+}
+.exam1 h5 {
+  font-size: 8px;
+}
+#exams_btn button{
+  font-size: 15px;
+}
+#exams_btn button i {
+  font-size: 17px;
+}
+#image-ex{
+  width: 17px;
+  height: 17px;
+}
+
+}
+
