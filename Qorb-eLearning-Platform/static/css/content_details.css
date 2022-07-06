@@ -1,495 +1,233 @@
-.col-10 .courses_btn button {
-  width: 20%;
-  margin: 10px 25px;
+.navigation .btn a {
+  padding: 6px 15px;
 }
-.col-10 .courses_btn button a {
-  display: block;
-}
-.cont_detail {
-  margin: 0 25px;
-  background-color: var(--primary-color);
-  border-radius: 60px;
-  min-height: 550px;
-  margin-bottom: 30px;
-}
-.col-10-std{
-  min-height: 620px
-}
-.col-10 {
-  background-color: #f9f9f9;
-}
-.content_name {
-  /* text-align: center; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-  color: var(--btn-color);
-}
-.content_name h1 {
-  padding-right: 10px;
-  font-size: 23px;
-}
-.course_details {
-  padding: 20px;
-  /* background-color: aquamarine; */
-  padding: 20px 35px;
-  position: relative;
-}
-.btn_choices {
-  background-color: #f9f9f9;
-  justify-content: space-between;
-  padding-left: 10px;
-  border-radius: 15px;
-  /* padding: 5px;
-    justify-content: space-between; */
-}
-.content_btn {
-  flex-basis: 24%;
-}
-.content_btn button a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn_choices button {
-  width: 95%;
-}
-.btn_choices button a {
-  border-radius: 10px;
-  border: 1px solid var(--primary-color);
-  /* display: block; */
-}
-.btn_choices button a:focus,
-.active a {
-  background-color: var(--btn-color);
-  color: var(--primary-color);
-}
-
-/**************************course-lecs************/
-#course_lecs {
-  background-color: var(--primary-color);
-  text-align: center;
-  color: var(--btn-color);
-  padding: 20px 0;
-}
-.lec {
-  justify-content: space-between;
-  color: var(--forth-color);
-  padding: 5px 0;
-  border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-  text-decoration: none;
-}
-.lec a{
-  color: var(--forth-color);
-}
-
-.lec i {
-  color: var(--forth-color);
-  margin-right: 20px;
-}
-/**********new-lec*********/
-/****************************link_btn*********************/
-.link_btn {
-  display: flex;
-  justify-content: center;
-}
-.doc {
-  position: relative;
-  z-index: 999;
-  opacity: 0;
-}
-.doc input {
-  width: 35%;
-  margin: 10px 0;
-}
-.link_btn_show {
-  position: absolute;
-  top: 10px;
-  right: 145px;
-}
-#new-lec .link_btn_show button,
-#new_report .link_btn_show button {
-  background-color: var(--primary-color);
-  color: var(--btn-color);
-  width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
   margin: 0;
-  padding: 8px 21px;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif; */
 }
 
-#new-lec,
-#new_std,
-#new_report {
-  display: none;
-  background-color: #c86253;
-  padding: 20px;
-  /* height: 200px; */
-  color: var(--primary-color);
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 25px;
-  direction: rtl;
-  transition: all 1s ease-in-out;
-}
-#new-lec .courses_btn,
-#new_report .courses_btn,
-#new_std .courses_btn {
+.bod{
+  height: 100vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+  margin: auto;
 }
 
-#new-lec h4,
-#new_report h4,
-#new_std h4 {
-  margin-bottom: 15px;
+.sec{
+  position: relative;  
+  height: 450px;
+  width: 1075px;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
 }
-.lec-name {
-  margin: 5px 0;
+
+.swiper{
+  width: 950px;
 }
-#new-lec input,
-#new_report input,
-#new_std input {
-  border-radius: 25px;
-  background-color: var(--second-color);
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-}
-#new-lec .lbl a {
-  border: 1px solid var(--primary-color);
-  background-color: #c86253;
-  color: var(--primary-color);
-  padding: 5px 12px;
-  border-radius: 25px;
-}
-#new-lec button,
-#new_report button,
-#new_std button {
-  width: 40%;
-}
-#new-lec .btn1 a,
-#new_report .btn1 a,
-#new_std .btn1 a,
-#new-lec .btn2 a:hover,
-#new_report .btn2 a:hover,
-#new_std .btn2 a:hover {
-  background-color: #c86253;
-  color: var(--primary-color);
-  border: 1px solid white;
-}
-#new-lec .btn1 a:hover,
-#new_report .btn1 a:hover,
-#new_std .btn1 a:hover {
-  color: var(--btn-color);
-  background-color: var(--primary-color);
-}
-#new-lec button a,
-#new_report button a,
-#new_std button a {
-  display: block;
-}
-/*********radion-button*******/
-.radio-item {
-  display: inline-block;
+.card{
   position: relative;
-  padding: 0 6px;
-  margin: 10px 20px;
+  background: #fff;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.radio-item input[type="radio"] {
-  display: none;
-}
-.second {
-  width: 50%;
-}
-.radio-item input[type="text"] {
-  width: 73%;
-}
-.radio-item label {
-  color: #fff;
-  font-weight: normal;
-}
-
-.radio-item label:before {
-  content: " ";
-  display: inline-block;
-  position: relative;
-  top: 5px;
-  margin: 0 5px 0 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 11px;
-  border: 2px solid var(--primary-color);
-  background-color: transparent;
-}
-.radio-item input[type="radio"]:checked + label:after {
-  border-radius: 11px;
-  width: 12px;
-  height: 12px;
+.card::before{
+  content: "";
   position: absolute;
-  top: 9px;
-  right: 15px;
-  content: " ";
-  display: block;
-  background: var(--primary-color);
-}
-/* .radio-item label{
-    padding: 5px;
-    border: 1px solid #fff;
-} */
-
-/***********************************reports********/
-#reports {
-  background-color: var(--primary-color);
-  text-align: center;
-  color: var(--btn-color);
-  padding: 10px 35px;
-  display: none;
-  margin-bottom: 20px;
-}
-#new_report {
-  display: none;
-}
-/*****************************student-list********/
-#course_lecs h1,
-#reports h1,
-#student_list h1 {
-  padding-bottom: 20px;
-}
-#student_list {
-  background-color: var(--primary-color);
-  text-align: center;
-  color: var(--btn-color);
-  padding: 10px 35px;
-  display: none;
-  margin-bottom: 20px;
-}
-#student_list div a:first-child {
-  text-decoration: underline;
-}
-#student_list .courses_btn button a {
-  text-decoration: none;
-}
-#new_std {
-  display: none;
-}
-/******************garde***/
-#garde {
-  display: none;
-  background-color: var(--primary-color);
-  text-align: center;
-  color: var(--btn-color);
-  padding: 10px 35px;
-  margin-bottom: 20px;
+  height: 40%;
+  width: 100%;
+  left: 0;
+  background: #c44e37;
+  border-radius: 20px 20px 0 0;
 }
 
-.grade_row {
-  justify-content: space-between;
-  padding: 10px 0;
-  background-color: var(--btn-color);
-  color: var(--primary-color);
+.card .card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  z-index: 100;
 }
-#custom-button2,
-#custom-button {
-  margin-left: 10px;
+
+.sec .card .image{
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  padding: 3px;
+  background: #c44e37;
 }
-#student_list .courses_btn,
-#course_lecs .courses_btn,
-#reports .courses_btn {
+
+.sec .card .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.card .name-profession{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 10px;
-}
-/*************media*******************/
+  /* color:#fff ; */
+} 
 
-@media (max-width: 2000px) {
-  .btn_choices button a {
-    padding: 10px 5px;
-  }
-  .col-10 .courses_btn button a {
-    padding: 10px 9px;
-  }
-  #new-lec button,
-  #new_report button,
-  #new_std button {
-    width: 50%;
-  }
-  #new-lec input,
-  #new_report input,
-  #new_std input {
-    width: 65%;
-  }
-  #new-lec .courses_btn button,
-  #new_report .courses_btn button,
-  #new_std .courses_btn button {
-    margin: 10px 15px;
-  }
-}
-@media (max-width: 1070px) {
-  .col-10 .courses_btn button {
-    width: 29%;
-    margin: 10px 25px;
-  }
+.name-profession .name{
+  font-size: 20px;
+  font-weight: 600;
 }
 
-@media (max-width: 1050px) {
-  #new-lec input,
-  #new_report input,
-  #new_std input {
-    width: 62%;
-  }
+.name-profession .profession{
+  font-size:15px;
+  font-weight: 500;
+}
+
+
+
+.card .button{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card .button button{
+  background: #c44e37;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button button:hover{
+  background: #c44e37;
+}
+
+.swiper-pagination{
+  position: absolute;
+}
+
+.swiper-pagination-bullet{
+  height: 7px;
+  width: 26px;
+  border-radius: 25px;
+  background: #c44e37;
+}
+
+.swiper-button-next, .swiper-button-prev{
+  opacity: 0.7;
+  color: #c35241;
+  transition: all 0.3s ease;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover{
+  opacity: 1;
+  color: #c35241;
+}
+/***********************/
+@media (max-width: 1300px) {
+  .sec{
+    width: 840px;
+}
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+  right: -30px;
+  left: auto;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+  left: -30px;
+  right: auto;
+}
+}
+@media (max-width: 1140px) {
+.sec{
+  width: 730px;
+}
+#search-results {
+  margin-right: 55px;
+}
 }
 @media (max-width: 990px) {
-#new_std{
-  padding: 10px;
-}
-}
-
-@media (max-width: 955px) {
-  .btn_choices button a {
-    padding: 10px 3px;
-    font-size: 11px;
+  .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 10px;
+    left: auto;
   }
-  .col-10 .courses_btn button a {
-    padding: 10px 5px;
-   
-  }
-  #new-lec input,
-  #new_report input,
-  #new_std input {
-    width: 58%;
-  }
-  #new-lec label,
-  #new_report label,
-  #new_std label {
-    font-size: 18px;
-  }
-  #new-lec button,
-  #new_report button,
-  #new_std button {
-    width: 60%;
-  }
-  #new-lec .courses_btn button,
-  #new_report .courses_btn button,
-  #new_std .courses_btn button {
-    margin: 10px;
-  }
-  #btns button img {
-    height: 15px;
-    margin-left: 10px;
-    width: 15px;
-  }
-  .content_btn .fas {
-    font-size: 15px;
-  }
-  .col-10 .courses_btn button {
-    width: 30%;
-    margin: 10px 25px;
+  .swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 10px;
+    right: auto;
   }
 }
-@media (max-width: 870px) {
-  .courses_btn .btn2 a{
-    font-size: 12px;
+@media (max-width: 900px) {
+  .sec{
+    width: 650px;
+    height: 360px;
   }
-  .courses_btn .btn2 a i{
-    font-size: 15px;
-  }
-  .courses_btn .btn1 a{
-    font-size: 14px;
-  }
-  .courses_btn .btn1 a i{
-    font-size: 15px;
-  }
+  .sec .card .image {
+    height: 120px;
+    width: 120px;
 
 }
-@media (max-width: 830px) {
-  .btn_choices button a {
-    padding: 10px 2px;
-    font-size: 13px;
+.card .card-content {
+  padding: 20px;}
+  .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 0px;
   }
-  .btn_choices button i {
-    font-size: 13px;
+  .swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 0px;
+    
   }
-  .content_btn img {
-    width: 20px;
-    height: 20px;
+  .search_div {
+    width: 70%;
+    margin-right: 5px;
   }
-  .col-10 .courses_btn button a {
-    padding: 10px 2px;
-    font-size: 14px;
-  }
-
-  #new-lec button,
-  #new_report button,
-  #new_std button {
-    width: 65%;
-    font-size: 15px;
-    margin: 10px 5px;
-  }
-
-
-  #new-lec label,
-  #new_report label,
-  #new_std label {
-    font-size: 15px;
-  }
+  .search-table {
+    width: 80%;
 }
-
-@media (max-width: 805px) {
-  .btn_choices button a {
-    padding: 10px 2px;
-    font-size: 9px;
-    font-weight: 900;
+  #search-results {
+    margin-right: 80px;
   }
 
-  #new-lec .courses_btn button , #new_report .courses_btn button{
-    margin: 2px;
+  .sec {
+    width: 647px;
 }
 }
+@media (max-width: 800px) {
+     .sec {
+      width: 570px;
+      } 
+    }
 @media (max-width: 780px) {
-  .col-10 .courses_btn button {
-    width: 36%;
-    margin: 10px 15px;
-  }
+  .sec{
+    /* width: 600px; */
+    height: 325px;
+  } 
+ 
+  
+  .sec .card .image {
+    height: 90px;
+    width: 90px;
+}
+.card .card-content {
+  padding: 10px;}
 
-  #new_std .courses_btn button {
-    margin: 2px;
+  .enter_btn button a {
+    display: block;
+    padding: 5px;
 }
 }
-@media (max-width: 720px) {
-  .courses_btn .btn2 a{
-    font-size: 10px;
-  }
-  .courses_btn .btn2 a i{
-    font-size: 13px;
-  }
-  .courses_btn .btn1 a{
-    font-size: 11px;
-  }
-  .courses_btn .btn1 a i{
-    font-size: 13px;
-  }
-  #new-lec ,#new_report  {
-    padding: 10px;
-}
-}
-@media (max-width: 680px) {
-#new_std label{
-  font-size: 12px;
-}
-
-#new_std input {
-  font-size: 19px;
-}
-}
-
-@media (max-width: 675px) {
-  #btns button img {
-    height: 12px;
-    margin-left: 10px;
-    width: 12px;
-  }
-  .content_btn .fas {
-    font-size: 12px;
+@media (max-width: 700px) {
+  .sec{
+    width: 525px;
   }
 }
