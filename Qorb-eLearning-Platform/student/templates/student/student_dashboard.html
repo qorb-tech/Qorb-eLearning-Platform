@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    <title>اعادة تعيين كلمة المرور</title>
+    <title>الصفحة الرئيسية</title>
 {% endblock title %}
 
 {% block custum_imports %}
@@ -62,7 +62,7 @@
                      <div class="col-8">
                       {% for i,k in dic.items %}
                        <div class="lecture">
-                        <div class="info">
+                        <div class="info info-dash">
                             <div class="info_txt">
                                 <div class="lec">
                                     <i class="fas fa-bell"></i>
@@ -71,7 +71,7 @@
                                    <p>{{i}}</p>
                                    <p>{{k}} </p>
                                </div>
-                               <div class="enter_btn">
+                               <div class="enter_btn enter-dash">
                                 <button class="btn1"><a href="join_meeting/{{i}}">انضمام الاجتماع<i class="fas fa-angle-double-left"></i></a></button>
                               </div>
                         </div> 
@@ -127,7 +127,7 @@
 
 <script>
   {% for msg in messages %}
-       swal("Good job!", "{{msg}}!", "success");
+       swal("تم تسجيل الدخول بنجاح ", "{{msg}}!", "success");
    {% endfor %}
  </script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
