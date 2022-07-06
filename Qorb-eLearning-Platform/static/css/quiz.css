@@ -56,7 +56,6 @@
       border-radius: 10px;
   }
   .numm p{
-      padding-right: 12px;
       padding-top: 6px;
       font-size: 15px;
       color: white;
@@ -215,6 +214,10 @@
     .quize_btn button {
         width: 23%;
     }
+
+    #submitButton {
+        left: 39%;
+    }
   }
   @media (max-width:980px){
     .quize_btn button {
@@ -240,8 +243,15 @@
 
     }
     .num_q {
-        padding: 6px;
-        width: 25px;
+        
+            padding: 10px;
+            width: 30px;
+        
+
+    }
+    #submitButton {
+        left: 39%;
+        font-size: 17px;
 
     }
   }
@@ -257,10 +267,10 @@
        flex-basis: 70%;
        padding-left: 10px;
     }
-    .num_q {
-
-        padding: 6px;
-        width: 20px;
-
+    .headofcontent h4 {
+        font-size: 20px;
+    }
+    #submitButton {
+        left: 37%;
     }
   }
