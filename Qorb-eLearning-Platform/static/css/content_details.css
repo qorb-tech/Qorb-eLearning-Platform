@@ -300,6 +300,7 @@
 #reports .courses_btn {
   margin-top: 10px;
 }
+/*************media*******************/
 
 @media (max-width: 2000px) {
   .btn_choices button a {
@@ -338,6 +339,12 @@
     width: 62%;
   }
 }
+@media (max-width: 990px) {
+#new_std{
+  padding: 10px;
+}
+}
+
 @media (max-width: 955px) {
   .btn_choices button a {
     padding: 10px 3px;
@@ -345,7 +352,7 @@
   }
   .col-10 .courses_btn button a {
     padding: 10px 5px;
-    font-size: 18px;
+   
   }
   #new-lec input,
   #new_report input,
@@ -380,7 +387,21 @@
     margin: 10px 25px;
   }
 }
+@media (max-width: 870px) {
+  .courses_btn .btn2 a{
+    font-size: 12px;
+  }
+  .courses_btn .btn2 a i{
+    font-size: 15px;
+  }
+  .courses_btn .btn1 a{
+    font-size: 14px;
+  }
+  .courses_btn .btn1 a i{
+    font-size: 15px;
+  }
 
+}
 @media (max-width: 830px) {
   .btn_choices button a {
     padding: 10px 2px;
@@ -420,13 +441,48 @@
     font-size: 9px;
     font-weight: 900;
   }
+
+  #new-lec .courses_btn button , #new_report .courses_btn button{
+    margin: 2px;
+}
 }
 @media (max-width: 780px) {
   .col-10 .courses_btn button {
     width: 36%;
     margin: 10px 15px;
   }
+
+  #new_std .courses_btn button {
+    margin: 2px;
 }
+}
+@media (max-width: 720px) {
+  .courses_btn .btn2 a{
+    font-size: 10px;
+  }
+  .courses_btn .btn2 a i{
+    font-size: 13px;
+  }
+  .courses_btn .btn1 a{
+    font-size: 11px;
+  }
+  .courses_btn .btn1 a i{
+    font-size: 13px;
+  }
+  #new-lec ,#new_report  {
+    padding: 10px;
+}
+}
+@media (max-width: 680px) {
+#new_std label{
+  font-size: 12px;
+}
+
+#new_std input {
+  font-size: 19px;
+}
+}
+
 @media (max-width: 675px) {
   #btns button img {
     height: 12px;
