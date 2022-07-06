@@ -14,14 +14,14 @@
 
 {% block content %}
                 <!-------------------courses--------->
-               <div class="col-10 col-10-std">
+               <div class="col-10 col-10-std col-10-tec">
                <!----------------------new-course-->
                <div id="coursess">
                 <!-----------course1----------->
                 {% if courses %}
                 <ul></ul>
                 {% for course in courses %}
-            <div class="row courses">
+            <div class="row courses teacher ">
                 <div class="course_cont">
                     <div>
                         <h5>{{course.name}}</h5>
@@ -35,7 +35,7 @@
                 </div>
 
 
-                <div class="enter_btn see-con">
+                <div class="enter_btn see-con enter_btn-teacher ">
                     <button class="btn con1">
                         <a href="{{ course.get_absolute_url }}">
                             <div class="imll">
@@ -47,7 +47,7 @@
                  </div>
                  
 
-                 <div class="enter_btn see-con">
+                 <div class="enter_btn see-con enter_btn-teacher">
                     <button class="btn  con2">
                         <a href="/teacher/schedule_meeting/{{course.name}}">
                             <i class="fas fa-video-plus"></i> انشاء اجتماع 
@@ -56,7 +56,7 @@
                  </div>
 
 
-                 <div class="enter_btn see-con ">
+                 <div class="enter_btn see-con enter_btn-teacher">
                     <button class="btn con3 ">
                         <a href="join_meeting/{{course.name}}">
                             <i class="fas fa-angle-double-left"></i> الانضمام للأجتماع
