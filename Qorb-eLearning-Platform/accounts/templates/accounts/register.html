@@ -1,7 +1,7 @@
 {% extends 'accounts/base.html' %}
 {% load static %}
 
-{% block title %} REGISTER TITLE {% endblock title %}
+{% block title %}تسجيل حساب  {% endblock title %}
 
 
 {% block content %}
@@ -16,9 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/sign-up.css' %}">
+
+    <link rel="icon" href="{% static 'images/logo colored1.png' %}" type="image/icon type">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <title>sign-up</title>
+    <title>تسجيل حساب جديد</title>
 </head>
 <body>
     <!-----------------navbar-------->
@@ -102,9 +104,9 @@
     <script>
       {% for msg in messages %}
       {% if flag %}
-      swal("Good job!", "{{msg}}!", "success");
+      swal("تم تسجيل الحساب بنجاح ", "{{msg}}!", "success");
       {% else %}
-      swal("Opps!", "{{msg}}!", "warning");
+      swal( "حدث خطا في تسجيل الحساب", "{{msg}}!", "warning");
       {% endif %}
       {% endfor %}
       </script>
