@@ -14,6 +14,7 @@
   margin: 10px;
   
 }
+
 .course_cont p {
   direction: rtl;
   padding-top: 10px;
@@ -261,6 +262,7 @@ button a {
 .imll {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 .iml1 {
   padding: 0 5px;
@@ -278,16 +280,21 @@ button,
 .btn {
   border-radius: 35px;
 }
-.enter_btn .con1 a {
+ .enter_btn .con1 a {
   width: 150px;
-}
+} 
 .enter_btn .con2 a {
-  width: 170px;
+  width: 135px;
   padding: 11px 0px;
 }
+
 .enter_btn .con3 a {
-  width: 190px;
+  width: 145px;
   padding: 11px 0px;
+} 
+.con2 .fas ,
+.con3 .fas {
+  margin-right: 5px;
 }
 .imk {
   width: 20px;
@@ -352,7 +359,25 @@ button {
 .course-btn{
   padding-left: 15px;
 }
-
+.col-10-tec{
+  width: 80%;
+}
+.teacher h5{
+  font-size: 17px;
+}
+.teacher p{
+  font-size: 13px;
+}
+.teacher .course_cont .imgg img {
+  width: 180px;
+}
+.enter_btn button a {
+  font-size: 15px;
+  padding: 5px 15px;
+}
+.enter_btn .btn {
+margin-left: 8px;
+}
 /********************max-width: 1050px*************************/
 @media (max-width: 1400px) {
   .course_cont{
@@ -377,6 +402,8 @@ button {
     padding-top: 30px;
   }
 }
+
+
 @media (max-width: 1050px) {
   .course_cont .imgg img {
     width: 190px;
@@ -417,6 +444,34 @@ button {
   }
 }
 /********************max-width: 950px*************************/
+@media (max-width: 980px) {
+  .teacher .course_cont .imgg img {
+    width: 150px;
+}
+  .enter_btn button a {
+    font-size: 12px;
+    padding: 5px 15px;
+  }
+  .iml1 {
+  
+    font-size: 12px;
+  }
+  .enter_btn .con1 a {
+    width: 130px;
+  } 
+  .enter_btn .con2 a {
+    width: 110px;
+    padding: 11px 0px;
+  }
+  
+  .enter_btn .con3 a {
+    width: 125px;
+    padding: 11px 0px;
+  } 
+  .con2 .fas, .con3 .fas {
+    font-size: 15px;
+}
+}
 @media (max-width: 950px) {
   .course_cont{
     flex-basis: 55%;
@@ -426,7 +481,7 @@ button {
     height: 160px;
   }
   .enter_btn button a {
-    padding: 7px 7px;
+    padding: 4px 7px;
 }
   .term_cont1 {
     width: 200px;
@@ -476,13 +531,21 @@ button {
     padding: 10px 15px;
   }
   .enter_btn button a {
-    padding: 7px 10px;
+    padding: 4px 10px;
   }
   .enter_btn .btn {
     margin-left: 0;
   }
+  .enter_btn-teacher{
+    margin-left: 2px;
+  }
 }
 /********************max-width: 830px*************************/
+@media (max-width: 850px) {
+.teacher h5 {
+  font-size: 15px;
+}
+}
 @media (max-width: 830px) {
   .course_cont{flex-basis: 50%;}
   .course_cont .imgg img {
@@ -511,6 +574,38 @@ button {
     padding: 0 2px;
     font-size: 14px;
 }
+.teacher .course_cont .imgg img {
+  width: 100px;
+  height: 100px;
+}
+.enter_btn button a {
+  font-size: 10px;
+  padding: 5px 15px;
+}
+.iml1 {
+  font-size: 10px;
+}
+.enter_btn .con1 a {
+  width: 110px;
+} 
+.enter_btn .con2 a {
+  width: 95px;
+  padding: 11px 0px;
+}
+
+.enter_btn .con3 a {
+  width: 100px;
+  padding: 11px 0px;
+} 
+.con2 .fas, .con3 .fas {
+  font-size: 12px;
+}
+.iml2 img {
+  width: 15px;
+  height: 15px;
+  margin-top: 7px;
+}
+
 }
 /********************max-width: 750px*************************/
 @media (max-width: 750px) {
@@ -552,7 +647,46 @@ button {
 }
 }
 @media (max-width: 695px) {
+  /* .enter_btn button a {
+    font-size: 10px;
+    padding: 5px 15px;
+  }
   .see-con button a {
     padding: 7px 5px;
-  }
+  } */
+  .teacher h5 {
+    font-size: 10px;
+}
+.teacher .course_cont .imgg img {
+  width: 100px;
+  height: 100px;
+}
+.enter_btn button a {
+  font-size: 9px;
+  padding: 5px 12px;
+}
+.iml1 {
+  font-size: 9px;
+}
+.enter_btn .con1 a {
+  width: 100px;
+} 
+.enter_btn .con2 a {
+  width: 90px;
+  padding: 9px 0px;
+}
+
+.enter_btn .con3 a {
+  width: 90px;
+  padding: 11px 0px;
+} 
+.con2 .fas, .con3 .fas {
+  font-size: 10px;
+}
+.iml2 img {
+  width: 12px;
+  height: 12px;
+  margin-top: 7px;
+}
+  
 }
