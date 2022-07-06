@@ -57,6 +57,15 @@ align-items: center;
  .no-orders a{
      text-decoration: underline;
  }
+
+ .account_tech img{
+     width: 25px;
+     height: 25px;
+ }
+ .account_tech h1{
+    font-size: 30px;
+}
+
  @media (max-width: 900px) {
  .no-orders img {
     width: 80%;
