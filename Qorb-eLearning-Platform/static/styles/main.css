@@ -173,6 +173,16 @@ body{
 
 }
 
-/* #leave-btn{
-    background-color: rgb(255, 80, 80, 1);
-} */
+  /*****meeting********/
+  #welcome-message h1{
+    background-color: var(--btn-color);
+    color: var(--primary-color);
+    width: 50%;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 30px;
+    padding: 70px;
+}
