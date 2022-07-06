@@ -1,0 +1,59 @@
+{% extends 'base/base_bar.html' %}
+{% load static %}
+{% load edit_report_grades_url%}
+
+{% block title %}
+    <title>الانضمام الى الاجتماع</title>
+{% endblock title %}
+
+{% block custum_imports %}
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------courses-details--------->
+               <div class="col-10">
+                <div id="welcome-message">
+                    <h1>جارى اعادة توجيهك الى الاجتماع</h1>
+                    <!-- <i class="fad fa-spinner-third"></i> -->
+                </div>
+                <body onload="handleSubmit();">
+              </div>
+
+                   
+        </div>
+    </section>
+    
+
+
+    
+<script>
+    
+
+    let handleSubmit = async () => {
+        console.log(window.location.href);
+        let room = "{{room_name}}"
+        let name = "{{user_name}}"
+
+        let response = await fetch(`/get_token/?channel=${room}`)
+        let data = await response.json()
+
+        let UID = data.uid
+        let token = data.token
+
+        sessionStorage.setItem('UID', UID)
+        sessionStorage.setItem('token', token)
+        sessionStorage.setItem('room', room)
+        sessionStorage.setItem('name', name)
+
+        window.open('/room/', '_self')
+    }
+
+
+
+    
+</script>
+
+</body>
+</html>
+{% endblock content %}
+

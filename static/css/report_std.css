@@ -1,0 +1,134 @@
+.col-10{
+    padding: 20px;
+}
+.account_tech {
+    padding: 10px;
+}
+.account_tech img{
+    padding-top: 6px;
+    margin-left: 5px;
+}
+.account_tech h1 {
+    font-size: 25px;
+}
+.account_tech{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info_tech{
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+.block {
+    margin: 25px 0;
+    direction: rtl;
+    display: flex;
+    justify-content: flex-start;
+}
+.info_tech form label {
+    margin-left: 20px;
+    text-align: right;
+    flex-basis: 55%;
+}
+.block textarea {
+    resize: none;
+    margin-right: 50px;
+    border: 1px solid var(--btn-color);
+    outline: none;
+    padding: 5px 10px;
+    height: 110px;
+    width: 310px;
+    margin-top: 10px;
+    /* box-shadow: 0 0 8px var(--forth-color); */
+    border-radius: 10px;
+
+}
+.modified_btn{
+    margin-top: 20px;
+}
+.modified_btn a{
+    text-decoration: none;
+}
+
+#id_grade{
+    color: var(--fifth-color);
+      /* box-shadow: 0 0 2px var(--btn-color); */
+      width: 200px;
+      border: 1px solid var(--btn-color);
+      padding: 3px 0px;
+      border-radius: 10px;
+  }
+
+  .account_tech h1 {
+    padding: 6px 10px;
+}
+.sp_label{
+    padding-top: 40px;
+}
+
+.btn1{
+    padding: 10px;
+    color: white;
+    box-shadow: 0 0 6px var(--btn-color);
+}
+.details{
+    margin : 0px 20px ;
+    min-height: 500px;
+    padding: 7px 0 ;
+    box-shadow: 0 0 4px var(--forth-color);
+}
+
+.details_tech {
+    margin-right: 175px;
+    
+}
+.block p ,
+.None_rep{
+    color: var(--forth-color);
+    padding-top: 10px;
+}
+.tech-report{
+    justify-content: center;
+    padding: 50px 0px;
+}
+.details-report {
+    margin-right: 0px;
+    flex-basis: 55%;
+}
+.det-report{
+    height: 585px;
+}
+@media(max-width: 1170px){
+    .details-report {
+        flex-basis: 66%;
+    }
+}
+@media(max-width: 990px){
+    .details-report {
+        flex-basis: 72%;
+    }
+
+    .rep-info{
+        font-size: 15px;
+    }
+    .block a{
+        font-size: 15px
+    }
+    .block label{
+        font-size: 18px
+    }
+}
+
+@media(max-width: 735px){
+    .details-report {
+        flex-basis: 79%;
+    }
+
+}
+@media(max-width: 680px){
+    .details-report {
+        flex-basis: 84%;
+    }
+
+}

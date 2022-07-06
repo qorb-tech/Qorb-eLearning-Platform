@@ -1,0 +1,78 @@
+{% extends 'student/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الاختبارات</title>
+{% endblock title %}
+
+{% block custum_imports %}
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_teach_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/exams.css' %}">
+    <link rel="stylesheet" href="{% static 'css/std_exams.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+<div class="col-10">
+    <!------------------------exams---------------->
+     <div id="exam">
+         <div class="details">
+             <div class="account_tech">
+                 <h1> اختبارات </h1>
+                 <img src="{% static 'images/quiz/Group 15547.svg' %}" width="30px" height="30px">
+             </div>
+             <div class="choose_btns" id="exams_btn">
+                <button class="active" onclick="available_exam()" onmouseover="hover_std()" onmouseout="without_hover_std()"><img  id="image-ex" src="{% static 'images/std/hover/Group.svg' %}" > الاختبارات المتاحة</button>
+                <button onclick="finish_exam()"><i class="fas fa-clipboard-check"></i>الاختبارات المنتهية</button>
+             </div>
+             <!------------------------available_exams---------------->
+             <div class="exams" id="available_exams">
+                 <div class="row">
+                    {% for quiz in quizzes %}
+                    {% if quiz.done == False %}
+                    <div class="col-3">
+                        <div class="exam1">
+                             <h5>{{quiz.course}}</h5>
+                             <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
+                             <p>{{quiz.quiz.name}}</p>
+                             <button class="btn_exam2"><a href="{% url 'start_quiz' quiz.id %}">بدأ الاختبار</a></button>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+
+
+                 </div>
+
+             </div>
+             <!------------------------finish_exams---------------->
+             <div class="exams" id="finish_exams">
+                 <div class="row">
+                    {% for quiz in quizzes %}
+                    {% if quiz.done %}
+                    <div class="col-3">
+                        <div class="exam1">
+                             <h5>{{quiz.course}}</h5>
+                             <img src="{% static 'images/teacher/Icons/Group.png' %}" alt="...">
+                             <p>{{quiz.quiz.name}}</p>
+                             <button class="btn_exam"><a >رؤية النتيجة</a> <p>درجة الاختبار: {{quiz.score}} من {{quiz.total_marks}}</p> </button>
+
+
+                        </div>
+                    </div>
+
+                    {% endif %}
+                {% endfor %}
+                 </div>
+
+             </div>
+         </div>
+     </div>
+
+</div>
+</div>
+<script src="{% static 'js/std_exams.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<script>window.onload=quiz()</script>
+{% endblock content %}

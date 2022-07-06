@@ -1,0 +1,171 @@
+:root {
+    --seven-color: #f9f9f9;
+    --forth-color: #48597f;
+    --btn-color: #c35241;
+    --line-color:#cccccc;
+  }
+
+  .details{
+    /*  padding-right: 50px;*/
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+.headofcontent h4{
+    font-size: 22px ;
+    padding-right: 15px;
+    padding-top: 0px;
+
+}
+.hea3{
+    width: 20px;
+    height: 25px;
+    padding-top: 5px;
+}
+.bll{
+    padding-top: 6PX;
+}
+/* text*/
+.tex-in h3{
+    color: var(--btn-color);
+    font-size: 20px;
+}
+.n1 ,
+.n2 ,
+.bll{
+    padding-bottom: 10px;
+}
+/*lines*/
+.n3 ,
+.n8{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30%;
+}
+.n8{
+    padding-left: 28%;
+}
+.n3 hr{
+    border-top: 1px solid var(--line-color);
+}
+.n8 hr{
+    border-top: 1px solid var(--line-color);
+}
+/*input*/
+.n2 input{
+    padding-left: 140px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    outline: none;
+    border-color: var(--btn-color);
+}
+
+/*lectures , student name*/
+.n4 ,
+.n5,
+.n6{
+    display: flex;
+}
+.n4 p,
+.n5 p,
+.n6 p{
+    text-decoration: underline;
+    color: var(--forth-color);
+    font-weight: 700;
+    padding-left: 50%;
+    font-size: 17px;
+}
+.n5 p {
+    padding-left: 51.5%;
+}
+.n6 p {
+    padding-left: 56.5%;
+}
+.n4 i,
+.n5 i,
+.n6 i{
+    color: var(--forth-color);
+    font-size: 25px;
+}
+/*input2*/
+.email-student{
+    display: flex;
+    padding-top: 2%;
+}
+.email-student input{
+    padding-left: 100px;
+    padding-right: 70px;
+    border-radius: 40px;
+    outline: none;
+    border-color: var(--btn-color);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.email-student ::placeholder{
+    width: 120%;
+
+}
+.pl{
+    display: flex;
+    color: var(--btn-color);
+    padding-top: 1%;
+    padding-left: 3%;
+    margin-left: 4px;
+}
+.pll{
+    font-size: 15px;
+    font-weight: bold;
+}
+/*end button*/
+.btn-end{
+    display: flex;
+    padding-right: 50%;
+    padding-bottom: 3%;
+}
+.btn-end  button{
+    border-radius: 70px;
+    background-color: white;
+}
+.btn-end .l3{
+    font-size: 17px;
+
+}
+.btn-end .far {
+    font-size: 17px;
+    font-weight: 900;
+}
+.btn-end .fal {
+    font-size: 17px;
+}
+/*padding right content*/
+.tex-in{
+padding-right: 10%;
+padding-top: 5%;
+}
+/* padding left content*/
+.left-side img{
+    margin-right: 55%;
+    padding-top: 2%;
+}
+.left-side .bll{
+    margin-right: 61%;
+    padding-left: 0px;
+}
+
+/*button edit*/
+
+.bedit{
+    padding-right: 25%;
+}
+.bedit .bll button a{
+    padding: 9px 20px;
+}
+.bedit .l3{
+    padding-left: 10px;
+    font-weight:bold;
+    font-size: 15px;
+}
+.bedit .fas {
+    font-size: 15px;
+}
