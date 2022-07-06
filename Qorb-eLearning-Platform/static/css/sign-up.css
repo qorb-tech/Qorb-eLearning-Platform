@@ -216,6 +216,47 @@ button a {
     flex-basis: 100%;
   }
 }
+@media (max-width: 1260px) {
+.form-sch input{
+  width: 50%;
+  font-size: 23px;
+}
+}
+@media (max-width: 1160px) {
+  .form-sch input{
+    width: 42%;
+    font-size: 20px;
+  }
+
+  .button-sch a {
+   padding: 8px 16px;
+   font-size: 17px;
+}
+.lkmm {
+   margin: 30px 85px; 
+}
+
+ }
+ @media (max-width: 950px) {
+  .form-sch input{
+    width: 43%;
+    font-size: 17px;
+  }
+
+  .button-sch a {
+   padding: 8px 13px;
+   font-size: 15px;
+}
+.lkmm {
+   margin: 30px 65px; 
+}
+.form-sch {
+  margin-right: 25px;
+}
+.button-sch .fas{
+  font-size: 15px;
+}
+ }
 @media (max-width: 800px) {
   .sign-up {
     width: 600px;
@@ -230,6 +271,26 @@ button a {
   .form_input [type="password"] {
     width: 80%;
   }
+
+  .form-sch input{
+    width: 40%;
+    font-size: 12px;
+  }
+
+  .button-sch a {
+   padding: 6px 9px;
+   font-size: 11px;
+}
+.lkmm {
+   margin: 30px 65px; 
+
+}
+.form-sch {
+  margin-right: 22px;
+}
+.button-sch .fas{
+  font-size: 12px;
+}
 }
 
 @media (max-width: 650px) {
