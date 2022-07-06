@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
         <link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="icon" href="{% static 'images/logo colored1.png' %}" type="image/icon type">
+
         {% block custum_imports %}{% endblock custum_imports %}
         {% block title %}{% endblock title %}
     </head>
@@ -58,8 +60,8 @@
                             <div class="profile_feature" onmouseover="hoverr3()" onmouseout="without_hover3()" onclick="coursesi()"><a href="{% url 'courses' %}">المقررات الدراسية<img id="image3" src="{% static 'images/icons/dashboard/Group 186.svg' %}" width="30px" height="20px" ></a></div>
                             <div class="profile_feature" onmouseover=" hoverr5()" onmouseout="without_hover5()" 
                             ><a href="{% url 'quizzes' %}">اختبارات<img id="image5" src="{% static 'images/icons/dashboard/exams.svg' %}" width="30px" height="20px"></a></div>
-                            <div class="profile_feature" onmouseover="hoverr1()" onmouseout="without_hover1()" onclick="teacher_dash()"><a href="{% url 'join_course_list' %}"> الطلبات <img id="image1" src="{% static 'images/icons/dashboard/main page.svg'  %}" width="30px" height="20px"></a></div>
-
+                           
+                            <div class="profile_feature" onmouseover="hoverr6()" onmouseout="without_hover6()" onclick="orders()"><a href="{% url 'join_course_list' %}">الطلبات<img id="image6" src="{% static 'images/icons/Icon_attention_solid.svg' %}" width="30px" height="20px"></a></div>
                         </div>
                         </div>
                      </div>
