@@ -17,7 +17,7 @@
         <div class="col-10">
           <div class="details">
             <div class="account_tech">
-              <h1> الطلبات <img src="{% static 'images/icons/Icon_attention_solid.svg' %}" alt=""></a></h1>
+                <h1> الطلبات <i class="fas fa-user-circle"></i></a></h1>
             </div>
             <div class="hrt">
                 <hr>
@@ -25,12 +25,12 @@
 
   {% if all_requests %}
   {% for request in all_requests %}
-  
+
   <div>
       <div class="row orders">
         <div class="row col-8">
             <div class="orders-img">
-                <img src="images/faces/Rectangle 7.png" alt="">
+                <img src="{{request.course.image.url}}" alt="">
             </div>
             <div class="order-info">
               <h4> {{request.student}} </h4>
@@ -38,17 +38,17 @@
             </div>
         </div>
         <div class="col-4">
-          <button class="orderbtn"> <a onclick="return confirm('هل تريد الغاء الطلب ؟')" 
+          <button class="orderbtn"> <a onclick="return confirm('هل تريد الغاء الطلب ؟')"
             href="dismiss/{{request.course}}/{{request.student}}">الغاء الطلب</a></button>
-            <button class="acceptedbtn"><a onclick="return confirm('هل تريد اضافه الطالب للكورس ؟')" 
+            <button class="acceptedbtn"><a onclick="return confirm('هل تريد اضافه الطالب للكورس ؟')"
               href="confirm/{{request.course}}/{{request.student}}">تاكيد الانضمام للكورس</a> </button>
         </div>
-        
+
     </div>
       <div class="hrr">
           <hr>
       </div>
-   
+
   </div>
   {% endfor %}
   {% else %}
@@ -57,7 +57,7 @@
     <p>   لا يوجد طلبات في الوقت الخالي </p>
     <a href="{% url 'index' %}">رجوع للصفحة الرئيسية</a>
  </div>
-{% endif %}	
+{% endif %}
 
 </div>
 </div>
