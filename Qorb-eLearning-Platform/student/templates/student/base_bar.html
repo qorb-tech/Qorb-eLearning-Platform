@@ -15,25 +15,25 @@
         <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
         <link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="icon" href="{% static 'images/logo colored1.png' %}" type="image/icon type">
         {% block custum_imports %}{% endblock custum_imports %}
         {% block title %}{% endblock title %}
     </head>
 
     <body>
 
-        <nav class="navigation">
-          <div class="row nav_ull">
-            <div class="nav_ul">
-                <ul>
-                    <div class="right">
-                        <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
-                        <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
-                    </div>
-                </ul>
-              </div>
-              <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
-          </div>
-
+         <nav class="navigation">
+            <div class="row nav_ull">
+              <div class="nav_ul">
+                  <ul>
+                      <div class="right">
+                          <img src="{% static 'images/logo white1.png' %}" alt=""width="100px" height="50px">
+                          <li><a href="{% url 'index' %}">الصفحة الرئيسية</a></li>
+                      </div>
+                  </ul>
+                </div>
+                <div><button class="btn"><a href="{% url 'logout' %}"> تسجيل الخروج <i class="fas fa-arrow-alt-square-right"></i></a></button></div>
+            </div>
       </nav>
         <section>
             <div class="dashboard">
@@ -59,8 +59,10 @@
                             <div class="profile_feature" onmouseover="hoverr3()" onmouseout="without_hover3()" onclick="coursesi()"><a href="{% url 'student_courses' %}">المقررات الدراسية<img id="image3" src="{% static 'images/icons/dashboard/Group 186.svg' %}" width="30px" height="20px" ></a></div>
                             <div class="profile_feature" onmouseover="hoverr5()" onmouseout="without_hover5()" onclick="quiz()"><a href="{% url 'current_quizzes' %}">اختبارات<img id="image5" src="{% static 'images/icons/dashboard/exams.svg' %}" width="30px" height="20px"></a></div>
           
-                            <div class="profile_feature" onmouseover="hoverr6()" onmouseout="without_hover6()" onclick="orders()"><a href="{% url 'student_reqeusts' %}">الطلبات<img id="image6" src="{% static 'images/icons/dashboard/exams.svg' %}" width="30px" height="20px"></a></div>
+                            
+                            <div class="profile_feature" onmouseover="hoverr6()" onmouseout="without_hover6()" onclick="orders()"><a href="{% url 'student_reqeusts' %}">الطلبات<img id="image6" src="{% static 'images/icons/nohover/Icon_attention_solid.svg' %}" width="30px" height="20px"></a></div>
                            </div>
+                
                         </div>
                      </div>
                     <div class="col-10">
