@@ -259,14 +259,14 @@
 
         <script>
             function contactSent(){
-                alert('Your message sent succefully!');
+                alert('تم ارسال رسالتك بنجاح ');
             }
         </script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <script>
             {% for msg in messages %}
-            swal("Good job!", "{{msg}}!", "success");
+            swal("تم تسجيل الخروج  بنجاح ", "{{msg}}!", "success");
             {% endfor %}
         </script>
 
