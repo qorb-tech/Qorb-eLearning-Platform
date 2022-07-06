@@ -29,7 +29,7 @@
 .info_tech form label {
     margin-left: 20px;
     text-align: right;
-    flex-basis:35%;
+    flex-basis: 55%;
 }
 .block textarea {
     resize: none;
@@ -87,4 +87,48 @@
 .None_rep{
     color: var(--forth-color);
     padding-top: 10px;
+}
+.tech-report{
+    justify-content: center;
+    padding: 50px 0px;
+}
+.details-report {
+    margin-right: 0px;
+    flex-basis: 55%;
+}
+.det-report{
+    height: 585px;
+}
+@media(max-width: 1170px){
+    .details-report {
+        flex-basis: 66%;
+    }
+}
+@media(max-width: 990px){
+    .details-report {
+        flex-basis: 72%;
+    }
+
+    .rep-info{
+        font-size: 15px;
+    }
+    .block a{
+        font-size: 15px
+    }
+    .block label{
+        font-size: 18px
+    }
+}
+
+@media(max-width: 735px){
+    .details-report {
+        flex-basis: 79%;
+    }
+
+}
+@media(max-width: 680px){
+    .details-report {
+        flex-basis: 84%;
+    }
+
 }
