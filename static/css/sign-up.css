@@ -1,0 +1,314 @@
+.navigation {
+  background-color: var(--forth-color);
+  padding: 0 10px;
+}
+.sign-up {
+  width: 780px;
+  margin: auto;
+  direction: rtl;
+}
+form {
+  text-align: center;
+}
+
+input {
+  border: none;
+  font-size: 25px;
+  outline: none;
+  color: gray;
+}
+#id_meeting_date{
+  color: var(--btn-color);
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px var(--primary-color);
+}
+.form-sch{
+  padding-top: 5%;
+  direction: rtl;
+  margin-right: 35px;
+}
+.lkmm {
+  box-shadow: 0 0 6px var(--forth-color);
+  height: 390px;
+  border-radius: 40px;
+  text-align: center;
+  padding: auto;
+  margin: 56px 150px;
+  background-color: var(--forth-color);
+  margin-top: 20px;
+}
+.button-sch a{
+    border-radius: 25px;
+    border: 1px solid var(--btn-color);
+    background-color: var(--btn-color);
+    color: var(--primary-color);
+}
+.form_input {
+  display: inline-block;
+  margin: 10px 0;
+  box-shadow: 0 0 5px rgba(117, 116, 116, 0.664);
+  width: 50%;
+  padding: 10px;
+  text-align: right;
+}
+.form_input:hover {
+  box-shadow: 5px 5px 10px rgba(117, 116, 116, 0.664);
+}
+.form_input i {
+  padding-top: 2px;
+  color: gray;
+}
+.form_input .far {
+  padding-left: 15px;
+  cursor: pointer;
+}
+
+/*********radion-button*******/
+.radio-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 30px;
+}
+
+.radio-item input[type="radio"] {
+  display: none;
+}
+
+.radio-item label {
+  color: #666;
+  font-weight: normal;
+}
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 11px;
+  border: 2px solid var(--btn-color);
+  background-color: transparent;
+}
+.radio-item input[type="radio"]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  content: " ";
+  display: block;
+  background: var(--btn-color);
+}
+
+/*****buttons**********/
+form button {
+  margin: 25px;
+}
+button a {
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+.btn1 a,
+.btn2:hover a {
+  border: 1px var(--primary-color) solid;
+  color: var(--primary-color);
+  background-color: var(--btn-color);
+}
+.btn2 a,
+.btn1:hover a {
+  border: 1px var(--btn-color) solid;
+  color: var(--btn-color);
+  background-color: var(--primary-color);
+}
+#sucsess_register {
+  display: none;
+  border-radius: 35px;
+  position: absolute;
+  width: 25%;
+  top: 80px;
+  right: 35%;
+  color: var(--primary-color);
+  height: 165px;
+  text-align: center;
+  background-color: rgba(73, 195, 65, 0.8);
+  /* background-color: rgba(18, 170, 18, 0.6); */
+  justify-content: center;
+  align-items: center;
+  animation-name: success;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+#sucsess_enter {
+  display: none;
+  border-radius: 35px;
+  position: absolute;
+  width: 25%;
+  top: 80px;
+  right: 35%;
+  color: var(--primary-color);
+  height: 165px;
+  text-align: center;
+  background-color: rgba(73, 195, 65, 0.8);
+  /* background-color: rgba(18, 170, 18, 0.6); */
+  justify-content: center;
+  align-items: center;
+  animation-name: successs;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+/*////////////////////////////////*/
+@keyframes success {
+  0% {
+    display: none;
+  }
+  100% {
+    display: flex;
+  }
+}
+@keyframes successs {
+  0% {
+    display: none;
+  }
+  100% {
+    display: flex;
+  }
+}
+#sucsess_register h1 {
+  font-size: 25px;
+}
+#sucsess_register i {
+  margin-left: 5px;
+  font-size: 25px;
+}
+#sucsess_enter h1 {
+  font-size: 25px;
+}
+#sucsess_enter i {
+  margin-left: 5px;
+  font-size: 25px;
+}
+
+/***********media quary*********/
+@media (max-width: 1400px) {
+  .sign-up img {
+    width: 80%;
+    height: 80%;
+    margin-right: 65px;
+  }
+}
+@media (max-width: 900px) {
+  .navigation {
+    height: fit-content;
+    position: relative;
+  }
+
+  .right {
+    flex-direction: row;
+    flex-basis: 100%;
+  }
+  .nav_ul {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 1260px) {
+.form-sch input{
+  width: 50%;
+  font-size: 23px;
+}
+}
+@media (max-width: 1160px) {
+  .form-sch input{
+    width: 42%;
+    font-size: 20px;
+  }
+
+  .button-sch a {
+   padding: 8px 16px;
+   font-size: 17px;
+}
+.lkmm {
+   margin: 30px 85px; 
+}
+
+ }
+ @media (max-width: 950px) {
+  .form-sch input{
+    width: 43%;
+    font-size: 17px;
+  }
+
+  .button-sch a {
+   padding: 8px 13px;
+   font-size: 15px;
+}
+.lkmm {
+   margin: 30px 65px; 
+}
+.form-sch {
+  margin-right: 25px;
+}
+.button-sch .fas{
+  font-size: 15px;
+}
+ }
+@media (max-width: 800px) {
+  .sign-up {
+    width: 600px;
+    margin: 0 20px;
+  }
+  .sign-up img {
+    width: 80%;
+  }
+  .form_input {
+    width: 60%;
+  }
+  .form_input [type="password"] {
+    width: 80%;
+  }
+
+  .form-sch input{
+    width: 40%;
+    font-size: 12px;
+  }
+
+  .button-sch a {
+   padding: 6px 9px;
+   font-size: 11px;
+}
+.lkmm {
+   margin: 30px 65px; 
+
+}
+.form-sch {
+  margin-right: 22px;
+}
+.button-sch .fas{
+  font-size: 12px;
+}
+}
+
+@media (max-width: 650px) {
+  .sign-up {
+    width: 450px;
+    margin: 0;
+  }
+  input {
+    font-size: 15px;
+  }
+  .sign-up img {
+    width: 100%;
+  }
+  .form_input [type="password"] {
+    width: 70%;
+  }
+  .form_input .far {
+    padding-left: 5px;
+    cursor: pointer;
+  }
+}
