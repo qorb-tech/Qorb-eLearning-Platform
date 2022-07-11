@@ -15,9 +15,10 @@ let remoteUsers = {}
 
 const CHANNEL_NAME = sessionStorage.getItem('ch_name')
 
+let ok2=false
 let joinAndDisplayLocalStream = async () => {
     document.getElementById('room-name').innerText = CHANNEL_NAME
-    document.getElementById('chat_pop_up').href = "https://qorb.tech/chat/" + CHANNEL_NAME
+    //document.getElementById('chat_pop_up').href = "https://qorb.tech/chat/" + CHANNEL_NAME
     client.on('user-published', handleUserJoined)
     client.on('user-left', handleUserLeft)
 
@@ -41,11 +42,11 @@ let joinAndDisplayLocalStream = async () => {
 
     localTracks[1].play(`user-${UID}`)
     await client.publish([localTracks[0], localTracks[1]])
-    
-
-
+    ok2=true
 
 }
+
+
 
 
 // Capture , resize to  48 * 48 and send data every 10 sec.
@@ -112,6 +113,70 @@ function capture_send_data() {
 };
 
 setInterval(capture_send_data, 10000);
+
+
+// Capture , resize to  48 * 48 and send data every 10 sec.
+let myImageData2=[];
+function capture_send_data2() {
+    var c = document.querySelector("canvas");
+    var ctx = c.getContext("2d");
+    var imgData = localTracks[1].getCurrentFrameData();
+
+    ctx.putImageData(imgData, 0, 0);
+    var dataURL = c.toDataURL();
+
+    var image = new Image();
+    image.src = dataURL;
+
+
+    var c2 = document.getElementById("canvas3");
+    var ctx2 = c2.getContext("2d");
+    ctx2.drawImage(c,0, 0, 128, 128);
+
+    myImageData2 = ctx2.getImageData(0, 0, 128, 128);
+
+
+    var normalArray = Array.from(myImageData2.data);
+    console.log(normalArray);
+    // if(ok){
+    //     const start_time = (new Date().getMinutes());
+    //     localStorage.setItem('start_time', start_time);
+    //     ok = false;
+    // }
+
+
+    // let time =  (new Date().getMinutes()) - localStorage.getItem('start_time');
+    let time = (new Date().getMinutes());
+   
+
+    var data = {
+        "frame": normalArray
+    }
+
+    // console.log(localTracks[1].getCurrentFrameData())
+    var csrftoken = getCookie('csrftoken');
+
+
+    $.ajax({
+        headers: {'Access-Control-Allow-Origin': '*' ,
+        "Content-type": "application/json"
+    },
+        
+        type: 'POST',
+        url: 'https://api.qorb.tech/postframe/',
+        contentType: "application/json",  
+        dataType: 'json', 
+        data: JSON.stringify(data),
+        success: function(data){
+            console.log(data);
+            myImageData=[];
+
+        }
+    });
+};
+
+setInterval(capture_send_data2, 1000/30);
+
 
 
 function getCookie(name) {

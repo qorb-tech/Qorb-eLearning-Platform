@@ -5,7 +5,6 @@ from pathlib import Path
 from django.contrib.messages import constants as messages
 
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
@@ -192,3 +191,5 @@ else:
 }
 
 
+SECURE_REFERRER_POLICY ="None"
+X_FRAME_OPTIONS = 'SAMEORIGIN'

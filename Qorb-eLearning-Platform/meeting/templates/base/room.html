@@ -73,6 +73,7 @@
                         <canvas id="canvas" width="640" height="480" style="display: none;" > </canvas>
 
                         <canvas id="canvas2" width="48" height="48" style="display: none;"> </canvas>
+                        <canvas id="canvas3" width="128" height="128"> </canvas>
 
                         <section id="video-streams"></section>
 
@@ -187,13 +188,6 @@
                
 
 
-
-             <div class="links">
-
-            <a class="openpop"id="chat_pop_up" href="https://qorb.tech/chat/" style="height: 300px; width: 400px;" >عرض الشات</a>
-
-            </div>
-
             
 
      
@@ -226,7 +220,7 @@
 
                     
 
-                    <iframe src="https://qorb.tech/chat/test" height="200" width="300" title="Iframe Example" style="resize: none; height: 80vh; overflow: hidden;"></iframe>
+                    <iframe src="https://www.qorb.tech/chat/test" height="200" width="300" title="Iframe Example" style="resize: none; height: 80vh; overflow: hidden;"></iframe>
                     
 
                   
@@ -293,33 +287,6 @@
 
 
 
-    $(document).ready(function () {
-
-    $(".popup").hide();
-
-    $(".openpop").click(function (e) {
-
-        e.preventDefault();
-
-        $("iframe").attr("src", $(this).attr('href'));
-
-        $(".links").fadeOut('slow');
-
-        $(".popup").fadeIn('slow');
-
-    });
-
-
-
-    $(".close").click(function () {
-
-        $(this).parent().fadeOut("slow");
-
-        $(".links").fadeIn("slow");
-
-    });
-
-});
 
 
 
