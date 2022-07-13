@@ -49,7 +49,7 @@ a:hover {
 }
 .tech_pic h2 {
   padding-bottom: 15px;
-  padding-left: 50px;
+  /* padding-left: 50px; */
   font-size: 20px;
   color: var(--btn-color);
 }
@@ -267,6 +267,10 @@ form .email input {
 
 .hrt-gr{
   padding-bottom: 30px;
+}
+
+.std-acc h2{
+   padding-left: 50px;
 }
 
 /******************media query***********************/

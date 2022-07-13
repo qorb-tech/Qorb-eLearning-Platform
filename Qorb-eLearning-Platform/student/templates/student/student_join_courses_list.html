@@ -19,13 +19,13 @@
             <div class="account_tech">
                 <h1> الطلبات <img src="{% static 'images/icons/Icon_attention_solid.svg' %}" alt=""></a></h1>
             </div>
-            <div class="hrt">
+            <!-- <div class="hrt">
                 <hr>
-            </div>
+            </div> -->
 
             {% if student_requests %}
             {% for request in student_requests %}
-      <div>
+            <div class="det-req">
             <div class="row orders">
               <div class="row col-8">
                    <div class="orders-img">
@@ -42,9 +42,9 @@
               </div>
               
           </div>
-         <div class="hrr">
+         <!-- <div class="hrr">
              <hr>
-         </div>
+         </div> -->
       </div>
   {% endfor %}
   {% else %}

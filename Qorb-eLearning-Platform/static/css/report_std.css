@@ -27,7 +27,7 @@
     justify-content: flex-start;
 }
 .info_tech form label {
-    margin-left: 20px;
+    margin-left: 15px;
     text-align: right;
     flex-basis: 55%;
 }
@@ -80,7 +80,7 @@
 }
 
 .details_tech {
-    margin-right: 175px;
+    margin-right: 160px;
     
 }
 .block p ,

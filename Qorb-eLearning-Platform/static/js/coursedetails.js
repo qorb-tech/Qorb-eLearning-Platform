@@ -1,10 +1,9 @@
-
-  var imagee1 = document.getElementById("imgg1");
+var imagee1 = document.getElementById("imgg1");
   var imagee2 = document.getElementById("imgg2");
   var imagee3 = document.getElementById("imgg3");
   function course_lec() {
       reports.style.display="none";
-      garde.style.display="none";
+      
       student_list.style.display="none";
       course_lecs.style.display="block";
       btn_report.classList.remove("active");
@@ -17,7 +16,7 @@
   function report() {
   course_lecs.style.display="none";
   student_list.style.display="none";
-  garde.style.display="none";
+  
   reports.style.display="block";
   btn.classList.remove("active");
   btn_std.classList.remove("active");
@@ -29,7 +28,7 @@
   function std_list() {
   course_lecs.style.display="none";
   reports.style.display="none";
-  garde.style.display="none";
+
   student_list.style.display="block";
   btn.classList.remove("active");
   btn_report.classList.remove("active");

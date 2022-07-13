@@ -11,44 +11,45 @@ function hoverr1(){
    image1.src ='/static/images/icons/dashboard/oppsite/Group 183.svg';
     }
     function without_hover1(){
-      if(image1.src == '/static/images/icons/dashboard/oppsite/Group 183.svg'){
-        image1.src ='/static/images/icons/dashboard/oppsite/Group 183.svg';
-      }
-      else{
         image1.src = '/static/images/icons/dashboard/main page.svg';
-      }
     }
-function hoverr2(){
-    image2.src ='/static/images/icons/dashboard/oppsite/ic_account_circle_24px.svg' ;
-    }
-    function without_hover2(){
+// function hoverr2(){
+//     image2.src ='/static/images/icons/dashboard/oppsite/ic_account_circle_24px.svg' ;
+//     }
+//     function without_hover2(){
       
-    image2.src = '/static/images/icons/dashboard/ic_account_circle_24px.svg';
-    }
+//     image2.src = '/static/images/icons/dashboard/ic_account_circle_24px.svg';
+//     }
   //----hover-courses
   function hoverr3(){
    image3.src ='/static/images/icons/dashboard/oppsite/Group 186.svg' ;
+   console.log("sl");
   }
   function without_hover3(){
    image3.src = '/static/images/icons/dashboard/Group 186.svg';
+   console.log("ts");
   }
  //---hover exams
   function hoverr5(){
    image5.src ='/static/images/icons/dashboard/oppsite/Group 184.svg' ;
+   console.log("nl");
   }
   function without_hover5(){
    image5.src = '/static/images/icons/dashboard/exams.svg' ;
+   console.log("lg");
   }
   
    //---hover orders
-  function hoverr6(){
-    image6.src ='/static/images/icons/hover/Icon_attention_solid.svg';
+  // function hoverr6(){
+  //   image6.src ='/static/images/icons/hover/Icon_attention_solid.svg';
+  //   console.log("or");
     
-   }
-   function without_hover6(){
-    image6.src = '/static/images/icons/nohover/Icon_attention_solid.svg';
+  //  }
+  //  function without_hover6(){
+  //   image6.src = '/static/images/icons/nohover/Icon_attention_solid.svg';
+  //   console.log("1234");
  
-   }
+  //  }
   function teacher_dash(){
     for (var i = 0; i < profile_feature_active.length; i++) {
         var current = profile_features.getElementsByClassName("activee");
@@ -111,11 +112,11 @@ function orders(){
       // If there's no active class
       if (current.length > 0) {
         current[0].className = current[0].className.replace(" activee", "");
-        image6.src = '/static/images/icons/nohover/Icon_attention_solid.svg';
+        
        
       }
-        profile_feature_active[4].classList.add("activee")
-        image6.src ='/static/images/icons/hover/Icon_attention_solid.svg';
+        profile_feature_active[4].classList.add("activee")  
         console.log("orders")
   }
 }
+

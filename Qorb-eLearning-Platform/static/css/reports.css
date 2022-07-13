@@ -52,7 +52,8 @@
    font-weight: bold;
 }
 .grades{
-    padding: 5px;
+    padding: 9px;
+    margin-left: 8px;
 }
 .color1{
     background-color: #FBFBFB;
@@ -155,3 +156,80 @@
     border-color: var(--btn-color);
     color: #fff;
   }
+
+  .color11{
+    margin-right: 11px;
+  }
+
+  .color22 {
+    margin-right: 7px;
+  }
+  .color33{
+    margin-left: 8px;
+}
+
+@media(max-width:1220px){
+    .report_details p{
+        font-size: 18px;
+    }
+    .color11{
+        margin-right: 7px;
+      }
+    
+}
+@media(max-width:1130px){
+    .report_details p{
+        font-size: 16px;
+    }
+}
+@media(max-width:1060px){
+    .color1 ,
+    .color2 {
+        font-size: 12px;
+    }
+    .report_details p , 
+    .grade a{
+        font-size: 14px;
+    }
+    .color22 {
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+}
+@media(max-width:980px){
+    .color22 {
+        margin-right: 0px;
+        margin-left: 3px;
+    }
+
+    .report_detail{
+        font-size: 15px;
+    }
+
+    
+}
+@media(max-width:930px){
+    .report_details p {
+        font-size: 13px;
+    }
+    .color22 {
+        margin-left: 9px;
+    }
+}
+@media(max-width:888px){
+.color1, .color2 {
+    font-size: 11px;
+}
+.grade a ,
+.report_details p {
+    font-size: 12px;
+}
+}
+@media(max-width:750px){
+    .report_detail {
+        font-size: 13px;
+    }
+    
+    }
+
+  

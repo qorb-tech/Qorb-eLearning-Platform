@@ -135,6 +135,9 @@
   direction: rtl;
   transition: all 1s ease-in-out;
 }
+#new_std{
+  top: 50%;
+}
 #new-lec .courses_btn,
 #new_report .courses_btn,
 #new_std .courses_btn {
