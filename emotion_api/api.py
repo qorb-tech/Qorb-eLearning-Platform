@@ -11,17 +11,24 @@ from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 
 
+
 # Loading Models
 sign_model = None
 emotion_model = tf.keras.models.load_model('model.h5')
+
+
 
 # Sign results (sign)
 currentFrames = []
 currentResult = 'Nothing'
 
+
+
 # Create background subtraction (sign)
 BACKSUB = cv.createBackgroundSubtractorMOG2()
 WHITE_FRAME = np.ones((800, 800)) * 255
+
+
 
 # To Detect Hands (sign)
 mpHands = mp.solutions.hands
@@ -38,11 +45,14 @@ classes = {
     5:'Surprise'
 }
 
+
 # Define Labels (Sign)
 LABELS = ['plus', 'equal', 'day', 'important', 'explicate', 'break', 'need', 'multiply', 'page',
           'question', 'number', 'submission', 'again', 'go', 'homework', 'deadline', 'subject',
           'division', 'next', 'hello', 'exams', 'meeting', 'understand', 'explain', 'how', 'answer',
           'week', 'monday', 'saturday', 'thursday', 'tuesday', 'wednesday']
+
+
 
 # Emotion predict function (emotion)
 # Predict the emotion of the frame 
@@ -74,6 +84,7 @@ def predict_emotion(image, time, meeting_name):
         writer = csv.writer(f)
         writer.writerow(row)
         
+
 
 # Preprocess frames for sign langauge model (sign)
 def preprocess(frames):
@@ -132,18 +143,21 @@ def preprocess(frames):
     X = np.array(window).tolist()
     return X
 
+
 def predict(frames):
-    global currentResult
     """
     Predict sign from frames.
     frames: list of frames
     returns: predicted sign
     """
+    global currentResult
     frames = preprocess(frames)
     # pred = model.predict(frames)
     # pred = np.argmax(pred, axis=1)
     # result = LABELS[pred[0]]
     currentResult = 'Aboda'
+
+
 
 def detectHand(frame):
     """
@@ -160,28 +174,29 @@ def detectHand(frame):
     # if handResults.multi_hand_landmarks != None:
     # frame = cv.resize(frame, (800, 800))
     # Apply background subtraction
-    fgMask = BACKSUB.apply(frame)  
-        
-    # apply filters
-    erKernel = np.ones((4,4), np.uint8)
-    dilKernel = np.ones((4,4), np.uint8)
-    fgMask = cv.erode(fgMask, erKernel, iterations=2)       # Erode
-    fgMask = cv.dilate(fgMask, dilKernel, iterations=2)     # Dilate
-    fgMask = cv.GaussianBlur(fgMask, (1,1), 0)              # Blur
-    fgMask[np.abs(fgMask) < 250] = 0                    
-    fgMask = cv.bitwise_not(fgMask)                         # (800, 800)    
+    for frame in frames:
+        fgMask = BACKSUB.apply(frame)  
+            
+        # apply filters
+        erKernel = np.ones((4,4), np.uint8)
+        dilKernel = np.ones((4,4), np.uint8)
+        fgMask = cv.erode(fgMask, erKernel, iterations=2)       # Erode
+        fgMask = cv.dilate(fgMask, dilKernel, iterations=2)     # Dilate
+        fgMask = cv.GaussianBlur(fgMask, (1,1), 0)              # Blur
+        fgMask[np.abs(fgMask) < 250] = 0                    
+        fgMask = cv.bitwise_not(fgMask)                         # (800, 800)    
 
-    currentFrames.append(frame)
-    #print('length of current frame:', len(currentFrames))
-    """
-    else:
-        if len(currentFrames) < 50:
-            currentFrames = []
+        currentFrames.append(frame)
+        #print('length of current frame:', len(currentFrames))
+        """
         else:
-    """
-    if len(currentFrames) > 3:
-        currentResult = predict(currentFrames)
-        currentFrames = []
+            if len(currentFrames) < 50:
+                currentFrames = []
+            else:
+        """
+        if len(currentFrames) > 50:
+            currentResult = predict(currentFrames)
+            currentFrames = []
 
 
 
@@ -200,6 +215,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # BaseModel for the request body (emotion)
 class ItemEmotion(BaseModel):
     frame : list = []
@@ -208,10 +224,10 @@ class ItemEmotion(BaseModel):
 
 # BaseModel for the request body (sign)
 class ItemSign(BaseModel):
-    frame : list = []
+    frame: list = []
 
 # post request for image
-@app.post('/postframe/')
+@app.post("/postframe/")
 async def post_frame(item: ItemSign, background_tasks: BackgroundTasks):
     """
     Post frame to API.
@@ -223,19 +239,18 @@ async def post_frame(item: ItemSign, background_tasks: BackgroundTasks):
     frame = item.frame
 
     # Convert the image to a numpy array
-    frame = np.array(frame, dtype=np.uint8).reshape(128, 128, 4)[:,:,:3]
-
+    frame = np.array(frame, dtype=np.uint8)
+    print("XXXXXXXXXXXXXX",frame.shape)
+    frames = []
+    for i in range(frame.shape[0]):
+        frames.append(frame[i,:].reshape(128, 128, 4)[:,:,:3])
+    
     # Send the image to the background task
-    background_tasks.add_task(detectHand, frame)
+    background_tasks.add_task(detectHand, frames)
 
     # Return the result
-#    data = {
-  #      'Your request has been recieved!': 1234   
- #   }
-    # return
-   # return json.dumps(data)
-
-    return json.dumps({"result": len(currentFrames),"prediction": currentResult})
+    return json.dumps({"result": len(currentFrames),
+                       "prediction": currentResult})
     
 
 # Post request with the frame and the time of the frame
@@ -250,7 +265,7 @@ async def post_image(item: ItemEmotion, background_tasks:BackgroundTasks):
     background_tasks.add_task(predict_emotion, image, time, meeting_name)
 
     data = {
-        'Your request has been recieved!': image.shape       
+        'Wasl Ya Ba4a': image.shape       
     }
     # return
     return json.dumps(data)
