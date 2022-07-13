@@ -103,7 +103,7 @@
     <script src="{% static 'js/password.js' %}"></script>
     <script>
       {% for msg in messages %}
-      {% if flag %}
+      {% if request.session.flag %}
       swal("تم تسجيل الحساب بنجاح ", "{{msg}}!", "success");
       {% else %}
       swal( "حدث خطا في تسجيل الحساب", "{{msg}}!", "warning");

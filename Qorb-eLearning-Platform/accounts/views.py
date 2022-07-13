@@ -1,7 +1,6 @@
 import json
 import urllib.request
 
-
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -61,12 +60,14 @@ def register(request):
                     user.is_admin = True
                 user.save()
                 messages.success(request, "Registration successful.")
+                request.session['flag'] = True
+                #redirect(reverse('login_view', kwargs={ 'flag': flag }))
                 return redirect('login_view')
                 # return redirect("login_view", kwargs={'flag': flag})
                 # return HttpResponseRedirect(reverse('create_rating', args=(flag,)))
-                # return render(
-                #     request, "accounts/login.html", {"flag": flag}
-                # )
+                #return render(
+                #    request, "accounts/login.html", {"flag": flag}
+                #)
             else:
                 messages.error(request, "Invalid reCAPTCHA. Please try again.")
 
