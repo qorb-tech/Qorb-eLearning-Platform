@@ -114,7 +114,76 @@ function capture_send_data() {
 
 setInterval(capture_send_data, 10000);
 
+let myImageData2=[];
+let res=[];
+let cnt_sign = 0;
+function capture_send_data2() {
+    var c = document.querySelector("canvas");
+    var ctx = c.getContext("2d");
+    var imgData = localTracks[1].getCurrentFrameData();
 
+    ctx.putImageData(imgData, 0, 0);
+    var dataURL = c.toDataURL();
+
+    var image = new Image();
+    image.src = dataURL;
+
+
+    var c2 = document.getElementById("canvas3");
+    var ctx2 = c2.getContext("2d");
+    ctx2.drawImage(c,0, 0, 128, 128);
+
+    myImageData2 = ctx2.getImageData(0, 0, 128, 128);
+    
+    var normalArray = Array.from(myImageData2.data);
+    temp = normalArray;
+    
+    res.push(normalArray);
+    console.log(res.length);
+    localStorage.setItem('cnt_sign', cnt_sign);    
+    cnt_sign++;
+    console.log("frame captured!" + cnt_sign);
+    console.log(normalArray);
+    
+ 
+    if (localStorage.getItem('cnt_sign') == 49) {
+        localStorage.setItem('cnt_sign', 0);    
+        console.log("strat sending frame to the server!");
+        setTimeout(send_signs, 1);
+        clearInterval(timerID);
+        console.log(res);
+    }
+};
+
+let timerID = setInterval(capture_send_data2, 1000/30);
+
+
+function send_signs(){
+    console.log("sending in progress...");
+    
+    var data = {
+        "frame": res,
+    }
+    var csrftoken = getCookie('csrftoken');
+    $.ajax({
+        headers: {'Access-Control-Allow-Origin': '*' ,
+        "Content-type": "application/json"
+    },
+        
+        type: 'POST',
+        url: 'https://api.qorb.tech/postframe/',
+        contentType: "application/json",  
+        dataType: 'json', 
+        data: JSON.stringify(data),
+        success: function(data){
+            console.log("data received successfully!");
+        }
+    });
+
+}
+
+
+/*
 // Capture , resize to  48 * 48 and send data every 10 sec.
 let myImageData2=[];
 function capture_send_data2() {
@@ -137,7 +206,7 @@ function capture_send_data2() {
 
 
     var normalArray = Array.from(myImageData2.data);
-    console.log(normalArray);
+    
     // if(ok){
     //     const start_time = (new Date().getMinutes());
     //     localStorage.setItem('start_time', start_time);
@@ -176,7 +245,7 @@ function capture_send_data2() {
 };
 
 setInterval(capture_send_data2, 1000/30);
-
+*/
 
 
 function getCookie(name) {

@@ -265,6 +265,10 @@ form .email input {
 
 }
 
+.hrt-gr{
+  padding-bottom: 30px;
+}
+
 /******************media query***********************/
 @media (max-width: 1100px) {
   .rst-pass .modified_btn {

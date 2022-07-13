@@ -3,7 +3,7 @@
 }
 .orders{
 justify-content: space-between;
-padding: 10px 75px;
+padding: 10px 40px;
 align-items: center;
 
 }
@@ -28,7 +28,7 @@ align-items: center;
     display: block;
     width: 100%;
    cursor: pointer;
-    padding: 10px 15px;
+    padding: 12px 15px;
     border: none;
     
 }

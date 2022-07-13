@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>ECharts</title>
-    <!-- Include the ECharts file you just downloaded -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.3/echarts.min.js" integrity="sha512-2L0h0GhoIHQEjti/1KwfjcbyaTHy+hPPhE1o5wTCmviYcPO/TD9oZvUxFQtWvBkCSTIpt+fjsx1CCx6ekb51gw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  </head>
-  <body>
+{% extends 'teacher/base_bar.html' %}
+{% load static %}
+
+{% block title %}
+    <title> الاحصائيات</title>
+{% endblock title %}
+
+{% block custum_imports %}
+     <!-- Include the ECharts file you just downloaded -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.3/echarts.min.js" integrity="sha512-2L0h0GhoIHQEjti/1KwfjcbyaTHy+hPPhE1o5wTCmviYcPO/TD9oZvUxFQtWvBkCSTIpt+fjsx1CCx6ekb51gw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="{% static 'css/profile_teach.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------details--------->
+               <div class="col-10">
+                   <div class="details">
+                    <div class="account_tech">
+                      <h1> الاحصائيات <i class="fas fa-chart-bar"></i></a></h1>
+                  </div>
+                  <div class="hrt hrt-gr">
+                      <hr>
+                  </div>
     <!-- Prepare a DOM with a defined width and height for ECharts -->
     <div id="main" style="width: 90%;height:400px;"></div>
 	<div id="chart2" style="width: 90%;height:400px;"></div>
-  <script type="text/javascript">
 
+</div>
+</div>
+</div>
+</div>
+</section>
+  <script type="text/javascript">
 
 var pathArray = (window.location.pathname.split('/'));
 let course_name = decodeURIComponent(pathArray[3]);
@@ -114,9 +133,6 @@ course_name = Base64.encode(course_name);
 };
       myChart.setOption(option);
         }
-	
-	
-	
     });
 
     $.ajax({
@@ -205,12 +221,14 @@ course_name = Base64.encode(course_name);
 };
 chart2.setOption(option);
   }
-
-
-
 });
       
     </script>
-	
-  </body>
+
+        <!--------------------------active_base_bar----------->
+        <script src="{% static 'js/New_course.js' %}"></script>
+        <script src="{% static 'js/base.js' %}"></script>
+        <script>window.onload=coursesi()</script>
+</body>
 </html>
+{% endblock content %}

@@ -19,10 +19,11 @@
             <div class="account_tech">
                 <h1> الطلبات <i class="fas fa-user-circle"></i></a></h1>
             </div>
-            <div class="hrt">
+            <!-- <div class="hrt">
                 <hr>
-            </div>
+            </div> -->
 
+<div class="det-req">
   {% if all_requests %}
   {% for request in all_requests %}
 
@@ -37,20 +38,22 @@
                 <p>{{request.course}} </p>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-4"> 
           <button class="orderbtn"> <a onclick="return confirm('هل تريد الغاء الطلب ؟')"
-            href="dismiss/{{request.course}}/{{request.student}}">الغاء الطلب</a></button>
+            href="dismiss/{{request.course}}/{{request.student}}">  <i class="fal fa-times"></i> الغاء الطلب</a></button>
             <button class="acceptedbtn"><a onclick="return confirm('هل تريد اضافه الطالب للكورس ؟')"
-              href="confirm/{{request.course}}/{{request.student}}">تاكيد الانضمام للكورس</a> </button>
+              href="confirm/{{request.course}}/{{request.student}}">  <i class="far fa-comment-alt-plus"></i>  تاكيد الانضمام للكورس </a> </button>
+              
         </div>
 
     </div>
-      <div class="hrr">
+      <!-- <div class="hrr">
           <hr>
-      </div>
+      </div> -->
 
   </div>
   {% endfor %}
+  </div>
   {% else %}
   <div class="no-orders">
     <img src="{% static 'images/Empt vector (1).png' %}" alt="">
