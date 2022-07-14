@@ -1,240 +1,130 @@
 {% load static %}
-
 {% load crispy_forms_tags %}
-
 <!-- chat/templates/chat/room.html -->
-
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
     <meta charset="utf-8"/>
-
     <title>Chat Room</title>
-
-    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
-
+    <!-- <link rel="stylesheet" href="{% static 'css/chat.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/chat1.css' %}">
     <style>
-
         /* #chat-message-submit {
-
           display: inline-block;
-
           color: #fff;
-
           background-color: blue;
-
           border-radius: 10px;
-
         }
 
-
-
         body{
-
             padding-top: 20px;
-
         } */
-
-
 
     </style>
 
-
-
 </head>
-
-<body style="overflow: hidden;">
-
+<body>
     <!-- <center>
-
-        <textarea id="chat-log" cols="30" rows="25" readonly></textarea><br>
-
-        <input id="chat-message-input" type="text" size="0" placeholder="Enter Your Message!"><br>
-
-
-
+        <textarea id="chat-log" cols="70" rows="10" readonly></textarea><br>
+        <input id="chat-message-input" type="text" size="69" placeholder="Enter Your Message!"><br>
         <input id="chat-message-submit" type="button" value="Send">
-
     </center> -->
-
-   <div class="chtt_all">
-
-       <div class="chat_txt">
-
-        <textarea id="chat-log" cols="30" rows="23" readonly></textarea>
-
-       </div>
-
-       <div class="chat_input">
-
-        <input id="chat-message-input" type="text" size="0" placeholder="Enter Your Message!">
-
-       </div>
-
-       <div class="btn2 btn_active btnn">
-
-        <input id="chat-message-submit" type="button" value="Send" >
-
-       </div>
-
-      
-
-   </div>
-
-     
-
-  
-
    <!-- <div class="chtt_all">
-
+       <div class="chat_txt">
+         <textarea id="chat-log" cols="70" rows="10" readonly></textarea> 
+       </div>
+       <div class="chat_input">
+        <input id="chat-message-input" type="text" size="69" placeholder="Enter Your Message!">
+       </div>
+       <div class="btn2 btn_active btnn">
+        <input id="chat-message-submit" type="button" value="Send" >
+       </div>
+   </div>
+      -->
+      
+   <div class="chtt_all">
     <div class="chat_txt">
-
-     <textarea id="chat-log" cols="70" rows="10" readonly></textarea>
-
+     <!-- <textarea id="chat-log" cols="70" rows="10" readonly></textarea> -->
+     <div id="chat_new"></div>
     </div>
-
     <div class="msg_cht">
-
         <div class="btn_snd btnn">
-
             <input id="chat-message-submit" type="button" value="ارسال" >
-
            </div>
-
         <div class="chat_input txt_area">
-
          <input id="chat-message-input" type="text" size="69" placeholder="Enter Your Message!">
-
         </div>
-
         
-
     </div> 
-
-</div> -->
-
-
-
+</div>
 
 
     {{ room_name|json_script:"room-name" }}
-
     {{ loged_user|json_script:"loged-user" }}
-
     <script>
-
         // const roomName = JSON.parse(document.getElementById('room-name').textContent);
-
         // const roomName = (pathurl[2]);
-
         // console.log(roomName)
-
         
-
         var pathurl = (window.location.pathname.split('/'));
-
         var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9+/=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
-
         roomName = Base64.encode(pathurl[2]);
-
         
-
-
 
         console.log(roomName);
 
-
-
-
-
-
-
         const chatSocket = new WebSocket(
-
             'wss://'
-
             + window.location.host
-
             + '/ws/chat/'
-
             + roomName
-
             + '/'
-
         );
 
-
-
         chatSocket.onmessage = function(e) { 
-
             const data = JSON.parse(e.data);
 
-
-
             // document.querySelector('#chat-log').value += ouruser + ":"
+            
+            // document.querySelector('#chat-log').value += ( data.ouruser+ "-->  "+ data.message + '\n');
 
-            document.querySelector('#chat-log').value += ( data.ouruser+ "-->  "+ data.message + '\n');
-
+            var tag = document.createElement("p");
+             var text = document.createTextNode(data.ouruser);
+            tag.appendChild(text);
+            var divv = document.createElement("div");
+            var div_text = document.createTextNode(data.message);
+            divv.appendChild(div_text)
+            divv.classList.add("chat_meeting")
+            var element = document.getElementById("chat_new");
+            element.appendChild(tag);
+            element.appendChild(divv);
         };
-
-
 
         chatSocket.onclose = function(e) {
-
             console.error('Chat socket closed unexpectedly');
-
         };
-
-
 
         document.querySelector('#chat-message-input').focus();
-
         document.querySelector('#chat-message-input').onkeyup = function(e) {
-
             if (e.keyCode === 13) {  // enter, return
-
                 document.querySelector('#chat-message-submit').click();
-
             }
-
         };
 
-
-
         document.querySelector('#chat-message-submit').onclick = function(e) {
-
             const messageInputDom = document.querySelector('#chat-message-input');
-
             const ouruser = (document.getElementById('loged-user'));
-
-
 
             const message = messageInputDom.value;
 
-
-
             chatSocket.send(JSON.stringify({
-
                 'message': message, 
-
                 'ouruser':ouruser.textContent,
-
             }));
 
 
-
-
-
             messageInputDom.value = '';
-
         };
-
     </script>
-
 </body>
-
 </html>
-

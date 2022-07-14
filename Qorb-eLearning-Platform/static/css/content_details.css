@@ -45,7 +45,7 @@
     justify-content: space-between; */
 }
 .content_btn {
-  flex-basis: 24%;
+  flex-basis: 33%;
 }
 .content_btn button a {
   display: flex;

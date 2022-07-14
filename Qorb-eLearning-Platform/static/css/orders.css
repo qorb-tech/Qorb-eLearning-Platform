@@ -66,6 +66,16 @@ align-items: center;
     font-size: 30px;
 }
 
+.det-req{
+    margin: 10px;
+    color: #dadada;
+    padding: 10px;
+    box-shadow: 0 0 4px var( --second-color);
+    border-radius: 60px;
+    margin-top: 20px;
+
+}
+
  @media (max-width: 900px) {
  .no-orders img {
     width: 80%;

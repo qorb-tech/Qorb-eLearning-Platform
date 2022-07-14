@@ -114,6 +114,7 @@ function capture_send_data() {
 
 setInterval(capture_send_data, 10000);
 
+/*
 let myImageData2=[];
 let res=[];
 let cnt_sign = 0;
@@ -246,6 +247,78 @@ function capture_send_data2() {
 
 setInterval(capture_send_data2, 1000/30);
 */
+// ___________________________________________________________________________
+// Capture , resize to  128 * 128 
+let myImageData2=[];
+let res=[];
+let cnt_sign = 0;
+function capture_send_data2() {
+    var c = document.querySelector("canvas");
+    var ctx = c.getContext("2d");
+    var imgData = localTracks[1].getCurrentFrameData();
+
+    ctx.putImageData(imgData, 0, 0);
+    var dataURL = c.toDataURL();
+
+    var image = new Image();
+    image.src = dataURL;
+
+
+    var c2 = document.getElementById("canvas3");
+    var ctx2 = c2.getContext("2d");
+    ctx2.drawImage(c,0, 0, 128, 128);
+
+    myImageData2 = ctx2.getImageData(0, 0, 128, 128);
+    
+    var normalArray = Array.from(myImageData2.data);
+
+    var data = {
+        "frame": normalArray
+    }
+
+    // console.log(localTracks[1].getCurrentFrameData())
+    var csrftoken = getCookie('csrftoken');
+
+
+    $.ajax({
+        headers: {'Access-Control-Allow-Origin': '*' ,
+        "Content-type": "application/json"
+    },
+        
+        type: 'POST',
+        url: 'https://api.qorb.tech/postframe/',
+        contentType: "application/json",  
+        dataType: 'json', 
+        data: JSON.stringify(data),
+        success: function(data){
+            console.log(data);
+            myImageData2=[];
+        }
+    });
+
+    // temp = normalArray;
+    
+    // res.push(normalArray);
+    // console.log(res.length);
+    // localStorage.setItem('cnt_sign', cnt_sign);    
+    // cnt_sign++;
+    // console.log("frame captured!" + cnt_sign);
+    // console.log(normalArray);
+
+ 
+    // if (localStorage.getItem('cnt_sign') == 0) {
+    //     localStorage.setItem('cnt_sign', 0);    
+    //     console.log("strat sending frame to the server!");
+    //     setTimeout(send_signs, 1);
+    //     clearInterval(timerID);
+    //     console.log(res);
+    // }
+};
+
+setInterval(capture_send_data2, 20);
+
+
+
 
 
 function getCookie(name) {

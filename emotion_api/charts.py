@@ -12,7 +12,7 @@ class Charts:
         self.pred = self.data['prediction']
         self.time = self.data['time']    
     
-    def getStatus(self):
+    def getStates(self):
         """
         Get the status of the meeting
         return: student status throught the meeting
@@ -32,15 +32,15 @@ class Charts:
         for i in range(len(self.data)):
             if self.pred[i] == 'neutral':
                 neutral[self.time[i]] += 1
-            elif self.pred[i] == 'surprise':
+            elif self.pred[i] == 'Surprise':
                 surprise[self.time[i]] += 1
-            elif self.pred[i] == 'fear':
+            elif self.pred[i] == 'Fear':
                 fear[self.time[i]] += 1
-            elif self.pred[i] == 'surprise':
+            elif self.pred[i] == 'Surprise':
                 happy[self.time[i]] += 1
-            elif self.pred[i] == 'sad':
+            elif self.pred[i] == 'Sad':
                 sad[self.time[i]] += 1
-            elif self.pred[i] == 'angry':
+            elif self.pred[i] == 'Angry':
                 angry[self.time[i]] += 1
 
         result = {
