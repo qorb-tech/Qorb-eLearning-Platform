@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    <title>رفع التقرير/title>
+    <title>رفع التقرير</title>
 {% endblock title %}
 
 {% block custum_imports %}
@@ -17,29 +17,26 @@
 
 {% block content %}
                 <!-------------------details--------->
-                <!-- <div class="col-10"> -->
-                  <div class="details det-report">
+                <div class="col-10">
+                  <div class="details">
                    <div class="account_tech">
                        <h1> رفع التقرير </h1>
-                       <img src="{% static 'images/icons/content/Icon_doc_solid.svg' %}" width="35px" height="35px">
+                       <img src="{% static 'images/teacher//Icons/Group 15547.png' %}" width="35px" height="35px">
                    </div>
-                   <div class="hrt">
-                    <hr>
-                </div>
-            <div class="info_tech tech-report">
-               <div class="details_tech details-report">
+            <div class="info_tech">
+               <div class="details_tech">
                     <form>
                         <div class="block">
                            <label>رفع التقرير</label>
-                           <div class="rep-info"> {{report_grades.grade}} </div>
+                           <div> {{report_grades.grade}} </div>
                         </div>
                         <div class="block">
                            <label > اخر موعد لرفع التقرير </label>
-                           <div class="rep-info">{{report.deadline}}</div>
+                           <div>{{report.deadline}}</div>
                         </div>
                         <div class="block">
                            <label>تاريخ اخر تعديل</label>
-                           <div class="rep-info">{{report_grades.last_modified}}</div>
+                           <div>{{report_grades.last_modified}}</div>
                         </div>
                         <div class="block">
                           {% if  report_grades.report_file %}
@@ -49,7 +46,7 @@
                           </div>
                         <div class="block">
                            <label>ملاحظات المعلم</label>
-                           <div class="rep-info">{{report_grades.teacher_notes}}</div>
+                           <div>{{report_grades.teacher_notes}}</div>
                         </div>
                     </form>
                 </div>
