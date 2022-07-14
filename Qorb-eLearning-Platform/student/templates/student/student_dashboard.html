@@ -126,16 +126,22 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-  {% for msg in messages %}
-       swal("طلبك قيد المراجعه", "{{msg}}!", "success");
-   {% endfor %}
+ <script>
  </script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{% static 'js/card.js' %}"></script>
 <script src="{% static 'js/teacher_dashboard.js' %}"></script>
 <script src="{% static 'js/base.js' %}"></script>
 <script>window.onload=teacher_dash()</script>
-
+<script>
+  {% for msg in messages %}
+    {% if request.session.join_course_flag %}
+       swal("تم ارسال طلب الانضملم للكورس بنجاح ", "{{msg}}!", "success");
+      {% else %}
+      swal("تم تسجيل الدخول بنجاح ", "{{msg}}!", "success");
+    {% endif %}
+  {% endfor %}
+ </script>
 </body>
 </html>
 {% endblock content %}

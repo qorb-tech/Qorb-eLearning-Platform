@@ -102,14 +102,18 @@ def search(request):
     )
     return render(request, 'student/search.html', {'courses': courses, 'flag':flag})
 
-
+join_course_flag = False
 @allow_user(["is_student"])
 @login_required(login_url="login_view")
 def join_course(request, name):
     student = Student.objects.get(user=request.user)
     course = Course.objects.get(name=name)
     JoinCourseList.objects.create(student=student, course=course, teacher=course.teacher)
-    messages.success(request, "تم ارسال طلب للانضمام للكورس")
+    messages.success(request, "طلبك قيد المراجعه")
+
+#    messages.success(request, "تم ارسال طلب للانضمام للكورس")
+    join_course_flag = True
+    request.session['join_course_flag'] = True
     return redirect('student_dashboard')
     # context = {"msg":msg}
     # return render(request, "student/student_dashboard.html", context)

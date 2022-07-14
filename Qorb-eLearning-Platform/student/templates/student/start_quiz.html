@@ -82,7 +82,8 @@
 
                        {% endfor %}
 
-                       <input type="button" name="SubmitButton" value="انهاء الاختبار" id="submitButton">
+                       <input type="button" name="SubmitButton" 
+                       value="انهاء الاختبار" id="submitButton" onclick="endQuiz()">
 
                        <div class="nums_question" id="nums_q">
                            {% for question in questions %}
@@ -124,7 +125,16 @@
     </script>
     <script src="{% static 'js/base.js' %}"></script>
     <script>window.onload=quiz()</script>
-
+    <script type="text/javascript">
+      function endQuiz() {
+         if (confirm('هل تريد انهاء الاختبار')) {
+          document.getElementById("quizSubmitForm").submit()
+         } else {
+             return false;
+         }
+      }
+  
+  </script>
 </body>
 </html>
 {% endblock content %}
