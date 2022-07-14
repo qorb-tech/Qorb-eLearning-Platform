@@ -72,6 +72,24 @@
 
 </div>
 </div>
+<script>
+
+    // Get all buttons with class="btn" inside the container
+    var btns = document.getElementsByClassName("btn_exam");
+    
+    // Loop through the buttons and add the active class to the current/clicked button
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("activee");
+    
+        if (current.length > 0) {
+          current[0].className = current[0].className.replace(" activee", "");
+        }
+    
+        this.className += " activee";
+      });
+    }
+    </script>
 <script src="{% static 'js/std_exams.js' %}"></script>
 <script src="{% static 'js/base.js' %}"></script>
 <script>window.onload=quiz()</script>

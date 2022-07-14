@@ -59,7 +59,7 @@
   cursor: pointer;
 }
 .activee p {
-  font-size: 18px;
+  font-size: 12px;
   display: block;
   color: #999999;
   background-color: var(--primary-color);
