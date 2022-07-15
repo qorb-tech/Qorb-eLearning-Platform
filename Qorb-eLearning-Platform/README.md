@@ -7,7 +7,7 @@ technologies as Real Time Arabic Sign Language Translator, Facial Expression Rec
 
 ![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-# ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) Project Structure
+# ![#c5f015](https://github.com/twbs/icons/blob/main/icons/arrow-down-circle.svg) Project Structure
 
 
 
