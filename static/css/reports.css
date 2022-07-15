@@ -1,0 +1,235 @@
+.reports{
+    background-color: #F9F9F9;
+    color: var(--btn-color);
+    text-align: center;
+    padding: 8px;
+}
+.reports h1{
+    font-size: 25px;
+    padding: 15px;
+}
+.report{
+    margin:0 10px;
+    padding: 5px 20px;
+    background-color: var(--primary-color);
+    border-radius: 25px;
+    min-height: 510px;
+    margin-bottom: 35px;
+}
+.report h1{
+    padding: 13px;
+    font-size: 25px;
+}
+.report_detail{
+    padding: 5px 0;
+}
+.report_detail:first-child{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.report_detail:last-child{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.report_detail ,
+.color1,
+.color2
+{
+    flex-basis: 20%;
+    padding: 10px;
+    margin: 0 5px;
+}
+.report_detail{
+    background-color: var(--btn-color);
+   color: var(--primary-color);
+}
+.color1 ,
+.color2{
+    margin-bottom: 5px;
+   color: var(--forth-color);
+   font-size: 15px;
+   padding: 12px 0;
+   font-weight: bold;
+}
+.grades{
+    padding: 9px;
+    margin-left: 8px;
+}
+.color1{
+    background-color: #FBFBFB;
+}
+.color2{
+    background-color: #F0F0F0;
+}
+.color1{
+    color: #A0A0A0;
+}
+.color2 a{color: var(--forth-color);}
+.color2 a{
+    text-decoration: underline;
+}
+/*******************seclect-box***********/
+.grade{
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.edit-block{
+    border: 1px solid var(--btn-color);
+    border-radius: 12px;
+    padding: 4px 8px;
+    color:#cccccc;
+    font-size: 18px;
+  }
+  .select-box{
+    width: 158px;
+    position: relative;
+    outline: none;
+    overflow: hidden;
+   padding-right: 2px;
+  }
+  .select-box:after{
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--btn-color);
+    position: absolute;
+    top: 40%;
+    left: 6px;
+    content: "";
+    z-index: 98;
+   }
+  .select-box select{
+    color: var(--btn-color);
+    outline: none;
+    width: 160px;
+    border: none;
+    position: relative;
+    z-index: 99;
+    background: none;
+    /* padding-right: 20px; */
+    text-align: end;
+  }
+  #list *{
+      margin-right: 15px;
+      color: var(--btn-color);
+      padding: 2px 0;
+      background-color: transparent;
+      border: 2px solid #000;
+  }
+  #list *:hover{
+      background-color: var(--btn-color);
+  }
+
+  .select-box::before{
+    position: absolute;
+    content: "|";
+    width: 0;
+    height: 0;
+    top: 20%;
+    left: 30px;
+  }
+  /******************checkbox************/
+  input[type=checkbox] + label {
+    display: block;
+    cursor: pointer;
+  }
+  input[type=checkbox] {
+    display: none;
+  }
+  input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.2em;
+    color: transparent;
+    transition: .2s;
+  }
+
+  input[type=checkbox]:checked + label:before {
+    background-color: var(--btn-color);
+    border-color: var(--btn-color);
+    color: #fff;
+  }
+
+  .color11{
+    margin-right: 11px;
+  }
+
+  .color22 {
+    margin-right: 7px;
+  }
+  .color33{
+    margin-left: 8px;
+}
+
+@media(max-width:1220px){
+    .report_details p{
+        font-size: 18px;
+    }
+    .color11{
+        margin-right: 7px;
+      }
+    
+}
+@media(max-width:1130px){
+    .report_details p{
+        font-size: 16px;
+    }
+}
+@media(max-width:1060px){
+    .color1 ,
+    .color2 {
+        font-size: 12px;
+    }
+    .report_details p , 
+    .grade a{
+        font-size: 14px;
+    }
+    .color22 {
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+}
+@media(max-width:980px){
+    .color22 {
+        margin-right: 0px;
+        margin-left: 3px;
+    }
+
+    .report_detail{
+        font-size: 15px;
+    }
+
+    
+}
+@media(max-width:930px){
+    .report_details p {
+        font-size: 13px;
+    }
+    .color22 {
+        margin-left: 9px;
+    }
+}
+@media(max-width:888px){
+.color1, .color2 {
+    font-size: 11px;
+}
+.grade a ,
+.report_details p {
+    font-size: 12px;
+}
+}
+@media(max-width:750px){
+    .report_detail {
+        font-size: 13px;
+    }
+    
+    }
+
+  

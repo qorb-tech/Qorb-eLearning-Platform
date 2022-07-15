@@ -1,0 +1,6 @@
+<svg id="Icon_attention_solid" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Icon_attention_solid_background" data-name="Icon_attention_solid background" width="24" height="24" fill="none"/>
+  <g id="Icon_attention_solid-2" data-name="Icon_attention_solid" transform="translate(2 2)">
+    <path id="Shape" d="M10,20A10,10,0,1,1,20,10,10.011,10.011,0,0,1,10,20Zm0-6a1,1,0,1,0,1,1A1,1,0,0,0,10,14ZM10,4A1,1,0,0,0,9,5v6a1,1,0,1,0,2,0V5A1,1,0,0,0,10,4Z" fill="#fff"/>
+  </g>
+</svg>

@@ -1,0 +1,64 @@
+{% extends "quiz/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title> تعديل الاختبار</title>
+{% endblock title %}
+
+{% block custum_imports %}
+
+{% endblock custum_imports %}
+
+{% block content %}
+<!-----------------1------------------->
+
+           <div class="col-10">
+               <div class="details ">
+
+                <div class="headofcontent">
+                    <img src="{% static 'images/quiz/Group 15547.svg' %}" width="30px" height="30px">
+                    <h4 class="hea2">ذكاء صناعى -اختبار 1 </h4>
+                </div>
+                <div class="ll">
+                    <hr>
+                </div>
+
+
+
+
+                    <div class="question_add">
+                        <button type="button" hx-get="{% url 'create_question_form' %}" hx-target="#bookforms" hx-swap="beforeend"
+                            class="">
+                            <i class="far fa-plus-circle"></i> اضافة سؤال
+                        </button>
+
+                    </div>
+                <div id="bookforms" class="py-5 mt-5"></div>
+
+            {% for question in questions %}
+                <div class="lkj">
+                 {% include "quiz/partials/quiz_detail.html" %}
+                </div>
+             {% endfor %}
+
+             <div class="BTT" >
+             <button class="btn1"><a href="{% url 'quizzes' %}"><b> <i class="fas fa-angle-double-left"></i> الرجوع الى الاختبارات</b></a></button>
+            </div>
+
+ </div>
+</div>
+</section>
+
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+</script>
+<script  src="{% static 'js/create_question.js' %}"></script>
+    <!--------------------------active_base_bar----------->
+      <script src="{% static 'js/base.js' %}"></script>
+      <script>window.onload=quiz()</script>
+
+</body>
+</html>
+{% endblock %}

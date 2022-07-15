@@ -1,0 +1,116 @@
+.acceptedbtn a, .acceptedbtn:hover a {
+        background-color: var(--btn-color);
+        color: var(--primary-color);
+}
+.acceptedbtn:hover a{
+    border: 1px solid  var(--btn-color);
+    color: var(--btn-color);
+    background-color: var(--primary-color);
+}
+.orders-img img{
+    width: 120px;
+    height: 120px;
+    border-radius: 40px;
+}
+
+.det-req{
+        margin: 10px;
+        color: #dadada;
+        padding: 10px;
+        box-shadow: 0 0 4px var( --second-color);
+        border-radius: 60px;
+        margin-top: 20px;
+    
+}
+
+.order-info h4 ,
+.order-info p{
+    color: var(--forth-color);
+    padding-right: 10px;
+}
+.col-4 {
+    flex-basis: 40%;
+    display: flex;
+}
+
+.acceptedbtn{
+    width: 250px;
+}
+.orderbtn{
+    width: 170px;
+    padding-right: 10px;
+}
+
+@media (max-width: 1040px) {
+.orderbtn a , 
+.acceptedbtn a {
+   font-size: 15px;
+}
+.orderbtn a .fal , 
+.acceptedbtn a .far {
+   font-size: 15px;
+}
+.orderbtn{
+    width: 140px;
+}
+.acceptedbtn{
+    width: 200px;
+}
+}
+@media (max-width: 930px) {
+.orders {
+    padding: 10px 20px;
+}
+.orders-img img {
+    width: 90px;
+    height: 90px;
+    border-radius: 25px;
+}
+}
+
+@media (max-width: 830px) {
+.orderbtn a , 
+.acceptedbtn a {
+   font-size: 12px;
+}
+.orderbtn a .fal , 
+.acceptedbtn a .far {
+   font-size: 12px;
+}
+.orderbtn{
+    width: 110px;
+}
+.acceptedbtn{
+    width: 160px;
+}
+.orderbtn {
+    padding-right: 3px;
+}
+.order-info h4, .order-info p {
+    padding-right: 3px;
+    font-size: 14px;
+}
+    
+}
+
+@media (max-width: 715px) {
+    .orders {
+        padding: 10px 7px;
+    }
+
+    .orderbtn a , 
+.acceptedbtn a {
+   font-size: 10px;
+}
+.orderbtn a .fal , 
+.acceptedbtn a .far {
+   font-size: 10px;
+}
+.orderbtn{
+    width: 100px;
+}
+.acceptedbtn{
+    width: 140px;
+}
+
+}

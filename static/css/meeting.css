@@ -1,0 +1,218 @@
+.row{
+    display: flex;
+     align-items: flex-start;
+}
+.col-3{
+    /* background-color: #ccc; */
+    flex-basis: 30%;
+    /* height: 100vh; */
+}
+.col-9{
+    flex-basis: 100%;
+    /* height: 100vh; */
+}
+/********************meeting_details*****************/
+/* #all_chat {
+    display: block;
+} */
+.meeting_details{
+    margin:0 5px;
+    padding: 10px 0;
+    background-color: #F1F1F1;
+}
+.meeting_details hr{
+    margin: 10px 0;
+}
+.meeting_btn
+{
+   display: flex;
+   justify-content: center;
+   margin: 16px 0;
+   border-radius: 25px;
+}
+.meeting_btn button a{
+    font-size: 15px;
+    border-radius: 0;
+    padding: 10px 35px;
+}
+.meeting_btn i{font-size: 15px;}
+.btn_active a ,
+.meeting_btn button a:focus
+{
+   background-color: var(--btn-color);
+   color: var(--primary-color);
+}
+
+
+/***************students*****************/
+.meting{
+    position: relative;
+}
+.meting .image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.meeting_live{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* display: flex;
+    height: 100vh;
+    flex-direction: column; */
+}
+
+.students{
+    margin: 10px 5px;
+    padding:5px;
+    display: flex;
+    align-items: end;
+    /* flex-basis: 100%; */
+    flex-direction: column;
+    text-align: center;
+    /* display: block; */
+    /* margin-bottom:50px; */
+}
+
+.student{
+    position: relative;
+    background-color: #ccc;
+    background-repeat: no-repeat;
+    color: var(--primary-color);
+     /* margin: 5px*/
+     display: inline-block;
+     padding: 5px;
+     font-size: 10px;
+     width: 25%;
+     padding-top: 15px;
+}
+.student .imag img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 2px;
+    padding: 0 10px;
+    /* z-index: 1; */
+}
+.content_image{
+    position: relative;
+}
+.student .fa-video{
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0, 0.2);
+}
+.student .row{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 3px;
+    margin-top: 20px;
+}
+.teacher ,
+.std
+{
+    /* margin: 0 3px; */
+    margin-left: 5px;
+    text-align: center;
+    padding: 3px;
+}
+.teacher{background-color: #648FEE;}
+.std{ background-color: rgb(0, 0, 0, 0.3);}
+.std_info {
+    background-color: rgb(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    padding: 2px;
+}
+.std_info i{
+    color: var(--btn-color);
+    background-color: var(--primary-color);
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+/**********************meeting_features*****************/
+.meeting_features{
+    margin-top: 10px;
+    padding: 8px;
+    background-color: rgb(0, 0, 0, 0.1);
+    margin: 10px 0;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+.orange {
+    padding: 6px;
+    background-color: var(--btn-color);
+    color: var(--primary-color);
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.gray{
+    cursor: pointer;
+    padding: 6px;
+    background-color: #fff;
+    color: var(--btn-color);
+    margin: 0 5px;
+    border-radius: 3px;
+}
+.fa-arrow-alt-square-left{
+    width: 35px;
+    height: 35px;
+    color: var(--primary-color);
+}
+/* #zoon_person{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom:0;
+    top: 0;
+    z-index: -2;
+} */
+
+#room-name-wrapper{
+    font-size: 18px;
+    color: #fff;
+    display: flex;
+    /* border: 3px solid var(--btn-color); */
+    margin: 6px;
+    border-radius: 15px;
+    padding: 7px 15px;
+    background-color: rgba(195, 82, 65,0.7);
+}
+
+.active{
+    position: absolute !important;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -2;
+    border: none;
+}
+#camera-btn{
+    position: relative;
+}
+#camera-btn .fa-horizontal-rule ,
+#camera-btn .activee
+{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: -1px;
+    top: 0px;
+    padding: 0 0;
+    height: 25px;
+    color: gray;
+    font-size: 33px;
+    transform: rotate(40deg);
+}
+

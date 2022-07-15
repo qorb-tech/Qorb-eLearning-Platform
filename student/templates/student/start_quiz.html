@@ -1,0 +1,140 @@
+{% extends 'student/base_bar.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>الاختبار</title>
+{% endblock title %}
+
+{% block custum_imports %}
+
+<link rel="stylesheet" href="{% static 'css/courses.css' %}">
+<link rel="stylesheet" href="{% static 'css/Study-content.css' %}">
+<link rel="stylesheet" href="{% static 'css/stud-list.css' %}">
+<link rel="stylesheet" href="{% static 'css/quiz.css' %}">
+{% endblock custum_imports %}
+
+{% block content %}
+                <!-------------------details--------->
+                <div class="col-10">
+                  <div class="details details-quiz">
+
+                    <div class="headofcontent headofcont1">
+                      <div class="contt">
+                        <img src="{% static 'images/quiz/Group 15547.svg' %}" width="30px" height="30px">
+                         <h4 class="hea2">{{quiz.course}} -{{quiz.quiz.name}} </h4>
+                      </div>
+                       <div>
+                         <h4 class="hea2" id="timerBox"></h4>
+                       </div>
+                    </div>
+                   <div class="ll">
+                       <hr>
+                   </div>
+                   <form action="" method="post" id="quizSubmitForm">
+                    {% csrf_token %}
+                   <div class="quize_questions" id="quiz_questions">
+
+                       {% for question in questions %}
+                      <div class="lkj">
+                           <div class="question">
+                                   <div class="numm">
+                                       <p class="num1">{{ forloop.counter }}</p>
+                                   </div>
+                                   <p class="quee">
+                                    {{question.question}}
+                                   </p>
+                           </div>
+                           <div class="choose">
+                            <div class="radio-item">
+                                <input type="radio"  id="rad1{{ forloop.counter }}" name="answer{{ forloop.counter }}"  value="a" required>
+                                <label for="rad1{{ forloop.counter }}">{{question.option1}} </label>
+                            </div>
+                        </div>
+
+                      <div class="choose">
+                        <div class="radio-item">
+                          <input type="radio"  id="rad2{{ forloop.counter }}" name="answer{{ forloop.counter }}"  value="b">
+                          <label for="rad2{{ forloop.counter }}">
+                            {{question.option2}}
+                          </label>
+                        </div>
+                      </div>
+
+                     <div class="choose">
+                        <div class="radio-item">
+                          <input type="radio" id="rad3{{ forloop.counter }}" name="answer{{ forloop.counter }}"  value="c">
+                          <label for="rad3{{ forloop.counter }}">
+                            {{question.option3}}
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="choose">
+                        <div class="radio-item">
+                          <input type="radio" id="rad4{{ forloop.counter }}" name="answer{{ forloop.counter }}"  value="d">
+                          <label for="rad4{{ forloop.counter }}">
+                            {{question.option4}}
+                          </label>
+                        </div>
+                      </div>
+                          </div>
+
+                       {% endfor %}
+
+                       <input type="button" name="SubmitButton" 
+                       value="انهاء الاختبار" id="submitButton" onclick="endQuiz()">
+
+                       <div class="nums_question" id="nums_q">
+                           {% for question in questions %}
+                           <div class="num_q">{{ forloop.counter }}</div>
+                           {% endfor %}
+
+                       </div>
+
+                   </div>
+
+              </form>
+                   <div class="quize_btn">
+                       <button class="btn_prev" id="prev"> <i class="far fa-angle-right"></i>السابق</button>
+                       <button class="btn_next" id="next">التالي <i class="far fa-angle-left"></i></button>
+
+                   </div>
+                   <div class="ll">
+                       <hr>
+                   </div>
+
+
+           </div>
+
+         </div>
+    </div>
+
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static 'master/quiz.js' %}"></script>
+    <script src="{% static 'master/quiz_timer.js' %}"></script>
+    <script src="{% static 'master/quiz_confirm_end.js' %}"></script>
+     <script type="text/javascript">
+        let val = {{quiz_time}}
+        activateTimer(val);
+    </script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script>window.onload=quiz()</script>
+    <script type="text/javascript">
+      function endQuiz() {
+         if (confirm('هل تريد انهاء الاختبار')) {
+          document.getElementById("quizSubmitForm").submit()
+         } else {
+             return false;
+         }
+      }
+  
+  </script>
+</body>
+</html>
+{% endblock content %}

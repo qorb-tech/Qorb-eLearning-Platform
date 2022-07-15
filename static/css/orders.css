@@ -1,0 +1,83 @@
+.account_tech h1 {
+    padding: 15px;
+}
+.orders{
+justify-content: space-between;
+padding: 10px 40px;
+align-items: center;
+
+}
+.orders button{
+    background-color: transparent;
+}
+.orders-img img{
+    width: 90px;
+    height: 90px;
+}
+.col-8{
+    align-items:center;
+    justify-content: flex-start;
+    
+}
+.order-info{
+    text-align: end;
+    padding-right: 10px;
+}
+.orderbtn a , .orderbtn:hover a ,
+.acceptedbtn a , .acceptedbtn:hover a {
+    display: block;
+    width: 100%;
+   cursor: pointer;
+    padding: 12px 15px;
+    border: none;
+    
+}
+
+.orderbtn a{ 
+    margin-right: 10px;
+    color: var(--primary-color);
+    background-color: #999999;}
+.orderbtn:hover a{ 
+    border: 1px solid #999999;
+    background-color: var(--primary-color);
+    color: #999999;}
+.hrr{
+    padding: 5px 75px;
+}
+/********************/
+.no-orders{
+    text-align: center;
+ }
+ .no-orders img{
+     margin: 10px 0;
+ }
+ .no-orders p{
+     margin: 5px 0;
+ }
+ .no-orders a{
+     text-decoration: underline;
+ }
+
+ .account_tech img{
+     width: 25px;
+     height: 25px;
+ }
+ .account_tech h1{
+    font-size: 30px;
+}
+
+.det-req{
+    margin: 10px;
+    color: #dadada;
+    padding: 10px;
+    box-shadow: 0 0 4px var( --second-color);
+    border-radius: 60px;
+    margin-top: 20px;
+
+}
+
+ @media (max-width: 900px) {
+ .no-orders img {
+    width: 80%;
+}
+ }
