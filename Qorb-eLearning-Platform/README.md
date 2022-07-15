@@ -113,7 +113,7 @@ http://localhost:8000/
 ![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 <h1 align="center"> Overview & Result 🚧 </h1>
 
-#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Home Page
+#### ![#1589F0](https://github.com/twbs/icons/blob/main/icons/arrow-right.svg) Home Page
 ![Alt text](https://github.com/qorb-tech/Qorb-eLearning-Platform/blob/production/Qorb-eLearning-Platform/index.gif)
 #### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Teacher Dashboard
 ![Alt text](https://github.com/qorb-tech/Qorb-eLearning-Platform/blob/production/Qorb-eLearning-Platform/teacher.gif)
