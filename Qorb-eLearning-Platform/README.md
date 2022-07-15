@@ -115,10 +115,6 @@ http://localhost:8000/
 
 #### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Home Page
 ![Alt text](https://github.com/qorb-tech/Qorb-eLearning-Platform/blob/production/Qorb-eLearning-Platform/index.gif)
-#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Register Page
-![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/register.gif)
-#### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Login Page
-![Alt text](https://raw.githubusercontent.com/qorb-tech/Qorb-eLearning-Platform/main/.assets/login.gif)
 #### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Teacher Dashboard
 ![Alt text](https://github.com/qorb-tech/Qorb-eLearning-Platform/blob/production/Qorb-eLearning-Platform/teacher.gif)
 #### ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) Student Dashboard
