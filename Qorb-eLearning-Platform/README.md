@@ -100,23 +100,23 @@ Note: For Windows Users Replace python3 with python
 
 ![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-### 6. Run Server
+#### 4. Run Server
 
 ```
  python3 manage.py runserver
 ```
 
-### 9. Go Live :
+#### 5. Go Live :
 
 http://localhost:8000/
 
 ![-------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 <h1 align="center"> Overview & Result 🚧 </h1>
 
-#### ![#1589F0](https://github.com/twbs/icons/blob/main/icons/arrow-down-circle.svg) Home Page
+#### ![#1589F0](https://github.com/twbs/icons/blob/main/icons/bookmark-x.svg) Home Page
 ![Alt text](https://github.com/qorb-tech/Qorb-eLearning-Platform/blob/production/Qorb-eLearning-Platform/index.gif)
-#### ![#1589F0](https://github.com/twbs/icons/blob/main/icons/arrow-down-circle.svg) Teacher Dashboard
+#### ![#1589F0](https://github.com/twbs/icons/blob/main/icons/bookmark-x.svg) Teacher Dashboard
 ![Alt text](https://github.com/qorb-tech/Qorb-eLearning-Platform/blob/production/Qorb-eLearning-Platform/teacher.gif)
-#### ![#1589F0](https://github.com/twbs/icons/blob/main/icons/arrow-down-circle.svg) Student Dashboard
+#### ![#1589F0](https://github.com/twbs/icons/blob/main/icons/bookmark-x.svg) Student Dashboard
 ![Alt text](https://github.com/qorb-tech/Qorb-eLearning-Platform/blob/production/Qorb-eLearning-Platform/student.gif)
 
